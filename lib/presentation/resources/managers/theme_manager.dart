@@ -1,7 +1,7 @@
-import 'package:fitnessio/presentation/resources/color_manager.dart';
-import 'package:fitnessio/presentation/resources/font_manager.dart';
-import 'package:fitnessio/presentation/resources/styles_manager.dart';
-import 'package:fitnessio/presentation/resources/values_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/color_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/font_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/styles_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/values_manager.dart';
 import 'package:flutter/material.dart';
 
 ThemeData getApplicationTheme() {

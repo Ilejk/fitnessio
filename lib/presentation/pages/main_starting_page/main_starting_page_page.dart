@@ -1,9 +1,12 @@
-import 'package:fitnessio/presentation/resources/assets_manager.dart';
-import 'package:fitnessio/presentation/resources/color_manager.dart';
-import 'package:fitnessio/presentation/resources/string_manager.dart';
-import 'package:fitnessio/presentation/resources/styles_manager.dart';
-import 'package:fitnessio/presentation/resources/values_manager.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:fitnessio/presentation/resources/managers/assets_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/color_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/routes_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/string_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/styles_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/values_manager.dart';
+import '../../resources/widgets/main_green_button.dart';
 
 class MainStartingPage extends StatefulWidget {
   const MainStartingPage({super.key});
@@ -64,45 +67,14 @@ class _MainStartingPageState extends State<MainStartingPage> {
                   ],
                 ),
                 const SizedBox(
-                  height: AppSize.s150,
+                  height: AppSize.s450,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(AppPadding.p12),
-                  child: InkWell(
-                    onTap: () {
-                      //GO TO CREATE AN ACCOUNT IF THE FIRST TIME OR TO MAIN HOME PAGE IF NOT
-                    },
-                    child: Container(
-                      height: AppSize.s60,
-                      width: AppSize.s275,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(AppRadius.r35),
-                        color: ColorManager.primary,
-                        boxShadow: [
-                          BoxShadow(
-                            color: ColorManager.lighGreyWithOppacity,
-                            blurRadius: AppRadius.r12,
-                            offset: AppOffest.o5,
-                          ),
-                          BoxShadow(
-                            color: ColorManager.primaryWithOppacity,
-                            blurRadius: AppRadius.r12,
-                            offset: AppOffest.oN5,
-                          ),
-                        ],
-                      ),
-                      child: Center(
-                        child: Text(
-                          AppStrings.prodece,
-                          textAlign: TextAlign.center,
-                          style: getMainButtonTextStyle(
-                            color: ColorManager.white,
-                            letterSpacing: AppLetterSpacing.l2_0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                MainGreenButton(
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed(Routes.createAnAccountPage);
+                  },
+                  title: AppStrings.prodece,
                 )
               ],
             ),

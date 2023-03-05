@@ -7,7 +7,7 @@ import 'package:fitnessio/presentation/pages/main_home_page/main_home_page.dart'
 import 'package:fitnessio/presentation/pages/main_starting_page/main_starting_page_page.dart';
 import 'package:fitnessio/presentation/pages/my_profile_page/my_profile_page.dart';
 import 'package:fitnessio/presentation/pages/my_workout_list_page/my_workout_list_page.dart';
-import 'package:fitnessio/presentation/resources/string_manager.dart';
+import 'package:fitnessio/presentation/resources/managers/string_manager.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
