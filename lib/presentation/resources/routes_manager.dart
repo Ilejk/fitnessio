@@ -1,12 +1,12 @@
-import 'package:fitnessio/presentation/pages/all_body_parts_page.dart';
-import 'package:fitnessio/presentation/pages/all_exercises_list_page.dart';
-import 'package:fitnessio/presentation/pages/create_a_new_workout_plan_page.dart';
-import 'package:fitnessio/presentation/pages/created_an_account_page.dart';
-import 'package:fitnessio/presentation/pages/detail_exercise_page.dart';
-import 'package:fitnessio/presentation/pages/main_home_page.dart';
-import 'package:fitnessio/presentation/pages/main_starting_page_page.dart';
-import 'package:fitnessio/presentation/pages/my_profile_page.dart';
-import 'package:fitnessio/presentation/pages/my_workout_list_page.dart';
+import 'package:fitnessio/presentation/pages/all_body_parts_page/all_body_parts_page.dart';
+import 'package:fitnessio/presentation/pages/all_exercise_list_page/all_exercises_list_page.dart';
+import 'package:fitnessio/presentation/pages/create_a_new_workout_plan_page/create_a_new_workout_plan_page.dart';
+import 'package:fitnessio/presentation/pages/create_an_account_page/created_an_account_page.dart';
+import 'package:fitnessio/presentation/pages/detail_exercise_page/detail_exercise_page.dart';
+import 'package:fitnessio/presentation/pages/main_home_page/main_home_page.dart';
+import 'package:fitnessio/presentation/pages/main_starting_page/main_starting_page_page.dart';
+import 'package:fitnessio/presentation/pages/my_profile_page/my_profile_page.dart';
+import 'package:fitnessio/presentation/pages/my_workout_list_page/my_workout_list_page.dart';
 import 'package:fitnessio/presentation/resources/string_manager.dart';
 import 'package:flutter/material.dart';
 
