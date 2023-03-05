@@ -24,6 +24,7 @@ ThemeData getApplicationTheme() {
       elevation: AppSize.s4,
       shadowColor: ColorManager.primaryWithOppacity,
       titleTextStyle: getRegularTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.white,
         fontSize: FontSize.s16,
       ),
@@ -37,6 +38,7 @@ ThemeData getApplicationTheme() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         textStyle: getRegularTextStyle(
+          letterSpacing: 0.0,
           color: ColorManager.white,
         ),
         backgroundColor: ColorManager.primary,
@@ -49,21 +51,26 @@ ThemeData getApplicationTheme() {
     ),
     textTheme: TextTheme(
       headline1: getSemiBoldTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.darkGrey,
         fontSize: FontSize.s16,
       ),
       subtitle1: getMediumTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.lightGrey,
         fontSize: FontSize.s14,
       ),
       subtitle2: getMediumTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.primary,
         fontSize: FontSize.s14,
       ),
       caption: getRegularTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.darkGrey,
       ),
       bodyText1: getRegularTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.grey,
       ),
     ),
@@ -72,12 +79,15 @@ ThemeData getApplicationTheme() {
         AppPadding.p8,
       ),
       hintStyle: getRegularTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.darkGrey,
       ),
       labelStyle: getMediumTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.darkGrey,
       ),
       errorStyle: getRegularTextStyle(
+        letterSpacing: 0.0,
         color: ColorManager.error,
       ),
       enabledBorder: OutlineInputBorder(
