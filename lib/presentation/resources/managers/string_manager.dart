@@ -1,6 +1,6 @@
 class AppStrings {
   static const String noRouteFound = 'No Route Found!';
-  static const String prodece = 'Procede';
+  static const String prodece = 'Proceed';
   static const String fitnessio = 'Fitness.io';
   static const String createUrWorkoutSubttitle =
       'Create your workout plan with ease';
