@@ -13,6 +13,8 @@ class MarginManager {
 
 class PaddingManager {
   static const double p2 = 2.0;
+  static const double p3 = 3.0;
+  static const double p4 = 4.0;
   static const double p8 = 8.0;
   static const double p12 = 12.0;
   static const double p14 = 14.0;
@@ -60,6 +62,7 @@ class SizeManager {
   static const double s180 = 180.0;
   static const double s190 = 190.0;
   static const double s250 = 250.0;
+  static const double s300 = 300.0;
   static const double s350 = 350.0;
   static const double s400 = 400.0;
   static const double s440 = 440.0;
@@ -73,4 +76,6 @@ class SizeManager {
 class RadiusManager {
   static const double r15 = 15.0;
   static const double r24 = 24.0;
+  static const double r30 = 30.0;
+  static const double r40 = 40.0;
 }

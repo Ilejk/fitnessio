@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_home_app/main.dart';
 import 'package:smart_home_app/resources/asset_manager.dart';
 import 'package:smart_home_app/resources/color_manager.dart';
+import 'package:smart_home_app/resources/route_manager.dart';
 import 'package:smart_home_app/resources/string_manager.dart';
 import 'package:smart_home_app/resources/style_manager.dart';
 import 'package:smart_home_app/resources/value_manager.dart';
@@ -104,6 +106,44 @@ class _SplashPageState extends State<SplashPage> {
                       StringsManager.splashText2,
                       style: StyleManager.splashText2TextStyle,
                       textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: PaddingManager.p28),
+                    child: Container(
+                      height: SizeManager.s70,
+                      width: SizeManager.s300,
+                      decoration: BoxDecoration(
+                        color: ColorManager.black87,
+                        borderRadius: BorderRadius.circular(
+                          RadiusManager.r40,
+                        ),
+                      ),
+                      child: Dismissible(
+                        key: const Key(StringsManager.key),
+                        direction: DismissDirection.startToEnd,
+                        onDismissed: (direction) {
+                          Navigator.of(context)
+                              .pushReplacementNamed(Routes.loginRoute);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(PaddingManager.p3),
+                          child: Container(
+                            height: SizeManager.s65,
+                            width: SizeManager.s65,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.circular(RadiusManager.r40),
+                              color: ColorManager.limeGreen,
+                            ),
+                            child: const Icon(
+                              Icons.double_arrow_rounded,
+                              color: ColorManager.black87,
+                              size: SizeManager.s40,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   )
                 ],
