@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/resources/route_manager.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/auth/auth_provider.dart';
+import 'package:smart_home_app/features/auth/login/login_provider.dart';
+import 'package:smart_home_app/features/auth/register/register_provider.dart';
+import 'package:smart_home_app/resources/router/router.dart';
 
 // ignore: must_be_immutable
 class MyApp extends StatefulWidget {
@@ -16,10 +20,23 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: Routes.splashRoute,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: AuthProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: LoginProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: RegisterProvider(),
+        )
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: RouteGenerator.getRoute,
+        initialRoute: Routes.boardingRoute,
+      ),
     );
   }
 }

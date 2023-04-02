@@ -1,4 +1,6 @@
 class DurationManager {
+  static const int s2 = 2;
+  static const int s3 = 3;
   static const int s5 = 5;
   static const int ms300 = 300;
 }

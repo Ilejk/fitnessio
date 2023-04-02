@@ -10,3 +10,9 @@ class ImageManager {
   static const logoTextUnder = '$imagePath/logo_text_under1.png';
   static const logoTextInside = '$imagePath/logo_text_inside.png';
 }
+
+class AnimationManager {
+  static const error = '$animationPath/error.json';
+  static const lock = '$animationPath/lock.json';
+  static const smallLock = '$animationPath/small_lock.json';
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/resources/color_manager.dart';
-import 'package:smart_home_app/resources/value_manager.dart';
+import 'package:smart_home_app/resources/managers/color_manager.dart';
+import 'package:smart_home_app/resources/managers/value_manager.dart';
 
 class NeuButton extends StatelessWidget {
   const NeuButton({

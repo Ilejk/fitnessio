@@ -22,6 +22,10 @@ dependencies:
   smooth_page_indicator: ^1.0.1
   firebase_auth: ^4.4.0
   firebase_core: ^2.9.0
+  flutter_bloc: ^8.1.2
+  equatable: ^2.0.5
+  provider: ^6.0.5
+  flutter_animate: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +43,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/json/
 
   # fonts:
   #   - family: Schyler

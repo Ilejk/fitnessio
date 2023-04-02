@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/resources/color_manager.dart';
-import 'package:smart_home_app/resources/font_manager.dart';
-import 'package:smart_home_app/resources/value_manager.dart';
+import 'package:smart_home_app/resources/managers/color_manager.dart';
+import 'package:smart_home_app/resources/managers/font_manager.dart';
+import 'package:smart_home_app/resources/managers/value_manager.dart';
 import 'package:smart_home_app/resources/widgets/neu_dark_container_widget.dart';
 
-class EmailTextFormField extends StatelessWidget {
-  const EmailTextFormField({
+class TextFormFieldWidget extends StatelessWidget {
+  const TextFormFieldWidget({
     Key? key,
     required this.controller,
     required this.labelHint,

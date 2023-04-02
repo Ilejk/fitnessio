@@ -1,22 +1,22 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/resources/asset_manager.dart';
-import 'package:smart_home_app/resources/color_manager.dart';
-import 'package:smart_home_app/resources/route_manager.dart';
-import 'package:smart_home_app/resources/string_manager.dart';
-import 'package:smart_home_app/resources/style_manager.dart';
-import 'package:smart_home_app/resources/value_manager.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:smart_home_app/resources/managers/asset_manager.dart';
+import 'package:smart_home_app/resources/managers/color_manager.dart';
+import 'package:smart_home_app/resources/managers/string_manager.dart';
+import 'package:smart_home_app/resources/managers/style_manager.dart';
+import 'package:smart_home_app/resources/managers/value_manager.dart';
 import 'package:smart_home_app/resources/widgets/slider_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
+class BoardingPage extends StatefulWidget {
+  const BoardingPage({super.key});
 
   @override
-  State<SplashPage> createState() => _SplashPageState();
+  State<BoardingPage> createState() => _BoardingPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _BoardingPageState extends State<BoardingPage> {
   final PageController _pageController = PageController(initialPage: 0);
   late Timer _timer;
 
@@ -49,13 +49,15 @@ class _SplashPageState extends State<SplashPage> {
           PageView(
             controller: _pageController,
             children: imgList
-                .map((item) => Center(
-                      child: Image.asset(
-                        item,
-                        fit: BoxFit.cover,
-                        height: MediaQuery.of(context).size.height,
-                      ),
-                    ))
+                .map(
+                  (item) => Center(
+                    child: Image.asset(
+                      item,
+                      fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.height,
+                    ),
+                  ),
+                )
                 .toList(),
             onPageChanged: (value) {
               if (value == imgList.length - 1) {
@@ -137,7 +139,7 @@ class _SplashPageState extends State<SplashPage> {
                   ),
                   const SliderWidget()
                 ],
-              ),
+              ).animate().fadeIn(duration: 500.ms),
             ),
           ),
         ],

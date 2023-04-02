@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/resources/color_manager.dart';
-import 'package:smart_home_app/resources/route_manager.dart';
-import 'package:smart_home_app/resources/string_manager.dart';
-import 'package:smart_home_app/resources/value_manager.dart';
+import 'package:smart_home_app/resources/managers/color_manager.dart';
+import 'package:smart_home_app/resources/router/router.dart';
+import 'package:smart_home_app/resources/managers/string_manager.dart';
+import 'package:smart_home_app/resources/managers/value_manager.dart';
 
 class SliderWidget extends StatelessWidget {
   const SliderWidget({
@@ -44,7 +44,7 @@ class SliderWidget extends StatelessWidget {
           key: const Key(StringsManager.key),
           direction: DismissDirection.startToEnd,
           onDismissed: (direction) {
-            Navigator.of(context).pushReplacementNamed(Routes.loginRoute);
+            Navigator.of(context).pushReplacementNamed(Routes.authRoute);
           },
           child: Padding(
             padding: const EdgeInsets.all(PaddingManager.p3),
