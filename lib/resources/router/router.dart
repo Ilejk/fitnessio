@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/features/auth/auth_page.dart';
-import 'package:smart_home_app/features/home_page.dart';
-import 'package:smart_home_app/features/auth/login/login_page.dart';
-import 'package:smart_home_app/features/settings_page.dart';
+import 'package:smart_home_app/features/auth/pages/auth_page.dart';
+import 'package:smart_home_app/features/home/pages/home_page.dart';
+import 'package:smart_home_app/features/auth/pages/login_page.dart';
+import 'package:smart_home_app/features/settings/pages/settings_page.dart';
 import 'package:smart_home_app/resources/managers/string_manager.dart';
 
-import '../../features/boarding_page.dart';
+import '../../features/boarding/pages/boarding_page.dart';
 
 class Routes {
   static const String boardingRoute = '/';

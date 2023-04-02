@@ -47,4 +47,8 @@ class LoginProvider with ChangeNotifier {
       );
     }
   }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+  }
 }

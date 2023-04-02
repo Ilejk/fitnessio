@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/features/auth/auth_provider.dart';
-import 'package:smart_home_app/features/auth/login/login_provider.dart';
-import 'package:smart_home_app/features/auth/register/register_provider.dart';
+import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
+import 'package:smart_home_app/features/auth/providers/login_provider.dart';
+import 'package:smart_home_app/features/auth/providers/register_provider.dart';
 import 'package:smart_home_app/resources/router/router.dart';
 
 // ignore: must_be_immutable

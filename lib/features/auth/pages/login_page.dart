@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/features/auth/login/login_provider.dart';
-import 'package:smart_home_app/features/auth/register/register_provider.dart';
+import 'package:smart_home_app/features/auth/providers/login_provider.dart';
+import 'package:smart_home_app/features/auth/providers/register_provider.dart';
 import 'package:smart_home_app/resources/managers/asset_manager.dart';
 import 'package:smart_home_app/resources/managers/color_manager.dart';
 import 'package:smart_home_app/resources/managers/string_manager.dart';
 import 'package:smart_home_app/resources/managers/style_manager.dart';
 import 'package:smart_home_app/resources/managers/value_manager.dart';
 import 'package:smart_home_app/resources/widgets/green_gradient_button_widget.dart';
-import 'package:smart_home_app/resources/widgets/text_form_field.dart';
+import 'package:smart_home_app/features/auth/widgets/text_form_field_auth.dart';
 
 enum AuthMode { signUp, signIn }
 

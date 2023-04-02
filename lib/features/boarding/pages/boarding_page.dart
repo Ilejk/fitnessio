@@ -6,7 +6,7 @@ import 'package:smart_home_app/resources/managers/color_manager.dart';
 import 'package:smart_home_app/resources/managers/string_manager.dart';
 import 'package:smart_home_app/resources/managers/style_manager.dart';
 import 'package:smart_home_app/resources/managers/value_manager.dart';
-import 'package:smart_home_app/resources/widgets/slider_widget.dart';
+import 'package:smart_home_app/features/boarding/widgets/slider_boarding.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class BoardingPage extends StatefulWidget {
