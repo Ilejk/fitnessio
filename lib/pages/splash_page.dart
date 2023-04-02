@@ -1,12 +1,12 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/main.dart';
 import 'package:smart_home_app/resources/asset_manager.dart';
 import 'package:smart_home_app/resources/color_manager.dart';
 import 'package:smart_home_app/resources/route_manager.dart';
 import 'package:smart_home_app/resources/string_manager.dart';
 import 'package:smart_home_app/resources/style_manager.dart';
 import 'package:smart_home_app/resources/value_manager.dart';
+import 'package:smart_home_app/resources/widgets/slider_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SplashPage extends StatefulWidget {
@@ -17,9 +17,22 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  final CarouselController _controller = CarouselController();
-  final PageController _pageController = PageController();
-  int _currentIndex = 0;
+  final PageController _pageController = PageController(initialPage: 0);
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(seconds: DurationManager.s5),
+        (Timer timer) {
+      int nextPage = _pageController.page!.round() + 1;
+      _pageController.animateToPage(
+        nextPage % imgList.length,
+        duration: const Duration(milliseconds: DurationManager.ms300),
+        curve: Curves.easeInOut,
+      );
+    });
+  }
 
   List<String> imgList = [
     ImageManager.splashBG1,
@@ -44,6 +57,20 @@ class _SplashPageState extends State<SplashPage> {
                       ),
                     ))
                 .toList(),
+            onPageChanged: (value) {
+              if (value == imgList.length - 1) {
+                Future.delayed(
+                  const Duration(seconds: DurationManager.s5),
+                ).then(
+                  (value) => _pageController.animateToPage(
+                    0,
+                    duration:
+                        const Duration(milliseconds: DurationManager.ms300),
+                    curve: Curves.easeInOut,
+                  ),
+                );
+              }
+            },
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -100,52 +127,15 @@ class _SplashPageState extends State<SplashPage> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: PaddingManager.p28),
+                  const Padding(
+                    padding: EdgeInsets.only(top: PaddingManager.p28),
                     child: Text(
                       StringsManager.splashText2,
                       style: StyleManager.splashText2TextStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: PaddingManager.p28),
-                    child: Container(
-                      height: SizeManager.s70,
-                      width: SizeManager.s300,
-                      decoration: BoxDecoration(
-                        color: ColorManager.black87,
-                        borderRadius: BorderRadius.circular(
-                          RadiusManager.r40,
-                        ),
-                      ),
-                      child: Dismissible(
-                        key: const Key(StringsManager.key),
-                        direction: DismissDirection.startToEnd,
-                        onDismissed: (direction) {
-                          Navigator.of(context)
-                              .pushReplacementNamed(Routes.loginRoute);
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(PaddingManager.p3),
-                          child: Container(
-                            height: SizeManager.s65,
-                            width: SizeManager.s65,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(RadiusManager.r40),
-                              color: ColorManager.limeGreen,
-                            ),
-                            child: const Icon(
-                              Icons.double_arrow_rounded,
-                              color: ColorManager.black87,
-                              size: SizeManager.s40,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
+                  const SliderWidget()
                 ],
               ),
             ),
@@ -153,5 +143,12 @@ class _SplashPageState extends State<SplashPage> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    _timer.cancel();
+    super.dispose();
   }
 }

@@ -7,4 +7,6 @@ class ImageManager {
   static const splashBG3 = '$imagePath/splash3.jpg';
   static const splashBG4 = '$imagePath/splash4.jpg';
   static const splashBG5 = '$imagePath/splash5.jpg';
+  static const logoTextUnder = '$imagePath/logo_text_under1.png';
+  static const logoTextInside = '$imagePath/logo_text_inside.png';
 }

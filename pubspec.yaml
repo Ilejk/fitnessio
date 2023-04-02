@@ -20,6 +20,8 @@ dependencies:
   carousel_slider: ^4.2.1
   google_fonts: ^4.0.3
   smooth_page_indicator: ^1.0.1
+  firebase_auth: ^4.4.0
+  firebase_core: ^2.9.0
 
 dev_dependencies:
   flutter_test:

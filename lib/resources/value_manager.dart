@@ -1,5 +1,6 @@
 class DurationManager {
   static const int s5 = 5;
+  static const int ms300 = 300;
 }
 
 class MarginManager {
