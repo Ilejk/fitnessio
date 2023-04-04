@@ -137,7 +137,7 @@ class _BoardingPageState extends State<BoardingPage> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  const SliderWidget()
+                  const SliderBoardingWidget()
                 ],
               ).animate().fadeIn(duration: 500.ms),
             ),
