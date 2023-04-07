@@ -12,6 +12,7 @@ class ColorManager {
   static Color grey3 = HexColor.fromHex('#242A2E');
   static Color limerGreen2 = HexColor.fromHex('#BBF247');
   static final Color grey2 = Colors.grey.shade800;
+  static final Color blue = Colors.blue.shade400;
 }
 
 extension HexColor on Color {

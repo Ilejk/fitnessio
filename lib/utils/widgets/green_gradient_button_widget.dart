@@ -3,8 +3,8 @@ import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class GreenGradientButtonWidget extends StatelessWidget {
-  const GreenGradientButtonWidget({
+class LimeGreenRoundedButtonWidget extends StatelessWidget {
+  const LimeGreenRoundedButtonWidget({
     Key? key,
     required this.onTap,
     required this.title,
@@ -15,7 +15,7 @@ class GreenGradientButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.only(
@@ -31,26 +31,6 @@ class GreenGradientButtonWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(
               RadiusManager.r40,
             ),
-            gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color.fromARGB(255, 163, 204, 93),
-                Color.fromARGB(255, 64, 82, 28),
-              ],
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Color.fromARGB(255, 6, 7, 3),
-                blurRadius: 8,
-                offset: Offset(4, 4),
-              ),
-              BoxShadow(
-                color: Color.fromARGB(255, 163, 204, 93),
-                blurRadius: 8,
-                offset: Offset(-4, -4),
-              ),
-            ],
           ),
           child: Center(
             child: Text(

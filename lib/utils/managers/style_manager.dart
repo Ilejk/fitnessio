@@ -14,13 +14,13 @@ class StyleManager {
     fontSize: FontSize.s18,
     fontWeight: FontWightManager.semiBold,
   );
-  static const loginPageSubButtonSmallTextStyle = TextStyle(
-    color: ColorManager.limeGreen,
+  static final loginPageSubButtonSmallTextStyle = TextStyle(
+    color: ColorManager.limerGreen2,
     fontSize: FontSize.s16,
-    fontWeight: FontWightManager.medium,
+    fontWeight: FontWightManager.bold,
     letterSpacing: SizeManager.s0_7,
   );
-  static const loginPageForgotPasswordTextStyle = TextStyle(
+  static const loginPageSubTextTextStyle = TextStyle(
     color: ColorManager.white,
     fontSize: FontSize.s13,
     fontWeight: FontWightManager.medium,
@@ -36,5 +36,17 @@ class StyleManager {
     fontSize: FontSize.s25,
     fontWeight: FontWightManager.semiBold,
     letterSpacing: SizeManager.s3,
+  );
+  static const forgotPWErrorTextStyle = TextStyle(
+    fontSize: FontSize.s16,
+    fontWeight: FontWightManager.semiBold,
+    letterSpacing: SizeManager.s3,
+    color: ColorManager.white,
+  );
+  static const forgotPWErrorContentTextStyle = TextStyle(
+    fontSize: FontSize.s13,
+    fontWeight: FontWightManager.regular,
+    letterSpacing: SizeManager.s1,
+    color: ColorManager.white,
   );
 }

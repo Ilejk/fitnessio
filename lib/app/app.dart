@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/account/providers/account_provider.dart';
 import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
+import 'package:smart_home_app/features/auth/providers/forgot_password_provider.dart';
 import 'package:smart_home_app/features/auth/providers/login_provider.dart';
 import 'package:smart_home_app/features/auth/providers/register_provider.dart';
 import 'package:smart_home_app/utils/router/router.dart';
@@ -34,6 +35,9 @@ class _MyAppState extends State<MyApp> {
         ),
         ChangeNotifierProvider.value(
           value: AccountProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: ForgotPasswordProvider(),
         )
       ],
       child: const MaterialApp(

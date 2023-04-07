@@ -61,7 +61,7 @@ class AccountPageAppBar extends StatelessWidget {
             child: IconButton(
               splashColor: ColorManager.grey3,
               onPressed: () {
-                accountProvider.signOut();
+                accountProvider.signOut(context: context);
                 Navigator.of(context).pop();
               },
               icon: const Icon(

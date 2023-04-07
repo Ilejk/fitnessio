@@ -212,6 +212,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.3"
+  hidden_drawer_menu:
+    dependency: "direct main"
+    description:
+      name: hidden_drawer_menu
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
   http:
     dependency: transitive
     description:

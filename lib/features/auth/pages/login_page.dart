@@ -8,6 +8,7 @@ import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
+import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/green_gradient_button_widget.dart';
 import 'package:smart_home_app/features/auth/widgets/text_form_field_auth.dart';
 
@@ -30,6 +31,9 @@ class _LoginPageState extends State<LoginPage>
 
   @override
   void dispose() {
+    passwordController.dispose();
+    emailController.dispose();
+    repeatPasswordController.dispose();
     super.dispose();
   }
 
@@ -50,7 +54,7 @@ class _LoginPageState extends State<LoginPage>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: PaddingManager.p20),
+                  padding: const EdgeInsets.only(bottom: PaddingManager.p8),
                   child: SizedBox(
                     width: SizeManager.s250,
                     height: SizeManager.s250,
@@ -79,38 +83,29 @@ class _LoginPageState extends State<LoginPage>
                         obscureText: true,
                       )
                     : Container(),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: PaddingManager.p28, right: PaddingManager.p28),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          //TODO
-                        },
-                        child: Text(
-                          _authMode == AuthMode.signIn
-                              ? StringsManager.forgotPassword
-                              : StringsManager.haveAcc,
-                          style: StyleManager.loginPageForgotPasswordTextStyle,
+                _authMode == AuthMode.signIn
+                    ? Padding(
+                        padding: const EdgeInsets.only(
+                            right: PaddingManager.p28,
+                            left: PaddingManager.p28),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .pushNamed(Routes.forgotPasswordRoute);
+                            },
+                            child: const Text(
+                              StringsManager.forgotPassword,
+                              style: StyleManager.loginPageSubTextTextStyle,
+                            ),
+                          ),
                         ),
-                      ),
-                      TextButton(
-                        onPressed: _switchAuthMode,
-                        child: Text(
-                          _authMode == AuthMode.signIn
-                              ? StringsManager.signUp
-                              : StringsManager.signIn,
-                          style: StyleManager.loginPageSubButtonSmallTextStyle,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                      )
+                    : Container(),
                 Padding(
-                  padding: const EdgeInsets.only(top: PaddingManager.p18),
-                  child: GreenGradientButtonWidget(
+                  padding: const EdgeInsets.only(top: PaddingManager.p2),
+                  child: LimeGreenRoundedButtonWidget(
                     onTap: _authMode == AuthMode.signUp &&
                             passwordController.text ==
                                 repeatPasswordController.text
@@ -131,7 +126,38 @@ class _LoginPageState extends State<LoginPage>
                         ? StringsManager.signIn
                         : StringsManager.signUp,
                   ),
-                )
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: PaddingManager.p28,
+                    right: PaddingManager.p28,
+                    top: PaddingManager.p18,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        _authMode == AuthMode.signIn
+                            ? StringsManager.dontHaveAcc
+                            : StringsManager.haveAcc,
+                        style: StyleManager.loginPageSubTextTextStyle,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: PaddingManager.p8),
+                        child: GestureDetector(
+                          onTap: _switchAuthMode,
+                          child: Text(
+                            _authMode == AuthMode.signIn
+                                ? StringsManager.signUp
+                                : StringsManager.signIn,
+                            style:
+                                StyleManager.loginPageSubButtonSmallTextStyle,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ).animate().fadeIn(duration: 500.ms),
           ),

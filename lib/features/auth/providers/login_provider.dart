@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:smart_home_app/utils/managers/asset_manager.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:smart_home_app/utils/managers/color_manager.dart';
 
 class LoginProvider with ChangeNotifier {
   bool _isLoading = false;
@@ -22,7 +22,7 @@ class LoginProvider with ChangeNotifier {
           return Center(
             child: Padding(
               padding: const EdgeInsets.all(50),
-              child: Lottie.asset(AnimationManager.smallLock),
+              child: SpinKitSpinningLines(color: ColorManager.limerGreen2),
             ),
           );
         });
