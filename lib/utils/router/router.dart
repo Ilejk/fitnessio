@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_app/features/account/pages/account_page.dart';
 import 'package:smart_home_app/features/auth/pages/auth_page.dart';
+import 'package:smart_home_app/features/boarding/pages/boarding_page.dart';
 import 'package:smart_home_app/features/home/pages/home_page.dart';
 import 'package:smart_home_app/features/auth/pages/login_page.dart';
+import 'package:smart_home_app/features/notifications/pages/notifications_page.dart';
 import 'package:smart_home_app/features/settings/pages/settings_page.dart';
-import 'package:smart_home_app/resources/managers/string_manager.dart';
-
-import '../../features/boarding/pages/boarding_page.dart';
+import 'package:smart_home_app/utils/managers/string_manager.dart';
 
 class Routes {
   static const String boardingRoute = '/';
@@ -13,6 +14,8 @@ class Routes {
   static const String settingsRoute = '/settings';
   static const String loginRoute = '/login';
   static const String authRoute = '/auth';
+  static const String accountRoute = '/account';
+  static const String notificationsRoute = 'notifications';
 }
 
 class RouteGenerator {
@@ -28,6 +31,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case Routes.authRoute:
         return MaterialPageRoute(builder: (_) => const AuthPage());
+      case Routes.accountRoute:
+        return MaterialPageRoute(builder: (_) => const AccountPage());
+      case Routes.notificationsRoute:
+        return MaterialPageRoute(builder: (_) => const NotificationsPage());
       default:
         return undefinedRoute();
     }

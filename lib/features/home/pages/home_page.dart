@@ -1,8 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:smart_home_app/features/home/widgets/appbar_home.dart';
-import 'package:smart_home_app/resources/managers/color_manager.dart';
-import 'package:smart_home_app/resources/managers/value_manager.dart';
+import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Column(),
+      body: Column().animate().fadeIn(duration: 500.ms),
     );
   }
 }

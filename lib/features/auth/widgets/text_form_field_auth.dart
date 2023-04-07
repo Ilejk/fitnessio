@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/resources/managers/color_manager.dart';
-import 'package:smart_home_app/resources/managers/font_manager.dart';
-import 'package:smart_home_app/resources/managers/value_manager.dart';
-import 'package:smart_home_app/resources/widgets/neu_dark_container_widget.dart';
+import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/managers/font_manager.dart';
+import 'package:smart_home_app/utils/managers/value_manager.dart';
+import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   const TextFormFieldWidget({

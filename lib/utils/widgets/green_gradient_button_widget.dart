@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/resources/managers/color_manager.dart';
-import 'package:smart_home_app/resources/managers/font_manager.dart';
-import 'package:smart_home_app/resources/managers/value_manager.dart';
+import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/managers/font_manager.dart';
+import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class GreenGradientButtonWidget extends StatelessWidget {
   const GreenGradientButtonWidget({

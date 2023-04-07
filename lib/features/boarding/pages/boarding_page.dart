@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:smart_home_app/resources/managers/asset_manager.dart';
-import 'package:smart_home_app/resources/managers/color_manager.dart';
-import 'package:smart_home_app/resources/managers/string_manager.dart';
-import 'package:smart_home_app/resources/managers/style_manager.dart';
-import 'package:smart_home_app/resources/managers/value_manager.dart';
+import 'package:smart_home_app/utils/managers/asset_manager.dart';
+import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
+import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/features/boarding/widgets/slider_boarding.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -79,12 +79,12 @@ class _BoardingPageState extends State<BoardingPage> {
             child: Container(
               height: SizeManager.s400,
               width: double.infinity,
-              decoration: BoxDecoration(
-                color: ColorManager.black87,
-                borderRadius: BorderRadius.circular(
-                  RadiusManager.r15,
-                ),
-              ),
+              decoration: const BoxDecoration(
+                  color: ColorManager.black87,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(RadiusManager.r15),
+                    topRight: Radius.circular(RadiusManager.r15),
+                  )),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/account/providers/account_provider.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
-import 'package:smart_home_app/utils/router/router.dart';
 
-class HomePageAppBarWidget extends StatelessWidget {
-  const HomePageAppBarWidget({
+class AccountPageAppBar extends StatelessWidget {
+  const AccountPageAppBar({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final accountProvider =
+        Provider.of<AccountProvider>(context, listen: false);
     return AppBar(
-      backgroundColor: Colors.transparent,
-      scrolledUnderElevation: SizeManager.s50,
-      automaticallyImplyLeading: false,
+      title: const Text(
+        StringsManager.myAcc,
+        style: StyleManager.myAccTitleTextStyle,
+      ),
+      elevation: SizeManager.s0,
+      backgroundColor: ColorManager.darkGrey,
       leading: Padding(
         padding: const EdgeInsets.only(left: PaddingManager.p12),
         child: Container(
@@ -28,25 +34,16 @@ class HomePageAppBarWidget extends StatelessWidget {
             ),
           ),
           child: IconButton(
-              splashColor: ColorManager.grey3,
-              onPressed: () {
-                Navigator.of(context).pushNamed(Routes.accountRoute);
-              },
-              icon: const Icon(
-                Icons.person_outline_sharp,
-                size: SizeManager.s26,
-                color: ColorManager.white,
-              )),
-        ),
-      ),
-      elevation: SizeManager.s0,
-      title: const Text(
-        StringsManager.smartHome,
-        style: TextStyle(
-          fontSize: FontSize.s25,
-          fontWeight: FontWeight.bold,
-          letterSpacing: SizeManager.s5,
-          color: ColorManager.white,
+            splashColor: ColorManager.grey3,
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              size: SizeManager.s26,
+              color: ColorManager.white,
+            ),
+          ),
         ),
       ),
       actions: [
@@ -64,10 +61,11 @@ class HomePageAppBarWidget extends StatelessWidget {
             child: IconButton(
               splashColor: ColorManager.grey3,
               onPressed: () {
-                Navigator.of(context).pushNamed(Routes.notificationsRoute);
+                accountProvider.signOut();
+                Navigator.of(context).pop();
               },
               icon: const Icon(
-                Icons.notifications_none_rounded,
+                Icons.logout_sharp,
                 size: SizeManager.s26,
                 color: ColorManager.white,
               ),

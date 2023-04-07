@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:smart_home_app/resources/managers/asset_manager.dart';
+import 'package:smart_home_app/utils/managers/asset_manager.dart';
 
 class LoginProvider with ChangeNotifier {
   bool _isLoading = false;
@@ -46,9 +46,5 @@ class LoginProvider with ChangeNotifier {
         },
       );
     }
-  }
-
-  Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
   }
 }

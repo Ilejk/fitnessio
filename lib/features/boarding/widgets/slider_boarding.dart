@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:slide_to_act/slide_to_act.dart';
-import 'package:smart_home_app/resources/managers/color_manager.dart';
-import 'package:smart_home_app/resources/router/router.dart';
-import 'package:smart_home_app/resources/managers/string_manager.dart';
-import 'package:smart_home_app/resources/managers/value_manager.dart';
+import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/router/router.dart';
+import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class SliderBoardingWidget extends StatelessWidget {
   const SliderBoardingWidget({

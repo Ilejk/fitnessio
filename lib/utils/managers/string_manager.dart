@@ -14,4 +14,5 @@ class StringsManager {
   static const String repeatPasswordHint = 'Repeat Password';
   static const String smartHome = 'SMART HOME';
   static const String swipeToPrc = 'Let\'s Start';
+  static const String myAcc = 'MY ACCOUNT';
 }
