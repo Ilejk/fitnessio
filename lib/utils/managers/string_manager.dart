@@ -26,4 +26,5 @@ class StringsManager {
   static const String ageHint = 'Age';
   static const String nameHint = 'Name';
   static const String surnameHint = 'Surname';
+  static const String houseIdHint = 'House ID';
 }

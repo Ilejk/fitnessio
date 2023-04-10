@@ -4,7 +4,7 @@ import 'package:smart_home_app/features/auth/pages/auth_page.dart';
 import 'package:smart_home_app/features/auth/pages/forgot_password_page.dart';
 import 'package:smart_home_app/features/boarding/pages/boarding_page.dart';
 import 'package:smart_home_app/features/home/pages/home_page.dart';
-import 'package:smart_home_app/features/auth/pages/login_page.dart';
+import 'package:smart_home_app/features/auth/pages/login_or_register_page.dart';
 import 'package:smart_home_app/features/notifications/pages/notifications_page.dart';
 import 'package:smart_home_app/features/settings/pages/settings_page.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';

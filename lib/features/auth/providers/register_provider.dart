@@ -4,18 +4,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 
 class RegisterProvider with ChangeNotifier {
-  bool _isLoading = false;
-
-  bool get isLoading => _isLoading;
-
   Future<void> register({
     required String email,
     required String password,
     required BuildContext context,
   }) async {
-    _isLoading = true;
-    notifyListeners();
-
     showDialog(
         context: context,
         builder: (_) {
@@ -35,13 +28,13 @@ class RegisterProvider with ChangeNotifier {
 
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
-      _isLoading = false;
+
       notifyListeners();
     } on FirebaseAuthException catch (_) {
       Future.delayed(const Duration(seconds: 2)).then(
         (value) {
           Navigator.pop(context);
-          _isLoading = false;
+
           notifyListeners();
         },
       );

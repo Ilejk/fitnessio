@@ -7,17 +7,10 @@ import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class ForgotPasswordProvider with ChangeNotifier {
-  bool _isLoading = false;
-
-  bool get isLoading => _isLoading;
-
   Future<void> forgotPassword({
     required String email,
     required BuildContext context,
   }) async {
-    _isLoading = true;
-    notifyListeners();
-
     showDialog(
         context: context,
         builder: (_) {
@@ -58,7 +51,6 @@ class ForgotPasswordProvider with ChangeNotifier {
             );
           });
 
-      _isLoading = false;
       notifyListeners();
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);

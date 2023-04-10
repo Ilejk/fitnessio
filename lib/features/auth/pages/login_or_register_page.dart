@@ -1,9 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/auth/providers/login_provider.dart';
 import 'package:smart_home_app/features/auth/providers/register_provider.dart';
-import 'package:smart_home_app/features/auth/widgets/enter_user_data_view.dart';
+import 'package:smart_home_app/features/auth/providers/user_data_provider.dart';
 import 'package:smart_home_app/features/auth/widgets/login_or_register_view.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -13,7 +14,7 @@ import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/green_gradient_button_widget.dart';
 
-enum AuthMode { signUp, signIn, dataIn, noData }
+enum AuthMode { signUp, signIn }
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -24,31 +25,33 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController repeatPasswordController =
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _repeatPasswordController =
       TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController surnameController = TextEditingController();
-  final TextEditingController ageController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _surnameController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
+  final TextEditingController _houseIdController = TextEditingController();
   AuthMode _authMode = AuthMode.signIn;
-  AuthMode _dataMode = AuthMode.noData;
 
   @override
   void dispose() {
-    passwordController.dispose();
-    emailController.dispose();
-    repeatPasswordController.dispose();
+    _passwordController.dispose();
+    _emailController.dispose();
+    _repeatPasswordController.dispose();
+    _nameController.dispose();
+    _surnameController.dispose();
+    _ageController.dispose();
+    _houseIdController.dispose();
     super.dispose();
   }
 
-  bool get isEmailNotEmpty => emailController.text.isNotEmpty;
+  bool get isEmailNotEmpty => _emailController.text.isNotEmpty;
   bool get isPasswordConfirmed =>
-      passwordController == repeatPasswordController;
-  bool get isEnterUserData => _dataMode == AuthMode.dataIn;
+      _passwordController == _repeatPasswordController;
   bool get isRegisterView => _authMode == AuthMode.signUp;
   bool get isLoginView => _authMode == AuthMode.signIn;
-  bool get isNotEnterUserData => _dataMode == AuthMode.noData;
 
   void _switchAuthMode() {
     if (isLoginView) {
@@ -58,19 +61,6 @@ class _LoginPageState extends State<LoginPage>
     } else if (isRegisterView) {
       setState(() {
         _authMode = AuthMode.signIn;
-        _dataMode = AuthMode.noData;
-      });
-    }
-  }
-
-  void _switchDataMode() {
-    if (isNotEnterUserData) {
-      setState(() {
-        _dataMode = AuthMode.dataIn;
-      });
-    } else if (isEnterUserData) {
-      setState(() {
-        _dataMode = AuthMode.noData;
       });
     }
   }
@@ -79,29 +69,41 @@ class _LoginPageState extends State<LoginPage>
   Widget build(BuildContext context) {
     final loginProvider = Provider.of<LoginProvider>(context);
     final registerProvider = Provider.of<RegisterProvider>(context);
+    final userDataProvider = Provider.of<UserDataProvider>(context);
 
     void signUserIn() {
       loginProvider.signIn(
-        email: emailController.text,
-        password: passwordController.text,
+        email: _emailController.text,
+        password: _passwordController.text,
         context: context,
       );
     }
 
-    void signUserUp() {
-      registerProvider.register(
-        email: emailController.text,
-        password: passwordController.text,
-        context: context,
-      );
+    void signUserUp() async {
+      try {
+        await registerProvider.register(
+          email: _emailController.text,
+          password: _passwordController.text,
+          context: context,
+        );
+
+        await userDataProvider.addUserData(
+          email: _emailController.text,
+          name: _nameController.text,
+          surname: _surnameController.text,
+          age: int.parse(_ageController.text),
+          houseID: _houseIdController.text,
+          context: context,
+        );
+      } catch (e) {
+        print(e);
+      }
     }
 
     void onPressed() {
       if (isLoginView) {
         signUserIn();
-      } else if (isRegisterView && isNotEnterUserData) {
-        _switchDataMode();
-      } else if (isEnterUserData) {
+      } else if (isRegisterView) {
         signUserUp();
       }
     }
@@ -128,18 +130,16 @@ class _LoginPageState extends State<LoginPage>
                     ),
                   ),
                 ),
-                isEnterUserData
-                    ? EnterUserDataView(
-                        nameController: nameController,
-                        surnameController: surnameController,
-                        ageController: ageController,
-                      )
-                    : LoginOrRegisterView(
-                        emailController: emailController,
-                        passwordController: passwordController,
-                        isRegisterView: isRegisterView,
-                        repeatPasswordController: repeatPasswordController,
-                      ),
+                LoginOrRegisterView(
+                  emailController: _emailController,
+                  passwordController: _passwordController,
+                  isRegisterView: isRegisterView,
+                  repeatPasswordController: _repeatPasswordController,
+                  nameController: _nameController,
+                  surnameController: _surnameController,
+                  ageController: _ageController,
+                  houseIdController: _houseIdController,
+                ),
                 isLoginView
                     ? Padding(
                         padding: const EdgeInsets.only(
