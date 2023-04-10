@@ -35,14 +35,18 @@ class _BoardingPageState extends State<BoardingPage> {
   }
 
   List<String> imgList = [
-    ImageManager.splashBG1,
-    ImageManager.splashBG2,
-    ImageManager.splashBG3,
-    ImageManager.splashBG4,
-    ImageManager.splashBG5,
+    ImageManager.splashBG1WP,
+    ImageManager.splashBG2WP,
+    ImageManager.splashBG3WP,
+    ImageManager.splashBG4WP,
+    ImageManager.splashBG5WP,
   ];
+
   @override
   Widget build(BuildContext context) {
+    for (var item in imgList) {
+      precacheImage(ExactAssetImage(item), context);
+    }
     return Scaffold(
       body: Stack(
         children: [

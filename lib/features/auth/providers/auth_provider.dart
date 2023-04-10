@@ -7,14 +7,12 @@ class AuthProvider with ChangeNotifier {
   AuthProvider() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       _user = user;
-
       notifyListeners();
     });
   }
   void callAth() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       _user = user;
-
       notifyListeners();
     });
   }

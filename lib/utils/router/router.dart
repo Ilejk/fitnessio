@@ -3,7 +3,7 @@ import 'package:smart_home_app/features/account/pages/account_page.dart';
 import 'package:smart_home_app/features/auth/pages/auth_page.dart';
 import 'package:smart_home_app/features/auth/pages/forgot_password_page.dart';
 import 'package:smart_home_app/features/boarding/pages/boarding_page.dart';
-import 'package:smart_home_app/features/home/pages/home_page.dart';
+import 'package:smart_home_app/features/main/pages/main_page.dart';
 import 'package:smart_home_app/features/auth/pages/login_or_register_page.dart';
 import 'package:smart_home_app/features/notifications/pages/notifications_page.dart';
 import 'package:smart_home_app/features/settings/pages/settings_page.dart';
@@ -26,7 +26,7 @@ class RouteGenerator {
       case Routes.boardingRoute:
         return MaterialPageRoute(builder: (_) => const BoardingPage());
       case Routes.homeRoute:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(builder: (_) => const MainPage());
       case Routes.settingsRoute:
         return MaterialPageRoute(builder: (_) => const SettingsPage());
       case Routes.loginRoute:
