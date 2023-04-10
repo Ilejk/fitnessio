@@ -23,4 +23,7 @@ class StringsManager {
   static const String success = 'Success!';
   static const String pwResetLinkSent =
       'Password reset link has been sent.\nCheck your email!';
+  static const String ageHint = 'Age';
+  static const String nameHint = 'Name';
+  static const String surnameHint = 'Surname';
 }

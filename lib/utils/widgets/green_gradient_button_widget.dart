@@ -24,10 +24,10 @@ class LimeGreenRoundedButtonWidget extends StatelessWidget {
           left: PaddingManager.p28,
         ),
         child: Container(
-          height: SizeManager.s70,
+          height: SizeManager.s60,
           width: SizeManager.s400,
           decoration: BoxDecoration(
-            color: ColorManager.limeGreen,
+            color: ColorManager.limerGreen2,
             borderRadius: BorderRadius.circular(
               RadiusManager.r40,
             ),

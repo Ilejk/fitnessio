@@ -3,6 +3,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/auth/providers/login_provider.dart';
 import 'package:smart_home_app/features/auth/providers/register_provider.dart';
+import 'package:smart_home_app/features/auth/widgets/enter_user_data_view.dart';
+import 'package:smart_home_app/features/auth/widgets/login_or_register_view.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
@@ -10,9 +12,8 @@ import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/green_gradient_button_widget.dart';
-import 'package:smart_home_app/features/auth/widgets/text_form_field_auth.dart';
 
-enum AuthMode { signUp, signIn }
+enum AuthMode { signUp, signIn, dataIn, noData }
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -27,7 +28,11 @@ class _LoginPageState extends State<LoginPage>
   final TextEditingController emailController = TextEditingController();
   final TextEditingController repeatPasswordController =
       TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController surnameController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
   AuthMode _authMode = AuthMode.signIn;
+  AuthMode _dataMode = AuthMode.noData;
 
   @override
   void dispose() {
@@ -37,10 +42,70 @@ class _LoginPageState extends State<LoginPage>
     super.dispose();
   }
 
+  bool get isEmailNotEmpty => emailController.text.isNotEmpty;
+  bool get isPasswordConfirmed =>
+      passwordController == repeatPasswordController;
+  bool get isEnterUserData => _dataMode == AuthMode.dataIn;
+  bool get isRegisterView => _authMode == AuthMode.signUp;
+  bool get isLoginView => _authMode == AuthMode.signIn;
+  bool get isNotEnterUserData => _dataMode == AuthMode.noData;
+
+  void _switchAuthMode() {
+    if (isLoginView) {
+      setState(() {
+        _authMode = AuthMode.signUp;
+      });
+    } else if (isRegisterView) {
+      setState(() {
+        _authMode = AuthMode.signIn;
+        _dataMode = AuthMode.noData;
+      });
+    }
+  }
+
+  void _switchDataMode() {
+    if (isNotEnterUserData) {
+      setState(() {
+        _dataMode = AuthMode.dataIn;
+      });
+    } else if (isEnterUserData) {
+      setState(() {
+        _dataMode = AuthMode.noData;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final loginProvider = Provider.of<LoginProvider>(context);
     final registerProvider = Provider.of<RegisterProvider>(context);
+
+    void signUserIn() {
+      loginProvider.signIn(
+        email: emailController.text,
+        password: passwordController.text,
+        context: context,
+      );
+    }
+
+    void signUserUp() {
+      registerProvider.register(
+        email: emailController.text,
+        password: passwordController.text,
+        context: context,
+      );
+    }
+
+    void onPressed() {
+      if (isLoginView) {
+        signUserIn();
+      } else if (isRegisterView && isNotEnterUserData) {
+        _switchDataMode();
+      } else if (isEnterUserData) {
+        signUserUp();
+      }
+    }
+
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
       body: SafeArea(
@@ -63,31 +128,24 @@ class _LoginPageState extends State<LoginPage>
                     ),
                   ),
                 ),
-                TextFormFieldWidget(
-                  width: SizeManager.s400,
-                  controller: emailController,
-                  labelHint: StringsManager.emailHint,
-                  obscureText: false,
-                ),
-                TextFormFieldWidget(
-                  width: SizeManager.s400,
-                  controller: passwordController,
-                  labelHint: StringsManager.passwordHint,
-                  obscureText: true,
-                ),
-                _authMode == AuthMode.signUp
-                    ? TextFormFieldWidget(
-                        width: SizeManager.s400,
-                        controller: repeatPasswordController,
-                        labelHint: StringsManager.repeatPasswordHint,
-                        obscureText: true,
+                isEnterUserData
+                    ? EnterUserDataView(
+                        nameController: nameController,
+                        surnameController: surnameController,
+                        ageController: ageController,
                       )
-                    : Container(),
-                _authMode == AuthMode.signIn
+                    : LoginOrRegisterView(
+                        emailController: emailController,
+                        passwordController: passwordController,
+                        isRegisterView: isRegisterView,
+                        repeatPasswordController: repeatPasswordController,
+                      ),
+                isLoginView
                     ? Padding(
                         padding: const EdgeInsets.only(
-                            right: PaddingManager.p28,
-                            left: PaddingManager.p28),
+                          right: PaddingManager.p28,
+                          left: PaddingManager.p28,
+                        ),
                         child: Align(
                           alignment: Alignment.centerRight,
                           child: GestureDetector(
@@ -106,23 +164,8 @@ class _LoginPageState extends State<LoginPage>
                 Padding(
                   padding: const EdgeInsets.only(top: PaddingManager.p2),
                   child: LimeGreenRoundedButtonWidget(
-                    onTap: _authMode == AuthMode.signUp &&
-                            passwordController.text ==
-                                repeatPasswordController.text
-                        ? () {
-                            registerProvider.register(
-                                email: emailController.text,
-                                password: passwordController.text,
-                                context: context);
-                          }
-                        : () {
-                            loginProvider.signIn(
-                              email: emailController.text,
-                              password: passwordController.text,
-                              context: context,
-                            );
-                          },
-                    title: _authMode == AuthMode.signIn
+                    onTap: onPressed,
+                    title: isLoginView
                         ? StringsManager.signIn
                         : StringsManager.signUp,
                   ),
@@ -137,7 +180,7 @@ class _LoginPageState extends State<LoginPage>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        _authMode == AuthMode.signIn
+                        isLoginView
                             ? StringsManager.dontHaveAcc
                             : StringsManager.haveAcc,
                         style: StyleManager.loginPageSubTextTextStyle,
@@ -147,7 +190,7 @@ class _LoginPageState extends State<LoginPage>
                         child: GestureDetector(
                           onTap: _switchAuthMode,
                           child: Text(
-                            _authMode == AuthMode.signIn
+                            isLoginView
                                 ? StringsManager.signUp
                                 : StringsManager.signIn,
                             style:
@@ -164,17 +207,5 @@ class _LoginPageState extends State<LoginPage>
         ),
       ),
     );
-  }
-
-  void _switchAuthMode() {
-    if (_authMode == AuthMode.signIn) {
-      setState(() {
-        _authMode = AuthMode.signUp;
-      });
-    } else {
-      setState(() {
-        _authMode = AuthMode.signIn;
-      });
-    }
   }
 }
