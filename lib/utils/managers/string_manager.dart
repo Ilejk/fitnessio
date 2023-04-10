@@ -27,4 +27,7 @@ class StringsManager {
   static const String nameHint = 'Name';
   static const String surnameHint = 'Surname';
   static const String houseIdHint = 'House ID';
+  static const String settingsABtitle = 'SETTINGS';
+  static const String securityABtitle = 'SECURITY';
+  static const String menuABtitle = 'MENU';
 }

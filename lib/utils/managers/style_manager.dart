@@ -49,4 +49,10 @@ class StyleManager {
     letterSpacing: SizeManager.s1,
     color: ColorManager.white,
   );
+  static const appbarTitleTextStyle = TextStyle(
+    fontSize: FontSize.s25,
+    fontWeight: FontWeight.bold,
+    letterSpacing: SizeManager.s5,
+    color: ColorManager.white,
+  );
 }

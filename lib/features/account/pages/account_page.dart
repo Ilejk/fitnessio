@@ -17,12 +17,41 @@ class _AccountPageState extends State<AccountPage> {
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
       appBar: const PreferredSize(
-        preferredSize: Size(double.infinity, SizeManager.s60),
+        preferredSize: Size(
+          double.infinity,
+          SizeManager.s60,
+        ),
         child: AccountPageAppBar(),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column().animate().fadeIn(duration: 500.ms),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: PaddingManager.p28,
+                    left: PaddingManager.p28,
+                    right: PaddingManager.p28,
+                  ),
+                  child: Container(
+                    width: SizeManager.s400,
+                    height: SizeManager.s250,
+                    decoration: BoxDecoration(
+                      color: ColorManager.limerGreen2,
+                      borderRadius: BorderRadius.circular(
+                        RadiusManager.r15,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ).animate().fadeIn(
+                  duration: 500.ms,
+                ),
+          ),
         ),
       ),
     );
