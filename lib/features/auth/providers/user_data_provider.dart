@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class UserDataProvider with ChangeNotifier {
-  Future<void> addUserData({
+  Future addUserData({
     required String email,
     required String name,
     required String surname,
@@ -20,7 +20,8 @@ class UserDataProvider with ChangeNotifier {
       });
 
       notifyListeners();
-    } catch (_) {
+    } catch (e) {
+      print(e);
       notifyListeners();
     }
   }

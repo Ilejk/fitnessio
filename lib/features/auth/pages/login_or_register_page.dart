@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
@@ -86,18 +85,17 @@ class _LoginPageState extends State<LoginPage>
           password: _passwordController.text,
           context: context,
         );
-
-        await userDataProvider.addUserData(
-          email: _emailController.text,
-          name: _nameController.text,
-          surname: _surnameController.text,
-          age: int.parse(_ageController.text),
-          houseID: _houseIdController.text,
-          context: context,
-        );
       } catch (e) {
         print(e);
       }
+      await userDataProvider.addUserData(
+        email: _emailController.text,
+        name: _nameController.text,
+        surname: _surnameController.text,
+        age: int.parse(_ageController.text),
+        houseID: _houseIdController.text,
+        context: context,
+      );
     }
 
     void onPressed() {
