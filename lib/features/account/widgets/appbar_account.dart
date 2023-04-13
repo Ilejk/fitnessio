@@ -13,8 +13,6 @@ class AccountPageAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final accountProvider =
-        Provider.of<AccountProvider>(context, listen: false);
     return AppBar(
       title: const Text(
         StringsManager.myAcc,
@@ -61,11 +59,10 @@ class AccountPageAppBar extends StatelessWidget {
             child: IconButton(
               splashColor: ColorManager.grey3,
               onPressed: () {
-                accountProvider.signOut(context: context);
-                Navigator.of(context).pop();
+                //TODO
               },
               icon: const Icon(
-                Icons.logout_sharp,
+                Icons.more_horiz_sharp,
                 size: SizeManager.s26,
                 color: ColorManager.white,
               ),

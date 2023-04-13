@@ -30,4 +30,7 @@ class StringsManager {
   static const String settingsABtitle = 'SETTINGS';
   static const String securityABtitle = 'SECURITY';
   static const String menuABtitle = 'MENU';
+  static const String signOut = 'SIGN OUT';
+  static const String changePassword = 'CHANGE PASSWORD';
+  static const String changeEmail = 'CHANGE EMAIL';
 }

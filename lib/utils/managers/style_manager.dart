@@ -55,4 +55,10 @@ class StyleManager {
     letterSpacing: SizeManager.s5,
     color: ColorManager.white,
   );
+  static const accountButtonTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s20,
+    fontWeight: FontWightManager.bold,
+    letterSpacing: SizeManager.s3,
+  );
 }
