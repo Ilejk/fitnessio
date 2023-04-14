@@ -2,13 +2,14 @@ const String imagePath = 'assets/images';
 const String animationPath = 'assets/json';
 
 class ImageManager {
-  static const splashBG1WP = '$imagePath/splash1.webp';
-  static const splashBG2WP = '$imagePath/splash2.webp';
-  static const splashBG3WP = '$imagePath/splash3.webp';
-  static const splashBG4WP = '$imagePath/splash4.webp';
-  static const splashBG5WP = '$imagePath/splash5.webp';
-  static const logoTextUnder = '$imagePath/logo_text_under1.png';
-  static const logoTextInside = '$imagePath/logo_text_inside.png';
+  static const splashBG1WP = '$imagePath/boarding1.webp';
+  static const splashBG2WP = '$imagePath/boarding2.webp';
+  static const splashBG3WP = '$imagePath/boarding3.webp';
+  static const splashBG4WP = '$imagePath/boarding4.webp';
+  static const splashBG5WP = '$imagePath/boarding5.webp';
+  static const splashBG6WP = '$imagePath/boarding6.webp';
+  static const splashBG7WP = '$imagePath/boarding7.webp';
+  static const logo = '$imagePath/logo.webp';
 }
 
 class AnimationManager {

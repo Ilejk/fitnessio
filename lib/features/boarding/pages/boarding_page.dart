@@ -40,6 +40,8 @@ class _BoardingPageState extends State<BoardingPage> {
     ImageManager.splashBG3WP,
     ImageManager.splashBG4WP,
     ImageManager.splashBG5WP,
+    ImageManager.splashBG6WP,
+    ImageManager.splashBG7WP,
   ];
 
   @override
@@ -48,6 +50,7 @@ class _BoardingPageState extends State<BoardingPage> {
       precacheImage(ExactAssetImage(item), context);
     }
     return Scaffold(
+      backgroundColor: ColorManager.black,
       body: Stack(
         children: [
           PageView(

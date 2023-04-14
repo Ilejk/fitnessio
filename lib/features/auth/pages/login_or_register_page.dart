@@ -31,7 +31,13 @@ class _LoginPageState extends State<LoginPage>
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _surnameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
-  final TextEditingController _houseIdController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _armController = TextEditingController();
+  final TextEditingController _chestController = TextEditingController();
+  final TextEditingController _waistController = TextEditingController();
+  final TextEditingController _hipController = TextEditingController();
+  final TextEditingController _thighController = TextEditingController();
   AuthMode _authMode = AuthMode.signIn;
 
   @override
@@ -42,7 +48,13 @@ class _LoginPageState extends State<LoginPage>
     _nameController.dispose();
     _surnameController.dispose();
     _ageController.dispose();
-    _houseIdController.dispose();
+    _armController.dispose();
+    _heightController.dispose();
+    _weightController.dispose();
+    _hipController.dispose();
+    _thighController.dispose();
+    _chestController.dispose();
+    _waistController.dispose();
     super.dispose();
   }
 
@@ -93,8 +105,15 @@ class _LoginPageState extends State<LoginPage>
         name: _nameController.text,
         surname: _surnameController.text,
         age: int.parse(_ageController.text),
-        houseID: _houseIdController.text,
         context: context,
+        arm: double.parse(_armController.text),
+        chest: double.parse(_chestController.text),
+        gender: '',
+        height: double.parse(_heightController.text),
+        hip: double.parse(_hipController.text),
+        waist: double.parse(_waistController.text),
+        weight: double.parse(_weightController.text),
+        thigh: double.parse(_thighController.text),
       );
     }
 
@@ -124,7 +143,7 @@ class _LoginPageState extends State<LoginPage>
                     width: SizeManager.s250,
                     height: SizeManager.s250,
                     child: Image.asset(
-                      ImageManager.logoTextUnder,
+                      ImageManager.logo,
                     ),
                   ),
                 ),
@@ -136,7 +155,15 @@ class _LoginPageState extends State<LoginPage>
                   nameController: _nameController,
                   surnameController: _surnameController,
                   ageController: _ageController,
-                  houseIdController: _houseIdController,
+                  armController: _armController,
+                  chestController: _chestController,
+                  heightController: _heightController,
+                  hipController: _hipController,
+                  onChanged: (Object) {},
+                  thighController: _thighController,
+                  value: null,
+                  waistController: _waistController,
+                  weightController: _weightController,
                 ),
                 isLoginView
                     ? Padding(

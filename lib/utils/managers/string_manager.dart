@@ -1,8 +1,8 @@
 class StringsManager {
   static const String noRouteFound = 'No Route Found';
-  static const String splashText1 = 'Full Control For Your\nSmart Home';
+  static const String splashText1 = 'Plan your workous\nwith ease';
   static const String splashText2 =
-      'Control your smart home easier with our\nbetter features.';
+      'Control your calorie intake and workout\nschedule from the comfort of your phone.';
   static const String getStarted = 'Get Started';
   static const String key = 'key';
   static const String emailHint = 'Email';
@@ -33,4 +33,15 @@ class StringsManager {
   static const String signOut = 'SIGN OUT';
   static const String changePassword = 'CHANGE PASSWORD';
   static const String changeEmail = 'CHANGE EMAIL';
+  static const String measurment = 'Measurements';
+  static const String heightHint = 'Height';
+  static const String weightHint = 'Weight';
+  static const String genderHint = 'Gender';
+  static const String armHint = 'Arm';
+  static const String chestHint = 'Chest';
+  static const String waistHint = 'Waist';
+  static const String hipHint = 'Hip';
+  static const String thighHint = 'Thigh';
+  static const String man = 'MAN';
+  static const String woman = 'WOMAN';
 }

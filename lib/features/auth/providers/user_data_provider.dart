@@ -7,7 +7,14 @@ class UserDataProvider with ChangeNotifier {
     required String name,
     required String surname,
     required int age,
-    required String houseID,
+    required double height,
+    required double weight,
+    required double waist,
+    required double hip,
+    required double arm,
+    required double chest,
+    required String gender,
+    required double thigh,
     required BuildContext context,
   }) async {
     try {
@@ -16,7 +23,14 @@ class UserDataProvider with ChangeNotifier {
         'first name': name,
         'surname': surname,
         'age': age,
-        'houseID': houseID,
+        'height': height,
+        'weight': weight,
+        'waist': waist,
+        'hip': hip,
+        'arm': arm,
+        'chest': chest,
+        'gender': gender,
+        'thigh': thigh,
       });
 
       notifyListeners();
