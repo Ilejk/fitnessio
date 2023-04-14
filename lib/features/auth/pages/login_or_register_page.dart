@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/features/auth/providers/login_provider.dart';
-import 'package:smart_home_app/features/auth/providers/register_provider.dart';
-import 'package:smart_home_app/features/auth/providers/user_data_provider.dart';
+import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
 import 'package:smart_home_app/features/auth/widgets/login_or_register_view.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -88,13 +86,11 @@ class _LoginPageState extends State<LoginPage>
 
   @override
   Widget build(BuildContext context) {
-    final loginProvider = Provider.of<LoginProvider>(context);
-    final registerProvider = Provider.of<RegisterProvider>(context);
-    final userDataProvider = Provider.of<UserDataProvider>(context);
+    final authProvider = Provider.of<AuthProvider>(context);
 
     Future<void> signUserIn() async {
       try {
-        await loginProvider.signIn(
+        await authProvider.signIn(
           email: _emailController.text,
           password: _passwordController.text,
           context: context,
@@ -106,7 +102,7 @@ class _LoginPageState extends State<LoginPage>
 
     Future<void> signUserUp() async {
       try {
-        await registerProvider.register(
+        await authProvider.register(
           email: _emailController.text,
           password: _passwordController.text,
           context: context,
@@ -115,7 +111,7 @@ class _LoginPageState extends State<LoginPage>
         print(e);
       }
       try {
-        await userDataProvider.addUserData(
+        await authProvider.addUserData(
           email: _emailController.text,
           name: _nameController.text,
           surname: _surnameController.text,

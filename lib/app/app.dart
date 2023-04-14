@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/account/providers/account_provider.dart';
 import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
-import 'package:smart_home_app/features/auth/providers/forgot_password_provider.dart';
-import 'package:smart_home_app/features/auth/providers/login_provider.dart';
-import 'package:smart_home_app/features/auth/providers/register_provider.dart';
-import 'package:smart_home_app/features/auth/providers/user_data_provider.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
@@ -30,19 +26,7 @@ class _MyAppState extends State<MyApp> {
           value: AuthProvider(),
         ),
         ChangeNotifierProvider.value(
-          value: LoginProvider(),
-        ),
-        ChangeNotifierProvider.value(
-          value: RegisterProvider(),
-        ),
-        ChangeNotifierProvider.value(
           value: AccountProvider(),
-        ),
-        ChangeNotifierProvider.value(
-          value: ForgotPasswordProvider(),
-        ),
-        ChangeNotifierProvider.value(
-          value: UserDataProvider(),
         ),
         ChangeNotifierProvider.value(
           value: SettingsProvider(),

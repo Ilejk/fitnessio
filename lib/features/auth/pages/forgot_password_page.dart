@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/features/auth/providers/forgot_password_provider.dart';
+import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
@@ -25,8 +25,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    final forgotPasswordProvider =
-        Provider.of<ForgotPasswordProvider>(context, listen: false);
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
       appBar: AppBar(
@@ -59,7 +58,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             ),
             LimeGreenRoundedButtonWidget(
               onTap: () {
-                forgotPasswordProvider.forgotPassword(
+                authProvider.forgotPassword(
                   email: emailController.text,
                   context: context,
                 );

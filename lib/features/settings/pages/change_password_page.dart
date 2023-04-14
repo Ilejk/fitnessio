@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/features/auth/widgets/change_password_app_bar.dart';
+import 'package:smart_home_app/features/settings/widgets/change_password_app_bar.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -25,7 +25,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
     final settingsProvider =
         Provider.of<SettingsProvider>(context, listen: false);
     Future<void> changePassword() async {
-      if (isNotEmpty) {
+      if (isValid) {
         try {
           await settingsProvider.changePassword(
             context: context,
@@ -79,7 +79,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: changePassword,
-                title: StringsManager.changePassword,
+                title: StringsManager.procede,
               )
             ],
           ),
@@ -88,9 +88,10 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
     );
   }
 
-  bool get isNotEmpty {
+  bool get isValid {
     return _emailController.text.isNotEmpty ||
         _oldPasswordController.text.isNotEmpty ||
-        _newPasswordController.text.isNotEmpty;
+        _newPasswordController.text.isNotEmpty ||
+        _oldPasswordController != _newPasswordController;
   }
 }

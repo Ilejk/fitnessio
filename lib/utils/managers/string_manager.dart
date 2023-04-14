@@ -55,4 +55,9 @@ class StringsManager {
   static const String newPasswordHint = 'New Password';
   static const String changePWtext = 'Set a new password\nfor your account';
   static const String changePasswordABtitle = 'CHANGE PASSWORD';
+  static const String changeEmailABtitle = 'CHANGE EMAIL';
+  static const String oldEmailHint = 'Old Email';
+  static const String newEmailHint = 'New Email';
+  static const String deleteAccABtitle = 'DELETE ACCOUNT';
+  static const String procede = 'PROCEDE';
 }

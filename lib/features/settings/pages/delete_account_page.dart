@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
-import 'package:smart_home_app/features/settings/widgets/change_email_app_bar.dart';
+import 'package:smart_home_app/features/settings/widgets/delete_account_app_bar.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
@@ -9,30 +9,26 @@ import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
-class ChangeEmailPage extends StatefulWidget {
-  const ChangeEmailPage({super.key});
+class DeleteAccountPage extends StatefulWidget {
+  const DeleteAccountPage({super.key});
 
   @override
-  State<ChangeEmailPage> createState() => _ChangeEmailPageState();
+  State<DeleteAccountPage> createState() => _DeleteAccountPageState();
 }
 
-class _ChangeEmailPageState extends State<ChangeEmailPage> {
-  final TextEditingController _oldEmailController = TextEditingController();
-  final TextEditingController _newEmailController = TextEditingController();
+class _DeleteAccountPageState extends State<DeleteAccountPage> {
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final settingsProvider =
         Provider.of<SettingsProvider>(context, listen: false);
-    Future<void> changeEmail() async {
+    Future<void> deleteAccount() async {
       if (isValid) {
         try {
-          await settingsProvider.changeEmail(
-            context: context,
-            oldEmail: _oldEmailController.text,
-            newEmail: _newEmailController.text,
-            password: _passwordController.text,
-          );
+          await settingsProvider.deleteUser(
+              email: _emailController.text, password: _passwordController.text);
         } catch (e) {
           print(e);
         }
@@ -46,7 +42,7 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
           double.infinity,
           SizeManager.s60,
         ),
-        child: ChangeEmailPageAppBar(),
+        child: DeleteAccountPageAppBar(),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -63,13 +59,8 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
                 ),
               ),
               TextFieldWidget(
-                controller: _oldEmailController,
-                labelHint: StringsManager.oldEmailHint,
-                obscureText: false,
-              ),
-              TextFieldWidget(
-                controller: _newEmailController,
-                labelHint: StringsManager.newEmailHint,
+                controller: _emailController,
+                labelHint: StringsManager.emailHint,
                 obscureText: false,
               ),
               TextFieldWidget(
@@ -78,7 +69,7 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
                 obscureText: true,
               ),
               LimeGreenRoundedButtonWidget(
-                onTap: changeEmail,
+                onTap: deleteAccount,
                 title: StringsManager.procede,
               )
             ],
@@ -89,9 +80,7 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
   }
 
   bool get isValid {
-    return _oldEmailController.text.isNotEmpty ||
-        _newEmailController.text.isNotEmpty ||
-        _passwordController.text.isNotEmpty ||
-        _oldEmailController != _newEmailController;
+    return _emailController.text.isNotEmpty ||
+        _passwordController.text.isNotEmpty;
   }
 }
