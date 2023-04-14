@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/string_manager.dart';
-import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class ChangePasswordPageAppBar extends StatelessWidget {
@@ -12,10 +11,6 @@ class ChangePasswordPageAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text(
-        StringsManager.changePasswordABtitle,
-        style: StyleManager.abTitleTextStyle,
-      ),
       backgroundColor: ColorManager.darkGrey,
       elevation: SizeManager.s0,
       leading: Padding(
@@ -42,6 +37,8 @@ class ChangePasswordPageAppBar extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ).animate().fadeIn(
+          duration: 500.ms,
+        );
   }
 }

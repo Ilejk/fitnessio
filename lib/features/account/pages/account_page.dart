@@ -23,7 +23,6 @@ class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceHeight = MediaQuery.of(context).size.height;
     final deviceWidth = MediaQuery.of(context).size.width;
     final accountProvider =
         Provider.of<AccountProvider>(context, listen: false);
@@ -37,11 +36,10 @@ class _AccountPageState extends State<AccountPage> {
         child: AccountPageAppBar(),
       ),
       body: SafeArea(
-        child: Center(
-          child: SizedBox(
-            height: deviceHeight,
+        child: SingleChildScrollView(
+          child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
@@ -78,7 +76,6 @@ class _AccountPageState extends State<AccountPage> {
                     ),
                   ),
                 ),
-                const Expanded(child: SizedBox()),
                 AccountPageButton(
                   deviceWidth: deviceWidth,
                   onTap: () => signOut(accountProvider, context),

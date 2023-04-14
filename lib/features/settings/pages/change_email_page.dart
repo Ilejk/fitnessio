@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/features/settings/widgets/change_email_app_bar.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
@@ -20,6 +22,14 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
   final TextEditingController _oldEmailController = TextEditingController();
   final TextEditingController _newEmailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  @override
+  void dispose() {
+    _oldEmailController.dispose();
+    _newEmailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final settingsProvider =
@@ -55,11 +65,17 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                width: SizeManager.s250,
-                height: SizeManager.s250,
-                child: Image.asset(
-                  ImageManager.logo,
+              const Padding(
+                padding: EdgeInsets.all(PaddingManager.p28),
+                child: Text(
+                  StringsManager.changeEmailContent,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: ColorManager.white,
+                    fontWeight: FontWightManager.bold,
+                    letterSpacing: SizeManager.s3,
+                    fontSize: FontSize.s25,
+                  ),
                 ),
               ),
               TextFieldWidget(
@@ -85,7 +101,9 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
           ),
         ),
       )),
-    );
+    ).animate().fadeIn(
+          duration: 500.ms,
+        );
   }
 
   bool get isValid {

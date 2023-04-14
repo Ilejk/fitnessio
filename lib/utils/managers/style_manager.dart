@@ -85,4 +85,15 @@ class StyleManager {
     fontWeight: FontWeight.bold,
     letterSpacing: SizeManager.s0_5,
   );
+  static const deleteAccPopUpButtonTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontWeight: FontWightManager.bold,
+    fontSize: FontSize.s25,
+    letterSpacing: SizeManager.s3,
+  );
+  static final deleteAccPopUpTitleTextStyle = TextStyle(
+    color: ColorManager.limerGreen2,
+    fontSize: FontSize.s20,
+    fontWeight: FontWightManager.semiBold,
+  );
 }
