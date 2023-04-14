@@ -1,8 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:smart_home_app/features/main/widgets/appbar_menu.dart';
-import 'package:smart_home_app/features/main/widgets/appbar_security.dart';
+import 'package:smart_home_app/features/main/widgets/appbar_exercises.dart';
+import 'package:smart_home_app/features/main/widgets/appbar_my_workouts.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_settings.dart';
 import 'package:smart_home_app/features/exercises/pages/exercises_page.dart';
 import 'package:smart_home_app/features/home/pages/home_page.dart';

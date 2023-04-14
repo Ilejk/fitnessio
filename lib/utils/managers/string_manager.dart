@@ -29,9 +29,9 @@ class StringsManager {
   static const String settingsABtitle = 'SETTINGS';
   static const String myWorkoutsABtitle = 'MY WORKOUTS';
   static const String exercisesABtitle = 'EXERCISES';
-  static const String signOut = 'SIGN OUT';
-  static const String changePassword = 'CHANGE PASSWORD';
-  static const String changeEmail = 'CHANGE EMAIL';
+  static const String signOut = 'Sign Out';
+  static const String changePassword = 'Change password';
+  static const String changeEmail = 'Change email';
   static const String measurment = 'Measurements';
   static const String heightHint = 'Height';
   static const String weightHint = 'Weight';
@@ -44,4 +44,11 @@ class StringsManager {
   static const String genderManHint = 'MAN';
   static const String genderWomanHint = 'WOMAN';
   static const String fitnessioABtitle = 'FITNESS.IO';
+  static const String accountSpacer = 'Account';
+  static const String generalSpacer = 'General';
+  static const String inviteFriend = 'Invite Friends';
+  static const String termsOfService = 'Terms of Service';
+  static const String support = 'Support';
+  static const String theme = 'Change theme';
+  static const String deleteAcc = 'Delete account';
 }

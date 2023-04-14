@@ -37,15 +37,18 @@ class _AccountPageState extends State<AccountPage> {
         child: AccountPageAppBar(),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
+        child: Center(
+          child: SizedBox(
+            height: deviceHeight,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
                     top: PaddingManager.p28,
+                    left: PaddingManager.p12,
+                    right: PaddingManager.p12,
                   ),
                   child: Container(
                     width: deviceWidth,
@@ -58,22 +61,24 @@ class _AccountPageState extends State<AccountPage> {
                     ),
                   ),
                 ),
-                AccountPageButton(
-                  deviceWidth: deviceWidth,
-                  onTap: () {
-                    //TODO:
-                  },
-                  iconData: Icons.email_outlined,
-                  title: StringsManager.changeEmail,
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: PaddingManager.p12,
+                    left: PaddingManager.p12,
+                    right: PaddingManager.p12,
+                  ),
+                  child: Container(
+                    width: deviceWidth,
+                    height: SizeManager.s250,
+                    decoration: BoxDecoration(
+                      color: ColorManager.grey3,
+                      borderRadius: BorderRadius.circular(
+                        RadiusManager.r15,
+                      ),
+                    ),
+                  ),
                 ),
-                AccountPageButton(
-                  deviceWidth: deviceWidth,
-                  onTap: () {
-                    //TODO:
-                  },
-                  iconData: Icons.lock_open_sharp,
-                  title: StringsManager.changePassword,
-                ),
+                const Expanded(child: SizedBox()),
                 AccountPageButton(
                   deviceWidth: deviceWidth,
                   onTap: () => signOut(accountProvider, context),

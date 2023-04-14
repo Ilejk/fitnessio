@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
@@ -70,6 +71,8 @@ class HomePageAppBarWidget extends StatelessWidget {
           ),
         ),
       ],
-    );
+    ).animate().fadeIn(
+          duration: 500.ms,
+        );
   }
 }

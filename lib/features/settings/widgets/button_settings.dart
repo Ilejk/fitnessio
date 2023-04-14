@@ -3,8 +3,8 @@ import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class AccountPageButton extends StatelessWidget {
-  const AccountPageButton({
+class SettingsPageButton extends StatelessWidget {
+  const SettingsPageButton({
     Key? key,
     required this.deviceWidth,
     required this.onTap,
@@ -26,13 +26,12 @@ class AccountPageButton extends StatelessWidget {
           top: PaddingManager.p12,
           left: PaddingManager.p12,
           right: PaddingManager.p12,
-          bottom: PaddingManager.p28,
         ),
         child: Container(
           width: deviceWidth,
           height: SizeManager.s70,
           decoration: BoxDecoration(
-            color: ColorManager.limerGreen2,
+            color: ColorManager.grey3,
             borderRadius: BorderRadius.circular(
               RadiusManager.r15,
             ),
@@ -45,7 +44,7 @@ class AccountPageButton extends StatelessWidget {
                 padding: const EdgeInsets.only(left: PaddingManager.p12),
                 child: Text(
                   title,
-                  style: StyleManager.accountButtonTextStyle,
+                  style: StyleManager.settingsButtonTextStyle,
                 ),
               ),
               Padding(
@@ -53,7 +52,7 @@ class AccountPageButton extends StatelessWidget {
                 child: Icon(
                   iconData,
                   size: SizeManager.s24,
-                  color: ColorManager.darkGrey,
+                  color: ColorManager.white,
                 ),
               )
             ],

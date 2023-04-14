@@ -5,8 +5,8 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class SettingsPageAppBarWidget extends StatelessWidget {
-  const SettingsPageAppBarWidget({
+class ExercisesPageAppBarWidget extends StatelessWidget {
+  const ExercisesPageAppBarWidget({
     Key? key,
   }) : super(key: key);
 
@@ -18,7 +18,7 @@ class SettingsPageAppBarWidget extends StatelessWidget {
       automaticallyImplyLeading: false,
       elevation: SizeManager.s0,
       title: const Text(
-        StringsManager.settingsABtitle,
+        StringsManager.exercisesABtitle,
         style: StyleManager.appbarTitleTextStyle,
       ),
     ).animate().fadeIn(

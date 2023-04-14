@@ -56,10 +56,16 @@ class StyleManager {
     color: ColorManager.white,
   );
   static const accountButtonTextStyle = TextStyle(
+    color: ColorManager.darkGrey,
+    fontSize: FontSize.s18,
+    fontWeight: FontWightManager.semiBold,
+    letterSpacing: SizeManager.s1_5,
+  );
+  static const settingsButtonTextStyle = TextStyle(
     color: ColorManager.white,
-    fontSize: FontSize.s20,
-    fontWeight: FontWightManager.bold,
-    letterSpacing: SizeManager.s3,
+    fontSize: FontSize.s17,
+    fontWeight: FontWightManager.regular,
+    letterSpacing: SizeManager.s1,
   );
   static const registerSpacerStyle = TextStyle(
     color: ColorManager.white,
@@ -72,5 +78,11 @@ class StyleManager {
     fontSize: FontSize.s14,
     letterSpacing: SizeManager.s1_5,
     fontWeight: FontWightManager.semiBold,
+  );
+  static const settingsPageSpacerTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s22,
+    fontWeight: FontWeight.bold,
+    letterSpacing: SizeManager.s0_5,
   );
 }
