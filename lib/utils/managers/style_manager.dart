@@ -61,4 +61,16 @@ class StyleManager {
     fontWeight: FontWightManager.bold,
     letterSpacing: SizeManager.s3,
   );
+  static const registerSpacerStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s17,
+    fontWeight: FontWightManager.semiBold,
+    letterSpacing: SizeManager.s1_5,
+  );
+  static const registerTextfieldTextStyle = TextStyle(
+    color: ColorManager.limeGreen,
+    fontSize: FontSize.s14,
+    letterSpacing: SizeManager.s1_5,
+    fontWeight: FontWightManager.semiBold,
+  );
 }

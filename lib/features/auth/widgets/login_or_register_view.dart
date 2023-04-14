@@ -2,8 +2,11 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_home_app/features/auth/widgets/text_form_field_auth.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
+import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 
 class LoginOrRegisterView extends StatelessWidget {
   LoginOrRegisterView({
@@ -96,9 +99,16 @@ class LoginOrRegisterView extends StatelessWidget {
         labelHint: StringsManager.ageHint,
         obscureText: false,
       ),
-      const Text(
-        StringsManager.measurment,
-        style: TextStyle(color: ColorManager.white),
+      const Padding(
+        padding: EdgeInsets.only(
+          top: PaddingManager.p12,
+          bottom: PaddingManager.p20,
+        ),
+        child: Text(
+          StringsManager.measurment,
+          textAlign: TextAlign.center,
+          style: StyleManager.registerSpacerStyle,
+        ),
       ),
       TextFormFieldWidget(
         width: SizeManager.s400,
@@ -112,21 +122,42 @@ class LoginOrRegisterView extends StatelessWidget {
         labelHint: StringsManager.weightHint,
         obscureText: false,
       ),
-      DropdownButtonHideUnderline(
-        child: DropdownButton2(
-          onChanged: onChanged,
-          value: value,
-          hint: const Text(StringsManager.genderHint),
-          items: const [
-            DropdownMenuItem(
-              value: StringsManager.man,
-              child: Text(StringsManager.man),
+      NeuButton(
+        width: SizeManager.s400,
+        height: SizeManager.s70,
+        radius: RadiusManager.r15,
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton2(
+            dropdownDecoration: BoxDecoration(
+              color: ColorManager.darkGrey,
+              borderRadius: BorderRadius.circular(
+                RadiusManager.r15,
+              ),
             ),
-            DropdownMenuItem(
-              value: StringsManager.woman,
-              child: Text(StringsManager.woman),
+            onChanged: onChanged,
+            value: value,
+            iconSize: SizeManager.s0,
+            hint: const Text(
+              StringsManager.genderHint,
+              style: StyleManager.registerTextfieldTextStyle,
             ),
-          ],
+            items: const [
+              DropdownMenuItem(
+                value: StringsManager.genderManHint,
+                child: Text(
+                  StringsManager.genderManHint,
+                  style: StyleManager.registerTextfieldTextStyle,
+                ),
+              ),
+              DropdownMenuItem(
+                value: StringsManager.genderWomanHint,
+                child: Text(
+                  StringsManager.genderWomanHint,
+                  style: StyleManager.registerTextfieldTextStyle,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       TextFormFieldWidget(

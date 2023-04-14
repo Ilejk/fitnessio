@@ -26,10 +26,9 @@ class StringsManager {
   static const String ageHint = 'Age';
   static const String nameHint = 'Name';
   static const String surnameHint = 'Surname';
-  static const String houseIdHint = 'House ID';
   static const String settingsABtitle = 'SETTINGS';
-  static const String securityABtitle = 'SECURITY';
-  static const String menuABtitle = 'MENU';
+  static const String myWorkoutsABtitle = 'MY WORKOUTS';
+  static const String exercisesABtitle = 'EXERCISES';
   static const String signOut = 'SIGN OUT';
   static const String changePassword = 'CHANGE PASSWORD';
   static const String changeEmail = 'CHANGE EMAIL';
@@ -42,6 +41,7 @@ class StringsManager {
   static const String waistHint = 'Waist';
   static const String hipHint = 'Hip';
   static const String thighHint = 'Thigh';
-  static const String man = 'MAN';
-  static const String woman = 'WOMAN';
+  static const String genderManHint = 'MAN';
+  static const String genderWomanHint = 'WOMAN';
+  static const String fitnessioABtitle = 'FITNESS.IO';
 }

@@ -4,10 +4,10 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_menu.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_security.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_settings.dart';
-import 'package:smart_home_app/features/menu/pages/menu_page.dart';
+import 'package:smart_home_app/features/exercises/pages/exercises_page.dart';
 import 'package:smart_home_app/features/home/pages/home_page.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_home.dart';
-import 'package:smart_home_app/features/security/pages/security_page.dart';
+import 'package:smart_home_app/features/my_workouts/pages/my_workouts_page.dart';
 import 'package:smart_home_app/features/settings/pages/settings_page.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -40,12 +40,12 @@ class _MainPageState extends State<MainPage> {
       size: SizeManager.s28,
     ),
     Icon(
-      Icons.menu,
+      Icons.list,
       color: ColorManager.limerGreen2,
       size: SizeManager.s28,
     ),
     Icon(
-      Icons.security_sharp,
+      Icons.data_saver_off_sharp,
       color: ColorManager.limerGreen2,
       size: SizeManager.s28,
     ),
@@ -58,10 +58,10 @@ class _MainPageState extends State<MainPage> {
   appBar() {
     if (isHomePage) {
       return const HomePageAppBarWidget();
-    } else if (isMenuPage) {
-      return const MenuPageAppBarWidget();
-    } else if (isSecurityPage) {
-      return const SecurityPageAppBarWidget();
+    } else if (isExercisesPage) {
+      return const ExercisesPageAppBarWidget();
+    } else if (isMyWorkoutsPage) {
+      return const MyWorkoutsPageAppBarWidget();
     } else if (isSettingsPage) {
       return const SettingsPageAppBarWidget();
     }
@@ -69,9 +69,9 @@ class _MainPageState extends State<MainPage> {
 
   bool get isSettingsPage => _currentIndex == 3;
 
-  bool get isSecurityPage => _currentIndex == 2;
+  bool get isMyWorkoutsPage => _currentIndex == 2;
 
-  bool get isMenuPage => _currentIndex == 1;
+  bool get isExercisesPage => _currentIndex == 1;
 
   bool get isHomePage => _currentIndex == 0;
 

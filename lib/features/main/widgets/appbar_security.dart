@@ -4,8 +4,8 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class SecurityPageAppBarWidget extends StatelessWidget {
-  const SecurityPageAppBarWidget({
+class MyWorkoutsPageAppBarWidget extends StatelessWidget {
+  const MyWorkoutsPageAppBarWidget({
     Key? key,
   }) : super(key: key);
 
@@ -40,7 +40,7 @@ class SecurityPageAppBarWidget extends StatelessWidget {
       ),
       elevation: SizeManager.s0,
       title: const Text(
-        StringsManager.securityABtitle,
+        StringsManager.myWorkoutsABtitle,
         style: StyleManager.appbarTitleTextStyle,
       ),
       actions: [

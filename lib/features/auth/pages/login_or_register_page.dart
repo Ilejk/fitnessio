@@ -39,6 +39,8 @@ class _LoginPageState extends State<LoginPage>
   final TextEditingController _hipController = TextEditingController();
   final TextEditingController _thighController = TextEditingController();
   AuthMode _authMode = AuthMode.signIn;
+  // ignore: avoid_init_to_null
+  var dropDownGenderValue = null;
 
   @override
   void dispose() {
@@ -76,6 +78,14 @@ class _LoginPageState extends State<LoginPage>
     }
   }
 
+  void _dropDownCallBack(Object? selectedGenderValue) {
+    if (selectedGenderValue is String) {
+      setState(() {
+        dropDownGenderValue = selectedGenderValue;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final loginProvider = Provider.of<LoginProvider>(context);
@@ -108,7 +118,7 @@ class _LoginPageState extends State<LoginPage>
         context: context,
         arm: double.parse(_armController.text),
         chest: double.parse(_chestController.text),
-        gender: '',
+        gender: dropDownGenderValue,
         height: double.parse(_heightController.text),
         hip: double.parse(_hipController.text),
         waist: double.parse(_waistController.text),
@@ -159,9 +169,9 @@ class _LoginPageState extends State<LoginPage>
                   chestController: _chestController,
                   heightController: _heightController,
                   hipController: _hipController,
-                  onChanged: (Object) {},
+                  onChanged: _dropDownCallBack,
                   thighController: _thighController,
-                  value: null,
+                  value: dropDownGenderValue,
                   waistController: _waistController,
                   weightController: _weightController,
                 ),

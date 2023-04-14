@@ -4,8 +4,8 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class MenuPageAppBarWidget extends StatelessWidget {
-  const MenuPageAppBarWidget({
+class ExercisesPageAppBarWidget extends StatelessWidget {
+  const ExercisesPageAppBarWidget({
     Key? key,
   }) : super(key: key);
 
@@ -40,7 +40,7 @@ class MenuPageAppBarWidget extends StatelessWidget {
       ),
       elevation: SizeManager.s0,
       title: const Text(
-        StringsManager.menuABtitle,
+        StringsManager.exercisesABtitle,
         style: StyleManager.appbarTitleTextStyle,
       ),
       actions: [
