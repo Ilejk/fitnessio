@@ -4,24 +4,22 @@ import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 
-class TextFormFieldWidget extends StatelessWidget {
-  const TextFormFieldWidget({
+class TextFieldWidget extends StatelessWidget {
+  const TextFieldWidget({
     Key? key,
     required this.controller,
     required this.labelHint,
     required this.obscureText,
-    required this.width,
   }) : super(key: key);
 
   final TextEditingController controller;
   final bool obscureText;
   final String labelHint;
-  final double width;
 
   @override
   Widget build(BuildContext context) {
     return NeuButton(
-      width: width,
+      width: SizeManager.s400,
       height: SizeManager.s70,
       radius: RadiusManager.r15,
       child: Padding(

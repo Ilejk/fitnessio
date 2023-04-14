@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/auth/providers/forgot_password_provider.dart';
-import 'package:smart_home_app/features/auth/widgets/text_form_field_auth.dart';
+import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
-import 'package:smart_home_app/utils/widgets/green_gradient_button_widget.dart';
+import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
@@ -52,8 +52,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 ),
               ),
             ),
-            TextFormFieldWidget(
-              width: SizeManager.s400,
+            TextFieldWidget(
               controller: emailController,
               labelHint: StringsManager.emailHint,
               obscureText: false,

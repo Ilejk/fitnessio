@@ -6,6 +6,8 @@ import 'package:smart_home_app/features/boarding/pages/boarding_page.dart';
 import 'package:smart_home_app/features/main/pages/main_page.dart';
 import 'package:smart_home_app/features/auth/pages/login_or_register_page.dart';
 import 'package:smart_home_app/features/notifications/pages/notifications_page.dart';
+import 'package:smart_home_app/features/settings/pages/change_email_page.dart';
+import 'package:smart_home_app/features/settings/pages/change_password_page.dart';
 import 'package:smart_home_app/features/settings/pages/settings_page.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 
@@ -18,6 +20,8 @@ class Routes {
   static const String accountRoute = '/account';
   static const String notificationsRoute = 'notifications';
   static const String forgotPasswordRoute = '/forgotPassword';
+  static const String changePasswordRoute = '/changePassword';
+  static const String changeEmailRoute = '/changeEmail';
 }
 
 class RouteGenerator {
@@ -39,6 +43,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const NotificationsPage());
       case Routes.forgotPasswordRoute:
         return MaterialPageRoute(builder: (_) => const ForgotPasswordPage());
+      case Routes.changePasswordRoute:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordPage());
+      case Routes.changeEmailRoute:
+        return MaterialPageRoute(builder: (_) => const ChangeEmailPage());
       default:
         return undefinedRoute();
     }

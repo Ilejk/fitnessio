@@ -32,7 +32,7 @@ class StyleManager {
     fontWeight: FontWightManager.medium,
     letterSpacing: SizeManager.s0_7,
   );
-  static const myAccTitleTextStyle = TextStyle(
+  static const abTitleTextStyle = TextStyle(
     fontSize: FontSize.s25,
     fontWeight: FontWightManager.semiBold,
     letterSpacing: SizeManager.s3,

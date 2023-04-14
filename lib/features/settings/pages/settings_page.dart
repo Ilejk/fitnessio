@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:smart_home_app/features/settings/widgets/button_settings.dart';
-import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
+import 'package:smart_home_app/utils/router/router.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -49,9 +48,8 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             SettingsPageButton(
               deviceWidth: deviceWidth,
-              onTap: () {
-                //TODO:
-              },
+              onTap: () =>
+                  Navigator.of(context).pushNamed(Routes.changePasswordRoute),
               iconData: Icons.lock_open_sharp,
               title: StringsManager.changePassword,
             ),

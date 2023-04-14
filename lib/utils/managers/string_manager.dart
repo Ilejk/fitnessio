@@ -51,4 +51,8 @@ class StringsManager {
   static const String support = 'Support';
   static const String theme = 'Change theme';
   static const String deleteAcc = 'Delete account';
+  static const String oldPasswordHint = 'Old Password';
+  static const String newPasswordHint = 'New Password';
+  static const String changePWtext = 'Set a new password\nfor your account';
+  static const String changePasswordABtitle = 'CHANGE PASSWORD';
 }

@@ -11,7 +11,7 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
-import 'package:smart_home_app/utils/widgets/green_gradient_button_widget.dart';
+import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 
 enum AuthMode { signUp, signIn }
 
@@ -92,15 +92,19 @@ class _LoginPageState extends State<LoginPage>
     final registerProvider = Provider.of<RegisterProvider>(context);
     final userDataProvider = Provider.of<UserDataProvider>(context);
 
-    void signUserIn() {
-      loginProvider.signIn(
-        email: _emailController.text,
-        password: _passwordController.text,
-        context: context,
-      );
+    Future<void> signUserIn() async {
+      try {
+        await loginProvider.signIn(
+          email: _emailController.text,
+          password: _passwordController.text,
+          context: context,
+        );
+      } catch (e) {
+        print(e);
+      }
     }
 
-    void signUserUp() async {
+    Future<void> signUserUp() async {
       try {
         await registerProvider.register(
           email: _emailController.text,
@@ -110,21 +114,25 @@ class _LoginPageState extends State<LoginPage>
       } catch (e) {
         print(e);
       }
-      await userDataProvider.addUserData(
-        email: _emailController.text,
-        name: _nameController.text,
-        surname: _surnameController.text,
-        age: int.parse(_ageController.text),
-        context: context,
-        arm: double.parse(_armController.text),
-        chest: double.parse(_chestController.text),
-        gender: dropDownGenderValue,
-        height: double.parse(_heightController.text),
-        hip: double.parse(_hipController.text),
-        waist: double.parse(_waistController.text),
-        weight: double.parse(_weightController.text),
-        thigh: double.parse(_thighController.text),
-      );
+      try {
+        await userDataProvider.addUserData(
+          email: _emailController.text,
+          name: _nameController.text,
+          surname: _surnameController.text,
+          age: int.parse(_ageController.text),
+          context: context,
+          arm: double.parse(_armController.text),
+          chest: double.parse(_chestController.text),
+          gender: dropDownGenderValue,
+          height: double.parse(_heightController.text),
+          hip: double.parse(_hipController.text),
+          waist: double.parse(_waistController.text),
+          weight: double.parse(_weightController.text),
+          thigh: double.parse(_thighController.text),
+        );
+      } catch (e) {
+        print(e);
+      }
     }
 
     void onPressed() {

@@ -1,13 +1,13 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/features/auth/widgets/text_form_field_auth.dart';
+import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 
+// ignore: must_be_immutable
 class LoginOrRegisterView extends StatelessWidget {
   LoginOrRegisterView({
     Key? key,
@@ -49,52 +49,44 @@ class LoginOrRegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> loginChildren = [
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: emailController,
         labelHint: StringsManager.emailHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: passwordController,
         labelHint: StringsManager.passwordHint,
         obscureText: true,
       ),
     ];
     List<Widget> registerChildren = [
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: emailController,
         labelHint: StringsManager.emailHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: passwordController,
         labelHint: StringsManager.passwordHint,
         obscureText: true,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: repeatPasswordController,
         labelHint: StringsManager.repeatPasswordHint,
         obscureText: true,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: nameController,
         labelHint: StringsManager.nameHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: surnameController,
         labelHint: StringsManager.surnameHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: ageController,
         labelHint: StringsManager.ageHint,
         obscureText: false,
@@ -110,14 +102,12 @@ class LoginOrRegisterView extends StatelessWidget {
           style: StyleManager.registerSpacerStyle,
         ),
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: heightController,
         labelHint: StringsManager.heightHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: weightController,
         labelHint: StringsManager.weightHint,
         obscureText: false,
@@ -160,32 +150,27 @@ class LoginOrRegisterView extends StatelessWidget {
           ),
         ),
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: armController,
         labelHint: StringsManager.armHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: chestController,
         labelHint: StringsManager.chestHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: waistController,
         labelHint: StringsManager.waistHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: hipController,
         labelHint: StringsManager.hipHint,
         obscureText: false,
       ),
-      TextFormFieldWidget(
-        width: SizeManager.s400,
+      TextFieldWidget(
         controller: thighController,
         labelHint: StringsManager.thighHint,
         obscureText: false,

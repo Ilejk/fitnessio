@@ -6,6 +6,7 @@ import 'package:smart_home_app/features/auth/providers/forgot_password_provider.
 import 'package:smart_home_app/features/auth/providers/login_provider.dart';
 import 'package:smart_home_app/features/auth/providers/register_provider.dart';
 import 'package:smart_home_app/features/auth/providers/user_data_provider.dart';
+import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
 // ignore: must_be_immutable
@@ -42,6 +43,9 @@ class _MyAppState extends State<MyApp> {
         ),
         ChangeNotifierProvider.value(
           value: UserDataProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: SettingsProvider(),
         )
       ],
       child: const MaterialApp(

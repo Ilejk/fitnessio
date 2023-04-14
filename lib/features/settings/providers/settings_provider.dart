@@ -4,8 +4,13 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 
 class SettingsProvider with ChangeNotifier {
-  Future<void> changeEmail({
+  var currentUser = FirebaseAuth.instance.currentUser;
+
+  Future<void> changePassword({
     required BuildContext context,
+    required String email,
+    required String oldPassword,
+    required String newPassword,
   }) async {
     showDialog(
         context: context,
@@ -19,7 +24,11 @@ class SettingsProvider with ChangeNotifier {
         });
 
     try {
-      await FirebaseAuth.instance.signOut();
+      var credential =
+          EmailAuthProvider.credential(email: email, password: oldPassword);
+      await currentUser!.reauthenticateWithCredential(credential).then((value) {
+        currentUser!.updatePassword(newPassword);
+      });
 
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
