@@ -84,8 +84,40 @@ class SettingsProvider with ChangeNotifier {
           await user!.reauthenticateWithCredential(credential);
       await DataBase(result.user!.uid).deleteUserData();
       await result.user!.delete();
+      notifyListeners();
     } catch (e) {
       print(e);
+      notifyListeners();
+    }
+  }
+
+  Future<void> signOut({
+    required BuildContext context,
+  }) async {
+    showDialog(
+        context: context,
+        builder: (_) {
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.all(50),
+              child: SpinKitSpinningLines(color: ColorManager.limerGreen2),
+            ),
+          );
+        });
+
+    try {
+      await FirebaseAuth.instance.signOut();
+
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+      notifyListeners();
+    } on FirebaseAuthException catch (_) {
+      Future.delayed(const Duration(seconds: 2)).then(
+        (value) {
+          Navigator.pop(context);
+          notifyListeners();
+        },
+      );
     }
   }
 }

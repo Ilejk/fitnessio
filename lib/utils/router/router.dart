@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_app/features/account/pages/account_page.dart';
 import 'package:smart_home_app/features/auth/pages/auth_page.dart';
 import 'package:smart_home_app/features/auth/pages/forgot_password_page.dart';
 import 'package:smart_home_app/features/boarding/pages/boarding_page.dart';
@@ -18,7 +17,6 @@ class Routes {
   static const String settingsRoute = '/settings';
   static const String loginRoute = '/login';
   static const String authRoute = '/auth';
-  static const String accountRoute = '/account';
   static const String notificationsRoute = 'notifications';
   static const String forgotPasswordRoute = '/forgotPassword';
   static const String changePasswordRoute = '/changePassword';
@@ -39,8 +37,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case Routes.authRoute:
         return MaterialPageRoute(builder: (_) => const AuthPage());
-      case Routes.accountRoute:
-        return MaterialPageRoute(builder: (_) => const AccountPage());
       case Routes.notificationsRoute:
         return MaterialPageRoute(builder: (_) => const NotificationsPage());
       case Routes.forgotPasswordRoute:

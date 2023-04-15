@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/features/settings/widgets/button_settings.dart';
+import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -17,6 +20,13 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
+    final settingsProvider =
+        Provider.of<SettingsProvider>(context, listen: false);
+
+    void signOut(SettingsProvider settingsProvider, BuildContext context) {
+      settingsProvider.signOut(context: context);
+      Navigator.of(context).pop();
+    }
 
     return SafeArea(
       child: SingleChildScrollView(
@@ -105,6 +115,28 @@ class _SettingsPageState extends State<SettingsPage> {
               iconData: Icons.person_add_alt_1_outlined,
               title: StringsManager.inviteFriend,
             ),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: PaddingManager.p28,
+                right: PaddingManager.p60,
+                left: PaddingManager.p60,
+                bottom: PaddingManager.p16,
+              ),
+              child: Container(
+                width: deviceWidth,
+                height: SizeManager.s0_5,
+                color: ColorManager.limerGreen2,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: PaddingManager.p28),
+              child: SettingsPageButton(
+                deviceWidth: deviceWidth,
+                onTap: () => signOut(settingsProvider, context),
+                iconData: Icons.logout_sharp,
+                title: StringsManager.signOut,
+              ),
+            )
           ],
         ).animate().fadeIn(
               duration: 500.ms,

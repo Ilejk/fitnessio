@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/features/account/providers/account_provider.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/features/settings/widgets/delete_account_app_bar.dart';
-import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
@@ -35,8 +33,6 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
   Widget build(BuildContext context) {
     final settingsProvider =
         Provider.of<SettingsProvider>(context, listen: false);
-    final accountProvider =
-        Provider.of<AccountProvider>(context, listen: false);
     Future<void> deleteAccount() async {
       if (isValid) {
         try {
@@ -45,8 +41,10 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                   email: _emailController.text,
                   password: _passwordController.text)
               .then((value) {
-            accountProvider.signOut(context: context);
-            Navigator.of(context).pushReplacementNamed(Routes.loginRoute);
+            setState(() {
+              settingsProvider.signOut(context: context);
+              Navigator.of(context).pushReplacementNamed(Routes.loginRoute);
+            });
           });
         } catch (e) {
           print(e);

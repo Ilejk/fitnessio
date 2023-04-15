@@ -3,7 +3,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/features/settings/widgets/change_email_app_bar.dart';
-import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
