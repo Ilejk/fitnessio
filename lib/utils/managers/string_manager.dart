@@ -1,6 +1,6 @@
 class StringsManager {
   static const String noRouteFound = 'No Route Found';
-  static const String splashText1 = 'Plan your workous\nwith ease';
+  static const String splashText1 = 'Plan your workouts\nwith ease';
   static const String splashText2 =
       'Control your calorie intake and workout\nschedule from the comfort of your phone.';
   static const String getStarted = 'Get Started';
@@ -13,7 +13,6 @@ class StringsManager {
   static const String dontHaveAcc = 'Not a Member?';
   static const String forgotPassword = 'Forgot password?';
   static const String repeatPasswordHint = 'Repeat Password';
-  static const String smartHome = 'SMART HOME';
   static const String swipeToPrc = 'Let\'s Start';
   static const String myAcc = 'MY ACCOUNT';
   static const String enterEmailToResetPw =
@@ -67,4 +66,5 @@ class StringsManager {
   static const String deleteAccContent = 'Delete your account';
   static const String welcomeBack = 'Welcome Back';
   static const String todaysProg = 'Today\'s Progress';
+  static const String todaysAct = 'Today\'s Activity';
 }
