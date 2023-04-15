@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
+import 'package:smart_home_app/features/home/providers/home_provider.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
@@ -26,6 +27,9 @@ class _MyAppState extends State<MyApp> {
         ),
         ChangeNotifierProvider.value(
           value: SettingsProvider(),
+        ),
+        ChangeNotifierProvider.value(
+          value: HomeProvider(),
         )
       ],
       child: const MaterialApp(

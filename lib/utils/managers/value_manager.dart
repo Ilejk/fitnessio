@@ -43,6 +43,7 @@ class SizeManager {
   static const double s5 = 5.0;
   static const double s8 = 8.0;
   static const int si8 = 8;
+  static const double s10 = 10.0;
   static const double s12 = 12.0;
   static const double s14 = 14.0;
   static const double s16 = 16.0;
@@ -82,4 +83,7 @@ class RadiusManager {
   static const double r24 = 24.0;
   static const double r30 = 30.0;
   static const double r40 = 40.0;
+  static const double r50 = 50.0;
+  static const double r55 = 55.0;
+  static const double r60 = 60.0;
 }

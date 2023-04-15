@@ -45,6 +45,7 @@ class AuthProvider with ChangeNotifier {
       );
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
+      // ignore: use_build_context_synchronously
       showDialog(
           context: context,
           builder: (_) {
@@ -140,34 +141,35 @@ class AuthProvider with ChangeNotifier {
     required BuildContext context,
   }) async {
     showDialog(
-        context: context,
-        builder: (_) {
-          return Center(
-            child: Padding(
-              padding: const EdgeInsets.all(50),
-              child: SpinKitSpinningLines(color: ColorManager.limerGreen2),
-            ),
-          );
-        });
+      context: context,
+      builder: (_) => Center(
+        child: Padding(
+          padding: const EdgeInsets.all(50),
+          child: SpinKitSpinningLines(color: ColorManager.limerGreen2),
+        ),
+      ),
+    );
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      UserCredential credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(credential.user!.uid)
+          .set({});
 
       notifyListeners();
     } on FirebaseAuthException catch (_) {
-      Future.delayed(const Duration(seconds: 2)).then(
-        (value) {
-          Navigator.pop(context);
+      Future.delayed(const Duration(seconds: 2)).then((value) {
+        Navigator.pop(context);
 
-          notifyListeners();
-        },
-      );
+        notifyListeners();
+      });
     }
   }
 
@@ -187,7 +189,12 @@ class AuthProvider with ChangeNotifier {
     required BuildContext context,
   }) async {
     try {
-      await FirebaseFirestore.instance.collection('users').add({
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user!.uid)
+          .update({
         'email': email,
         'first name': name,
         'surname': surname,
@@ -201,7 +208,6 @@ class AuthProvider with ChangeNotifier {
         'gender': gender,
         'thigh': thigh,
       });
-
       notifyListeners();
     } catch (e) {
       print(e);

@@ -33,28 +33,7 @@ class _MainPageState extends State<MainPage> {
     SecurityPage(),
     SettingsPage(),
   ];
-  List<Widget> bottomNavItems = [
-    Icon(
-      Icons.other_houses_outlined,
-      color: ColorManager.limerGreen2,
-      size: SizeManager.s28,
-    ),
-    Icon(
-      Icons.list,
-      color: ColorManager.limerGreen2,
-      size: SizeManager.s28,
-    ),
-    Icon(
-      Icons.data_saver_off_sharp,
-      color: ColorManager.limerGreen2,
-      size: SizeManager.s28,
-    ),
-    Icon(
-      Icons.settings_outlined,
-      color: ColorManager.limerGreen2,
-      size: SizeManager.s28,
-    ),
-  ];
+
   appBar() {
     if (isHomePage) {
       return const HomePageAppBarWidget();
@@ -77,6 +56,28 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> bottomNavItems = [
+      Icon(
+        Icons.other_houses_outlined,
+        color: isHomePage ? ColorManager.limerGreen2 : ColorManager.grey2,
+        size: SizeManager.s28,
+      ),
+      Icon(
+        Icons.list,
+        color: isExercisesPage ? ColorManager.limerGreen2 : ColorManager.grey2,
+        size: SizeManager.s28,
+      ),
+      Icon(
+        Icons.data_saver_off_sharp,
+        color: isMyWorkoutsPage ? ColorManager.limerGreen2 : ColorManager.grey2,
+        size: SizeManager.s28,
+      ),
+      Icon(
+        Icons.settings_outlined,
+        color: isSettingsPage ? ColorManager.limerGreen2 : ColorManager.grey2,
+        size: SizeManager.s28,
+      ),
+    ];
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
       appBar: PreferredSize(

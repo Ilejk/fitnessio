@@ -25,7 +25,6 @@ class _SettingsPageState extends State<SettingsPage> {
 
     void signOut(SettingsProvider settingsProvider, BuildContext context) {
       settingsProvider.signOut(context: context);
-      Navigator.of(context).pop();
     }
 
     return SafeArea(

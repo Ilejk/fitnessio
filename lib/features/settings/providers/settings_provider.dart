@@ -110,11 +110,13 @@ class SettingsProvider with ChangeNotifier {
 
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
+
       notifyListeners();
     } on FirebaseAuthException catch (_) {
       Future.delayed(const Duration(seconds: 2)).then(
         (value) {
           Navigator.pop(context);
+
           notifyListeners();
         },
       );

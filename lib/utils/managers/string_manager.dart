@@ -65,4 +65,5 @@ class StringsManager {
   static const String yes = 'YES';
   static const String changeEmailContent = 'Set a new email for\nyour account';
   static const String deleteAccContent = 'Delete your account';
+  static const String welcomeBack = 'Welcome Back!';
 }
