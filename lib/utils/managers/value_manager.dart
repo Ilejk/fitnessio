@@ -86,4 +86,8 @@ class RadiusManager {
   static const double r50 = 50.0;
   static const double r55 = 55.0;
   static const double r60 = 60.0;
+  static const double r100 = 100.0;
+  static const double r150 = 150.0;
+  static const double r200 = 200.0;
+  static const double r350 = 350.0;
 }

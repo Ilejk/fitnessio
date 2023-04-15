@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/home/providers/home_provider.dart';
+import 'package:smart_home_app/features/home/widgets/todays_progress_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -25,95 +25,88 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            TodaysProgressWidget(deviceWidth: deviceWidth),
             Padding(
               padding: const EdgeInsets.only(
-                top: PaddingManager.p28,
                 left: PaddingManager.p12,
                 right: PaddingManager.p12,
                 bottom: PaddingManager.p28,
               ),
               child: Container(
                 width: deviceWidth,
+                height: SizeManager.s250,
                 decoration: BoxDecoration(
                   color: ColorManager.grey3,
                   borderRadius: BorderRadius.circular(
                     RadiusManager.r40,
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: PaddingManager.p12,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.only(
-                              top: PaddingManager.p12,
-                              right: PaddingManager.p20,
-                              left: PaddingManager.p20,
-                            ),
-                            child: Text(
-                              'Today\'s Progress',
-                              style: TextStyle(
-                                color: ColorManager.white,
-                                fontWeight: FontWightManager.bold,
-                                fontSize: FontSize.s22,
-                                letterSpacing: SizeManager.s1,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                              top: PaddingManager.p12,
-                              right: PaddingManager.p20,
-                              left: PaddingManager.p20,
-                            ),
-                            child: Text(
-                              '12 Exercises Left',
-                              style: TextStyle(
-                                color: ColorManager.white2,
-                                fontWeight: FontWightManager.regular,
-                                fontSize: FontSize.s14,
-                                letterSpacing: SizeManager.s1,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          )
-                        ],
+                child: Row(
+                  children: [
+                    Container(
+                      width: deviceWidth / 5,
+                      height: SizeManager.s250,
+                      decoration: BoxDecoration(
+                        color: ColorManager.limerGreen2,
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(RadiusManager.r40),
+                          bottomLeft: Radius.circular(RadiusManager.r40),
+                          topRight: Radius.circular(RadiusManager.r15),
+                          bottomRight: Radius.circular(RadiusManager.r15),
+                        ),
                       ),
-                      Padding(
+                      child: Padding(
                         padding: const EdgeInsets.only(
+                          right: PaddingManager.p12,
                           top: PaddingManager.p12,
-                          right: PaddingManager.p20,
-                          left: PaddingManager.p20,
                         ),
-                        child: CircularPercentIndicator(
-                          circularStrokeCap: CircularStrokeCap.round,
-                          radius: RadiusManager.r40,
-                          lineWidth: SizeManager.s8,
-                          percent: 0.7,
-                          progressColor: ColorManager.limerGreen2,
-                          backgroundColor: ColorManager.grey3,
-                          animateFromLastPercent: true,
-                          center: const Text(
-                            '70%',
-                            style: TextStyle(
-                              color: ColorManager.white,
-                              fontSize: FontSize.s18,
-                              fontWeight: FontWightManager.semiBold,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.all(PaddingManager.p12),
+                              child: Icon(
+                                Icons.sports_gymnastics_sharp,
+                                size: SizeManager.s40,
+                                color: ColorManager.darkGrey,
+                              ),
                             ),
-                          ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: PaddingManager.p12,
+                                bottom: PaddingManager.p12,
+                              ),
+                              child: Text(
+                                '1,345',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: ColorManager.darkGrey,
+                                  fontSize: FontSize.s20,
+                                  fontWeight: FontWightManager.bold,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: PaddingManager.p12,
+                                bottom: PaddingManager.p12,
+                              ),
+                              child: Text(
+                                'Calories',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: ColorManager.darkGrey,
+                                  fontSize: FontSize.s12,
+                                  fontWeight: FontWightManager.regular,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             )

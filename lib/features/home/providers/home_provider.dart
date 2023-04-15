@@ -16,6 +16,9 @@ class HomeProvider with ChangeNotifier {
         _userData['first name'] = userDataSnapshot.get('first name');
         _userData['surname'] = userDataSnapshot.get('surname');
         _userData['age'] = userDataSnapshot.get('age');
+        _userData['height'] = userDataSnapshot.get('height');
+        _userData['weight'] = userDataSnapshot.get('weight');
+
         notifyListeners();
       }
     } catch (e) {

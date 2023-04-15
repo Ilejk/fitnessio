@@ -67,7 +67,7 @@ class HomePageAppBarWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${homeProvider.userData['first name']} ${homeProvider.userData['surname']} !',
+                    '${homeProvider.userData['first name']} ${homeProvider.userData['surname']}!',
                     style: const TextStyle(
                       color: ColorManager.white,
                       fontSize: FontSize.s18,
