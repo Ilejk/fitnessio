@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class BottomDataWidget extends StatelessWidget {
   const BottomDataWidget({
     super.key,
-    required this.deviceWidth,
   });
-
-  final double deviceWidth;
 
   @override
   Widget build(BuildContext context) {
+    final deviceWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(
         left: PaddingManager.p12,
@@ -57,11 +56,7 @@ class BottomDataWidget extends StatelessWidget {
                 const Text(
                   '8000',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: ColorManager.white,
-                    fontSize: FontSize.s20,
-                    fontWeight: FontWightManager.bold,
-                  ),
+                  style: StyleManager.homePageS20BoldWhite,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(
@@ -103,27 +98,15 @@ class BottomDataWidget extends StatelessWidget {
                     children: const [
                       Text(
                         'Calorie Consumption',
-                        style: TextStyle(
-                          color: ColorManager.darkGrey,
-                          fontSize: FontSize.s18,
-                          fontWeight: FontWightManager.bold,
-                        ),
+                        style: StyleManager.homePageS18BoldDarkGrey,
                       ),
                       Text(
                         '3000',
-                        style: TextStyle(
-                          color: ColorManager.darkGrey,
-                          fontSize: FontSize.s35,
-                          fontWeight: FontWightManager.bold,
-                        ),
+                        style: StyleManager.homePageS20BoldDarkGrey,
                       ),
                       Text(
                         'Calories/Day',
-                        style: TextStyle(
-                          color: ColorManager.darkGrey,
-                          fontSize: FontSize.s16,
-                          fontWeight: FontWightManager.regular,
-                        ),
+                        style: StyleManager.homePageS16RegularDarkGrey,
                       ),
                     ],
                   ),
@@ -156,11 +139,7 @@ class BottomDataWidget extends StatelessWidget {
                               children: [
                                 const Text(
                                   'Water',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s18,
-                                    fontWeight: FontWightManager.bold,
-                                  ),
+                                  style: StyleManager.homePageS18BoldWhite,
                                 ),
                                 Icon(
                                   Icons.water_drop_outlined,
@@ -182,22 +161,15 @@ class BottomDataWidget extends StatelessWidget {
                               children: const [
                                 Text(
                                   '2.1',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s20,
-                                    fontWeight: FontWightManager.bold,
-                                  ),
+                                  style: StyleManager.homePageS20BoldWhite,
                                 ),
                                 Padding(
                                   padding:
                                       EdgeInsets.only(left: PaddingManager.p12),
                                   child: Text(
                                     'Liters',
-                                    style: TextStyle(
-                                      color: ColorManager.white2,
-                                      fontSize: FontSize.s12,
-                                      fontWeight: FontWightManager.regular,
-                                    ),
+                                    style:
+                                        StyleManager.homePageS12RegularWhite2,
                                   ),
                                 ),
                               ],
@@ -229,11 +201,7 @@ class BottomDataWidget extends StatelessWidget {
                             children: [
                               const Text(
                                 'Calories',
-                                style: TextStyle(
-                                  color: ColorManager.white,
-                                  fontSize: FontSize.s18,
-                                  fontWeight: FontWightManager.bold,
-                                ),
+                                style: StyleManager.homePageS18BoldWhite,
                               ),
                               Icon(
                                 Icons.local_pizza_outlined,
@@ -255,22 +223,14 @@ class BottomDataWidget extends StatelessWidget {
                             children: const [
                               Text(
                                 '1350',
-                                style: TextStyle(
-                                  color: ColorManager.white,
-                                  fontSize: FontSize.s20,
-                                  fontWeight: FontWightManager.bold,
-                                ),
+                                style: StyleManager.homePageS20BoldWhite,
                               ),
                               Padding(
                                 padding:
                                     EdgeInsets.only(left: PaddingManager.p12),
                                 child: Text(
                                   'kCal',
-                                  style: TextStyle(
-                                    color: ColorManager.white2,
-                                    fontSize: FontSize.s12,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager.homePageS12RegularWhite2,
                                 ),
                               ),
                             ],

@@ -4,9 +4,10 @@ import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
+import 'package:smart_home_app/utils/router/router.dart';
 
-class SettingsPageAppBarWidget extends StatelessWidget {
-  const SettingsPageAppBarWidget({
+class ExercisesPageAppBarWidget extends StatelessWidget {
+  const ExercisesPageAppBarWidget({
     Key? key,
   }) : super(key: key);
 
@@ -18,7 +19,7 @@ class SettingsPageAppBarWidget extends StatelessWidget {
       automaticallyImplyLeading: false,
       elevation: SizeManager.s0,
       title: const Text(
-        StringsManager.settingsABtitle,
+        StringsManager.consumptionABtitle,
         style: StyleManager.appbarTitleTextStyle,
       ),
       actions: [
@@ -35,11 +36,10 @@ class SettingsPageAppBarWidget extends StatelessWidget {
             ),
             child: IconButton(
               splashColor: ColorManager.grey3,
-              onPressed: () {
-                //TODO:::
-              },
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(Routes.newMealRoute),
               icon: const Icon(
-                Icons.more_horiz_sharp,
+                Icons.add,
                 size: SizeManager.s26,
                 color: ColorManager.white,
               ),

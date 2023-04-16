@@ -1,13 +1,13 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:smart_home_app/features/main/widgets/appbar_exercises.dart';
-import 'package:smart_home_app/features/main/widgets/appbar_my_workouts.dart';
+import 'package:smart_home_app/features/main/widgets/appbar_consumption.dart';
+import 'package:smart_home_app/features/main/widgets/appbar_workouts.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_settings.dart';
-import 'package:smart_home_app/features/exercises/pages/exercises_page.dart';
+import 'package:smart_home_app/features/consumption/pages/consumption_page.dart';
 import 'package:smart_home_app/features/home/pages/home_page.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_home.dart';
-import 'package:smart_home_app/features/my_workouts/pages/my_workouts_page.dart';
+import 'package:smart_home_app/features/workouts/pages/workouts_page.dart';
 import 'package:smart_home_app/features/settings/pages/settings_page.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -63,12 +63,12 @@ class _MainPageState extends State<MainPage> {
         size: SizeManager.s28,
       ),
       Icon(
-        Icons.list,
+        Icons.fastfood_outlined,
         color: isExercisesPage ? ColorManager.limerGreen2 : ColorManager.grey2,
         size: SizeManager.s28,
       ),
       Icon(
-        Icons.data_saver_off_sharp,
+        Icons.list,
         color: isMyWorkoutsPage ? ColorManager.limerGreen2 : ColorManager.grey2,
         size: SizeManager.s28,
       ),

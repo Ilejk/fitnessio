@@ -60,8 +60,8 @@ class CarouselHomeBox extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               title,
-              style: const TextStyle(
-                color: ColorManager.white,
+              style: TextStyle(
+                color: ColorManager.limerGreen2,
                 fontSize: FontSize.s35,
                 fontWeight: FontWightManager.bold,
                 letterSpacing: SizeManager.s1,

@@ -8,19 +8,16 @@ import 'package:smart_home_app/utils/managers/value_manager.dart';
 class TodaysProgressWidget extends StatelessWidget {
   const TodaysProgressWidget({
     super.key,
-    required this.deviceWidth,
   });
-
-  final double deviceWidth;
 
   @override
   Widget build(BuildContext context) {
+    final deviceWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(
         top: PaddingManager.p28,
         left: PaddingManager.p12,
         right: PaddingManager.p12,
-        bottom: PaddingManager.p28,
       ),
       child: Container(
         width: deviceWidth,

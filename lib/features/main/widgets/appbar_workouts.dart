@@ -18,7 +18,7 @@ class MyWorkoutsPageAppBarWidget extends StatelessWidget {
       automaticallyImplyLeading: false,
       elevation: SizeManager.s0,
       title: const Text(
-        StringsManager.myWorkoutsABtitle,
+        StringsManager.workoutsABtitle,
         style: StyleManager.appbarTitleTextStyle,
       ),
       actions: [

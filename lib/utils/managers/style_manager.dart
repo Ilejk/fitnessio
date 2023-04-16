@@ -96,4 +96,40 @@ class StyleManager {
     fontSize: FontSize.s20,
     fontWeight: FontWightManager.semiBold,
   );
+  static const homePageS18BoldWhite = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s18,
+    fontWeight: FontWightManager.bold,
+  );
+  static const homePageS20BoldWhite = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s20,
+    fontWeight: FontWightManager.bold,
+  );
+  static const homePageS12RegularWhite2 = TextStyle(
+    color: ColorManager.white2,
+    fontSize: FontSize.s12,
+    fontWeight: FontWightManager.regular,
+  );
+  static const homePageTextSpacerTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontWeight: FontWightManager.semiBold,
+    fontSize: FontSize.s25,
+    letterSpacing: SizeManager.s1,
+  );
+  static const homePageS18BoldDarkGrey = TextStyle(
+    color: ColorManager.darkGrey,
+    fontSize: FontSize.s18,
+    fontWeight: FontWightManager.bold,
+  );
+  static const homePageS20BoldDarkGrey = TextStyle(
+    color: ColorManager.darkGrey,
+    fontSize: FontSize.s35,
+    fontWeight: FontWightManager.bold,
+  );
+  static const homePageS16RegularDarkGrey = TextStyle(
+    color: ColorManager.darkGrey,
+    fontSize: FontSize.s16,
+    fontWeight: FontWightManager.regular,
+  );
 }

@@ -26,8 +26,9 @@ class StringsManager {
   static const String nameHint = 'Name';
   static const String surnameHint = 'Surname';
   static const String settingsABtitle = 'SETTINGS';
-  static const String myWorkoutsABtitle = 'MY WORKOUTS';
-  static const String exercisesABtitle = 'EXERCISES';
+  static const String addMealABtitle = 'ADD MEAL';
+  static const String workoutsABtitle = 'WORKOUTS';
+  static const String consumptionABtitle = 'CONSUMPTION';
   static const String signOut = 'Sign Out';
   static const String changePassword = 'Change password';
   static const String changeEmail = 'Change email';
@@ -67,4 +68,10 @@ class StringsManager {
   static const String welcomeBack = 'Welcome Back';
   static const String todaysProg = 'Today\'s Progress';
   static const String todaysAct = 'Today\'s Activity';
+  static const String explore = 'Explore';
+  static const String strengh = 'STRENGH';
+  static const String yoga = 'YOGA';
+  static const String power = 'POWER';
+  static const String confidence = 'CONFIDENCE';
+  static const String meditation = 'MEDITATION';
 }
