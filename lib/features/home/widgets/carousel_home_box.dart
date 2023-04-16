@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class CarouselHomeBox extends StatelessWidget {
@@ -60,12 +61,7 @@ class CarouselHomeBox extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               title,
-              style: TextStyle(
-                color: ColorManager.limerGreen2,
-                fontSize: FontSize.s35,
-                fontWeight: FontWightManager.bold,
-                letterSpacing: SizeManager.s1,
-              ),
+              style: StyleManager.homePageCarouselTitle,
             ),
           )
         ],

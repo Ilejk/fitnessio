@@ -111,6 +111,7 @@ class _LoginPageState extends State<LoginPage>
         print(e);
       }
       try {
+        // ignore: use_build_context_synchronously
         await authProvider.addUserData(
           email: _emailController.text,
           name: _nameController.text,

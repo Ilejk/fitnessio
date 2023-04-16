@@ -53,11 +53,13 @@ class LoginOrRegisterView extends StatelessWidget {
         controller: emailController,
         labelHint: StringsManager.emailHint,
         obscureText: false,
+        keyboardType: TextInputType.emailAddress,
       ),
       TextFieldWidget(
         controller: passwordController,
         labelHint: StringsManager.passwordHint,
         obscureText: true,
+        keyboardType: TextInputType.emailAddress,
       ),
     ];
     List<Widget> registerChildren = [
@@ -65,31 +67,37 @@ class LoginOrRegisterView extends StatelessWidget {
         controller: emailController,
         labelHint: StringsManager.emailHint,
         obscureText: false,
+        keyboardType: TextInputType.emailAddress,
       ),
       TextFieldWidget(
         controller: passwordController,
         labelHint: StringsManager.passwordHint,
         obscureText: true,
+        keyboardType: TextInputType.emailAddress,
       ),
       TextFieldWidget(
         controller: repeatPasswordController,
         labelHint: StringsManager.repeatPasswordHint,
         obscureText: true,
+        keyboardType: TextInputType.emailAddress,
       ),
       TextFieldWidget(
         controller: nameController,
         labelHint: StringsManager.nameHint,
         obscureText: false,
+        keyboardType: TextInputType.text,
       ),
       TextFieldWidget(
         controller: surnameController,
         labelHint: StringsManager.surnameHint,
         obscureText: false,
+        keyboardType: TextInputType.text,
       ),
       TextFieldWidget(
         controller: ageController,
         labelHint: StringsManager.ageHint,
         obscureText: false,
+        keyboardType: TextInputType.number,
       ),
       const Padding(
         padding: EdgeInsets.only(
@@ -106,11 +114,13 @@ class LoginOrRegisterView extends StatelessWidget {
         controller: heightController,
         labelHint: StringsManager.heightHint,
         obscureText: false,
+        keyboardType: TextInputType.number,
       ),
       TextFieldWidget(
         controller: weightController,
         labelHint: StringsManager.weightHint,
         obscureText: false,
+        keyboardType: TextInputType.number,
       ),
       NeuButton(
         width: SizeManager.s400,
@@ -154,26 +164,31 @@ class LoginOrRegisterView extends StatelessWidget {
         controller: armController,
         labelHint: StringsManager.armHint,
         obscureText: false,
+        keyboardType: TextInputType.number,
       ),
       TextFieldWidget(
         controller: chestController,
         labelHint: StringsManager.chestHint,
         obscureText: false,
+        keyboardType: TextInputType.number,
       ),
       TextFieldWidget(
         controller: waistController,
         labelHint: StringsManager.waistHint,
         obscureText: false,
+        keyboardType: TextInputType.number,
       ),
       TextFieldWidget(
         controller: hipController,
         labelHint: StringsManager.hipHint,
         obscureText: false,
+        keyboardType: TextInputType.number,
       ),
       TextFieldWidget(
         controller: thighController,
         labelHint: StringsManager.thighHint,
         obscureText: false,
+        keyboardType: TextInputType.number,
       ),
     ];
     return Column(

@@ -148,10 +148,12 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                 controller: _emailController,
                 labelHint: StringsManager.emailHint,
                 obscureText: false,
+                keyboardType: TextInputType.emailAddress,
               ),
               TextFieldWidget(
                 controller: _passwordController,
                 labelHint: StringsManager.passwordHint,
+                keyboardType: TextInputType.emailAddress,
                 obscureText: true,
               ),
               LimeGreenRoundedButtonWidget(

@@ -83,16 +83,19 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                 controller: _emailController,
                 labelHint: StringsManager.emailHint,
                 obscureText: false,
+                keyboardType: TextInputType.emailAddress,
               ),
               TextFieldWidget(
                 controller: _oldPasswordController,
                 labelHint: StringsManager.oldPasswordHint,
                 obscureText: true,
+                keyboardType: TextInputType.emailAddress,
               ),
               TextFieldWidget(
                 controller: _newPasswordController,
                 labelHint: StringsManager.newPasswordHint,
                 obscureText: true,
+                keyboardType: TextInputType.emailAddress,
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: changePassword,

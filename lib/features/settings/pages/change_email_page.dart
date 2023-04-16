@@ -81,16 +81,19 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
                 controller: _oldEmailController,
                 labelHint: StringsManager.oldEmailHint,
                 obscureText: false,
+                keyboardType: TextInputType.emailAddress,
               ),
               TextFieldWidget(
                 controller: _newEmailController,
                 labelHint: StringsManager.newEmailHint,
                 obscureText: false,
+                keyboardType: TextInputType.emailAddress,
               ),
               TextFieldWidget(
                 controller: _passwordController,
                 labelHint: StringsManager.passwordHint,
                 obscureText: true,
+                keyboardType: TextInputType.emailAddress,
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: changeEmail,

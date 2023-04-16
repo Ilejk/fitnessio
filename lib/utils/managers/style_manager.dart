@@ -132,4 +132,27 @@ class StyleManager {
     fontSize: FontSize.s16,
     fontWeight: FontWightManager.regular,
   );
+  static final homePageCarouselTitle = TextStyle(
+    color: ColorManager.limerGreen2,
+    fontSize: FontSize.s35,
+    fontWeight: FontWightManager.bold,
+    letterSpacing: SizeManager.s1,
+  );
+  static const homePageS14RegularWhite2L1 = TextStyle(
+    color: ColorManager.white2,
+    fontWeight: FontWightManager.regular,
+    fontSize: FontSize.s14,
+    letterSpacing: SizeManager.s1,
+  );
+  static const homePagePogressBarTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s18,
+    fontWeight: FontWightManager.semiBold,
+  );
+  static const homePageTodaysProgressTextSTyle = TextStyle(
+    color: ColorManager.white,
+    fontWeight: FontWightManager.bold,
+    fontSize: FontSize.s22,
+    letterSpacing: SizeManager.s1,
+  );
 }

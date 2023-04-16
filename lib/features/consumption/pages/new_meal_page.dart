@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_app/features/consumption/widgets/new_meal_app_bar.dart';
+import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
-import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
+import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
+import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class NewMealPage extends StatefulWidget {
   const NewMealPage({super.key});
@@ -12,6 +15,18 @@ class NewMealPage extends StatefulWidget {
 }
 
 class _NewMealPageState extends State<NewMealPage> {
+  final TextEditingController _mealTitleController = TextEditingController();
+  final TextEditingController _mealCalloriesController =
+      TextEditingController();
+  final TextEditingController _mealAmountController = TextEditingController();
+  @override
+  void dispose() {
+    _mealTitleController.dispose();
+    _mealCalloriesController.dispose();
+    _mealAmountController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
@@ -21,46 +36,50 @@ class _NewMealPageState extends State<NewMealPage> {
           deviceWidth,
           SizeManager.s60,
         ),
-        child: AppBar(
-          elevation: 0.0,
-          title: const Text(
-            StringsManager.addMealABtitle,
-            style: StyleManager.abTitleTextStyle,
-          ),
-          backgroundColor: ColorManager.darkGrey,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: PaddingManager.p12),
-            child: Container(
-              height: SizeManager.s40,
-              width: SizeManager.s40,
-              decoration: BoxDecoration(
-                color: ColorManager.grey3,
-                borderRadius: BorderRadius.circular(
-                  RadiusManager.r40,
-                ),
-              ),
-              child: IconButton(
-                splashColor: ColorManager.grey3,
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios_new,
-                  size: SizeManager.s26,
-                  color: ColorManager.white,
-                ),
-              ),
-            ),
-          ),
-        ),
+        child: const NewMealPageAppBar(),
       ),
       backgroundColor: ColorManager.darkGrey,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [],
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: PaddingManager.p8),
+                child: SizedBox(
+                  width: SizeManager.s250,
+                  height: SizeManager.s250,
+                  child: Image.asset(
+                    ImageManager.fork,
+                  ),
+                ),
+              ),
+              TextFieldWidget(
+                controller: _mealTitleController,
+                labelHint: StringsManager.mealNameHint,
+                obscureText: false,
+                keyboardType: TextInputType.text,
+              ),
+              TextFieldWidget(
+                controller: _mealAmountController,
+                labelHint: StringsManager.mealAmountHint,
+                obscureText: false,
+                keyboardType: TextInputType.number,
+              ),
+              TextFieldWidget(
+                controller: _mealCalloriesController,
+                labelHint: StringsManager.mealCaloriesHint,
+                keyboardType: TextInputType.number,
+                obscureText: false,
+              ),
+              LimeGreenRoundedButtonWidget(
+                onTap: () {
+                  //TODO
+                },
+                title: StringsManager.add,
+              )
+            ],
           ),
         ),
       ),

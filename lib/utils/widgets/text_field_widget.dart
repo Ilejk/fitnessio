@@ -10,11 +10,13 @@ class TextFieldWidget extends StatelessWidget {
     required this.controller,
     required this.labelHint,
     required this.obscureText,
+    required this.keyboardType,
   }) : super(key: key);
 
   final TextEditingController controller;
   final bool obscureText;
   final String labelHint;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class TextFieldWidget extends StatelessWidget {
           textAlign: TextAlign.start,
           style: const TextStyle(color: ColorManager.limeGreen),
           autocorrect: false,
-          keyboardType: TextInputType.emailAddress,
+          keyboardType: keyboardType,
           cursorColor: ColorManager.limeGreen,
           decoration: InputDecoration(
             labelText: labelHint,

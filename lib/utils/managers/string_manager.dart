@@ -74,4 +74,8 @@ class StringsManager {
   static const String power = 'POWER';
   static const String confidence = 'CONFIDENCE';
   static const String meditation = 'MEDITATION';
+  static const String mealNameHint = 'Name';
+  static const String mealAmountHint = 'Amount in grams';
+  static const String mealCaloriesHint = 'kCal';
+  static const String add = 'ADD';
 }

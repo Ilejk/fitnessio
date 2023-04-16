@@ -3,6 +3,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class TodaysProgressWidget extends StatelessWidget {
@@ -47,12 +48,7 @@ class TodaysProgressWidget extends StatelessWidget {
                     ),
                     child: Text(
                       StringsManager.todaysProg,
-                      style: TextStyle(
-                        color: ColorManager.white,
-                        fontWeight: FontWightManager.bold,
-                        fontSize: FontSize.s22,
-                        letterSpacing: SizeManager.s1,
-                      ),
+                      style: StyleManager.homePageTodaysProgressTextSTyle,
                       textAlign: TextAlign.left,
                     ),
                   ),
@@ -64,12 +60,7 @@ class TodaysProgressWidget extends StatelessWidget {
                     ),
                     child: Text(
                       '12 Exercises Left',
-                      style: TextStyle(
-                        color: ColorManager.white2,
-                        fontWeight: FontWightManager.regular,
-                        fontSize: FontSize.s14,
-                        letterSpacing: SizeManager.s1,
-                      ),
+                      style: StyleManager.homePageS14RegularWhite2L1,
                       textAlign: TextAlign.left,
                     ),
                   )
@@ -91,11 +82,7 @@ class TodaysProgressWidget extends StatelessWidget {
                   animateFromLastPercent: true,
                   center: const Text(
                     '70%',
-                    style: TextStyle(
-                      color: ColorManager.white,
-                      fontSize: FontSize.s18,
-                      fontWeight: FontWightManager.semiBold,
-                    ),
+                    style: StyleManager.homePagePogressBarTextStyle,
                   ),
                 ),
               )

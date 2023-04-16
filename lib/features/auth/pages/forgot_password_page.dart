@@ -55,6 +55,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               controller: emailController,
               labelHint: StringsManager.emailHint,
               obscureText: false,
+              keyboardType: TextInputType.emailAddress,
             ),
             LimeGreenRoundedButtonWidget(
               onTap: () {
