@@ -3,7 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/home/providers/home_provider.dart';
 import 'package:smart_home_app/features/home/widgets/bottom_data_widget.dart';
-import 'package:smart_home_app/features/home/widgets/todays_activity_data_widget.dart';
+import 'package:smart_home_app/features/home/widgets/carousel_slider_home_widget.dart';
 import 'package:smart_home_app/features/home/widgets/todays_activity_spacer_widget.dart';
 import 'package:smart_home_app/features/home/widgets/todays_progress_widget.dart';
 
@@ -28,8 +28,8 @@ class _HomePageState extends State<HomePage> {
           children: [
             TodaysProgressWidget(deviceWidth: deviceWidth),
             const TodaysActivitySpacerWidget(),
-            TodaysActivityDataWidget(deviceWidth: deviceWidth),
             BottomDataWidget(deviceWidth: deviceWidth),
+            CarouselSliderHomeWidget(deviceWidth: deviceWidth)
           ],
         ),
       ),
