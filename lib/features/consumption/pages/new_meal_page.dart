@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/consumption/providers/consumption_provider.dart';
 import 'package:smart_home_app/features/consumption/widgets/new_meal_app_bar.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -30,6 +32,8 @@ class _NewMealPageState extends State<NewMealPage> {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
+    final consumptionProvider =
+        Provider.of<ConsumptionProvider>(context, listen: false);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(
@@ -75,7 +79,16 @@ class _NewMealPageState extends State<NewMealPage> {
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {
-                  //TODO
+                  try {
+                    consumptionProvider.addNewMeal(
+                      title: _mealTitleController.text,
+                      amount: double.parse(_mealAmountController.text),
+                      calories: double.parse(_mealCalloriesController.text),
+                    );
+                    Navigator.of(context).pop();
+                  } catch (e) {
+                    print(e);
+                  }
                 },
                 title: StringsManager.add,
               )

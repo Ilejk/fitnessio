@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
           value: HomeProvider(),
         ),
         ChangeNotifierProvider.value(
-          value: ConsuptionProvider(),
+          value: ConsumptionProvider(),
         )
       ],
       child: const MaterialApp(
