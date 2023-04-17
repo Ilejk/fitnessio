@@ -78,4 +78,7 @@ class StringsManager {
   static const String mealAmountHint = 'Amount in grams';
   static const String mealCaloriesHint = 'kCal';
   static const String add = 'ADD';
+  static const String mealProteinsHint = 'Proteins in grams';
+  static const String mealFatsHint = 'Fats in grams';
+  static const String mealCarbsHint = 'Carbs in grams';
 }

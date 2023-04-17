@@ -9,11 +9,17 @@ class MealWidget extends StatelessWidget {
     required this.title,
     required this.amount,
     required this.calories,
+    required this.carbs,
+    required this.fats,
+    required this.proteins,
   });
 
   final String title;
   final double amount;
   final double calories;
+  final double fats;
+  final double carbs;
+  final double proteins;
 
   @override
   Widget build(BuildContext context) {
@@ -43,30 +49,71 @@ class MealWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: FontSize.s22,
-                  color: ColorManager.white,
-                  fontWeight: FontWightManager.semiBold,
-                  letterSpacing: SizeManager.s1,
-                ),
-              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Column(
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: FontSize.s22,
+                          color: ColorManager.white,
+                          fontWeight: FontWightManager.semiBold,
+                          letterSpacing: SizeManager.s1,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            '$calories kCal',
+                            style: TextStyle(
+                              fontSize: FontSize.s20,
+                              color: ColorManager.limerGreen2,
+                              fontWeight: FontWightManager.semiBold,
+                              letterSpacing: SizeManager.s1,
+                            ),
+                          ),
+                          Text(
+                            '$amount gram',
+                            style: const TextStyle(
+                              fontSize: FontSize.s16,
+                              color: ColorManager.white2,
+                              fontWeight: FontWightManager.regular,
+                              letterSpacing: SizeManager.s1,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
                   Text(
-                    '$calories kCal',
-                    style: TextStyle(
-                      fontSize: FontSize.s20,
-                      color: ColorManager.limerGreen2,
-                      fontWeight: FontWightManager.semiBold,
+                    '$fats',
+                    style: const TextStyle(
+                      fontSize: FontSize.s16,
+                      color: ColorManager.white2,
+                      fontWeight: FontWightManager.regular,
                       letterSpacing: SizeManager.s1,
                     ),
                   ),
                   Text(
-                    '$amount gram',
+                    '$carbs',
+                    style: const TextStyle(
+                      fontSize: FontSize.s16,
+                      color: ColorManager.white2,
+                      fontWeight: FontWightManager.regular,
+                      letterSpacing: SizeManager.s1,
+                    ),
+                  ),
+                  Text(
+                    '$proteins',
                     style: const TextStyle(
                       fontSize: FontSize.s16,
                       color: ColorManager.white2,

@@ -12,12 +12,16 @@ class ConsumptionPage extends StatefulWidget {
 
 class _ConsumptionPageState extends State<ConsumptionPage> {
   @override
+  void initState() {
+    Provider.of<ConsumptionProvider>(context, listen: false)
+        .clearMealsIfDayChanges();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final consumptionProvider =
         Provider.of<ConsumptionProvider>(context, listen: false);
-    final deviceWidth = MediaQuery.of(context).size.width;
-    final deviceHeight = MediaQuery.of(context).size.height;
-
     return SafeArea(
       child: FutureBuilder<void>(
           future: consumptionProvider.fetchAndSetMeals(),
@@ -34,6 +38,9 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
                         title: consumptionProvider.meals[index].title,
                         amount: consumptionProvider.meals[index].amount,
                         calories: consumptionProvider.meals[index].calories,
+                        fats: consumptionProvider.meals[index].fats,
+                        carbs: consumptionProvider.meals[index].carbs,
+                        proteins: consumptionProvider.meals[index].proteins,
                       );
                     },
                   ),

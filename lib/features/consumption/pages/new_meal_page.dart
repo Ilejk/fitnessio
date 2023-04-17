@@ -21,11 +21,18 @@ class _NewMealPageState extends State<NewMealPage> {
   final TextEditingController _mealCalloriesController =
       TextEditingController();
   final TextEditingController _mealAmountController = TextEditingController();
+  final TextEditingController _mealFatsController = TextEditingController();
+  final TextEditingController _mealCarbsController = TextEditingController();
+  final TextEditingController _mealProteinsController = TextEditingController();
+
   @override
   void dispose() {
     _mealTitleController.dispose();
     _mealCalloriesController.dispose();
     _mealAmountController.dispose();
+    _mealCarbsController.dispose();
+    _mealFatsController.dispose();
+    _mealProteinsController.dispose();
     super.dispose();
   }
 
@@ -66,14 +73,32 @@ class _NewMealPageState extends State<NewMealPage> {
                 keyboardType: TextInputType.text,
               ),
               TextFieldWidget(
+                controller: _mealCalloriesController,
+                labelHint: StringsManager.mealCaloriesHint,
+                keyboardType: TextInputType.number,
+                obscureText: false,
+              ),
+              TextFieldWidget(
                 controller: _mealAmountController,
                 labelHint: StringsManager.mealAmountHint,
                 obscureText: false,
                 keyboardType: TextInputType.number,
               ),
               TextFieldWidget(
-                controller: _mealCalloriesController,
-                labelHint: StringsManager.mealCaloriesHint,
+                controller: _mealFatsController,
+                labelHint: StringsManager.mealFatsHint,
+                keyboardType: TextInputType.number,
+                obscureText: false,
+              ),
+              TextFieldWidget(
+                controller: _mealCarbsController,
+                labelHint: StringsManager.mealCarbsHint,
+                keyboardType: TextInputType.number,
+                obscureText: false,
+              ),
+              TextFieldWidget(
+                controller: _mealProteinsController,
+                labelHint: StringsManager.mealProteinsHint,
                 keyboardType: TextInputType.number,
                 obscureText: false,
               ),
@@ -84,6 +109,9 @@ class _NewMealPageState extends State<NewMealPage> {
                       title: _mealTitleController.text,
                       amount: double.parse(_mealAmountController.text),
                       calories: double.parse(_mealCalloriesController.text),
+                      fats: double.parse(_mealFatsController.text),
+                      carbs: double.parse(_mealCarbsController.text),
+                      proteins: double.parse(_mealProteinsController.text),
                     );
                     Navigator.of(context).pop();
                   } catch (e) {
