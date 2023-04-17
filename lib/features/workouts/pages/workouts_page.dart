@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SecurityPage extends StatefulWidget {
-  const SecurityPage({super.key});
+class WorkoutPage extends StatefulWidget {
+  const WorkoutPage({super.key});
 
   @override
-  State<SecurityPage> createState() => _SecurityPageState();
+  State<WorkoutPage> createState() => _WorkoutPageState();
 }
 
-class _SecurityPageState extends State<SecurityPage> {
+class _WorkoutPageState extends State<WorkoutPage> {
   @override
   Widget build(BuildContext context) {
     return Container(

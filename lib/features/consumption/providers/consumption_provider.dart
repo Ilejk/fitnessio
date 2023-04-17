@@ -56,7 +56,6 @@ class ConsumptionProvider with ChangeNotifier {
         ));
       }
 
-      _meals.clear();
       _meals.addAll(loadedMeals);
       notifyListeners();
     } catch (e) {

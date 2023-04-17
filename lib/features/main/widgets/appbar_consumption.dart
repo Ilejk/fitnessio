@@ -6,8 +6,8 @@ import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
-class ExercisesPageAppBarWidget extends StatelessWidget {
-  const ExercisesPageAppBarWidget({
+class ConsumptionPageAppBarWidget extends StatelessWidget {
+  const ConsumptionPageAppBarWidget({
     Key? key,
   }) : super(key: key);
 

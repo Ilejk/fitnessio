@@ -5,8 +5,8 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class MyWorkoutsPageAppBarWidget extends StatelessWidget {
-  const MyWorkoutsPageAppBarWidget({
+class WorkoutsPageAppBarWidget extends StatelessWidget {
+  const WorkoutsPageAppBarWidget({
     Key? key,
   }) : super(key: key);
 

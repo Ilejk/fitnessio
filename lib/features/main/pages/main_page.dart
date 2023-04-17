@@ -29,18 +29,18 @@ class _MainPageState extends State<MainPage> {
 
   List<Widget> pages = const [
     HomePage(),
-    MenuPage(),
-    SecurityPage(),
+    ConsumptionPage(),
+    WorkoutPage(),
     SettingsPage(),
   ];
 
   appBar() {
     if (isHomePage) {
       return const HomePageAppBarWidget();
-    } else if (isExercisesPage) {
-      return const ExercisesPageAppBarWidget();
-    } else if (isMyWorkoutsPage) {
-      return const MyWorkoutsPageAppBarWidget();
+    } else if (isConsumptionPage) {
+      return const ConsumptionPageAppBarWidget();
+    } else if (isWorkoutsPage) {
+      return const WorkoutsPageAppBarWidget();
     } else if (isSettingsPage) {
       return const SettingsPageAppBarWidget();
     }
@@ -48,9 +48,9 @@ class _MainPageState extends State<MainPage> {
 
   bool get isSettingsPage => _currentIndex == 3;
 
-  bool get isMyWorkoutsPage => _currentIndex == 2;
+  bool get isWorkoutsPage => _currentIndex == 2;
 
-  bool get isExercisesPage => _currentIndex == 1;
+  bool get isConsumptionPage => _currentIndex == 1;
 
   bool get isHomePage => _currentIndex == 0;
 
@@ -64,12 +64,13 @@ class _MainPageState extends State<MainPage> {
       ),
       Icon(
         Icons.fastfood_outlined,
-        color: isExercisesPage ? ColorManager.limerGreen2 : ColorManager.grey2,
+        color:
+            isConsumptionPage ? ColorManager.limerGreen2 : ColorManager.grey2,
         size: SizeManager.s28,
       ),
       Icon(
         Icons.list,
-        color: isMyWorkoutsPage ? ColorManager.limerGreen2 : ColorManager.grey2,
+        color: isWorkoutsPage ? ColorManager.limerGreen2 : ColorManager.grey2,
         size: SizeManager.s28,
       ),
       Icon(
