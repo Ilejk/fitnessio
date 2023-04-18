@@ -81,4 +81,7 @@ class StringsManager {
   static const String mealProteinsHint = 'Proteins in grams';
   static const String mealFatsHint = 'Fats in grams';
   static const String mealCarbsHint = 'Carbs in grams';
+  static const String fats = 'Fats';
+  static const String carbs = 'Carbs';
+  static const String proteins = 'Proteins';
 }

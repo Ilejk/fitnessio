@@ -113,6 +113,7 @@ class _NewMealPageState extends State<NewMealPage> {
                       carbs: double.parse(_mealCarbsController.text),
                       proteins: double.parse(_mealProteinsController.text),
                     );
+
                     Navigator.of(context).pop();
                   } catch (e) {
                     print(e);

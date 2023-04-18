@@ -19,6 +19,12 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
   }
 
   @override
+  void didChangeDependencies() {
+    setState(() {});
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final consumptionProvider =
         Provider.of<ConsumptionProvider>(context, listen: false);

@@ -87,7 +87,7 @@ class _MainPageState extends State<MainPage> {
       ),
       bottomNavigationBar: CurvedNavigationBar(
         color: ColorManager.black87,
-        buttonBackgroundColor: ColorManager.darkGrey,
+        buttonBackgroundColor: Colors.transparent,
         backgroundColor: ColorManager.darkGrey,
         onTap: ontap,
         index: _currentIndex,

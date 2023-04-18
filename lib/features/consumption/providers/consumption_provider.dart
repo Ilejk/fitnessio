@@ -81,6 +81,16 @@ class ConsumptionProvider with ChangeNotifier {
       if (DateTime.now().isAfter(midnight)) {
         timer.cancel();
         _meals.clear();
+        FirebaseFirestore.instance
+            .collection('meals')
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .collection('mealData')
+            .get()
+            .then((snapshot) {
+          for (DocumentSnapshot doc in snapshot.docs) {
+            doc.reference.delete();
+          }
+        });
         notifyListeners();
       }
     });
