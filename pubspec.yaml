@@ -33,6 +33,7 @@ dependencies:
   cloud_firestore: ^4.5.0
   percent_indicator: ^4.2.3
   dropdown_button2: ^1.9.2
+  liquid_pull_to_refresh: ^3.0.1
 
 dev_dependencies:
   flutter_test:
