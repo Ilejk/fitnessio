@@ -11,13 +11,15 @@ class ConsumptionProvider with ChangeNotifier {
     return [..._meals];
   }
 
-  Future<void> addNewMeal(
-      {required String title,
-      required double amount,
-      required double calories,
-      required double fats,
-      required double carbs,
-      required double proteins}) async {
+  Future<void> addNewMeal({
+    required String title,
+    required double amount,
+    required double calories,
+    required double fats,
+    required double carbs,
+    required double proteins,
+    required DateTime dateTime,
+  }) async {
     try {
       User? user = FirebaseAuth.instance.currentUser;
 
@@ -33,6 +35,7 @@ class ConsumptionProvider with ChangeNotifier {
         'fats': fats,
         'carbs': carbs,
         'proteins': proteins,
+        'dateTime': dateTime,
       });
       notifyListeners();
     } catch (e) {
@@ -41,7 +44,7 @@ class ConsumptionProvider with ChangeNotifier {
     }
   }
 
-  Future<void> fetchAndSetMeals() async {
+  Future fetchAndSetMeals() async {
     User? user = FirebaseAuth.instance.currentUser;
 
     try {
@@ -63,6 +66,7 @@ class ConsumptionProvider with ChangeNotifier {
           fats: mealData['fats'],
           carbs: mealData['carbs'],
           proteins: mealData['proteins'],
+          dateTime: (mealData['dateTime'] as Timestamp).toDate(),
         ));
       }
       _meals.clear();
@@ -74,25 +78,40 @@ class ConsumptionProvider with ChangeNotifier {
     }
   }
 
-  void clearMealsIfDayChanges() {
+  Future<void> clearMealsIfDayChanges(DateTime lastDateTime) async {
     DateTime now = DateTime.now();
-    DateTime midnight = DateTime(now.year, now.month, now.day + 1);
-    Timer.periodic(const Duration(seconds: 60), (timer) {
-      if (DateTime.now().isAfter(midnight)) {
-        timer.cancel();
-        _meals.clear();
-        FirebaseFirestore.instance
+    if (isLastDateTimeDifferent(now, lastDateTime)) {
+      try {
+        User? user = FirebaseAuth.instance.currentUser;
+
+        await FirebaseFirestore.instance
             .collection('meals')
-            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .doc(user!.uid)
             .collection('mealData')
             .get()
-            .then((snapshot) {
-          for (DocumentSnapshot doc in snapshot.docs) {
-            doc.reference.delete();
+            .then((querySnapshot) {
+          for (var doc in querySnapshot.docs) {
+            DateTime mealDateTime = (doc['dateTime'] as Timestamp).toDate();
+            if (isMealDateDifferent(now, mealDateTime)) {
+              doc.reference.delete();
+            }
           }
         });
-        notifyListeners();
+      } catch (e) {
+        print(e);
       }
-    });
+    }
+  }
+
+  bool isLastDateTimeDifferent(DateTime now, DateTime lastDateTime) {
+    return now.year != lastDateTime.year ||
+        now.month != lastDateTime.month ||
+        now.day != lastDateTime.day;
+  }
+
+  bool isMealDateDifferent(DateTime now, DateTime mealDateTime) {
+    return now.year != mealDateTime.year ||
+        now.month != mealDateTime.month ||
+        now.day != mealDateTime.day;
   }
 }

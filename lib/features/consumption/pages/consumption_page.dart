@@ -16,9 +16,21 @@ class ConsumptionPage extends StatefulWidget {
 class _ConsumptionPageState extends State<ConsumptionPage> {
   @override
   void initState() {
-    Provider.of<ConsumptionProvider>(context, listen: false)
-        .clearMealsIfDayChanges();
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final consumptionProvider =
+          Provider.of<ConsumptionProvider>(context, listen: false);
+      final meals = await consumptionProvider.fetchAndSetMeals();
+      if (meals != null && meals.isNotEmpty) {
+        final lastMealDateTime = meals.last.dateTime;
+        final now = DateTime.now();
+        if (now.year > lastMealDateTime.year ||
+            now.month > lastMealDateTime.month ||
+            now.day > lastMealDateTime.day) {
+          await consumptionProvider.clearMealsIfDayChanges(lastMealDateTime);
+        }
+      }
+    });
   }
 
   Future<void> _handleRefresh() async {

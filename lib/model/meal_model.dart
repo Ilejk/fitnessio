@@ -6,6 +6,7 @@ class MealModel {
   double proteins;
   double fats;
   double carbs;
+  DateTime dateTime;
   MealModel({
     required this.id,
     required this.title,
@@ -14,5 +15,6 @@ class MealModel {
     required this.carbs,
     required this.fats,
     required this.proteins,
+    required this.dateTime,
   });
 }

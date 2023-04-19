@@ -112,6 +112,7 @@ class _NewMealPageState extends State<NewMealPage> {
                       fats: double.parse(_mealFatsController.text),
                       carbs: double.parse(_mealCarbsController.text),
                       proteins: double.parse(_mealProteinsController.text),
+                      dateTime: DateTime.now(),
                     );
 
                     Navigator.of(context).pop();
