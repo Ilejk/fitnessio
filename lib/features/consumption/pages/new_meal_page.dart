@@ -6,6 +6,7 @@ import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
+import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
@@ -114,8 +115,8 @@ class _NewMealPageState extends State<NewMealPage> {
                       proteins: double.parse(_mealProteinsController.text),
                       dateTime: DateTime.now(),
                     );
-
-                    Navigator.of(context).pop();
+                    Navigator.of(context)
+                        .pushReplacementNamed(Routes.mainRoute);
                   } catch (e) {
                     print(e);
                   }
