@@ -57,24 +57,28 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
         child: FutureBuilder<void>(
           future: consumptionProvider.fetchAndSetMeals(),
           builder: (context, snapshot) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            return Stack(
               children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: consumptionProvider.meals.length,
-                    itemBuilder: (context, index) {
-                      return MealWidget(
-                        title: consumptionProvider.meals[index].title,
-                        amount: consumptionProvider.meals[index].amount,
-                        calories: consumptionProvider.meals[index].calories,
-                        fats: consumptionProvider.meals[index].fats,
-                        carbs: consumptionProvider.meals[index].carbs,
-                        proteins: consumptionProvider.meals[index].proteins,
-                      );
-                    },
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: consumptionProvider.meals.length,
+                        itemBuilder: (context, index) {
+                          return MealWidget(
+                            title: consumptionProvider.meals[index].title,
+                            amount: consumptionProvider.meals[index].amount,
+                            calories: consumptionProvider.meals[index].calories,
+                            fats: consumptionProvider.meals[index].fats,
+                            carbs: consumptionProvider.meals[index].carbs,
+                            proteins: consumptionProvider.meals[index].proteins,
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.all(PaddingManager.p12),

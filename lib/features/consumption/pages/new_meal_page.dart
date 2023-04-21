@@ -132,6 +132,7 @@ class _NewMealPageState extends State<NewMealPage> {
                       proteins: double.parse(_mealProteinsController.text),
                       dateTime: DateTime.now(),
                     );
+
                     Navigator.of(context)
                         .pushReplacementNamed(Routes.mainRoute);
                   } catch (e) {

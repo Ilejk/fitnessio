@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/consumption/providers/consumption_provider.dart';
 import 'package:smart_home_app/features/home/providers/home_provider.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
@@ -16,19 +18,18 @@ class FitnessDataWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    final consumptionProvider =
+        Provider.of<ConsumptionProvider>(context, listen: false);
     final deviceWidth = MediaQuery.of(context).size.width;
 
     return FutureBuilder<Map<String, dynamic>>(
         future: homeProvider.fetchUserData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            // return a loading widget or null while waiting for the future to complete
-            return CircularProgressIndicator();
+            return SpinKitSpinningLines(color: ColorManager.limerGreen2);
           } else if (snapshot.hasError) {
-            // handle the error case
             return Text('Error: ${snapshot.error}');
           } else {
-            // the future has completed successfully, so we can access the data
             double bmr = homeProvider.userData['bmr'];
             return Padding(
               padding: const EdgeInsets.only(
@@ -72,6 +73,7 @@ class FitnessDataWidget extends StatelessWidget {
                         ),
                         const Text(
                           '8000',
+                          //TODO
                           textAlign: TextAlign.center,
                           style: StyleManager.homePageS20BoldWhite,
                         ),
@@ -82,6 +84,7 @@ class FitnessDataWidget extends StatelessWidget {
                           ),
                           child: Text(
                             'Out of 10,000',
+                            //TODO
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: ColorManager.white2,
@@ -159,7 +162,7 @@ class FitnessDataWidget extends StatelessWidget {
                                           CrossAxisAlignment.center,
                                       children: [
                                         const Text(
-                                          'Water',
+                                          StringsManager.water,
                                           style:
                                               StyleManager.homePageS18BoldWhite,
                                         ),
@@ -185,6 +188,7 @@ class FitnessDataWidget extends StatelessWidget {
                                       children: const [
                                         Text(
                                           '2.1',
+                                          //TODO
                                           style:
                                               StyleManager.homePageS20BoldWhite,
                                         ),
@@ -192,7 +196,7 @@ class FitnessDataWidget extends StatelessWidget {
                                           padding: EdgeInsets.only(
                                               left: PaddingManager.p12),
                                           child: Text(
-                                            'Liters',
+                                            StringsManager.liters,
                                             style: StyleManager
                                                 .homePageS12RegularWhite2,
                                           ),
@@ -228,7 +232,7 @@ class FitnessDataWidget extends StatelessWidget {
                                         CrossAxisAlignment.center,
                                     children: [
                                       const Text(
-                                        'Calories',
+                                        StringsManager.calories,
                                         style:
                                             StyleManager.homePageS18BoldWhite,
                                       ),
@@ -249,17 +253,19 @@ class FitnessDataWidget extends StatelessWidget {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: const [
+                                    children: [
                                       Text(
-                                        '1350',
+                                        consumptionProvider.kCalaDay
+                                            .round()
+                                            .toString(),
                                         style:
                                             StyleManager.homePageS20BoldWhite,
                                       ),
-                                      Padding(
+                                      const Padding(
                                         padding: EdgeInsets.only(
                                             left: PaddingManager.p12),
                                         child: Text(
-                                          'kCal',
+                                          StringsManager.kcal,
                                           style: StyleManager
                                               .homePageS12RegularWhite2,
                                         ),

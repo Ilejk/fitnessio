@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/consumption/providers/consumption_provider.dart';
 import 'package:smart_home_app/features/home/widgets/fitness_data_widget.dart';
 import 'package:smart_home_app/features/home/widgets/carousel_slider_home_widget.dart';
 import 'package:smart_home_app/features/home/widgets/home_page_text_spacer_widget.dart';
@@ -14,6 +16,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<ConsumptionProvider>(context, listen: false).fetchAndSetMeals();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

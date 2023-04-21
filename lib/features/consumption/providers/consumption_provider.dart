@@ -7,6 +7,7 @@ import 'package:smart_home_app/model/meal_model.dart';
 
 class ConsumptionProvider with ChangeNotifier {
   final List<MealModel> _meals = [];
+  double kCalaDay = 0.0;
   List<MealModel> get meals {
     return [..._meals];
   }
@@ -71,11 +72,21 @@ class ConsumptionProvider with ChangeNotifier {
       }
       _meals.clear();
       _meals.addAll(loadedMeals);
+      await getkCal();
       notifyListeners();
     } catch (e) {
       print(e);
       rethrow;
     }
+  }
+
+  getkCal() async {
+    kCalaDay = 0.0;
+    for (var meal in _meals) {
+      kCalaDay += meal.calories;
+    }
+    print(kCalaDay);
+    notifyListeners();
   }
 
   Future<void> clearMealsIfDayChanges(DateTime lastDateTime) async {

@@ -94,4 +94,8 @@ class StringsManager {
   static const String kcalConsumption = 'Calorie Consumption';
   static const String kcalPerDay = 'Calories/Day';
   static const String waterHint = 'Water in ml';
+  static const String kcal = 'kCal';
+  static const String calories = 'Calories';
+  static const String liters = 'Liters';
+  static const String water = 'Water';
 }
