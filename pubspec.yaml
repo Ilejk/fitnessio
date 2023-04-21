@@ -35,6 +35,8 @@ dependencies:
   dropdown_button2: ^1.9.2
   liquid_pull_to_refresh: ^3.0.1
   mockito: ^5.4.0
+  shared_preferences: ^2.1.0
+  firebase_database: ^10.1.1
 
 dev_dependencies:
   flutter_test:

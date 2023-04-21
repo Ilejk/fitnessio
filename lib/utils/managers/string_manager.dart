@@ -84,4 +84,10 @@ class StringsManager {
   static const String fats = 'Fats';
   static const String carbs = 'Carbs';
   static const String proteins = 'Proteins';
+  static const String activityLowHint = 'LOW';
+  static const String activityLightHint = 'LIGHT';
+  static const String activityModerateHint = 'MODERATE';
+  static const String activityHighHint = 'HIGH';
+  static const String activityVeryHighHint = 'VERY HIGH';
+  static const String activityHint = 'Physical activity';
 }

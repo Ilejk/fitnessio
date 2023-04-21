@@ -9,21 +9,60 @@ import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class AuthProvider with ChangeNotifier {
   User? _user;
-
+  bool? _isNewUser;
+  bool? _hasAgeParameter;
   AuthProvider() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       _user = user;
-      notifyListeners();
+      if (_user != null) {
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc(_user!.uid)
+            .get()
+            .then((docSnapshot) {
+          _hasAgeParameter =
+              docSnapshot.exists && docSnapshot.data()!.containsKey('age');
+          _isNewUser =
+              _user!.metadata.creationTime == _user!.metadata.lastSignInTime &&
+                  !_hasAgeParameter!;
+          notifyListeners();
+        });
+      } else {
+        _hasAgeParameter = null;
+        _isNewUser = null;
+        notifyListeners();
+      }
     });
   }
-  void callAth() {
+
+  void callAuth() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       _user = user;
-      notifyListeners();
+      if (_user != null) {
+        FirebaseFirestore.instance
+            .collection('users')
+            .doc(_user!.uid)
+            .get()
+            .then((docSnapshot) {
+          _hasAgeParameter =
+              docSnapshot.exists && docSnapshot.data()!.containsKey('age');
+          _isNewUser =
+              _user!.metadata.creationTime == _user!.metadata.lastSignInTime &&
+                  !_hasAgeParameter!;
+          notifyListeners();
+        });
+      } else {
+        _hasAgeParameter = null;
+        _isNewUser = null;
+        notifyListeners();
+      }
     });
   }
 
   User? get user => _user;
+  bool? get isNewUser => _isNewUser;
+  bool? get hasAgeParameter => _hasAgeParameter;
+
   Future<void> forgotPassword({
     required String email,
     required BuildContext context,
@@ -180,12 +219,8 @@ class AuthProvider with ChangeNotifier {
     required int age,
     required double height,
     required double weight,
-    required double waist,
-    required double hip,
-    required double arm,
-    required double chest,
     required String gender,
-    required double thigh,
+    required String activity,
     required BuildContext context,
   }) async {
     try {
@@ -201,12 +236,8 @@ class AuthProvider with ChangeNotifier {
         'age': age,
         'height': height,
         'weight': weight,
-        'waist': waist,
-        'hip': hip,
-        'arm': arm,
-        'chest': chest,
         'gender': gender,
-        'thigh': thigh,
+        'activity': activity,
       });
       notifyListeners();
     } catch (e) {

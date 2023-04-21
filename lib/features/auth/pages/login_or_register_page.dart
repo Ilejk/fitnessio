@@ -26,16 +26,7 @@ class _LoginPageState extends State<LoginPage>
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _repeatPasswordController =
       TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _surnameController = TextEditingController();
-  final TextEditingController _ageController = TextEditingController();
-  final TextEditingController _heightController = TextEditingController();
-  final TextEditingController _weightController = TextEditingController();
-  final TextEditingController _armController = TextEditingController();
-  final TextEditingController _chestController = TextEditingController();
-  final TextEditingController _waistController = TextEditingController();
-  final TextEditingController _hipController = TextEditingController();
-  final TextEditingController _thighController = TextEditingController();
+
   AuthMode _authMode = AuthMode.signIn;
   // ignore: avoid_init_to_null
   var dropDownGenderValue = null;
@@ -45,16 +36,7 @@ class _LoginPageState extends State<LoginPage>
     _passwordController.dispose();
     _emailController.dispose();
     _repeatPasswordController.dispose();
-    _nameController.dispose();
-    _surnameController.dispose();
-    _ageController.dispose();
-    _armController.dispose();
-    _heightController.dispose();
-    _weightController.dispose();
-    _hipController.dispose();
-    _thighController.dispose();
-    _chestController.dispose();
-    _waistController.dispose();
+
     super.dispose();
   }
 
@@ -72,14 +54,6 @@ class _LoginPageState extends State<LoginPage>
     } else if (isRegisterView) {
       setState(() {
         _authMode = AuthMode.signIn;
-      });
-    }
-  }
-
-  void _dropDownCallBack(Object? selectedGenderValue) {
-    if (selectedGenderValue is String) {
-      setState(() {
-        dropDownGenderValue = selectedGenderValue;
       });
     }
   }
@@ -106,26 +80,6 @@ class _LoginPageState extends State<LoginPage>
           email: _emailController.text,
           password: _passwordController.text,
           context: context,
-        );
-      } catch (e) {
-        print(e);
-      }
-      try {
-        // ignore: use_build_context_synchronously
-        await authProvider.addUserData(
-          email: _emailController.text,
-          name: _nameController.text,
-          surname: _surnameController.text,
-          age: int.parse(_ageController.text),
-          context: context,
-          arm: double.parse(_armController.text),
-          chest: double.parse(_chestController.text),
-          gender: dropDownGenderValue,
-          height: double.parse(_heightController.text),
-          hip: double.parse(_hipController.text),
-          waist: double.parse(_waistController.text),
-          weight: double.parse(_weightController.text),
-          thigh: double.parse(_thighController.text),
         );
       } catch (e) {
         print(e);
@@ -167,18 +121,6 @@ class _LoginPageState extends State<LoginPage>
                   passwordController: _passwordController,
                   isRegisterView: isRegisterView,
                   repeatPasswordController: _repeatPasswordController,
-                  nameController: _nameController,
-                  surnameController: _surnameController,
-                  ageController: _ageController,
-                  armController: _armController,
-                  chestController: _chestController,
-                  heightController: _heightController,
-                  hipController: _hipController,
-                  onChanged: _dropDownCallBack,
-                  thighController: _thighController,
-                  value: dropDownGenderValue,
-                  waistController: _waistController,
-                  weightController: _weightController,
                 ),
                 isLoginView
                     ? Padding(

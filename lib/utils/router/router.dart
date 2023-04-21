@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_app/features/auth/pages/add_data_page.dart';
 import 'package:smart_home_app/features/auth/pages/auth_page.dart';
 import 'package:smart_home_app/features/auth/pages/forgot_password_page.dart';
 import 'package:smart_home_app/features/boarding/pages/boarding_page.dart';
@@ -22,6 +23,7 @@ class Routes {
   static const String changeEmailRoute = '/changeEmail';
   static const String deleteAccRoute = '/deleteAcc';
   static const String newMealRoute = 'newMeal';
+  static const String addData = '/addData';
 }
 
 class RouteGenerator {
@@ -47,6 +49,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const DeleteAccountPage());
       case Routes.newMealRoute:
         return MaterialPageRoute(builder: (_) => const NewMealPage());
+      case Routes.addData:
+        return MaterialPageRoute(builder: (_) => const AddDataPage());
       default:
         return undefinedRoute();
     }
