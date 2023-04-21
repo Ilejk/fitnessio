@@ -3,6 +3,7 @@ import 'package:smart_home_app/features/auth/pages/add_data_page.dart';
 import 'package:smart_home_app/features/auth/pages/auth_page.dart';
 import 'package:smart_home_app/features/auth/pages/forgot_password_page.dart';
 import 'package:smart_home_app/features/boarding/pages/boarding_page.dart';
+import 'package:smart_home_app/features/consumption/pages/drink_page.dart';
 import 'package:smart_home_app/features/consumption/pages/new_meal_page.dart';
 import 'package:smart_home_app/features/main/pages/main_page.dart';
 import 'package:smart_home_app/features/auth/pages/login_or_register_page.dart';
@@ -23,7 +24,8 @@ class Routes {
   static const String changeEmailRoute = '/changeEmail';
   static const String deleteAccRoute = '/deleteAcc';
   static const String newMealRoute = 'newMeal';
-  static const String addData = '/addData';
+  static const String addDataRoute = '/addData';
+  static const String addWaterRoute = '/addWater';
 }
 
 class RouteGenerator {
@@ -49,8 +51,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const DeleteAccountPage());
       case Routes.newMealRoute:
         return MaterialPageRoute(builder: (_) => const NewMealPage());
-      case Routes.addData:
+      case Routes.addDataRoute:
         return MaterialPageRoute(builder: (_) => const AddDataPage());
+      case Routes.addWaterRoute:
+        return MaterialPageRoute(builder: (_) => const DrinkPage());
       default:
         return undefinedRoute();
     }

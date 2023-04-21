@@ -93,4 +93,5 @@ class StringsManager {
   static const String enterData = 'Please provide\nfollwing information';
   static const String kcalConsumption = 'Calorie Consumption';
   static const String kcalPerDay = 'Calories/Day';
+  static const String waterHint = 'Water in ml';
 }
