@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:smart_home_app/features/home/widgets/bottom_data_widget.dart';
+import 'package:smart_home_app/features/home/widgets/fitness_data_widget.dart';
 import 'package:smart_home_app/features/home/widgets/carousel_slider_home_widget.dart';
 import 'package:smart_home_app/features/home/widgets/home_page_text_spacer_widget.dart';
 import 'package:smart_home_app/features/home/widgets/todays_progress_widget.dart';
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
             HomePageTextSpacerWidget(
               title: StringsManager.todaysAct,
             ),
-            BottomDataWidget(),
+            FitnessDataWidget(),
             HomePageTextSpacerWidget(
               title: StringsManager.explore,
             ),

@@ -91,4 +91,6 @@ class StringsManager {
   static const String activityVeryHighHint = 'VERY HIGH';
   static const String activityHint = 'Physical activity';
   static const String enterData = 'Please provide\nfollwing information';
+  static const String kcalConsumption = 'Calorie Consumption';
+  static const String kcalPerDay = 'Calories/Day';
 }

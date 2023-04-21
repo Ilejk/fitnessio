@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
 import 'package:smart_home_app/features/auth/widgets/add_data_widgets.dart';
+import 'package:smart_home_app/features/home/providers/home_provider.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -57,19 +58,31 @@ class _AddDataPageState extends State<AddDataPage> {
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
     final email = Provider.of<AuthProvider>(context).user!.email;
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
     Future addUserData() async {
       try {
-        await authProvider.addUserData(
-          email: email!,
-          name: _nameController.text,
-          surname: _surnameController.text,
-          age: int.parse(_ageController.text),
-          context: context,
-          gender: _valueGender!,
-          height: double.parse(_heightController.text),
-          weight: double.parse(_weightController.text),
-          activity: _valueActivity!,
-        );
+        await homeProvider
+            .getUsersBMR(
+              gender: _valueGender!,
+              weight: double.parse(_weightController.text),
+              height: double.parse(_heightController.text),
+              age: int.parse(_ageController.text),
+              activity: _valueActivity!,
+            )
+            .then(
+              (value) => authProvider.addUserData(
+                email: email!,
+                name: _nameController.text,
+                surname: _surnameController.text,
+                age: int.parse(_ageController.text),
+                context: context,
+                gender: _valueGender!,
+                height: double.parse(_heightController.text),
+                weight: double.parse(_weightController.text),
+                activity: _valueActivity!,
+                bmr: homeProvider.usersBMR,
+              ),
+            );
       } catch (e) {
         print(e);
       }
