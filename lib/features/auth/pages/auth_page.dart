@@ -14,11 +14,12 @@ class AuthPage extends StatelessWidget {
       body: Consumer<AuthProvider>(
         builder: (context, authProvider, _) {
           final user = authProvider.user;
-          final isNewUser = authProvider.isNewUser;
           final hasAgeParameter = authProvider.hasAgeParameter;
-          if (user != null && hasAgeParameter == true) {
+          var isRegisteredUser = user != null && hasAgeParameter == true;
+          var isAddDataMode = user != null && hasAgeParameter == false;
+          if (isRegisteredUser) {
             return const MainPage();
-          } else if (user != null && hasAgeParameter == false) {
+          } else if (isAddDataMode) {
             return const AddDataPage();
           } else {
             return const LoginPage();

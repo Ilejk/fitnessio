@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
@@ -54,17 +55,22 @@ class AddDataWidgets extends StatelessWidget {
         obscureText: false,
         keyboardType: TextInputType.number,
       ),
-      TextFieldWidget(
-        controller: heightController,
-        labelHint: StringsManager.heightHint,
-        obscureText: false,
-        keyboardType: TextInputType.number,
-      ),
-      TextFieldWidget(
-        controller: weightController,
-        labelHint: StringsManager.weightHint,
-        obscureText: false,
-        keyboardType: TextInputType.number,
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SmallTextFieldWidget(
+            controller: heightController,
+            labelHint: StringsManager.heightHint,
+            obscureText: false,
+            keyboardType: TextInputType.number,
+          ),
+          SmallTextFieldWidget(
+            controller: weightController,
+            labelHint: StringsManager.weightHint,
+            obscureText: false,
+            keyboardType: TextInputType.number,
+          ),
+        ],
       ),
       NeuButton(
         width: SizeManager.s400,

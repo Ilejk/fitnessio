@@ -91,7 +91,7 @@ class _AddDataPageState extends State<AddDataPage> {
                 padding: EdgeInsets.only(bottom: PaddingManager.p28),
                 child: Center(
                   child: Text(
-                    StringsManager.enterEmailToResetPw,
+                    StringsManager.enterData,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: FontSize.s20,
@@ -117,7 +117,7 @@ class _AddDataPageState extends State<AddDataPage> {
                   addUserData().then((value) => Navigator.of(context)
                       .pushReplacementNamed(Routes.mainRoute));
                 },
-                title: StringsManager.resetPassword,
+                title: StringsManager.procede,
               )
             ],
           ),

@@ -44,7 +44,7 @@ class CarouselSliderHomeWidget extends StatelessWidget {
           onTap: () {
             //TODO
           },
-          title: StringsManager.confidence,
+          title: StringsManager.meditation,
         ),
         CarouselHomeBox(
           deviceWidth: deviceWidth,
@@ -52,7 +52,7 @@ class CarouselSliderHomeWidget extends StatelessWidget {
           onTap: () {
             //TODO
           },
-          title: StringsManager.meditation,
+          title: StringsManager.confidence,
         ),
       ],
       options: CarouselOptions(

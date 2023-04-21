@@ -4,8 +4,8 @@ import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 
-class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget({
+class SmallTextFieldWidget extends StatelessWidget {
+  const SmallTextFieldWidget({
     Key? key,
     required this.controller,
     required this.labelHint,
@@ -22,7 +22,7 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
     return NeuButton(
-      width: deviceWidth,
+      width: deviceWidth / 3,
       height: SizeManager.s70,
       radius: RadiusManager.r15,
       child: Padding(

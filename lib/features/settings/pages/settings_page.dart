@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/features/settings/widgets/button_settings.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -22,9 +23,12 @@ class _SettingsPageState extends State<SettingsPage> {
     final deviceWidth = MediaQuery.of(context).size.width;
     final settingsProvider =
         Provider.of<SettingsProvider>(context, listen: false);
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
 
-    void signOut(SettingsProvider settingsProvider, BuildContext context) {
-      settingsProvider.signOut(context: context);
+    Future<void> signOut(
+        SettingsProvider settingsProvider, BuildContext context) async {
+      await settingsProvider.signOut(context: context);
+      authProvider.callAuth();
     }
 
     return SafeArea(

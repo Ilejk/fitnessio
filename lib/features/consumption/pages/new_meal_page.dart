@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/consumption/providers/consumption_provider.dart';
 import 'package:smart_home_app/features/consumption/widgets/new_meal_app_bar.dart';
@@ -8,6 +9,7 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
+import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class NewMealPage extends StatefulWidget {
@@ -25,6 +27,9 @@ class _NewMealPageState extends State<NewMealPage> {
   final TextEditingController _mealFatsController = TextEditingController();
   final TextEditingController _mealCarbsController = TextEditingController();
   final TextEditingController _mealProteinsController = TextEditingController();
+  double valueFats = 0.0;
+  double valueCarbs = 0.0;
+  double valueProtein = 0.0;
 
   @override
   void dispose() {
@@ -40,8 +45,10 @@ class _NewMealPageState extends State<NewMealPage> {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
+
     final consumptionProvider =
         Provider.of<ConsumptionProvider>(context, listen: false);
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(
@@ -74,34 +81,44 @@ class _NewMealPageState extends State<NewMealPage> {
                 keyboardType: TextInputType.text,
               ),
               TextFieldWidget(
-                controller: _mealCalloriesController,
-                labelHint: StringsManager.mealCaloriesHint,
-                keyboardType: TextInputType.number,
-                obscureText: false,
-              ),
-              TextFieldWidget(
                 controller: _mealAmountController,
                 labelHint: StringsManager.mealAmountHint,
-                obscureText: false,
-                keyboardType: TextInputType.number,
-              ),
-              TextFieldWidget(
-                controller: _mealFatsController,
-                labelHint: StringsManager.mealFatsHint,
                 keyboardType: TextInputType.number,
                 obscureText: false,
               ),
-              TextFieldWidget(
-                controller: _mealCarbsController,
-                labelHint: StringsManager.mealCarbsHint,
-                keyboardType: TextInputType.number,
-                obscureText: false,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SmallTextFieldWidget(
+                    controller: _mealCalloriesController,
+                    labelHint: StringsManager.mealCaloriesHint,
+                    obscureText: false,
+                    keyboardType: TextInputType.number,
+                  ),
+                  SmallTextFieldWidget(
+                    controller: _mealFatsController,
+                    labelHint: StringsManager.mealFatsHint,
+                    keyboardType: TextInputType.number,
+                    obscureText: false,
+                  ),
+                ],
               ),
-              TextFieldWidget(
-                controller: _mealProteinsController,
-                labelHint: StringsManager.mealProteinsHint,
-                keyboardType: TextInputType.number,
-                obscureText: false,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SmallTextFieldWidget(
+                    controller: _mealCarbsController,
+                    labelHint: StringsManager.mealCarbsHint,
+                    keyboardType: TextInputType.number,
+                    obscureText: false,
+                  ),
+                  SmallTextFieldWidget(
+                    controller: _mealProteinsController,
+                    labelHint: StringsManager.mealProteinsHint,
+                    keyboardType: TextInputType.number,
+                    obscureText: false,
+                  ),
+                ],
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {

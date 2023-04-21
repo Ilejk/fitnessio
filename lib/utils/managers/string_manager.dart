@@ -75,12 +75,12 @@ class StringsManager {
   static const String confidence = 'CONFIDENCE';
   static const String meditation = 'MEDITATION';
   static const String mealNameHint = 'Name';
-  static const String mealAmountHint = 'Amount in grams';
+  static const String mealAmountHint = 'Amount';
   static const String mealCaloriesHint = 'kCal';
   static const String add = 'ADD';
-  static const String mealProteinsHint = 'Proteins in grams';
-  static const String mealFatsHint = 'Fats in grams';
-  static const String mealCarbsHint = 'Carbs in grams';
+  static const String mealProteinsHint = 'Proteins';
+  static const String mealFatsHint = 'Fats';
+  static const String mealCarbsHint = 'Carbs';
   static const String fats = 'Fats';
   static const String carbs = 'Carbs';
   static const String proteins = 'Proteins';
@@ -90,4 +90,5 @@ class StringsManager {
   static const String activityHighHint = 'HIGH';
   static const String activityVeryHighHint = 'VERY HIGH';
   static const String activityHint = 'Physical activity';
+  static const String enterData = 'Please provide\nfollwing information';
 }
