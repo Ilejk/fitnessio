@@ -111,4 +111,8 @@ class StringsManager {
   static const String weight = 'Weight';
   static const String activity = 'Activity';
   static const String goal = 'Goal';
+  static const String changeActivityText = 'Change your\nweekly activity!';
+  static const String changeGoalsText = 'Have your workout\ngoals changed?';
+  static const String changeHeightText = 'I wish I was a\nlittle bit taller...';
+  static const String changeWeightText = 'Getting fatter or\n getting fitter?';
 }

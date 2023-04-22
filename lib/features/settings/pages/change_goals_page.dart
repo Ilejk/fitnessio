@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
@@ -6,9 +7,10 @@ import 'package:smart_home_app/features/settings/providers/settings_provider.dar
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
-import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
+import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 
 class ChangeGoalsPage extends StatefulWidget {
   const ChangeGoalsPage({super.key});
@@ -18,13 +20,13 @@ class ChangeGoalsPage extends StatefulWidget {
 }
 
 class _ChangeGoalsPageState extends State<ChangeGoalsPage> {
-  final TextEditingController _goalController = TextEditingController();
-
-  @override
-  void dispose() {
-    _goalController.dispose();
-
-    super.dispose();
+  String? _valueGoals;
+  void _onChangedGoals(Object? selectedGoalsValue) {
+    if (selectedGoalsValue is String) {
+      setState(() {
+        _valueGoals = selectedGoalsValue;
+      });
+    }
   }
 
   @override
@@ -40,7 +42,7 @@ class _ChangeGoalsPageState extends State<ChangeGoalsPage> {
           double.infinity,
           SizeManager.s60,
         ),
-        child: ChangePasswordPageAppBar(),
+        child: ChangeDataPagesAppBar(),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -52,7 +54,7 @@ class _ChangeGoalsPageState extends State<ChangeGoalsPage> {
               const Padding(
                 padding: EdgeInsets.all(PaddingManager.p28),
                 child: Text(
-                  StringsManager.changePWtext,
+                  StringsManager.changeGoalsText,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: ColorManager.white,
@@ -62,11 +64,50 @@ class _ChangeGoalsPageState extends State<ChangeGoalsPage> {
                   ),
                 ),
               ),
-              TextFieldWidget(
-                controller: _goalController,
-                labelHint: StringsManager.goalHint,
-                obscureText: false,
-                keyboardType: TextInputType.number,
+              NeuButton(
+                width: SizeManager.s400,
+                height: SizeManager.s70,
+                radius: RadiusManager.r15,
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton2(
+                    dropdownDecoration: BoxDecoration(
+                      color: ColorManager.darkGrey,
+                      borderRadius: BorderRadius.circular(
+                        RadiusManager.r15,
+                      ),
+                    ),
+                    onChanged: _onChangedGoals,
+                    value: _valueGoals,
+                    iconSize: SizeManager.s0,
+                    hint: const Text(
+                      StringsManager.goalHint,
+                      style: StyleManager.registerTextfieldTextStyle,
+                    ),
+                    items: const [
+                      DropdownMenuItem(
+                        value: StringsManager.lose,
+                        child: Text(
+                          StringsManager.loseWeightHint,
+                          style: StyleManager.registerTextfieldTextStyle,
+                        ),
+                      ),
+                      DropdownMenuItem(
+                        value: StringsManager.maintain,
+                        child: Text(
+                          StringsManager.maintainWeightHint,
+                          style: StyleManager.registerTextfieldTextStyle,
+                        ),
+                      ),
+                      DropdownMenuItem(
+                        value: StringsManager.gain,
+                        child: Text(
+                          StringsManager.gainWeightHint,
+                          style: StyleManager.registerTextfieldTextStyle,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: changeGoals,

@@ -40,7 +40,7 @@ class _ChangeWeightPageState extends State<ChangeWeightPage> {
           double.infinity,
           SizeManager.s60,
         ),
-        child: ChangePasswordPageAppBar(),
+        child: ChangeDataPagesAppBar(),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -52,7 +52,7 @@ class _ChangeWeightPageState extends State<ChangeWeightPage> {
               const Padding(
                 padding: EdgeInsets.all(PaddingManager.p28),
                 child: Text(
-                  StringsManager.changePWtext,
+                  StringsManager.changeWeightText,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: ColorManager.white,

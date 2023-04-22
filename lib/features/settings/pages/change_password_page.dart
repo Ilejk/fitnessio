@@ -57,7 +57,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
           double.infinity,
           SizeManager.s60,
         ),
-        child: ChangePasswordPageAppBar(),
+        child: ChangeDataPagesAppBar(),
       ),
       body: SafeArea(
           child: SingleChildScrollView(

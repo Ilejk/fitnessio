@@ -3,8 +3,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class ChangePasswordPageAppBar extends StatelessWidget {
-  const ChangePasswordPageAppBar({
+class ChangeDataPagesAppBar extends StatelessWidget {
+  const ChangeDataPagesAppBar({
     Key? key,
   }) : super(key: key);
 

@@ -80,13 +80,6 @@ class _SettingsPageState extends State<SettingsPage> {
             SettingsPageButton(
               deviceWidth: deviceWidth,
               onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeAgeRoute),
-              iconData: Icons.access_time,
-              title: StringsManager.age,
-            ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
-              onTap: () =>
                   Navigator.of(context).pushNamed(Routes.changeWeightRoute),
               iconData: Icons.line_weight,
               title: StringsManager.weight,
