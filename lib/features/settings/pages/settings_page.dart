@@ -21,15 +21,6 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
-    final settingsProvider =
-        Provider.of<SettingsProvider>(context, listen: false);
-    final authProvider = Provider.of<AuthProvider>(context, listen: false);
-
-    Future<void> signOut(
-        SettingsProvider settingsProvider, BuildContext context) async {
-      await settingsProvider.signOut(context: context);
-      authProvider.callAuth();
-    }
 
     return SafeArea(
       child: SingleChildScrollView(
@@ -118,28 +109,6 @@ class _SettingsPageState extends State<SettingsPage> {
               iconData: Icons.person_add_alt_1_outlined,
               title: StringsManager.inviteFriend,
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: PaddingManager.p28,
-                right: PaddingManager.p60,
-                left: PaddingManager.p60,
-                bottom: PaddingManager.p16,
-              ),
-              child: Container(
-                width: deviceWidth,
-                height: SizeManager.s0_5,
-                color: ColorManager.limerGreen2,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: PaddingManager.p28),
-              child: SettingsPageButton(
-                deviceWidth: deviceWidth,
-                onTap: () => signOut(settingsProvider, context),
-                iconData: Icons.logout_sharp,
-                title: StringsManager.signOut,
-              ),
-            )
           ],
         ).animate().fadeIn(
               duration: 500.ms,

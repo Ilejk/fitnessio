@@ -78,7 +78,10 @@ class _DrinkPageState extends State<DrinkPage> {
               LimeGreenRoundedButtonWidget(
                 onTap: () {
                   try {
-                    //TODO
+                    consumptionProvider.addWater(
+                      amount: double.parse(_drinkController.text),
+                      dateTime: DateTime.now(),
+                    );
                     Navigator.of(context)
                         .pushReplacementNamed(Routes.mainRoute);
                   } catch (e) {

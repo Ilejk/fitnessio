@@ -4,12 +4,20 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_home_app/model/meal_model.dart';
+import 'package:smart_home_app/model/water_model.dart';
 
 class ConsumptionProvider with ChangeNotifier {
   final List<MealModel> _meals = [];
+  final List<WaterModel> _water = [];
   double kCalaDay = 0.0;
+  double waterADay = 0.0;
+
   List<MealModel> get meals {
     return [..._meals];
+  }
+
+  List<WaterModel> get water {
+    return [..._water];
   }
 
   Future<void> addNewMeal({
@@ -124,5 +132,67 @@ class ConsumptionProvider with ChangeNotifier {
     return now.year != mealDateTime.year ||
         now.month != mealDateTime.month ||
         now.day != mealDateTime.day;
+  }
+
+  Future<void> addWater({
+    required double amount,
+    required DateTime dateTime,
+  }) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('meals')
+          .doc(user!.uid)
+          .collection('waterData')
+          .doc()
+          .set({
+        'amount': amount,
+        'dateTime': dateTime,
+      });
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      notifyListeners();
+    }
+  }
+
+  Future fetchAndSetWater() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    try {
+      final mealsSnapshot = await FirebaseFirestore.instance
+          .collection('meals')
+          .doc(user!.uid)
+          .collection('waterData')
+          .get();
+
+      final List<WaterModel> loadedWater = [];
+
+      for (var doc in mealsSnapshot.docs) {
+        final mealData = doc.data();
+        loadedWater.add(WaterModel(
+          id: doc.id,
+          amount: mealData['amount'],
+          dateTime: (mealData['dateTime'] as Timestamp).toDate(),
+        ));
+      }
+      _water.clear();
+      _water.addAll(loadedWater);
+      await getWater();
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
+  }
+
+  getWater() async {
+    waterADay = 0.0;
+    for (var water in _water) {
+      waterADay += water.amount;
+    }
+    print(waterADay);
+    notifyListeners();
   }
 }

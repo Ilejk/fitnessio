@@ -1,17 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
+import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class SettingsPageAppBarWidget extends StatelessWidget {
+class SettingsPageAppBarWidget extends StatefulWidget {
   const SettingsPageAppBarWidget({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<SettingsPageAppBarWidget> createState() =>
+      _SettingsPageAppBarWidgetState();
+}
+
+class _SettingsPageAppBarWidgetState extends State<SettingsPageAppBarWidget> {
+  @override
   Widget build(BuildContext context) {
+    final settingsProvider =
+        Provider.of<SettingsProvider>(context, listen: false);
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    Future<void> signOut(
+        SettingsProvider settingsProvider, BuildContext context) async {
+      await settingsProvider.signOut(context: context);
+      authProvider.callAuth();
+    }
+
     return AppBar(
       backgroundColor: Colors.transparent,
       scrolledUnderElevation: SizeManager.s50,
@@ -35,11 +53,9 @@ class SettingsPageAppBarWidget extends StatelessWidget {
             ),
             child: IconButton(
               splashColor: ColorManager.grey3,
-              onPressed: () {
-                //TODO:::
-              },
+              onPressed: () => signOut(settingsProvider, context),
               icon: const Icon(
-                Icons.more_horiz_sharp,
+                Icons.logout_sharp,
                 size: SizeManager.s26,
                 color: ColorManager.white,
               ),

@@ -121,7 +121,7 @@ class FitnessDataWidget extends StatelessWidget {
                                 style: StyleManager.homePageS18BoldDarkGrey,
                               ),
                               Text(
-                                bmr.round().toString(),
+                                bmr.toStringAsFixed(0),
                                 style: StyleManager.homePageS20BoldDarkGrey,
                               ),
                               const Text(
@@ -185,14 +185,14 @@ class FitnessDataWidget extends StatelessWidget {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.end,
-                                      children: const [
+                                      children: [
                                         Text(
-                                          '2.1',
-                                          //TODO
+                                          consumptionProvider.waterADay
+                                              .toStringAsFixed(1),
                                           style:
                                               StyleManager.homePageS20BoldWhite,
                                         ),
-                                        Padding(
+                                        const Padding(
                                           padding: EdgeInsets.only(
                                               left: PaddingManager.p12),
                                           child: Text(
@@ -256,8 +256,7 @@ class FitnessDataWidget extends StatelessWidget {
                                     children: [
                                       Text(
                                         consumptionProvider.kCalaDay
-                                            .round()
-                                            .toString(),
+                                            .toStringAsFixed(0),
                                         style:
                                             StyleManager.homePageS20BoldWhite,
                                       ),

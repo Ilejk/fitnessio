@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     Provider.of<ConsumptionProvider>(context, listen: false).fetchAndSetMeals();
+    Provider.of<ConsumptionProvider>(context, listen: false).fetchAndSetWater();
   }
 
   @override
