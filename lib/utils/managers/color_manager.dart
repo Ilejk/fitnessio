@@ -5,6 +5,8 @@ class ColorManager {
   static const Color black54 = Colors.black54;
   static const Color black87 = Colors.black87;
   static const Color white = Colors.white;
+  static const Color red = Color.fromARGB(255, 207, 14, 0);
+  static const Color yellow = Color.fromARGB(255, 255, 162, 0);
   static const Color white2 = Color.fromARGB(255, 207, 203, 203);
   static const Color lighGrey = Color.fromARGB(255, 116, 115, 115);
   static const Color limeGreen = Color.fromARGB(255, 175, 231, 78);

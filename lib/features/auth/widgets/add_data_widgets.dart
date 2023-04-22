@@ -21,6 +21,8 @@ class AddDataWidgets extends StatelessWidget {
     required this.onChangedActivity,
     required this.nameController,
     required this.surnameController,
+    required this.onChangedGoal,
+    required this.valueGoal,
   }) : super(key: key);
 
   final TextEditingController ageController;
@@ -33,6 +35,8 @@ class AddDataWidgets extends StatelessWidget {
   void Function(Object?)? onChangedGender;
   Object? valueActivity;
   void Function(Object?)? onChangedActivity;
+  Object? valueGoal;
+  void Function(Object?)? onChangedGoal;
 
   @override
   Widget build(BuildContext context) {
@@ -162,6 +166,51 @@ class AddDataWidgets extends StatelessWidget {
                 value: StringsManager.activityVeryHighHint,
                 child: Text(
                   StringsManager.activityVeryHighHint,
+                  style: StyleManager.registerTextfieldTextStyle,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      NeuButton(
+        width: SizeManager.s400,
+        height: SizeManager.s70,
+        radius: RadiusManager.r15,
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton2(
+            dropdownDecoration: BoxDecoration(
+              color: ColorManager.darkGrey,
+              borderRadius: BorderRadius.circular(
+                RadiusManager.r15,
+              ),
+            ),
+            onChanged: onChangedGoal,
+            value: valueGoal,
+            iconSize: SizeManager.s0,
+            hint: const Text(
+              StringsManager.goalHint,
+              style: StyleManager.registerTextfieldTextStyle,
+            ),
+            items: const [
+              DropdownMenuItem(
+                value: StringsManager.lose,
+                child: Text(
+                  StringsManager.loseWeightHint,
+                  style: StyleManager.registerTextfieldTextStyle,
+                ),
+              ),
+              DropdownMenuItem(
+                value: StringsManager.maintain,
+                child: Text(
+                  StringsManager.maintainWeightHint,
+                  style: StyleManager.registerTextfieldTextStyle,
+                ),
+              ),
+              DropdownMenuItem(
+                value: StringsManager.gain,
+                child: Text(
+                  StringsManager.gainWeightHint,
                   style: StyleManager.registerTextfieldTextStyle,
                 ),
               ),

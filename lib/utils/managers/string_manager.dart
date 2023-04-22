@@ -36,11 +36,6 @@ class StringsManager {
   static const String heightHint = 'Height';
   static const String weightHint = 'Weight';
   static const String genderHint = 'Gender';
-  static const String armHint = 'Arm';
-  static const String chestHint = 'Chest';
-  static const String waistHint = 'Waist';
-  static const String hipHint = 'Hip';
-  static const String thighHint = 'Thigh';
   static const String genderManHint = 'MAN';
   static const String genderWomanHint = 'WOMAN';
   static const String fitnessioABtitle = 'FITNESS.IO';
@@ -98,4 +93,15 @@ class StringsManager {
   static const String calories = 'Calories';
   static const String liters = 'Liters';
   static const String water = 'Water';
+  static const String goalHint = 'I want to...';
+  static const String gainWeightHint = 'gain weight';
+  static const String loseWeightHint = 'lose weight';
+  static const String maintainWeightHint = 'maintain weight';
+  static const String lose = 'LOSE';
+  static const String maintain = 'MAINTAIN';
+  static const String gain = 'GAIN';
+  static const String normalBmi = 'Your BMI is\nperfect!';
+  static const String underWeightBmi = 'You are\nunderweight!';
+  static const String overWeightBmi = 'You are\noverweight!';
+  static const String dangerousBmi = 'You should\nsee a doctor!';
 }

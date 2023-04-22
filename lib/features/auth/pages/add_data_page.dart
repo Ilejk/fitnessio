@@ -28,6 +28,7 @@ class _AddDataPageState extends State<AddDataPage> {
   final TextEditingController _weightController = TextEditingController();
   String? _valueGender;
   String? _valueActivity;
+  String? _valueGoal;
   void _onChangedGender(Object? selectedGenderValue) {
     if (selectedGenderValue is String) {
       setState(() {
@@ -40,6 +41,14 @@ class _AddDataPageState extends State<AddDataPage> {
     if (selectedActivityValue is String) {
       setState(() {
         _valueActivity = selectedActivityValue;
+      });
+    }
+  }
+
+  void _onChangedGoal(Object? selectedGoalValue) {
+    if (selectedGoalValue is String) {
+      setState(() {
+        _valueGoal = selectedGoalValue;
       });
     }
   }
@@ -68,9 +77,14 @@ class _AddDataPageState extends State<AddDataPage> {
               height: double.parse(_heightController.text),
               age: int.parse(_ageController.text),
               activity: _valueActivity!,
+              goal: _valueGoal!,
             )
+            .then((_) => homeProvider.getUsersBMI(
+                  height: double.parse(_heightController.text),
+                  weight: double.parse(_weightController.text),
+                ))
             .then(
-              (value) => authProvider.addUserData(
+              (_) => authProvider.addUserData(
                 email: email!,
                 name: _nameController.text,
                 surname: _surnameController.text,
@@ -80,7 +94,9 @@ class _AddDataPageState extends State<AddDataPage> {
                 height: double.parse(_heightController.text),
                 weight: double.parse(_weightController.text),
                 activity: _valueActivity!,
-                bmr: homeProvider.usersBMR,
+                bmr: homeProvider.userBMRwithGoal,
+                goal: _valueGoal!,
+                bmi: homeProvider.usersBMI,
               ),
             );
       } catch (e) {
@@ -124,6 +140,8 @@ class _AddDataPageState extends State<AddDataPage> {
                 onChangedActivity: _onChangedActivity,
                 nameController: _nameController,
                 surnameController: _surnameController,
+                valueGoal: _valueGoal,
+                onChangedGoal: _onChangedGoal,
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {

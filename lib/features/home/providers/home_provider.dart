@@ -6,6 +6,8 @@ class HomeProvider with ChangeNotifier {
   final Map<String, dynamic> _userData = {};
   double usersBMR = 0.0;
   double basicBMR = 0.0;
+  double userBMRwithGoal = 0.0;
+  double usersBMI = 0.0;
 
   Future<Map<String, dynamic>> fetchUserData() async {
     try {
@@ -23,6 +25,8 @@ class HomeProvider with ChangeNotifier {
         _userData['gender'] = userDataSnapshot.get('gender');
         _userData['activity'] = userDataSnapshot.get('activity');
         _userData['bmr'] = userDataSnapshot.get('bmr');
+        _userData['goal'] = userDataSnapshot.get('goal');
+        _userData['bmi'] = userDataSnapshot.get('bmi');
 
         notifyListeners();
       }
@@ -34,12 +38,13 @@ class HomeProvider with ChangeNotifier {
 
   Map<String, dynamic> get userData => _userData;
 
-  Future getUsersBMR({
+  Future<double> getUsersBMR({
     required String gender,
     required double weight,
     required double height,
     required int age,
     required String activity,
+    required String goal,
   }) async {
     const double low = 1.2;
     const double light = 1.375;
@@ -50,27 +55,59 @@ class HomeProvider with ChangeNotifier {
     var isMan = gender == 'MAN';
     var isWoman = gender == 'WOMAN';
     if (isMan) {
-      basicBMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+      var manBmrEquation =
+          88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+      basicBMR = manBmrEquation;
     } else if (isWoman) {
-      basicBMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+      var womanBmrEquation =
+          447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+      basicBMR = womanBmrEquation;
     }
-    var isActivityLow = activity == 'LOW';
-    var isActivityLight = activity == 'LIGHT';
-    var isActivityModerate = activity == 'MODERATE';
-    var isActivityHigh = activity == 'HIGH';
-    var isActivityVeryHigh = activity == 'VERY HIGH';
 
-    if (isActivityLow) {
-      usersBMR = basicBMR * low;
-    } else if (isActivityLight) {
-      usersBMR = basicBMR * light;
-    } else if (isActivityModerate) {
-      usersBMR = basicBMR * moderate;
-    } else if (isActivityHigh) {
-      usersBMR = basicBMR * high;
-    } else if (isActivityVeryHigh) {
-      usersBMR = basicBMR * veryhigh;
+    switch (activity) {
+      case 'LOW':
+        usersBMR = basicBMR * low;
+        break;
+      case 'LIGHT':
+        usersBMR = basicBMR * light;
+        break;
+      case 'MODERATE':
+        usersBMR = basicBMR * moderate;
+        break;
+      case 'HIGH':
+        usersBMR = basicBMR * high;
+        break;
+      case 'VERY HIGH':
+        usersBMR = basicBMR * veryhigh;
+        break;
+      default:
+        throw Exception('Invalid activity level');
     }
-    return usersBMR;
+
+    switch (goal) {
+      case 'LOSE':
+        userBMRwithGoal = usersBMR - (usersBMR * 0.2);
+        break;
+      case 'MAINTAIN':
+        userBMRwithGoal = usersBMR;
+        break;
+      case 'GAIN':
+        userBMRwithGoal = usersBMR + (usersBMR * 0.2);
+        break;
+
+      default:
+        throw Exception('Invalid goal');
+    }
+
+    return userBMRwithGoal;
+  }
+
+  Future<double> getUsersBMI({
+    required double height,
+    required double weight,
+  }) async {
+    double heightInMeters = height / 100;
+    usersBMI = (weight / (heightInMeters * heightInMeters));
+    return usersBMI;
   }
 }

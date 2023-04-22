@@ -31,6 +31,35 @@ class FitnessDataWidget extends StatelessWidget {
             return Text('Error: ${snapshot.error}');
           } else {
             double bmr = homeProvider.userData['bmr'];
+            double bmi = homeProvider.userData['bmi'];
+            Color getProgressColor(double bmi) {
+              var isNormalBMI = bmi >= 18.5 && bmi <= 25;
+              var isUnderOrOverWeight =
+                  (bmi >= 17 && bmi < 18.5) || (bmi > 25 && bmi <= 30);
+              if (isNormalBMI) {
+                return ColorManager.limerGreen2;
+              } else if (isUnderOrOverWeight) {
+                return ColorManager.yellow;
+              } else {
+                return ColorManager.red;
+              }
+            }
+
+            String getMessage(double bmi) {
+              var isNormalBMI = bmi >= 18.5 && bmi <= 25;
+              var isUnderWeight = bmi >= 17 && bmi < 18.5;
+              var isOverWeight = bmi > 25 && bmi <= 30;
+              if (isNormalBMI) {
+                return StringsManager.normalBmi;
+              } else if (isUnderWeight) {
+                return StringsManager.underWeightBmi;
+              } else if (isOverWeight) {
+                return StringsManager.overWeightBmi;
+              } else {
+                return StringsManager.dangerousBmi;
+              }
+            }
+
             return Padding(
               padding: const EdgeInsets.only(
                 left: PaddingManager.p12,
@@ -60,33 +89,31 @@ class FitnessDataWidget extends StatelessWidget {
                             circularStrokeCap: CircularStrokeCap.round,
                             radius: RadiusManager.r40,
                             lineWidth: SizeManager.s8,
-                            percent: 0.8,
-                            progressColor: ColorManager.limerGreen2,
+                            percent: bmi / 40,
+                            progressColor: getProgressColor(bmi),
                             backgroundColor: ColorManager.grey3,
                             animateFromLastPercent: true,
                             center: Icon(
-                              Icons.directions_walk_sharp,
-                              color: ColorManager.limerGreen2,
+                              Icons.favorite_border,
+                              color: getProgressColor(bmi),
                               size: SizeManager.s28,
                             ),
                           ),
                         ),
-                        const Text(
-                          '8000',
-                          //TODO
+                        Text(
+                          'BMI ${bmi.toStringAsFixed(1)}',
                           textAlign: TextAlign.center,
                           style: StyleManager.homePageS20BoldWhite,
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(
+                        Padding(
+                          padding: const EdgeInsets.only(
                             top: PaddingManager.p12,
                             bottom: PaddingManager.p12,
                           ),
                           child: Text(
-                            'Out of 10,000',
-                            //TODO
+                            getMessage(bmi),
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: ColorManager.white2,
                               fontSize: FontSize.s12,
                               fontWeight: FontWightManager.regular,

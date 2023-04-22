@@ -222,6 +222,8 @@ class AuthProvider with ChangeNotifier {
     required String gender,
     required String activity,
     required double bmr,
+    required String goal,
+    required double bmi,
     required BuildContext context,
   }) async {
     try {
@@ -240,6 +242,8 @@ class AuthProvider with ChangeNotifier {
         'gender': gender,
         'activity': activity,
         'bmr': bmr,
+        'goal': goal,
+        'bmi': bmi,
       });
       notifyListeners();
     } catch (e) {
