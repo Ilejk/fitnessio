@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -120,6 +121,98 @@ class SettingsProvider with ChangeNotifier {
           notifyListeners();
         },
       );
+    }
+  }
+
+  Future<void> changeUsersHeight({
+    required double height,
+    required double bmi,
+    required double bmr,
+    required BuildContext context,
+  }) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user!.uid)
+          .update({
+        'height': height,
+        'bmi': bmi,
+        'bmr': bmr,
+      });
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      notifyListeners();
+    }
+  }
+
+  Future<void> changeUsersWeight({
+    required double weight,
+    required double bmi,
+    required double bmr,
+    required BuildContext context,
+  }) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user!.uid)
+          .update({
+        'weight': weight,
+        'bmi': bmi,
+        'bmr': bmr,
+      });
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      notifyListeners();
+    }
+  }
+
+  Future<void> changeUsersActivity({
+    required String activity,
+    required double bmr,
+    required BuildContext context,
+  }) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user!.uid)
+          .update({
+        'activity': activity,
+        'bmr': bmr,
+      });
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      notifyListeners();
+    }
+  }
+
+  Future<void> changeUsersGaols({
+    required String goal,
+    required double bmr,
+    required BuildContext context,
+  }) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user!.uid)
+          .update({
+        'goal': goal,
+        'bmr': bmr,
+      });
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      notifyListeners();
     }
   }
 }

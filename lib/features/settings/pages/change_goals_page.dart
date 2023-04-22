@@ -2,6 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/home/providers/home_provider.dart';
 import 'package:smart_home_app/features/settings/widgets/change_password_app_bar.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -29,12 +30,32 @@ class _ChangeGoalsPageState extends State<ChangeGoalsPage> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Future<void> changeGoals() async {
     final settingsProvider =
         Provider.of<SettingsProvider>(context, listen: false);
-    Future<void> changeGoals() async {}
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    try {
+      await homeProvider
+          .getUsersBMR(
+            gender: homeProvider.userData['gender'],
+            weight: homeProvider.userData['weight'],
+            height: homeProvider.userData['height'],
+            age: homeProvider.userData['age'],
+            activity: homeProvider.userData['activity'],
+            goal: _valueGoals!,
+          )
+          .then((_) => settingsProvider.changeUsersGaols(
+              bmr: homeProvider.userBMRwithGoal,
+              goal: _valueGoals!,
+              context: context))
+          .then((_) => Navigator.of(context).pop());
+    } catch (e) {
+      print(e);
+    }
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
       appBar: const PreferredSize(

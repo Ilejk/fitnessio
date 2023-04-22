@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+import 'package:smart_home_app/features/home/providers/home_provider.dart';
 import 'package:smart_home_app/features/settings/widgets/change_password_app_bar.dart';
 import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -27,12 +28,36 @@ class _ChangeHeightPageState extends State<ChangeHeightPage> {
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Future<void> changeHeight() async {
     final settingsProvider =
         Provider.of<SettingsProvider>(context, listen: false);
-    Future<void> changeHeight() async {}
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    try {
+      await homeProvider
+          .getUsersBMI(
+              height: double.parse(_heightController.text),
+              weight: homeProvider.userData['weight'])
+          .then((_) => homeProvider.getUsersBMR(
+                gender: homeProvider.userData['gender'],
+                weight: homeProvider.userData['weight'],
+                height: double.parse(_heightController.text),
+                age: homeProvider.userData['age'],
+                activity: homeProvider.userData['activity'],
+                goal: homeProvider.userData['goal'],
+              ))
+          .then((_) => settingsProvider.changeUsersHeight(
+              bmi: homeProvider.usersBMI,
+              bmr: homeProvider.userBMRwithGoal,
+              height: double.parse(_heightController.text),
+              context: context))
+          .then((_) => Navigator.of(context).pop());
+    } catch (e) {
+      print(e);
+    }
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
       appBar: const PreferredSize(
