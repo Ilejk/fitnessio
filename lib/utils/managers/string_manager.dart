@@ -88,7 +88,7 @@ class StringsManager {
   static const String enterData = 'Please provide\nfollwing information';
   static const String kcalConsumption = 'Calorie Consumption';
   static const String kcalPerDay = 'Calories/Day';
-  static const String waterHint = 'Water in ml';
+  static const String waterHint = 'Water in liters';
   static const String kcal = 'kCal';
   static const String calories = 'Calories';
   static const String liters = 'Liters';
@@ -104,4 +104,11 @@ class StringsManager {
   static const String underWeightBmi = 'You are\nunderweight!';
   static const String overWeightBmi = 'You are\noverweight!';
   static const String dangerousBmi = 'You should\nsee a doctor!';
+  static const String drinkPageText = 'Raise the waters!';
+  static const String personalInfo = 'Personal Info';
+  static const String age = 'Age';
+  static const String height = 'Height';
+  static const String weight = 'Weight';
+  static const String activity = 'Activity';
+  static const String goal = 'Goal';
 }

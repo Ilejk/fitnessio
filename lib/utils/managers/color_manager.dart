@@ -14,6 +14,7 @@ class ColorManager {
   static const Color grey = Color.fromARGB(255, 99, 98, 98);
   static Color grey3 = HexColor.fromHex('#242A2E');
   static Color limerGreen2 = HexColor.fromHex('#BBF247');
+  static Color drinkDarkGrey = HexColor.fromHex('#252325');
   static final Color grey2 = Colors.grey.shade800;
   static const Color blue = Color.fromARGB(255, 46, 202, 245);
   static const Color brightThemeGrey = Color.fromARGB(255, 175, 178, 159);

@@ -155,4 +155,10 @@ class StyleManager {
     fontSize: FontSize.s22,
     letterSpacing: SizeManager.s1,
   );
+  static const drinkPageTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s35,
+    fontWeight: FontWightManager.bold,
+    letterSpacing: SizeManager.s1,
+  );
 }
