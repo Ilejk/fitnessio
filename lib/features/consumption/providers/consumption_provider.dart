@@ -93,12 +93,13 @@ class ConsumptionProvider with ChangeNotifier {
     for (var meal in _meals) {
       kCalaDay += meal.calories;
     }
-    print(kCalaDay);
+
     notifyListeners();
   }
 
   Future<void> clearMealsIfDayChanges(DateTime lastDateTime) async {
     DateTime now = DateTime.now();
+
     if (isLastDateTimeDifferent(now, lastDateTime)) {
       try {
         User? user = FirebaseAuth.instance.currentUser;
@@ -192,7 +193,21 @@ class ConsumptionProvider with ChangeNotifier {
     for (var water in _water) {
       waterADay += water.amount;
     }
-    print(waterADay);
     notifyListeners();
+  }
+
+  Future<void> deleteMeal(String mealID) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('meals')
+          .doc(user!.uid)
+          .collection('mealData')
+          .doc(mealID)
+          .delete();
+    } catch (e) {
+      print(e);
+    }
   }
 }

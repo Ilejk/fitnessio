@@ -18,11 +18,14 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
   @override
   void initState() {
     super.initState();
+
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final consumptionProvider =
           Provider.of<ConsumptionProvider>(context, listen: false);
-      final meals = await consumptionProvider.fetchAndSetMeals();
-      if (meals != null && meals.isNotEmpty) {
+      await consumptionProvider.fetchAndSetMeals();
+      final meals = consumptionProvider.meals;
+
+      if (meals.isNotEmpty) {
         final lastMealDateTime = meals.last.dateTime;
         final now = DateTime.now();
         if (now.year > lastMealDateTime.year ||
@@ -68,12 +71,19 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
                         itemCount: consumptionProvider.meals.length,
                         itemBuilder: (context, index) {
                           return MealWidget(
+                            id: consumptionProvider.meals[index].id,
                             title: consumptionProvider.meals[index].title,
                             amount: consumptionProvider.meals[index].amount,
                             calories: consumptionProvider.meals[index].calories,
                             fats: consumptionProvider.meals[index].fats,
                             carbs: consumptionProvider.meals[index].carbs,
                             proteins: consumptionProvider.meals[index].proteins,
+                            onPressed: (_) {
+                              setState(() {
+                                consumptionProvider.deleteMeal(
+                                    consumptionProvider.meals[index].id);
+                              });
+                            },
                           );
                         },
                       ),

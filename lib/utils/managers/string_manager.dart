@@ -115,4 +115,5 @@ class StringsManager {
   static const String changeGoalsText = 'Have your workout\ngoals changed?';
   static const String changeHeightText = 'I wish I was a\nlittle bit taller...';
   static const String changeWeightText = 'Getting fatter or\n getting fitter?';
+  static const String delete = 'Delete';
 }
