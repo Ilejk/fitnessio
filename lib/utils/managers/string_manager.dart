@@ -27,7 +27,7 @@ class StringsManager {
   static const String surnameHint = 'Surname';
   static const String settingsABtitle = 'SETTINGS';
   static const String addMealABtitle = 'ADD MEAL';
-  static const String workoutsABtitle = 'WORKOUTS';
+  static const String workoutsABtitle = 'MY WORKOUT';
   static const String consumptionABtitle = 'CONSUMPTION';
   static const String signOut = 'Sign Out';
   static const String changePassword = 'Change password';
@@ -116,4 +116,11 @@ class StringsManager {
   static const String changeHeightText = 'I wish I was a\nlittle bit taller...';
   static const String changeWeightText = 'Getting fatter or\n getting fitter?';
   static const String delete = 'Delete';
+  static const String newExercise = 'New exercise';
+  static const String exerciseHint = 'Exercise';
+  static const String aroundTheWorldHint = 'Around The World';
+  static const String abWheelHint = 'AB Wheel';
+  static const String setNumberHint = 'Sets';
+  static const String repNumberHint = 'Reps';
+  static const String probileABtitle = 'MY PROFILE';
 }

@@ -161,4 +161,10 @@ class StyleManager {
     fontWeight: FontWightManager.bold,
     letterSpacing: SizeManager.s1,
   );
+  static const newExerciseButtonTextSTyle = TextStyle(
+    fontSize: FontSize.s25,
+    fontWeight: FontWightManager.bold,
+    letterSpacing: SizeManager.s3,
+    color: ColorManager.darkGrey,
+  );
 }

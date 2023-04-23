@@ -4,8 +4,12 @@ import 'package:provider/provider.dart';
 import 'package:smart_home_app/features/consumption/providers/consumption_provider.dart';
 import 'package:smart_home_app/features/consumption/widgets/meal_widget.dart';
 import 'package:smart_home_app/features/workouts/providers/workout_provider.dart';
-import 'package:smart_home_app/features/workouts/widgets/workout_widget.dart';
+import 'package:smart_home_app/features/workouts/widgets/new_exercise_button.dart';
+import 'package:smart_home_app/features/workouts/widgets/exercise_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/managers/font_manager.dart';
+import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
@@ -62,29 +66,44 @@ class _WorkoutPageState extends State<WorkoutPage> {
         child: FutureBuilder<void>(
           future: workoutsProvider.fetchAndSetWorkouts(),
           builder: (context, snapshot) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            return Stack(
               children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: workoutsProvider.workouts.length,
-                    itemBuilder: (context, index) {
-                      return WorkoutWidget(
-                        name: workoutsProvider.workouts[index].name,
-                        repNumber: workoutsProvider.workouts[index].repNumber,
-                        setNumber: workoutsProvider.workouts[index].setNumber,
-                        id: workoutsProvider.workouts[index].id,
-                        onPressed: (_) {
-                          setState(() {
-                            workoutsProvider.deleteWorkout(
-                              workoutsProvider.workouts[index].id,
-                            );
-                          });
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: NewExerciseButton(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(Routes.addNewExerciseRoute);
                         },
-                      );
-                    },
-                  ),
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: workoutsProvider.workouts.length,
+                        itemBuilder: (context, index) {
+                          return ExerciseWidget(
+                            name: workoutsProvider.workouts[index].name,
+                            repNumber:
+                                workoutsProvider.workouts[index].repNumber,
+                            setNumber:
+                                workoutsProvider.workouts[index].setNumber,
+                            id: workoutsProvider.workouts[index].id,
+                            onPressed: (_) {
+                              setState(() {
+                                workoutsProvider.deleteWorkout(
+                                  workoutsProvider.workouts[index].id,
+                                );
+                              });
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ],
             );

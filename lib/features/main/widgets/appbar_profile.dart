@@ -4,11 +4,17 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class WorkoutsPageAppBarWidget extends StatelessWidget {
-  const WorkoutsPageAppBarWidget({
+class ProfilePageAppBarWidget extends StatefulWidget {
+  const ProfilePageAppBarWidget({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<ProfilePageAppBarWidget> createState() =>
+      _ProfilePageAppBarWidgetState();
+}
+
+class _ProfilePageAppBarWidgetState extends State<ProfilePageAppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -17,7 +23,7 @@ class WorkoutsPageAppBarWidget extends StatelessWidget {
       automaticallyImplyLeading: false,
       elevation: SizeManager.s0,
       title: const Text(
-        StringsManager.workoutsABtitle,
+        StringsManager.probileABtitle,
         style: StyleManager.appbarTitleTextStyle,
       ),
     ).animate().fadeIn(

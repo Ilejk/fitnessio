@@ -72,48 +72,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   top: PaddingManager.p12,
                 ),
                 child: Text(
-                  StringsManager.personalInfo,
-                  style: StyleManager.settingsPageSpacerTextStyle,
-                ),
-              ),
-            ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
-              onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeWeightRoute),
-              iconData: Icons.line_weight,
-              title: StringsManager.weight,
-            ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
-              onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeHeightRoute),
-              iconData: Icons.height,
-              title: StringsManager.height,
-            ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
-              onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeActivityRoute),
-              iconData: Icons.local_activity_outlined,
-              title: StringsManager.activity,
-            ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
-              onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeGoalsRoute),
-              iconData: Icons.grade_outlined,
-              title: StringsManager.goal,
-            ),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: PaddingManager.p12,
-                  bottom: PaddingManager.p12,
-                  top: PaddingManager.p12,
-                ),
-                child: Text(
                   StringsManager.generalSpacer,
                   style: StyleManager.settingsPageSpacerTextStyle,
                 ),

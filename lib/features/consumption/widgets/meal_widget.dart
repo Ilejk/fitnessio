@@ -36,10 +36,9 @@ class MealWidget extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(
-        top: PaddingManager.p28,
+        top: PaddingManager.p8,
         left: PaddingManager.p12,
         right: PaddingManager.p12,
-        bottom: PaddingManager.p12,
       ),
       child: Slidable(
         endActionPane: ActionPane(

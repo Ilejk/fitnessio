@@ -12,7 +12,6 @@ class WorkoutProvider with ChangeNotifier {
 
   Future<void> addNewWorkout({
     required String name,
-    required String id,
     required int repNumber,
     required int setNumber,
     required DateTime dateTime,
@@ -27,7 +26,6 @@ class WorkoutProvider with ChangeNotifier {
           .doc()
           .set({
         'name': name,
-        'id': id,
         'repNumber': repNumber,
         'setNumber': setNumber,
         'dateTime': dateTime,
@@ -55,7 +53,7 @@ class WorkoutProvider with ChangeNotifier {
         final workoutData = doc.data();
         loadedWorkouts.add(
           WorkoutModel(
-            id: workoutData['id'],
+            id: doc.id,
             name: workoutData['name'],
             repNumber: workoutData['repNumber'],
             setNumber: workoutData['setNumber'],

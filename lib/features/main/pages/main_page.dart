@@ -2,11 +2,13 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_consumption.dart';
+import 'package:smart_home_app/features/main/widgets/appbar_profile.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_workouts.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_settings.dart';
 import 'package:smart_home_app/features/consumption/pages/consumption_page.dart';
 import 'package:smart_home_app/features/home/pages/home_page.dart';
 import 'package:smart_home_app/features/main/widgets/appbar_home.dart';
+import 'package:smart_home_app/features/profile/pages/profile_page.dart';
 import 'package:smart_home_app/features/workouts/pages/workouts_page.dart';
 import 'package:smart_home_app/features/settings/pages/settings_page.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -32,6 +34,7 @@ class _MainPageState extends State<MainPage> {
     ConsumptionPage(),
     WorkoutPage(),
     SettingsPage(),
+    ProfilePage(),
   ];
 
   appBar() {
@@ -43,8 +46,12 @@ class _MainPageState extends State<MainPage> {
       return const WorkoutsPageAppBarWidget();
     } else if (isSettingsPage) {
       return const SettingsPageAppBarWidget();
+    } else if (isProfilePage) {
+      return const ProfilePageAppBarWidget();
     }
   }
+
+  bool get isProfilePage => _currentIndex == 4;
 
   bool get isSettingsPage => _currentIndex == 3;
 
@@ -75,6 +82,11 @@ class _MainPageState extends State<MainPage> {
       ),
       Icon(
         Icons.settings_outlined,
+        color: isSettingsPage ? ColorManager.limerGreen2 : ColorManager.grey2,
+        size: SizeManager.s28,
+      ),
+      Icon(
+        Icons.person_4_outlined,
         color: isSettingsPage ? ColorManager.limerGreen2 : ColorManager.grey2,
         size: SizeManager.s28,
       ),
