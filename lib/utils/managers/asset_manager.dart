@@ -16,6 +16,8 @@ class ImageManager {
   static const carousel3WP = '$imagePath/carousel3.webp';
   static const carousel4WP = '$imagePath/carousel4.webp';
   static const carousel5WP = '$imagePath/carousel5.webp';
+  static const man = '$imagePath/man.webp';
+  static const woman = '$imagePath/woman.webp';
 }
 
 class AnimationManager {

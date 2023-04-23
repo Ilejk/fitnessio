@@ -123,4 +123,6 @@ class StringsManager {
   static const String setNumberHint = 'Sets';
   static const String repNumberHint = 'Reps';
   static const String probileABtitle = 'MY PROFILE';
+  static const String edit = 'Edit';
+  static const String loggedInAs = 'Logged in as: ';
 }

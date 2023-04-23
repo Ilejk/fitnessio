@@ -27,6 +27,7 @@ class HomeProvider with ChangeNotifier {
         _userData['bmr'] = userDataSnapshot.get('bmr');
         _userData['goal'] = userDataSnapshot.get('goal');
         _userData['bmi'] = userDataSnapshot.get('bmi');
+        _userData['email'] = userDataSnapshot.get('email');
 
         notifyListeners();
       }

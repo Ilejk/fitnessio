@@ -94,7 +94,10 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
       appBar: PreferredSize(
-        preferredSize: const Size(double.infinity, SizeManager.s60),
+        preferredSize: Size(
+          double.infinity,
+          isProfilePage ? SizeManager.s0 : SizeManager.s60,
+        ),
         child: appBar(),
       ),
       bottomNavigationBar: CurvedNavigationBar(

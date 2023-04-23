@@ -22,10 +22,6 @@ class _ProfilePageAppBarWidgetState extends State<ProfilePageAppBarWidget> {
       scrolledUnderElevation: SizeManager.s50,
       automaticallyImplyLeading: false,
       elevation: SizeManager.s0,
-      title: const Text(
-        StringsManager.probileABtitle,
-        style: StyleManager.appbarTitleTextStyle,
-      ),
     ).animate().fadeIn(
           duration: 500.ms,
         );
