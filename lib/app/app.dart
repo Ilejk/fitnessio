@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/features/auth/providers/auth_provider.dart';
-import 'package:smart_home_app/features/consumption/providers/consumption_provider.dart';
-import 'package:smart_home_app/features/home/providers/home_provider.dart';
-import 'package:smart_home_app/features/settings/providers/settings_provider.dart';
-import 'package:smart_home_app/features/workouts/providers/workout_provider.dart';
+import 'package:smart_home_app/presentation/auth/providers/auth_provider.dart';
+import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
+import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
+import 'package:smart_home_app/presentation/settings/providers/settings_provider.dart';
+import 'package:smart_home_app/presentation/workouts/providers/workout_provider.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
 // ignore: must_be_immutable
