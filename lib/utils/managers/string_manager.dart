@@ -125,4 +125,13 @@ class StringsManager {
   static const String probileABtitle = 'MY PROFILE';
   static const String edit = 'Edit';
   static const String loggedInAs = 'Logged in as: ';
+  static const String changeMeasurementsText = 'Change your\nmeasurements';
+  static const String chest = 'Chest';
+  static const String shoulders = 'Shoulders';
+  static const String thigh = 'Thighs';
+  static const String calf = 'Calf';
+  static const String biceps = 'Biceps';
+  static const String foreArm = 'Forearm';
+  static const String waist = 'Waist';
+  static const String hips = 'Hips';
 }

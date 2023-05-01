@@ -81,32 +81,38 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                  top: PaddingManager.p12, right: PaddingManager.p12),
+                top: PaddingManager.p12,
+                right: PaddingManager.p12,
+              ),
               child: Align(
                 alignment: Alignment.centerRight,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
-                      StringsManager.edit,
-                      textAlign: TextAlign.right,
-                      style: TextStyle(
-                          color: ColorManager.white,
-                          fontSize: FontSize.s16,
-                          fontWeight: FontWightManager.regular,
-                          letterSpacing: SizeManager.s1,
-                          decoration: TextDecoration.underline),
-                    ),
-                    SizedBox(
-                      width: SizeManager.s3,
-                    ),
-                    Icon(
-                      Icons.edit,
-                      color: ColorManager.white,
-                      size: SizeManager.s18,
-                    )
-                  ],
+                child: GestureDetector(
+                  onTap: () => Navigator.of(context)
+                      .pushNamed(Routes.changeMeasurementsRoute),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Text(
+                        StringsManager.edit,
+                        textAlign: TextAlign.right,
+                        style: TextStyle(
+                            color: ColorManager.white,
+                            fontSize: FontSize.s16,
+                            fontWeight: FontWightManager.regular,
+                            letterSpacing: SizeManager.s1,
+                            decoration: TextDecoration.underline),
+                      ),
+                      SizedBox(
+                        width: SizeManager.s3,
+                      ),
+                      Icon(
+                        Icons.edit,
+                        color: ColorManager.white,
+                        size: SizeManager.s18,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -131,20 +137,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   Navigator.of(context).pushNamed(Routes.changeHeightRoute),
               iconData: Icons.height,
               title: StringsManager.height,
-            ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
-              onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeActivityRoute),
-              iconData: Icons.local_activity_outlined,
-              title: StringsManager.activity,
-            ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
-              onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeGoalsRoute),
-              iconData: Icons.grade_outlined,
-              title: StringsManager.goal,
             ),
           ],
         ).animate().fadeIn(

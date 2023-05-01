@@ -8,9 +8,8 @@ import 'package:smart_home_app/presentation/consumption/pages/new_meal_page.dart
 import 'package:smart_home_app/presentation/main/pages/main_page.dart';
 import 'package:smart_home_app/presentation/auth/pages/login_or_register_page.dart';
 import 'package:smart_home_app/presentation/notifications/pages/notifications_page.dart';
-import 'package:smart_home_app/presentation/profile/pages/change_activity_page.dart';
+import 'package:smart_home_app/presentation/profile/pages/change_measurements_page.dart';
 import 'package:smart_home_app/presentation/settings/pages/change_email_page.dart';
-import 'package:smart_home_app/presentation/profile/pages/change_goals_page.dart';
 import 'package:smart_home_app/presentation/profile/pages/change_height_page.dart';
 import 'package:smart_home_app/presentation/settings/pages/change_password_page.dart';
 import 'package:smart_home_app/presentation/profile/pages/change_weight_page.dart';
@@ -34,8 +33,7 @@ class Routes {
   static const String addNewExerciseRoute = '/addExercise';
   static const String changeHeightRoute = '/changeHeight';
   static const String changeWeightRoute = '/changeWeight';
-  static const String changeActivityRoute = '/changeActivity';
-  static const String changeGoalsRoute = '/changeGoals';
+  static const String changeMeasurementsRoute = '/changeMeasurements';
 }
 
 class RouteGenerator {
@@ -65,16 +63,15 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const AddDataPage());
       case Routes.addWaterRoute:
         return MaterialPageRoute(builder: (_) => const DrinkPage());
-      case Routes.changeActivityRoute:
-        return MaterialPageRoute(builder: (_) => const ChangeActivityPage());
       case Routes.addNewExerciseRoute:
         return MaterialPageRoute(builder: (_) => const NewExercisePage());
       case Routes.changeWeightRoute:
         return MaterialPageRoute(builder: (_) => const ChangeWeightPage());
       case Routes.changeHeightRoute:
         return MaterialPageRoute(builder: (_) => const ChangeHeightPage());
-      case Routes.changeGoalsRoute:
-        return MaterialPageRoute(builder: (_) => const ChangeGoalsPage());
+      case Routes.changeMeasurementsRoute:
+        return MaterialPageRoute(
+            builder: (_) => const ChangeMeasurementsPage());
       default:
         return undefinedRoute();
     }
