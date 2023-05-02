@@ -3,12 +3,13 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
-import 'package:smart_home_app/presentation/settings/widgets/button_settings.dart';
+import 'package:smart_home_app/presentation/profile/widgets/edit_text_button.dart';
+import 'package:smart_home_app/presentation/profile/widgets/weight_data_text_row.dart';
+import 'package:smart_home_app/presentation/profile/widgets/weight_line_chart.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
-import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
@@ -80,43 +81,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: PaddingManager.p12,
-                right: PaddingManager.p12,
-              ),
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: GestureDetector(
-                  onTap: () => Navigator.of(context)
-                      .pushNamed(Routes.changeMeasurementsRoute),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        StringsManager.edit,
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          color: ColorManager.white,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.regular,
-                          letterSpacing: SizeManager.s1,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                      SizedBox(
-                        width: SizeManager.s3.w,
-                      ),
-                      const Icon(
-                        Icons.edit,
-                        color: ColorManager.white,
-                        size: SizeManager.s18,
-                      )
-                    ],
-                  ),
-                ),
-              ),
+            EditTextButton(
+              onTap: () => Navigator.of(context)
+                  .pushNamed(Routes.changeMeasurementsRoute),
             ),
             Stack(
               children: [
@@ -307,19 +274,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ],
             ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
+            const WeightDataTextRowWidget(),
+            const WeightLineChart(),
+            EditTextButton(
               onTap: () =>
                   Navigator.of(context).pushNamed(Routes.changeWeightRoute),
-              iconData: Icons.line_weight,
-              title: StringsManager.weight,
-            ),
-            SettingsPageButton(
-              deviceWidth: deviceWidth,
-              onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeHeightRoute),
-              iconData: Icons.height,
-              title: StringsManager.height,
             ),
           ],
         ).animate().fadeIn(

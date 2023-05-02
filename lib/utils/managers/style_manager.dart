@@ -168,4 +168,9 @@ class StyleManager {
     letterSpacing: SizeManager.s3,
     color: ColorManager.darkGrey,
   );
+  static final weightProfTextSTyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s13.sp,
+    fontWeight: FontWightManager.semiBold,
+  );
 }

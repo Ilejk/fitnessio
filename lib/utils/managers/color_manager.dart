@@ -18,6 +18,9 @@ class ColorManager {
   static final Color grey2 = Colors.grey.shade800;
   static const Color blue = Color.fromARGB(255, 46, 202, 245);
   static const Color brightThemeGrey = Color.fromARGB(255, 175, 178, 159);
+  static const Color orange = Color.fromARGB(255, 204, 77, 14);
+  static const Color orange2 = Color.fromARGB(67, 224, 103, 42);
+  static const Color limeGreenOp = Color.fromARGB(73, 175, 231, 78);
 }
 
 extension HexColor on Color {

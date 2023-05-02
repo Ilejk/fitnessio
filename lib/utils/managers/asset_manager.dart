@@ -18,6 +18,7 @@ class ImageManager {
   static const carousel5WP = '$imagePath/carousel5.webp';
   static const man = '$imagePath/man.webp';
   static const woman = '$imagePath/woman.webp';
+  static const weightIc = '$imagePath/weight_ic.png';
 }
 
 class AnimationManager {
