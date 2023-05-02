@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
@@ -53,7 +54,7 @@ class _NewMealPageState extends State<NewMealPage> {
       appBar: PreferredSize(
         preferredSize: Size(
           deviceWidth,
-          SizeManager.s60,
+          SizeManager.s60.h,
         ),
         child: const NewMealPageAppBar(),
       ),
@@ -67,8 +68,8 @@ class _NewMealPageState extends State<NewMealPage> {
               Padding(
                 padding: const EdgeInsets.only(bottom: PaddingManager.p8),
                 child: SizedBox(
-                  width: SizeManager.s250,
-                  height: SizeManager.s250,
+                  width: SizeManager.s250.w,
+                  height: SizeManager.s250.h,
                   child: Image.asset(
                     ImageManager.fork,
                   ),

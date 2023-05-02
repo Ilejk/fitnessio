@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/auth/providers/auth_provider.dart';
 import 'package:smart_home_app/presentation/auth/widgets/add_data_widgets.dart';
@@ -116,14 +117,14 @@ class _AddDataPageState extends State<AddDataPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(bottom: PaddingManager.p28),
+              Padding(
+                padding: const EdgeInsets.only(bottom: PaddingManager.p28),
                 child: Center(
                   child: Text(
                     StringsManager.enterData,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: FontSize.s20,
+                      fontSize: FontSize.s20.sp,
                       fontWeight: FontWightManager.semiBold,
                       color: ColorManager.white,
                     ),

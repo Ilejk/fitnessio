@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
 import 'package:smart_home_app/presentation/main/widgets/appbar_consumption.dart';
@@ -119,7 +120,7 @@ class _MainPageState extends State<MainPage> {
       ),
       Icon(
         Icons.person_4_outlined,
-        color: isSettingsPage ? ColorManager.limerGreen2 : ColorManager.grey2,
+        color: isProfilePage ? ColorManager.limerGreen2 : ColorManager.grey2,
         size: SizeManager.s28,
       ),
     ];
@@ -128,7 +129,7 @@ class _MainPageState extends State<MainPage> {
       appBar: PreferredSize(
         preferredSize: Size(
           double.infinity,
-          isProfilePage ? SizeManager.s0 : SizeManager.s60,
+          isProfilePage ? SizeManager.s0 : SizeManager.s60.h,
         ),
         child: appBar(),
       ),

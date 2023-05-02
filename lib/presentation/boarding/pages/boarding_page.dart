@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
@@ -49,27 +50,30 @@ class _BoardingPageState extends State<BoardingPage> {
     for (var item in imgList) {
       precacheImage(ExactAssetImage(item), context);
     }
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: ColorManager.black,
       body: Stack(
         children: [
           PageView(
             controller: _pageController,
-            children: imgList
-                .map(
-                  (item) => Center(
-                    child: Image.asset(
-                      item,
-                      fit: BoxFit.cover,
-                      height: MediaQuery.of(context).size.height,
-                    ),
+            children: imgList.map(
+              (item) {
+                return Center(
+                  child: Image.asset(
+                    item,
+                    fit: BoxFit.cover,
+                    height: height,
                   ),
-                )
-                .toList(),
+                );
+              },
+            ).toList(),
             onPageChanged: (value) {
               if (value == imgList.length - 1) {
                 Future.delayed(
-                  const Duration(seconds: DurationManager.s5),
+                  const Duration(
+                    seconds: DurationManager.s5,
+                  ),
                 ).then(
                   (value) => _pageController.animateToPage(
                     0,
@@ -84,13 +88,13 @@ class _BoardingPageState extends State<BoardingPage> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: SizeManager.s400,
+              height: SizeManager.s400.h,
               width: double.infinity,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   color: ColorManager.black87,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(RadiusManager.r15),
-                    topRight: Radius.circular(RadiusManager.r15),
+                    topLeft: Radius.circular(RadiusManager.r15.r),
+                    topRight: Radius.circular(RadiusManager.r15.r),
                   )),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -104,40 +108,40 @@ class _BoardingPageState extends State<BoardingPage> {
                       effect: CustomizableEffect(
                         spacing: SizeManager.s16,
                         dotDecoration: DotDecoration(
-                          width: SizeManager.s8,
-                          height: SizeManager.s8,
+                          width: SizeManager.s8.w,
+                          height: SizeManager.s8.h,
                           color: ColorManager.white,
                           borderRadius:
-                              BorderRadius.circular(RadiusManager.r24),
-                          dotBorder: const DotBorder(
-                            width: SizeManager.s1_5,
+                              BorderRadius.circular(RadiusManager.r24.r),
+                          dotBorder: DotBorder(
+                            width: SizeManager.s1_5.w,
                             color: ColorManager.white,
                           ),
                         ),
                         activeDotDecoration: DotDecoration(
-                          width: SizeManager.s20,
-                          height: SizeManager.s20,
+                          width: SizeManager.s20.w,
+                          height: SizeManager.s20.h,
                           borderRadius:
-                              BorderRadius.circular(RadiusManager.r24),
+                              BorderRadius.circular(RadiusManager.r24.r),
                           color: ColorManager.black87,
-                          dotBorder: const DotBorder(
-                            width: SizeManager.s1_5,
+                          dotBorder: DotBorder(
+                            width: SizeManager.s1_5.w,
                             color: ColorManager.white,
                           ),
                         ),
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: PaddingManager.p28),
+                  Padding(
+                    padding: const EdgeInsets.only(top: PaddingManager.p28),
                     child: Text(
                       StringsManager.splashText1,
                       style: StyleManager.splashText1TextStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: PaddingManager.p28),
+                  Padding(
+                    padding: const EdgeInsets.only(top: PaddingManager.p28),
                     child: Text(
                       StringsManager.splashText2,
                       style: StyleManager.splashText2TextStyle,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -25,7 +25,7 @@ class TodaysProgressWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: ColorManager.black87,
           borderRadius: BorderRadius.circular(
-            RadiusManager.r40,
+            RadiusManager.r40.r,
           ),
         ),
         child: Padding(
@@ -39,9 +39,9 @@ class TodaysProgressWidget extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       top: PaddingManager.p12,
                       right: PaddingManager.p20,
                       left: PaddingManager.p20,
@@ -53,7 +53,7 @@ class TodaysProgressWidget extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       top: PaddingManager.p12,
                       right: PaddingManager.p20,
                       left: PaddingManager.p20,
@@ -74,13 +74,13 @@ class TodaysProgressWidget extends StatelessWidget {
                 ),
                 child: CircularPercentIndicator(
                   circularStrokeCap: CircularStrokeCap.round,
-                  radius: RadiusManager.r40,
-                  lineWidth: SizeManager.s8,
+                  radius: RadiusManager.r40.r,
+                  lineWidth: SizeManager.s8.w,
                   percent: 0.7,
                   progressColor: ColorManager.limerGreen2,
                   backgroundColor: ColorManager.grey3,
                   animateFromLastPercent: true,
-                  center: const Text(
+                  center: Text(
                     '70%',
                     style: StyleManager.homePagePogressBarTextStyle,
                   ),

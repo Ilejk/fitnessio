@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/auth/providers/auth_provider.dart';
 import 'package:smart_home_app/presentation/auth/widgets/login_or_register_view.dart';
@@ -109,8 +110,8 @@ class _LoginPageState extends State<LoginPage>
                 Padding(
                   padding: const EdgeInsets.only(bottom: PaddingManager.p8),
                   child: SizedBox(
-                    width: SizeManager.s250,
-                    height: SizeManager.s250,
+                    width: SizeManager.s250.w,
+                    height: SizeManager.s250.h,
                     child: Image.asset(
                       ImageManager.logo,
                     ),
@@ -135,7 +136,7 @@ class _LoginPageState extends State<LoginPage>
                               Navigator.of(context)
                                   .pushNamed(Routes.forgotPasswordRoute);
                             },
-                            child: const Text(
+                            child: Text(
                               StringsManager.forgotPassword,
                               style: StyleManager.loginPageSubTextTextStyle,
                             ),

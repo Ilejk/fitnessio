@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -53,12 +54,12 @@ class _DrinkPageState extends State<DrinkPage>
         leading: Padding(
           padding: const EdgeInsets.only(left: PaddingManager.p12),
           child: Container(
-            height: SizeManager.s40,
-            width: SizeManager.s40,
+            height: SizeManager.s40.h,
+            width: SizeManager.s40.w,
             decoration: BoxDecoration(
               color: ColorManager.grey3,
               borderRadius: BorderRadius.circular(
-                RadiusManager.r40,
+                RadiusManager.r40.r,
               ),
             ),
             child: IconButton(
@@ -82,8 +83,8 @@ class _DrinkPageState extends State<DrinkPage>
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(
+              Padding(
+                padding: const EdgeInsets.only(
                   top: PaddingManager.p30,
                 ),
                 child: Text(

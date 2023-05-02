@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -29,11 +30,11 @@ class SettingsPageButton extends StatelessWidget {
         ),
         child: Container(
           width: deviceWidth,
-          height: SizeManager.s70,
+          height: SizeManager.s70.h,
           decoration: BoxDecoration(
             color: ColorManager.grey3,
             borderRadius: BorderRadius.circular(
-              RadiusManager.r15,
+              RadiusManager.r15.r,
             ),
           ),
           child: Row(

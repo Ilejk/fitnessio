@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/presentation/settings/widgets/delete_account_app_bar.dart';
@@ -61,7 +62,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
           builder: (_) {
             return AlertDialog(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(RadiusManager.r15),
+                borderRadius: BorderRadius.circular(RadiusManager.r15.r),
               ),
               titleTextStyle: StyleManager.deleteAccPopUpTitleTextStyle,
               actionsAlignment: MainAxisAlignment.spaceEvenly,
@@ -76,10 +77,10 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: ColorManager.grey3,
-                      borderRadius: BorderRadius.circular(RadiusManager.r15),
+                      borderRadius: BorderRadius.circular(RadiusManager.r15.r),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(PaddingManager.p8),
+                    child: Padding(
+                      padding: const EdgeInsets.all(PaddingManager.p8),
                       child: Text(
                         StringsManager.yes,
                         style: StyleManager.deleteAccPopUpButtonTextStyle,
@@ -94,10 +95,10 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: ColorManager.grey3,
-                      borderRadius: BorderRadius.circular(RadiusManager.r15),
+                      borderRadius: BorderRadius.circular(RadiusManager.r15.r),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
                         top: PaddingManager.p8,
                         bottom: PaddingManager.p8,
                         right: PaddingManager.p14,
@@ -117,12 +118,12 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
 
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
-      appBar: const PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size(
           double.infinity,
-          SizeManager.s60,
+          SizeManager.s60.h,
         ),
-        child: DeleteAccountPageAppBar(),
+        child: const DeleteAccountPageAppBar(),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -131,8 +132,8 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(PaddingManager.p28),
+              Padding(
+                padding: const EdgeInsets.all(PaddingManager.p28),
                 child: Text(
                   StringsManager.deleteAccContent,
                   textAlign: TextAlign.center,
@@ -140,7 +141,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                     color: ColorManager.white,
                     fontWeight: FontWightManager.bold,
                     letterSpacing: SizeManager.s3,
-                    fontSize: FontSize.s25,
+                    fontSize: FontSize.s25.sp,
                   ),
                 ),
               ),

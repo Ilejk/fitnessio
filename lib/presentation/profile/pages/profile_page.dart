@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
 import 'package:smart_home_app/presentation/settings/widgets/button_settings.dart';
@@ -38,11 +39,11 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               child: Container(
                 width: deviceWidth,
-                height: SizeManager.s60,
+                height: SizeManager.s60.h,
                 decoration: BoxDecoration(
                   color: ColorManager.black87,
                   borderRadius: BorderRadius.circular(
-                    RadiusManager.r40,
+                    RadiusManager.r40.r,
                   ),
                 ),
                 child: Center(
@@ -59,16 +60,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           StringsManager.loggedInAs,
                           style: TextStyle(
                             color: ColorManager.limerGreen2,
-                            fontSize: FontSize.s18,
+                            fontSize: FontSize.s18.sp,
                             fontWeight: FontWightManager.bold,
                             letterSpacing: SizeManager.s1,
                           ),
                         ),
                         Text(
                           homeProvider.userData['email'],
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: ColorManager.white,
-                            fontSize: FontSize.s16,
+                            fontSize: FontSize.s16.sp,
                             fontWeight: FontWightManager.regular,
                             letterSpacing: SizeManager.s1,
                           ),
@@ -92,21 +93,22 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         StringsManager.edit,
                         textAlign: TextAlign.right,
                         style: TextStyle(
-                            color: ColorManager.white,
-                            fontSize: FontSize.s16,
-                            fontWeight: FontWightManager.regular,
-                            letterSpacing: SizeManager.s1,
-                            decoration: TextDecoration.underline),
+                          color: ColorManager.white,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.regular,
+                          letterSpacing: SizeManager.s1,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                       SizedBox(
-                        width: SizeManager.s3,
+                        width: SizeManager.s3.w,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.edit,
                         color: ColorManager.white,
                         size: SizeManager.s18,
@@ -117,7 +119,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             SizedBox(
-              height: SizeManager.s600,
+              height: SizeManager.s600.h,
               child: Image.asset(
                 homeProvider.userData['gender'] == 'MAN'
                     ? ImageManager.man

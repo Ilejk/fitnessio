@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -77,25 +78,25 @@ class AddDataWidgets extends StatelessWidget {
         ],
       ),
       NeuButton(
-        width: SizeManager.s400,
-        height: SizeManager.s70,
-        radius: RadiusManager.r15,
+        width: SizeManager.s400.w,
+        height: SizeManager.s70.h,
+        radius: RadiusManager.r15.r,
         child: DropdownButtonHideUnderline(
           child: DropdownButton2(
             dropdownDecoration: BoxDecoration(
               color: ColorManager.darkGrey,
               borderRadius: BorderRadius.circular(
-                RadiusManager.r15,
+                RadiusManager.r15.r,
               ),
             ),
             onChanged: onChangedGender,
             value: valueGender,
             iconSize: SizeManager.s0,
-            hint: const Text(
+            hint: Text(
               StringsManager.genderHint,
               style: StyleManager.registerTextfieldTextStyle,
             ),
-            items: const [
+            items: [
               DropdownMenuItem(
                 value: StringsManager.genderManHint,
                 child: Text(
@@ -115,25 +116,25 @@ class AddDataWidgets extends StatelessWidget {
         ),
       ),
       NeuButton(
-        width: SizeManager.s400,
-        height: SizeManager.s70,
-        radius: RadiusManager.r15,
+        width: SizeManager.s400.w,
+        height: SizeManager.s70.h,
+        radius: RadiusManager.r15.r,
         child: DropdownButtonHideUnderline(
           child: DropdownButton2(
             dropdownDecoration: BoxDecoration(
               color: ColorManager.darkGrey,
               borderRadius: BorderRadius.circular(
-                RadiusManager.r15,
+                RadiusManager.r15.r,
               ),
             ),
             onChanged: onChangedActivity,
             value: valueActivity,
             iconSize: SizeManager.s0,
-            hint: const Text(
+            hint: Text(
               StringsManager.activityHint,
               style: StyleManager.registerTextfieldTextStyle,
             ),
-            items: const [
+            items: [
               DropdownMenuItem(
                 value: StringsManager.activityLowHint,
                 child: Text(
@@ -174,25 +175,25 @@ class AddDataWidgets extends StatelessWidget {
         ),
       ),
       NeuButton(
-        width: SizeManager.s400,
-        height: SizeManager.s70,
-        radius: RadiusManager.r15,
+        width: SizeManager.s400.w,
+        height: SizeManager.s70.h,
+        radius: RadiusManager.r15.r,
         child: DropdownButtonHideUnderline(
           child: DropdownButton2(
             dropdownDecoration: BoxDecoration(
               color: ColorManager.darkGrey,
               borderRadius: BorderRadius.circular(
-                RadiusManager.r15,
+                RadiusManager.r15.r,
               ),
             ),
             onChanged: onChangedGoal,
             value: valueGoal,
             iconSize: SizeManager.s0,
-            hint: const Text(
+            hint: Text(
               StringsManager.goalHint,
               style: StyleManager.registerTextfieldTextStyle,
             ),
-            items: const [
+            items: [
               DropdownMenuItem(
                 value: StringsManager.lose,
                 child: Text(

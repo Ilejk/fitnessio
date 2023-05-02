@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/settings/widgets/change_password_app_bar.dart';
 import 'package:smart_home_app/presentation/settings/providers/settings_provider.dart';
@@ -52,12 +53,12 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
 
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
-      appBar: const PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size(
           double.infinity,
-          SizeManager.s60,
+          SizeManager.s60.h,
         ),
-        child: ChangeDataPagesAppBar(),
+        child: const ChangeDataPagesAppBar(),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -66,8 +67,8 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(PaddingManager.p28),
+              Padding(
+                padding: const EdgeInsets.all(PaddingManager.p28),
                 child: Text(
                   StringsManager.changePWtext,
                   textAlign: TextAlign.center,
@@ -75,7 +76,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     color: ColorManager.white,
                     fontWeight: FontWightManager.bold,
                     letterSpacing: SizeManager.s3,
-                    fontSize: FontSize.s25,
+                    fontSize: FontSize.s25.sp,
                   ),
                 ),
               ),

@@ -16,7 +16,7 @@ class WorkoutsPageAppBarWidget extends StatelessWidget {
       scrolledUnderElevation: SizeManager.s50,
       automaticallyImplyLeading: false,
       elevation: SizeManager.s0,
-      title: const Text(
+      title: Text(
         StringsManager.workoutsABtitle,
         style: StyleManager.appbarTitleTextStyle,
       ),

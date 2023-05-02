@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
@@ -30,7 +31,7 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
         Provider.of<ConsumptionProvider>(context, listen: false);
     return SafeArea(
       child: LiquidPullToRefresh(
-        height: SizeManager.s250,
+        height: SizeManager.s250.h,
         color: ColorManager.darkGrey,
         animSpeedFactor: 2,
         backgroundColor: ColorManager.white2,
@@ -59,7 +60,8 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
                             onPressed: (_) {
                               setState(() {
                                 consumptionProvider.deleteMeal(
-                                    consumptionProvider.meals[index].id);
+                                  consumptionProvider.meals[index].id,
+                                );
                               });
                             },
                           );

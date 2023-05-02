@@ -88,9 +88,9 @@ class AuthProvider with ChangeNotifier {
       showDialog(
           context: context,
           builder: (_) {
-            return const Center(
+            return Center(
               child: Padding(
-                padding: EdgeInsets.all(PaddingManager.p40),
+                padding: const EdgeInsets.all(PaddingManager.p40),
                 child: AlertDialog(
                   backgroundColor: ColorManager.darkGrey,
                   title: Text(
@@ -120,7 +120,7 @@ class AuthProvider with ChangeNotifier {
                 padding: const EdgeInsets.all(PaddingManager.p40),
                 child: AlertDialog(
                   backgroundColor: ColorManager.darkGrey,
-                  title: const Text(
+                  title: Text(
                     StringsManager.wrongEmail,
                     textAlign: TextAlign.center,
                     style: StyleManager.forgotPWErrorTextStyle,

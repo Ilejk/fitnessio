@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/auth/providers/auth_provider.dart';
 import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
@@ -40,10 +41,13 @@ class _MyAppState extends State<MyApp> {
           value: ConsumptionProvider(),
         )
       ],
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.boardingRoute,
+      child: ScreenUtilInit(
+        builder: (context, child) => const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: RouteGenerator.getRoute,
+          initialRoute: Routes.boardingRoute,
+        ),
+        designSize: const Size(430, 810),
       ),
     );
   }

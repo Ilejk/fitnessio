@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
@@ -45,7 +46,7 @@ class MealWidget extends StatelessWidget {
           motion: const StretchMotion(),
           children: [
             SlidableAction(
-              borderRadius: BorderRadius.circular(RadiusManager.r40),
+              borderRadius: BorderRadius.circular(RadiusManager.r40.r),
               onPressed: onPressed,
               icon: Icons.delete,
               label: StringsManager.delete,
@@ -56,11 +57,11 @@ class MealWidget extends StatelessWidget {
         ),
         child: Container(
           width: deviceWidth,
-          height: SizeManager.s200,
+          height: SizeManager.s200.h,
           decoration: BoxDecoration(
             color: ColorManager.black87,
             borderRadius: BorderRadius.circular(
-              RadiusManager.r40,
+              RadiusManager.r40.r,
             ),
           ),
           child: Padding(
@@ -93,8 +94,8 @@ class MealWidget extends StatelessWidget {
                       ),
                       Text(
                         title,
-                        style: const TextStyle(
-                          fontSize: FontSize.s22,
+                        style: TextStyle(
+                          fontSize: FontSize.s22.sp,
                           color: ColorManager.white,
                           fontWeight: FontWightManager.semiBold,
                           letterSpacing: SizeManager.s1,
@@ -113,8 +114,8 @@ class MealWidget extends StatelessWidget {
                     children: [
                       Text(
                         '🔥${calories.round()} kcal',
-                        style: const TextStyle(
-                          fontSize: FontSize.s16,
+                        style: TextStyle(
+                          fontSize: FontSize.s16.sp,
                           color: ColorManager.white2,
                           fontWeight: FontWightManager.regular,
                           letterSpacing: SizeManager.s1,
@@ -126,20 +127,20 @@ class MealWidget extends StatelessWidget {
                           right: PaddingManager.p12,
                         ),
                         child: Container(
-                          width: SizeManager.s10,
-                          height: SizeManager.s3,
+                          width: SizeManager.s10.w,
+                          height: SizeManager.s3.h,
                           decoration: BoxDecoration(
                             color: ColorManager.limerGreen2,
                             borderRadius: BorderRadius.circular(
-                              RadiusManager.r100,
+                              RadiusManager.r100.r,
                             ),
                           ),
                         ),
                       ),
                       Text(
                         '${amount.round()} G',
-                        style: const TextStyle(
-                          fontSize: FontSize.s16,
+                        style: TextStyle(
+                          fontSize: FontSize.s16.sp,
                           color: ColorManager.white2,
                           fontWeight: FontWightManager.regular,
                           letterSpacing: SizeManager.s1,

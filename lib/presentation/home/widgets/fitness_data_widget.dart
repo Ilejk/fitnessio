@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -61,34 +62,34 @@ class FitnessDataWidget extends StatelessWidget {
             }
 
             return Padding(
-              padding: const EdgeInsets.only(
-                left: PaddingManager.p12,
-                right: PaddingManager.p12,
+              padding: EdgeInsets.only(
+                left: PaddingManager.p12.w,
+                right: PaddingManager.p12.w,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
-                    width: deviceWidth / 3 - 16,
-                    height: SizeManager.s212,
+                    width: (deviceWidth / 3 - 16).w,
+                    height: SizeManager.s212.h,
                     decoration: BoxDecoration(
                       color: ColorManager.black87,
-                      borderRadius: BorderRadius.circular(RadiusManager.r15),
+                      borderRadius: BorderRadius.circular(RadiusManager.r15.r),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(
-                            top: PaddingManager.p12,
-                            bottom: PaddingManager.p12,
+                          padding: EdgeInsets.only(
+                            top: PaddingManager.p12.h,
+                            bottom: PaddingManager.p12.h,
                           ),
                           child: CircularPercentIndicator(
                             circularStrokeCap: CircularStrokeCap.round,
-                            radius: RadiusManager.r40,
-                            lineWidth: SizeManager.s8,
+                            radius: RadiusManager.r40.r,
+                            lineWidth: SizeManager.s8.w,
                             percent: bmi / 40,
                             progressColor: getProgressColor(bmi),
                             backgroundColor: ColorManager.grey3,
@@ -106,16 +107,16 @@ class FitnessDataWidget extends StatelessWidget {
                           style: StyleManager.homePageS20BoldWhite,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(
-                            top: PaddingManager.p12,
-                            bottom: PaddingManager.p12,
+                          padding: EdgeInsets.only(
+                            top: PaddingManager.p12.h,
+                            bottom: PaddingManager.p12.h,
                           ),
                           child: Text(
                             getMessage(bmi),
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: ColorManager.white2,
-                              fontSize: FontSize.s12,
+                              fontSize: FontSize.s12.sp,
                               fontWeight: FontWightManager.regular,
                             ),
                           ),
@@ -126,24 +127,24 @@ class FitnessDataWidget extends StatelessWidget {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
-                          left: PaddingManager.p12,
-                          bottom: PaddingManager.p12,
+                        padding: EdgeInsets.only(
+                          left: PaddingManager.p12.w,
+                          bottom: PaddingManager.p12.h,
                         ),
                         child: Container(
-                          height: SizeManager.s100,
-                          width: deviceWidth * (2 / 3) - 20,
+                          height: SizeManager.s100.h,
+                          width: (deviceWidth * (2 / 3) - 20).w,
                           decoration: BoxDecoration(
                             color: ColorManager.limerGreen2,
                             borderRadius: BorderRadius.circular(
-                              RadiusManager.r15,
+                              RadiusManager.r15.r,
                             ),
                           ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Text(
+                              Text(
                                 StringsManager.kcalConsumption,
                                 style: StyleManager.homePageS18BoldDarkGrey,
                               ),
@@ -151,7 +152,7 @@ class FitnessDataWidget extends StatelessWidget {
                                 bmr.toStringAsFixed(0),
                                 style: StyleManager.homePageS20BoldDarkGrey,
                               ),
-                              const Text(
+                              Text(
                                 StringsManager.kcalPerDay,
                                 style: StyleManager.homePageS16RegularDarkGrey,
                               ),
@@ -162,25 +163,26 @@ class FitnessDataWidget extends StatelessWidget {
                       Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: PaddingManager.p12,
-                                right: PaddingManager.p12),
+                            padding: EdgeInsets.only(
+                              left: PaddingManager.p12.w,
+                              right: PaddingManager.p12.w,
+                            ),
                             child: Container(
-                              width: deviceWidth / 3 - 16,
-                              height: SizeManager.s100,
+                              width: (deviceWidth / 3 - 16).w,
+                              height: SizeManager.s100.h,
                               decoration: BoxDecoration(
                                 color: ColorManager.black87,
                                 borderRadius:
-                                    BorderRadius.circular(RadiusManager.r15),
+                                    BorderRadius.circular(RadiusManager.r15.r),
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: PaddingManager.p12,
-                                      right: PaddingManager.p12,
+                                    padding: EdgeInsets.only(
+                                      left: PaddingManager.p12.w,
+                                      right: PaddingManager.p12.w,
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
@@ -188,10 +190,10 @@ class FitnessDataWidget extends StatelessWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        const Text(
+                                        Text(
                                           StringsManager.water,
                                           style:
-                                              StyleManager.homePageS18BoldWhite,
+                                              StyleManager.homePageS17BoldWhite,
                                         ),
                                         Icon(
                                           Icons.water_drop_outlined,
@@ -202,10 +204,10 @@ class FitnessDataWidget extends StatelessWidget {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(
-                                      left: PaddingManager.p12,
-                                      right: PaddingManager.p12,
-                                      top: PaddingManager.p12,
+                                    padding: EdgeInsets.only(
+                                      left: PaddingManager.p12.w,
+                                      right: PaddingManager.p12.w,
+                                      top: PaddingManager.p12.h,
                                     ),
                                     child: Row(
                                       mainAxisAlignment:
@@ -219,9 +221,10 @@ class FitnessDataWidget extends StatelessWidget {
                                           style:
                                               StyleManager.homePageS20BoldWhite,
                                         ),
-                                        const Padding(
+                                        Padding(
                                           padding: EdgeInsets.only(
-                                              left: PaddingManager.p12),
+                                            left: PaddingManager.p12.w,
+                                          ),
                                           child: Text(
                                             StringsManager.liters,
                                             style: StyleManager
@@ -236,21 +239,21 @@ class FitnessDataWidget extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            width: deviceWidth / 3 - 16,
-                            height: SizeManager.s100,
+                            width: (deviceWidth / 3 - 16).w,
+                            height: SizeManager.s100.h,
                             decoration: BoxDecoration(
                               color: ColorManager.black87,
                               borderRadius:
-                                  BorderRadius.circular(RadiusManager.r15),
+                                  BorderRadius.circular(RadiusManager.r15.r),
                             ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: PaddingManager.p12,
-                                    right: PaddingManager.p12,
+                                  padding: EdgeInsets.only(
+                                    left: PaddingManager.p12.w,
+                                    right: PaddingManager.p12.w,
                                   ),
                                   child: Row(
                                     mainAxisAlignment:
@@ -258,10 +261,10 @@ class FitnessDataWidget extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
-                                      const Text(
+                                      Text(
                                         StringsManager.calories,
                                         style:
-                                            StyleManager.homePageS18BoldWhite,
+                                            StyleManager.homePageS17BoldWhite,
                                       ),
                                       Icon(
                                         Icons.local_pizza_outlined,
@@ -272,10 +275,10 @@ class FitnessDataWidget extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: PaddingManager.p12,
-                                    right: PaddingManager.p12,
-                                    top: PaddingManager.p12,
+                                  padding: EdgeInsets.only(
+                                    left: PaddingManager.p12.w,
+                                    right: PaddingManager.p12.w,
+                                    top: PaddingManager.p12.h,
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -287,9 +290,10 @@ class FitnessDataWidget extends StatelessWidget {
                                         style:
                                             StyleManager.homePageS20BoldWhite,
                                       ),
-                                      const Padding(
+                                      Padding(
                                         padding: EdgeInsets.only(
-                                            left: PaddingManager.p12),
+                                          left: PaddingManager.p12.w,
+                                        ),
                                         child: Text(
                                           StringsManager.kcal,
                                           style: StyleManager

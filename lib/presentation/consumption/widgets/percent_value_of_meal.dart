@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
@@ -28,12 +29,12 @@ class PercentValueOfMeal extends StatelessWidget {
             quarterTurns: 3,
             child: LinearPercentIndicator(
               percent: (value / amount),
-              width: SizeManager.s60,
+              width: SizeManager.s60.w,
               backgroundColor: ColorManager.grey3,
               progressColor: ColorManager.limerGreen2,
-              lineHeight: SizeManager.s8,
+              lineHeight: SizeManager.s8.w,
               animation: true,
-              barRadius: const Radius.circular(RadiusManager.r15),
+              barRadius: Radius.circular(RadiusManager.r15.r),
             ),
           ),
         ),
@@ -46,8 +47,8 @@ class PercentValueOfMeal extends StatelessWidget {
             children: [
               Text(
                 '${value.round()}g',
-                style: const TextStyle(
-                  fontSize: FontSize.s18,
+                style: TextStyle(
+                  fontSize: FontSize.s18.sp,
                   color: ColorManager.white,
                   fontWeight: FontWightManager.bold,
                   letterSpacing: SizeManager.s1,
@@ -59,8 +60,8 @@ class PercentValueOfMeal extends StatelessWidget {
                 ),
                 child: Text(
                   title,
-                  style: const TextStyle(
-                    fontSize: FontSize.s16,
+                  style: TextStyle(
+                    fontSize: FontSize.s16.sp,
                     color: ColorManager.white2,
                     fontWeight: FontWightManager.regular,
                     letterSpacing: SizeManager.s1,

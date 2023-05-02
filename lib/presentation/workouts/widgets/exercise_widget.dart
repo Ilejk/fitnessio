@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -36,7 +37,7 @@ class ExerciseWidget extends StatelessWidget {
           motion: const StretchMotion(),
           children: [
             SlidableAction(
-              borderRadius: BorderRadius.circular(RadiusManager.r40),
+              borderRadius: BorderRadius.circular(RadiusManager.r40.r),
               onPressed: onPressed,
               icon: Icons.delete,
               label: StringsManager.delete,
@@ -47,11 +48,11 @@ class ExerciseWidget extends StatelessWidget {
         ),
         child: Container(
           width: deviceWidth,
-          height: SizeManager.s110,
+          height: SizeManager.s110.h,
           decoration: BoxDecoration(
             color: ColorManager.black87,
             borderRadius: BorderRadius.circular(
-              RadiusManager.r40,
+              RadiusManager.r40.r,
             ),
           ),
           child: Padding(
@@ -76,8 +77,8 @@ class ExerciseWidget extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: const TextStyle(
-                          fontSize: FontSize.s20,
+                        style: TextStyle(
+                          fontSize: FontSize.s20.sp,
                           color: ColorManager.white,
                           fontWeight: FontWightManager.regular,
                           letterSpacing: SizeManager.s1,
@@ -92,19 +93,19 @@ class ExerciseWidget extends StatelessWidget {
                               Text(
                                 '${setNumber.round()}',
                                 style: TextStyle(
-                                  fontSize: FontSize.s18,
+                                  fontSize: FontSize.s18.sp,
                                   color: ColorManager.limerGreen2,
                                   fontWeight: FontWightManager.bold,
                                   letterSpacing: SizeManager.s1,
                                 ),
                               ),
-                              const SizedBox(
-                                width: SizeManager.s3,
+                              SizedBox(
+                                width: SizeManager.s3.w,
                               ),
-                              const Text(
+                              Text(
                                 StringsManager.setNumberHint,
                                 style: TextStyle(
-                                  fontSize: FontSize.s16,
+                                  fontSize: FontSize.s16.sp,
                                   color: ColorManager.white2,
                                   fontWeight: FontWightManager.regular,
                                   letterSpacing: SizeManager.s1,
@@ -112,27 +113,27 @@ class ExerciseWidget extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: SizeManager.s10,
+                          SizedBox(
+                            height: SizeManager.s10.h,
                           ),
                           Row(
                             children: [
                               Text(
                                 '${repNumber.round()}',
                                 style: TextStyle(
-                                  fontSize: FontSize.s18,
+                                  fontSize: FontSize.s18.sp,
                                   color: ColorManager.limerGreen2,
                                   fontWeight: FontWightManager.bold,
                                   letterSpacing: SizeManager.s1,
                                 ),
                               ),
-                              const SizedBox(
-                                width: SizeManager.s3,
+                              SizedBox(
+                                width: SizeManager.s3.w,
                               ),
-                              const Text(
+                              Text(
                                 StringsManager.repNumberHint,
                                 style: TextStyle(
-                                  fontSize: FontSize.s16,
+                                  fontSize: FontSize.s16.sp,
                                   color: ColorManager.white2,
                                   fontWeight: FontWightManager.regular,
                                   letterSpacing: SizeManager.s1,

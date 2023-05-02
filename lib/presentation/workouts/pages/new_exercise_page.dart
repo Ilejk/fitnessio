@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/consumption/widgets/new_meal_app_bar.dart';
 import 'package:smart_home_app/presentation/workouts/providers/workout_provider.dart';
@@ -53,7 +54,7 @@ class _NewExercisePageState extends State<NewExercisePage> {
       appBar: PreferredSize(
         preferredSize: Size(
           deviceWidth,
-          SizeManager.s60,
+          SizeManager.s60.h,
         ),
         child: const NewMealPageAppBar(),
       ),
@@ -67,33 +68,33 @@ class _NewExercisePageState extends State<NewExercisePage> {
               Padding(
                 padding: const EdgeInsets.only(bottom: PaddingManager.p8),
                 child: SizedBox(
-                  width: SizeManager.s250,
-                  height: SizeManager.s250,
+                  width: SizeManager.s250.w,
+                  height: SizeManager.s250.h,
                   child: Image.asset(
                     ImageManager.fork,
                   ),
                 ),
               ),
               NeuButton(
-                width: SizeManager.s400,
-                height: SizeManager.s70,
-                radius: RadiusManager.r15,
+                width: SizeManager.s400.w,
+                height: SizeManager.s70.h,
+                radius: RadiusManager.r15.r,
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton2(
                     dropdownDecoration: BoxDecoration(
                       color: ColorManager.darkGrey,
                       borderRadius: BorderRadius.circular(
-                        RadiusManager.r15,
+                        RadiusManager.r15.r,
                       ),
                     ),
                     onChanged: _onChangedExercise,
                     value: _valueExercise,
                     iconSize: SizeManager.s0,
-                    hint: const Text(
+                    hint: Text(
                       StringsManager.exerciseHint,
                       style: StyleManager.registerTextfieldTextStyle,
                     ),
-                    items: const [
+                    items: [
                       DropdownMenuItem(
                         value: StringsManager.aroundTheWorldHint,
                         child: Text(

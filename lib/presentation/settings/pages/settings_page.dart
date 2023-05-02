@@ -28,10 +28,10 @@ class _SettingsPageState extends State<SettingsPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Align(
+            Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: PaddingManager.p12,
                   bottom: PaddingManager.p12,
                   top: PaddingManager.p12,
@@ -63,10 +63,10 @@ class _SettingsPageState extends State<SettingsPage> {
               iconData: Icons.delete_outlined,
               title: StringsManager.deleteAcc,
             ),
-            const Align(
+            Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: PaddingManager.p12,
                   bottom: PaddingManager.p12,
                   top: PaddingManager.p12,

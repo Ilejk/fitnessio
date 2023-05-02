@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -23,12 +24,12 @@ class HomePageAppBarWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: PaddingManager.p12),
                 child: Container(
-                  height: SizeManager.s40,
-                  width: SizeManager.s40,
+                  height: SizeManager.s40.h,
+                  width: SizeManager.s40.w,
                   decoration: BoxDecoration(
                     color: ColorManager.grey3,
                     borderRadius: BorderRadius.circular(
-                      RadiusManager.r40,
+                      RadiusManager.r40.r,
                     ),
                   ),
                   child: IconButton(
@@ -56,20 +57,20 @@ class HomePageAppBarWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     StringsManager.welcomeBack,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: ColorManager.grey,
-                      fontSize: FontSize.s16,
+                      fontSize: FontSize.s16.sp,
                       letterSpacing: SizeManager.s0_7,
                     ),
                   ),
                   Text(
                     '${homeProvider.userData['first name']} ${homeProvider.userData['surname']}!',
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: ColorManager.white,
-                      fontSize: FontSize.s18,
+                      fontSize: FontSize.s18.sp,
                       letterSpacing: SizeManager.s0_7,
                     ),
                   )

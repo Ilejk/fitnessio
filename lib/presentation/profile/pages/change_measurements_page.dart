@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/presentation/settings/widgets/change_password_app_bar.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
@@ -51,12 +52,12 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.darkGrey,
-      appBar: const PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size(
           double.infinity,
-          SizeManager.s60,
+          SizeManager.s60.h,
         ),
-        child: ChangeDataPagesAppBar(),
+        child: const ChangeDataPagesAppBar(),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -65,8 +66,8 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(PaddingManager.p28),
+              Padding(
+                padding: const EdgeInsets.all(PaddingManager.p28),
                 child: Text(
                   StringsManager.changeMeasurementsText,
                   textAlign: TextAlign.center,
@@ -74,7 +75,7 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                     color: ColorManager.white,
                     fontWeight: FontWightManager.bold,
                     letterSpacing: SizeManager.s3,
-                    fontSize: FontSize.s25,
+                    fontSize: FontSize.s25.sp,
                   ),
                 ),
               ),
@@ -147,25 +148,25 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                 ],
               ),
               NeuButton(
-                width: SizeManager.s400,
-                height: SizeManager.s70,
-                radius: RadiusManager.r15,
+                width: SizeManager.s400.w,
+                height: SizeManager.s70.h,
+                radius: RadiusManager.r15.r,
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton2(
                     dropdownDecoration: BoxDecoration(
                       color: ColorManager.darkGrey,
                       borderRadius: BorderRadius.circular(
-                        RadiusManager.r15,
+                        RadiusManager.r15.r,
                       ),
                     ),
                     onChanged: _onChangedActivity,
                     value: _valueActivity,
                     iconSize: SizeManager.s0,
-                    hint: const Text(
+                    hint: Text(
                       StringsManager.activityHint,
                       style: StyleManager.registerTextfieldTextStyle,
                     ),
-                    items: const [
+                    items: [
                       DropdownMenuItem(
                         value: StringsManager.activityLowHint,
                         child: Text(
@@ -206,25 +207,25 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                 ),
               ),
               NeuButton(
-                width: SizeManager.s400,
-                height: SizeManager.s70,
-                radius: RadiusManager.r15,
+                width: SizeManager.s400.w,
+                height: SizeManager.s70.h,
+                radius: RadiusManager.r15.r,
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton2(
                     dropdownDecoration: BoxDecoration(
                       color: ColorManager.darkGrey,
                       borderRadius: BorderRadius.circular(
-                        RadiusManager.r15,
+                        RadiusManager.r15.r,
                       ),
                     ),
                     onChanged: _onChangedGoals,
                     value: _valueGoals,
                     iconSize: SizeManager.s0,
-                    hint: const Text(
+                    hint: Text(
                       StringsManager.goalHint,
                       style: StyleManager.registerTextfieldTextStyle,
                     ),
-                    items: const [
+                    items: [
                       DropdownMenuItem(
                         value: StringsManager.lose,
                         child: Text(

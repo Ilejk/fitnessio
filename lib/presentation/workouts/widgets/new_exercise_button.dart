@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
@@ -25,14 +26,14 @@ class NewExerciseButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
           width: deviceWidth,
-          height: SizeManager.s60,
+          height: SizeManager.s60.h,
           decoration: BoxDecoration(
             color: ColorManager.limerGreen2,
             borderRadius: BorderRadius.circular(
-              RadiusManager.r15,
+              RadiusManager.r15.r,
             ),
           ),
-          child: const Center(
+          child: Center(
             child: Text(
               StringsManager.newExercise,
               textAlign: TextAlign.center,
