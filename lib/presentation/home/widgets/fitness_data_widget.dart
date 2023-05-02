@@ -218,6 +218,7 @@ class FitnessDataWidget extends StatelessWidget {
                                         Text(
                                           consumptionProvider.waterADay
                                               .toStringAsFixed(1),
+                                          overflow: TextOverflow.clip,
                                           style:
                                               StyleManager.homePageS20BoldWhite,
                                         ),
@@ -227,6 +228,8 @@ class FitnessDataWidget extends StatelessWidget {
                                           ),
                                           child: Text(
                                             StringsManager.liters,
+                                            overflow: TextOverflow.clip,
+                                            softWrap: true,
                                             style: StyleManager
                                                 .homePageS12RegularWhite2,
                                           ),

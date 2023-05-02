@@ -118,13 +118,194 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            SizedBox(
-              height: SizeManager.s600.h,
-              child: Image.asset(
-                homeProvider.userData['gender'] == 'MAN'
-                    ? ImageManager.man
-                    : ImageManager.woman,
-              ),
+            Stack(
+              children: [
+                SizedBox(
+                  height: SizeManager.s600.h,
+                  width: deviceWidth,
+                  child: Image.asset(
+                    homeProvider.userData['gender'] == 'MAN'
+                        ? ImageManager.man
+                        : ImageManager.woman,
+                  ),
+                ),
+                Positioned(
+                  top: SizeManager.s140.h,
+                  left: SizeManager.s35.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        StringsManager.chest,
+                        style: TextStyle(
+                          color: ColorManager.limerGreen2,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.semiBold,
+                        ),
+                      ),
+                      Container(
+                        height: SizeManager.s2.h,
+                        width: SizeManager.s150.w,
+                        color: ColorManager.black87,
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: SizeManager.s100.h,
+                  right: SizeManager.s35.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        StringsManager.shoulders,
+                        style: TextStyle(
+                          color: ColorManager.limerGreen2,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.semiBold,
+                        ),
+                      ),
+                      Container(
+                        height: SizeManager.s2.h,
+                        width: SizeManager.s130.w,
+                        color: ColorManager.black87,
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: SizeManager.s160.h,
+                  right: SizeManager.s35.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        StringsManager.biceps,
+                        style: TextStyle(
+                          color: ColorManager.limerGreen2,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.semiBold,
+                        ),
+                      ),
+                      Container(
+                        height: SizeManager.s2.h,
+                        width: SizeManager.s110.w,
+                        color: ColorManager.black87,
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: SizeManager.s212.h,
+                  left: SizeManager.s35.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        StringsManager.foreArm,
+                        style: TextStyle(
+                          color: ColorManager.limerGreen2,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.semiBold,
+                        ),
+                      ),
+                      Container(
+                        height: SizeManager.s2.h,
+                        width: SizeManager.s100.w,
+                        color: ColorManager.black87,
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: SizeManager.s250.h,
+                  right: SizeManager.s35.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        StringsManager.waist,
+                        style: TextStyle(
+                          color: ColorManager.limerGreen2,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.semiBold,
+                        ),
+                      ),
+                      Container(
+                        height: SizeManager.s2.h,
+                        width: SizeManager.s140.w,
+                        color: ColorManager.black87,
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: SizeManager.s270.h,
+                  left: SizeManager.s35.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        StringsManager.hips,
+                        style: TextStyle(
+                          color: ColorManager.limerGreen2,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.semiBold,
+                        ),
+                      ),
+                      Container(
+                        height: SizeManager.s2.h,
+                        width: SizeManager.s140.w,
+                        color: ColorManager.black87,
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: SizeManager.s330.h,
+                  left: SizeManager.s35.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        StringsManager.thigh,
+                        style: TextStyle(
+                          color: ColorManager.limerGreen2,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.semiBold,
+                        ),
+                      ),
+                      Container(
+                        height: SizeManager.s2.h,
+                        width: SizeManager.s150.w,
+                        color: ColorManager.black87,
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: SizeManager.s140.h,
+                  right: SizeManager.s35.w,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        StringsManager.calf,
+                        style: TextStyle(
+                          color: ColorManager.limerGreen2,
+                          fontSize: FontSize.s16.sp,
+                          fontWeight: FontWightManager.semiBold,
+                        ),
+                      ),
+                      Container(
+                        height: SizeManager.s2.h,
+                        width: SizeManager.s140.w,
+                        color: ColorManager.black87,
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
             SettingsPageButton(
               deviceWidth: deviceWidth,

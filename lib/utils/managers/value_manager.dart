@@ -38,6 +38,7 @@ class SizeManager {
   static const double s0_7 = 0.7;
   static const double s1 = 1.0;
   static const double s1_5 = 1.5;
+  static const double s2 = 2.0;
   static const double s3 = 3.0;
   static const double s4 = 4.0;
   static const double s5 = 5.0;
@@ -64,12 +65,19 @@ class SizeManager {
   static const double s130 = 130.0;
   static const double s140 = 140.0;
   static const double s150 = 150.0;
+  static const double s160 = 160.0;
+  static const double s170 = 170.0;
   static const double s180 = 180.0;
   static const double s190 = 190.0;
   static const double s200 = 200.0;
   static const double s212 = 212.0;
+  static const double s240 = 240.0;
   static const double s250 = 250.0;
+  static const double s265 = 265.0;
+  static const double s270 = 270.0;
   static const double s300 = 300.0;
+  static const double s310 = 310.0;
+  static const double s330 = 330.0;
   static const double s350 = 350.0;
   static const double s400 = 400.0;
   static const double s440 = 440.0;

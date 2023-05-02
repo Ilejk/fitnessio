@@ -91,7 +91,7 @@ class StringsManager {
   static const String waterHint = 'Water in liters';
   static const String kcal = 'kCal';
   static const String calories = 'Calories';
-  static const String liters = 'Liters';
+  static const String liters = 'l';
   static const String water = 'Water';
   static const String goalHint = 'I want to...';
   static const String gainWeightHint = 'gain weight';
