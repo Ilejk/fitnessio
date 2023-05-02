@@ -173,4 +173,14 @@ class StyleManager {
     fontSize: FontSize.s13.sp,
     fontWeight: FontWightManager.semiBold,
   );
+  static final weightDataRowTextStyleWhite = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s18.sp,
+    fontWeight: FontWightManager.bold,
+  );
+  static final weightDataRowTextStyleLime = TextStyle(
+    color: ColorManager.limerGreen2,
+    fontSize: FontSize.s20.sp,
+    fontWeight: FontWightManager.bold,
+  );
 }

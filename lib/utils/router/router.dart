@@ -10,7 +10,6 @@ import 'package:smart_home_app/presentation/auth/pages/login_or_register_page.da
 import 'package:smart_home_app/presentation/notifications/pages/notifications_page.dart';
 import 'package:smart_home_app/presentation/profile/pages/change_measurements_page.dart';
 import 'package:smart_home_app/presentation/settings/pages/change_email_page.dart';
-import 'package:smart_home_app/presentation/profile/pages/change_height_page.dart';
 import 'package:smart_home_app/presentation/settings/pages/change_password_page.dart';
 import 'package:smart_home_app/presentation/profile/pages/change_weight_page.dart';
 import 'package:smart_home_app/presentation/settings/pages/delete_account_page.dart';
@@ -31,7 +30,6 @@ class Routes {
   static const String addDataRoute = '/addData';
   static const String addWaterRoute = '/addWater';
   static const String addNewExerciseRoute = '/addExercise';
-  static const String changeHeightRoute = '/changeHeight';
   static const String changeWeightRoute = '/changeWeight';
   static const String changeMeasurementsRoute = '/changeMeasurements';
 }
@@ -67,8 +65,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const NewExercisePage());
       case Routes.changeWeightRoute:
         return MaterialPageRoute(builder: (_) => const ChangeWeightPage());
-      case Routes.changeHeightRoute:
-        return MaterialPageRoute(builder: (_) => const ChangeHeightPage());
+
       case Routes.changeMeasurementsRoute:
         return MaterialPageRoute(
             builder: (_) => const ChangeMeasurementsPage());

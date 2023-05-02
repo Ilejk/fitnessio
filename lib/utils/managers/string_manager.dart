@@ -134,4 +134,6 @@ class StringsManager {
   static const String foreArm = 'Forearm';
   static const String waist = 'Waist';
   static const String hips = 'Hips';
+  static const String kg = 'kg';
+  static const String weightData = 'Weight Data';
 }

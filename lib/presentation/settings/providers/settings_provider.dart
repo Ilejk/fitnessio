@@ -124,30 +124,6 @@ class SettingsProvider with ChangeNotifier {
     }
   }
 
-  Future<void> changeUsersHeight({
-    required double height,
-    required double bmi,
-    required double bmr,
-    required BuildContext context,
-  }) async {
-    try {
-      User? user = FirebaseAuth.instance.currentUser;
-
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(user!.uid)
-          .update({
-        'height': height,
-        'bmi': bmi,
-        'bmr': bmr,
-      });
-      notifyListeners();
-    } catch (e) {
-      print(e);
-      notifyListeners();
-    }
-  }
-
   Future<void> changeUsersWeight({
     required double weight,
     required double bmi,

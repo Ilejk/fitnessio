@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
+import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class WeightDataTextRowWidget extends StatelessWidget {
@@ -12,6 +15,8 @@ class WeightDataTextRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+
     return Padding(
       padding: const EdgeInsets.only(
         top: PaddingManager.p12,
@@ -32,32 +37,20 @@ class WeightDataTextRowWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: PaddingManager.p12),
             child: Text(
-              'Wight Data',
-              style: TextStyle(
-                color: ColorManager.white,
-                fontSize: FontSize.s18.sp,
-                fontWeight: FontWightManager.bold,
-              ),
+              StringsManager.weightData,
+              style: StyleManager.weightDataRowTextStyleWhite,
             ),
           ),
           const Expanded(child: SizedBox()),
           Text(
-            '91',
-            style: TextStyle(
-              color: ColorManager.limerGreen2,
-              fontSize: FontSize.s20.sp,
-              fontWeight: FontWightManager.bold,
-            ),
+            homeProvider.userData['weight'].toString(),
+            style: StyleManager.weightDataRowTextStyleLime,
           ),
           Padding(
             padding: const EdgeInsets.only(left: PaddingManager.p3),
             child: Text(
-              'kg',
-              style: TextStyle(
-                color: ColorManager.white,
-                fontSize: FontSize.s18.sp,
-                fontWeight: FontWightManager.bold,
-              ),
+              StringsManager.kg,
+              style: StyleManager.weightDataRowTextStyleWhite,
             ),
           )
         ],
