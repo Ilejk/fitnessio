@@ -26,265 +26,374 @@ class _ProfilePageState extends State<ProfilePage> {
     final deviceWidth = MediaQuery.of(context).size.width;
     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
 
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: PaddingManager.p12,
-                right: PaddingManager.p12,
-                top: PaddingManager.p4,
-              ),
-              child: Container(
-                width: deviceWidth,
-                height: SizeManager.s60.h,
-                decoration: BoxDecoration(
-                  color: ColorManager.black87,
-                  borderRadius: BorderRadius.circular(
-                    RadiusManager.r40.r,
-                  ),
-                ),
-                child: Center(
-                  child: Padding(
+    return FutureBuilder<Map<String, dynamic>>(
+        future: homeProvider.fetchUserData(),
+        builder: (context, snapshot) {
+          final String emailData = homeProvider.userData['email'];
+          final double chestData = homeProvider.userData['chest'];
+          final double shoulderData = homeProvider.userData['shoulders'];
+          final double bicepsData = homeProvider.userData['biceps'];
+          final double foreArmData = homeProvider.userData['foreArm'];
+          final double waistData = homeProvider.userData['waist'];
+          final double hipsData = homeProvider.userData['hips'];
+          final double thighData = homeProvider.userData['thigh'];
+          final double calfData = homeProvider.userData['calf'];
+          return SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
                     padding: const EdgeInsets.only(
-                      left: PaddingManager.p28,
-                      right: PaddingManager.p28,
+                      left: PaddingManager.p12,
+                      right: PaddingManager.p12,
+                      top: PaddingManager.p4,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          StringsManager.loggedInAs,
-                          style: TextStyle(
-                            color: ColorManager.limerGreen2,
-                            fontSize: FontSize.s18.sp,
-                            fontWeight: FontWightManager.bold,
-                            letterSpacing: SizeManager.s1,
+                    child: Container(
+                      width: deviceWidth,
+                      height: SizeManager.s60.h,
+                      decoration: BoxDecoration(
+                        color: ColorManager.black87,
+                        borderRadius: BorderRadius.circular(
+                          RadiusManager.r40.r,
+                        ),
+                      ),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: PaddingManager.p28,
+                            right: PaddingManager.p28,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                StringsManager.loggedInAs,
+                                style: TextStyle(
+                                  color: ColorManager.limerGreen2,
+                                  fontSize: FontSize.s18.sp,
+                                  fontWeight: FontWightManager.bold,
+                                  letterSpacing: SizeManager.s1,
+                                ),
+                              ),
+                              Text(
+                                emailData,
+                                style: TextStyle(
+                                  color: ColorManager.white,
+                                  fontSize: FontSize.s16.sp,
+                                  fontWeight: FontWightManager.regular,
+                                  letterSpacing: SizeManager.s1,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        Text(
-                          homeProvider.userData['email'],
-                          style: TextStyle(
-                            color: ColorManager.white,
-                            fontSize: FontSize.s16.sp,
-                            fontWeight: FontWightManager.regular,
-                            letterSpacing: SizeManager.s1,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
+                  EditTextButton(
+                    onTap: () => Navigator.of(context)
+                        .pushNamed(Routes.changeMeasurementsRoute),
+                  ),
+                  Stack(
+                    children: [
+                      SizedBox(
+                        height: SizeManager.s600.h,
+                        width: deviceWidth,
+                        child: Image.asset(
+                          homeProvider.userData['gender'] == 'MAN'
+                              ? ImageManager.man
+                              : ImageManager.woman,
+                        ),
+                      ),
+                      Positioned(
+                        top: SizeManager.s140.h,
+                        left: SizeManager.s35.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  StringsManager.chest,
+                                  style: TextStyle(
+                                    color: ColorManager.limerGreen2,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.semiBold,
+                                  ),
+                                ),
+                                Text(
+                                  '${chestData.toStringAsFixed(1)} cm',
+                                  style: TextStyle(
+                                    color: ColorManager.white,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.regular,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: SizeManager.s2.h,
+                              width: SizeManager.s150.w,
+                              color: ColorManager.black87,
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: SizeManager.s100.h,
+                        right: SizeManager.s35.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  StringsManager.shoulders,
+                                  style: TextStyle(
+                                    color: ColorManager.limerGreen2,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.semiBold,
+                                  ),
+                                ),
+                                Text(
+                                  '${shoulderData.toStringAsFixed(1)} cm',
+                                  style: TextStyle(
+                                    color: ColorManager.white,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.regular,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: SizeManager.s2.h,
+                              width: SizeManager.s130.w,
+                              color: ColorManager.black87,
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: SizeManager.s160.h,
+                        right: SizeManager.s35.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  StringsManager.biceps,
+                                  style: TextStyle(
+                                    color: ColorManager.limerGreen2,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.semiBold,
+                                  ),
+                                ),
+                                Text(
+                                  '${bicepsData.toStringAsFixed(1)} cm',
+                                  style: TextStyle(
+                                    color: ColorManager.white,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.regular,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: SizeManager.s2.h,
+                              width: SizeManager.s110.w,
+                              color: ColorManager.black87,
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: SizeManager.s212.h,
+                        left: SizeManager.s35.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  StringsManager.foreArm,
+                                  style: TextStyle(
+                                    color: ColorManager.limerGreen2,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.semiBold,
+                                  ),
+                                ),
+                                Text(
+                                  '${foreArmData.toStringAsFixed(1)} cm',
+                                  style: TextStyle(
+                                    color: ColorManager.white,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.regular,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: SizeManager.s2.h,
+                              width: SizeManager.s100.w,
+                              color: ColorManager.black87,
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: SizeManager.s250.h,
+                        right: SizeManager.s35.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  StringsManager.waist,
+                                  style: TextStyle(
+                                    color: ColorManager.limerGreen2,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.semiBold,
+                                  ),
+                                ),
+                                Text(
+                                  '${waistData.toStringAsFixed(1)} cm',
+                                  style: TextStyle(
+                                    color: ColorManager.white,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.regular,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: SizeManager.s2.h,
+                              width: SizeManager.s140.w,
+                              color: ColorManager.black87,
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: SizeManager.s270.h,
+                        left: SizeManager.s35.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  StringsManager.hips,
+                                  style: TextStyle(
+                                    color: ColorManager.limerGreen2,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.semiBold,
+                                  ),
+                                ),
+                                Text(
+                                  '${hipsData.toStringAsFixed(1)} cm',
+                                  style: TextStyle(
+                                    color: ColorManager.white,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.regular,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: SizeManager.s2.h,
+                              width: SizeManager.s140.w,
+                              color: ColorManager.black87,
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: SizeManager.s330.h,
+                        left: SizeManager.s35.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  StringsManager.thigh,
+                                  style: TextStyle(
+                                    color: ColorManager.limerGreen2,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.semiBold,
+                                  ),
+                                ),
+                                Text(
+                                  '${thighData.toStringAsFixed(1)} cm',
+                                  style: TextStyle(
+                                    color: ColorManager.white,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.regular,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: SizeManager.s2.h,
+                              width: SizeManager.s150.w,
+                              color: ColorManager.black87,
+                            )
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        bottom: SizeManager.s140.h,
+                        right: SizeManager.s35.w,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  StringsManager.calf,
+                                  style: TextStyle(
+                                    color: ColorManager.limerGreen2,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.semiBold,
+                                  ),
+                                ),
+                                Text(
+                                  '${calfData.toStringAsFixed(1)} cm',
+                                  style: TextStyle(
+                                    color: ColorManager.white,
+                                    fontSize: FontSize.s16.sp,
+                                    fontWeight: FontWightManager.regular,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: SizeManager.s2.h,
+                              width: SizeManager.s140.w,
+                              color: ColorManager.black87,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const WeightDataTextRowWidget(),
+                  const WeightLineChart(),
+                  EditTextButton(
+                    onTap: () => Navigator.of(context)
+                        .pushNamed(Routes.changeWeightRoute),
+                  ),
+                ],
+              ).animate().fadeIn(
+                    duration: 500.ms,
+                  ),
             ),
-            EditTextButton(
-              onTap: () => Navigator.of(context)
-                  .pushNamed(Routes.changeMeasurementsRoute),
-            ),
-            Stack(
-              children: [
-                SizedBox(
-                  height: SizeManager.s600.h,
-                  width: deviceWidth,
-                  child: Image.asset(
-                    homeProvider.userData['gender'] == 'MAN'
-                        ? ImageManager.man
-                        : ImageManager.woman,
-                  ),
-                ),
-                Positioned(
-                  top: SizeManager.s140.h,
-                  left: SizeManager.s35.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        StringsManager.chest,
-                        style: TextStyle(
-                          color: ColorManager.limerGreen2,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.semiBold,
-                        ),
-                      ),
-                      Container(
-                        height: SizeManager.s2.h,
-                        width: SizeManager.s150.w,
-                        color: ColorManager.black87,
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: SizeManager.s100.h,
-                  right: SizeManager.s35.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        StringsManager.shoulders,
-                        style: TextStyle(
-                          color: ColorManager.limerGreen2,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.semiBold,
-                        ),
-                      ),
-                      Container(
-                        height: SizeManager.s2.h,
-                        width: SizeManager.s130.w,
-                        color: ColorManager.black87,
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: SizeManager.s160.h,
-                  right: SizeManager.s35.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        StringsManager.biceps,
-                        style: TextStyle(
-                          color: ColorManager.limerGreen2,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.semiBold,
-                        ),
-                      ),
-                      Container(
-                        height: SizeManager.s2.h,
-                        width: SizeManager.s110.w,
-                        color: ColorManager.black87,
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: SizeManager.s212.h,
-                  left: SizeManager.s35.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        StringsManager.foreArm,
-                        style: TextStyle(
-                          color: ColorManager.limerGreen2,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.semiBold,
-                        ),
-                      ),
-                      Container(
-                        height: SizeManager.s2.h,
-                        width: SizeManager.s100.w,
-                        color: ColorManager.black87,
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: SizeManager.s250.h,
-                  right: SizeManager.s35.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        StringsManager.waist,
-                        style: TextStyle(
-                          color: ColorManager.limerGreen2,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.semiBold,
-                        ),
-                      ),
-                      Container(
-                        height: SizeManager.s2.h,
-                        width: SizeManager.s140.w,
-                        color: ColorManager.black87,
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: SizeManager.s270.h,
-                  left: SizeManager.s35.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        StringsManager.hips,
-                        style: TextStyle(
-                          color: ColorManager.limerGreen2,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.semiBold,
-                        ),
-                      ),
-                      Container(
-                        height: SizeManager.s2.h,
-                        width: SizeManager.s140.w,
-                        color: ColorManager.black87,
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: SizeManager.s330.h,
-                  left: SizeManager.s35.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        StringsManager.thigh,
-                        style: TextStyle(
-                          color: ColorManager.limerGreen2,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.semiBold,
-                        ),
-                      ),
-                      Container(
-                        height: SizeManager.s2.h,
-                        width: SizeManager.s150.w,
-                        color: ColorManager.black87,
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  bottom: SizeManager.s140.h,
-                  right: SizeManager.s35.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        StringsManager.calf,
-                        style: TextStyle(
-                          color: ColorManager.limerGreen2,
-                          fontSize: FontSize.s16.sp,
-                          fontWeight: FontWightManager.semiBold,
-                        ),
-                      ),
-                      Container(
-                        height: SizeManager.s2.h,
-                        width: SizeManager.s140.w,
-                        color: ColorManager.black87,
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const WeightDataTextRowWidget(),
-            const WeightLineChart(),
-            EditTextButton(
-              onTap: () =>
-                  Navigator.of(context).pushNamed(Routes.changeWeightRoute),
-            ),
-          ],
-        ).animate().fadeIn(
-              duration: 500.ms,
-            ),
-      ),
-    );
+          );
+        });
   }
 }

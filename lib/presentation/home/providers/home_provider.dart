@@ -28,6 +28,14 @@ class HomeProvider with ChangeNotifier {
         _userData['goal'] = userDataSnapshot.get('goal');
         _userData['bmi'] = userDataSnapshot.get('bmi');
         _userData['email'] = userDataSnapshot.get('email');
+        _userData['chest'] = userDataSnapshot.get('chest');
+        _userData['shoulders'] = userDataSnapshot.get('shoulders');
+        _userData['biceps'] = userDataSnapshot.get('biceps');
+        _userData['foreArm'] = userDataSnapshot.get('foreArm');
+        _userData['waist'] = userDataSnapshot.get('waist');
+        _userData['hips'] = userDataSnapshot.get('hips');
+        _userData['thigh'] = userDataSnapshot.get('thigh');
+        _userData['calf'] = userDataSnapshot.get('calf');
 
         notifyListeners();
       }

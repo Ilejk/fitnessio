@@ -22,34 +22,11 @@ class WorkoutPage extends StatefulWidget {
 }
 
 class _WorkoutPageState extends State<WorkoutPage> {
-  @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final workoutsProvider =
-          Provider.of<WorkoutProvider>(context, listen: false);
-      await workoutsProvider.fetchAndSetWorkouts();
-      final workouts = workoutsProvider.workouts;
-
-      if (workouts.isNotEmpty) {
-        final lastWorkoutDateTime = workouts.last.dateTime;
-        final now = DateTime.now();
-        if (now.year > lastWorkoutDateTime.year ||
-            now.month > lastWorkoutDateTime.month ||
-            now.day > lastWorkoutDateTime.day) {
-          await workoutsProvider.clearWorkoutsIfDayChanges(lastWorkoutDateTime);
-        }
-      }
-    });
-  }
-
   Future<void> _handleRefresh() async {
     setState(() {
       Provider.of<WorkoutProvider>(context, listen: false)
           .fetchAndSetWorkouts();
     });
-
     return await Future.delayed(const Duration(seconds: 2));
   }
 
@@ -77,8 +54,9 @@ class _WorkoutPageState extends State<WorkoutPage> {
                       alignment: Alignment.topCenter,
                       child: NewExerciseButton(
                         onTap: () {
-                          Navigator.of(context)
-                              .pushNamed(Routes.addNewExerciseRoute);
+                          Navigator.of(context).pushNamed(
+                            Routes.addNewExerciseRoute,
+                          );
                         },
                       ),
                     ),

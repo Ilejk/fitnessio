@@ -148,8 +148,17 @@ class SettingsProvider with ChangeNotifier {
     }
   }
 
-  Future<void> changeUsersActivity({
+  Future<void> updateUsersData({
     required String activity,
+    required String goal,
+    required double chest,
+    required double shoulders,
+    required double biceps,
+    required double foreArm,
+    required double waist,
+    required double hips,
+    required double thigh,
+    required double calf,
     required double bmr,
     required BuildContext context,
   }) async {
@@ -162,28 +171,15 @@ class SettingsProvider with ChangeNotifier {
           .update({
         'activity': activity,
         'bmr': bmr,
-      });
-      notifyListeners();
-    } catch (e) {
-      print(e);
-      notifyListeners();
-    }
-  }
-
-  Future<void> changeUsersGaols({
-    required String goal,
-    required double bmr,
-    required BuildContext context,
-  }) async {
-    try {
-      User? user = FirebaseAuth.instance.currentUser;
-
-      await FirebaseFirestore.instance
-          .collection('users')
-          .doc(user!.uid)
-          .update({
         'goal': goal,
-        'bmr': bmr,
+        'chest': chest,
+        'shoulders': shoulders,
+        'biceps': biceps,
+        'foreArm': foreArm,
+        'waist': waist,
+        'hips': hips,
+        'thigh': thigh,
+        'calf': calf,
       });
       notifyListeners();
     } catch (e) {

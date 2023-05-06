@@ -146,8 +146,10 @@ class _AddDataPageState extends State<AddDataPage> {
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {
-                  addUserData().then((value) => Navigator.of(context)
-                      .pushReplacementNamed(Routes.mainRoute));
+                  addUserData().then(
+                    (value) => Navigator.of(context)
+                        .pushReplacementNamed(Routes.mainRoute),
+                  );
                 },
                 title: StringsManager.procede,
               )

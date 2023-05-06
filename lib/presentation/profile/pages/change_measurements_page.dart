@@ -2,12 +2,16 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
+import 'package:smart_home_app/presentation/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/presentation/settings/widgets/change_password_app_bar.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
+import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
@@ -48,6 +52,45 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
     }
   }
 
+  Future<void> updateUsersMeasurements() async {
+    final settingsProvider =
+        Provider.of<SettingsProvider>(context, listen: false);
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    try {
+      await homeProvider
+          .getUsersBMR(
+            gender: homeProvider.userData['gender'],
+            weight: homeProvider.userData['weight'],
+            height: homeProvider.userData['height'],
+            age: homeProvider.userData['age'],
+            activity: _valueActivity!,
+            goal: _valueGoals!,
+          )
+          .then((_) => homeProvider.getUsersBMI(
+                height: homeProvider.userData['height'],
+                weight: homeProvider.userData['weight'],
+              ))
+          .then(
+            (_) => settingsProvider.updateUsersData(
+              bmr: homeProvider.userBMRwithGoal,
+              activity: _valueActivity!,
+              context: context,
+              goal: _valueGoals!,
+              chest: double.parse(_chestController.text),
+              shoulders: double.parse(_shoulderController.text),
+              biceps: double.parse(_bicepsController.text),
+              foreArm: double.parse(_foreArmController.text),
+              waist: double.parse(_waistController.text),
+              hips: double.parse(_hipsController.text),
+              thigh: double.parse(_thighCotroller.text),
+              calf: double.parse(_calfController.text),
+            ),
+          );
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,181 +122,188 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Column(
                 children: [
-                  SmallTextFieldWidget(
-                    controller: _chestController,
-                    labelHint: StringsManager.chest,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  ),
-                  SmallTextFieldWidget(
-                    controller: _shoulderController,
-                    labelHint: StringsManager.shoulders,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SmallTextFieldWidget(
-                    controller: _bicepsController,
-                    labelHint: StringsManager.biceps,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  ),
-                  SmallTextFieldWidget(
-                    controller: _foreArmController,
-                    labelHint: StringsManager.foreArm,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SmallTextFieldWidget(
-                    controller: _waistController,
-                    labelHint: StringsManager.waist,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  ),
-                  SmallTextFieldWidget(
-                    controller: _hipsController,
-                    labelHint: StringsManager.hips,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SmallTextFieldWidget(
-                    controller: _thighCotroller,
-                    labelHint: StringsManager.thigh,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  ),
-                  SmallTextFieldWidget(
-                    controller: _calfController,
-                    labelHint: StringsManager.calf,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  )
-                ],
-              ),
-              NeuButton(
-                width: SizeManager.s400.w,
-                height: SizeManager.s70.h,
-                radius: RadiusManager.r15.r,
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton2(
-                    dropdownDecoration: BoxDecoration(
-                      color: ColorManager.darkGrey,
-                      borderRadius: BorderRadius.circular(
-                        RadiusManager.r15.r,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SmallTextFieldWidget(
+                        controller: _chestController,
+                        labelHint: StringsManager.chest,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
                       ),
-                    ),
-                    onChanged: _onChangedActivity,
-                    value: _valueActivity,
-                    iconSize: SizeManager.s0,
-                    hint: Text(
-                      StringsManager.activityHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                    items: [
-                      DropdownMenuItem(
-                        value: StringsManager.activityLowHint,
-                        child: Text(
-                          StringsManager.activityLowHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
-                      DropdownMenuItem(
-                        value: StringsManager.activityLightHint,
-                        child: Text(
-                          StringsManager.activityLightHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
-                      DropdownMenuItem(
-                        value: StringsManager.activityModerateHint,
-                        child: Text(
-                          StringsManager.activityModerateHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
-                      DropdownMenuItem(
-                        value: StringsManager.activityHighHint,
-                        child: Text(
-                          StringsManager.activityHighHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
-                      DropdownMenuItem(
-                        value: StringsManager.activityVeryHighHint,
-                        child: Text(
-                          StringsManager.activityVeryHighHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
+                      SmallTextFieldWidget(
+                        controller: _shoulderController,
+                        labelHint: StringsManager.shoulders,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                      )
                     ],
                   ),
-                ),
-              ),
-              NeuButton(
-                width: SizeManager.s400.w,
-                height: SizeManager.s70.h,
-                radius: RadiusManager.r15.r,
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton2(
-                    dropdownDecoration: BoxDecoration(
-                      color: ColorManager.darkGrey,
-                      borderRadius: BorderRadius.circular(
-                        RadiusManager.r15.r,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SmallTextFieldWidget(
+                        controller: _bicepsController,
+                        labelHint: StringsManager.biceps,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
                       ),
-                    ),
-                    onChanged: _onChangedGoals,
-                    value: _valueGoals,
-                    iconSize: SizeManager.s0,
-                    hint: Text(
-                      StringsManager.goalHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                    items: [
-                      DropdownMenuItem(
-                        value: StringsManager.lose,
-                        child: Text(
-                          StringsManager.loseWeightHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
-                      DropdownMenuItem(
-                        value: StringsManager.maintain,
-                        child: Text(
-                          StringsManager.maintainWeightHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
-                      DropdownMenuItem(
-                        value: StringsManager.gain,
-                        child: Text(
-                          StringsManager.gainWeightHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
+                      SmallTextFieldWidget(
+                        controller: _foreArmController,
+                        labelHint: StringsManager.foreArm,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                      )
                     ],
                   ),
-                ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SmallTextFieldWidget(
+                        controller: _waistController,
+                        labelHint: StringsManager.waist,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                      ),
+                      SmallTextFieldWidget(
+                        controller: _hipsController,
+                        labelHint: StringsManager.hips,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                      )
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SmallTextFieldWidget(
+                        controller: _thighCotroller,
+                        labelHint: StringsManager.thigh,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                      ),
+                      SmallTextFieldWidget(
+                        controller: _calfController,
+                        labelHint: StringsManager.calf,
+                        obscureText: false,
+                        keyboardType: TextInputType.number,
+                      )
+                    ],
+                  ),
+                  NeuButton(
+                    width: SizeManager.s400.w,
+                    height: SizeManager.s70.h,
+                    radius: RadiusManager.r15.r,
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton2(
+                        dropdownDecoration: BoxDecoration(
+                          color: ColorManager.darkGrey,
+                          borderRadius: BorderRadius.circular(
+                            RadiusManager.r15.r,
+                          ),
+                        ),
+                        onChanged: _onChangedActivity,
+                        value: _valueActivity,
+                        iconSize: SizeManager.s0,
+                        hint: Text(
+                          StringsManager.activityHint,
+                          style: StyleManager.registerTextfieldTextStyle,
+                        ),
+                        items: [
+                          DropdownMenuItem(
+                            value: StringsManager.activityLowHint,
+                            child: Text(
+                              StringsManager.activityLowHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: StringsManager.activityLightHint,
+                            child: Text(
+                              StringsManager.activityLightHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: StringsManager.activityModerateHint,
+                            child: Text(
+                              StringsManager.activityModerateHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: StringsManager.activityHighHint,
+                            child: Text(
+                              StringsManager.activityHighHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: StringsManager.activityVeryHighHint,
+                            child: Text(
+                              StringsManager.activityVeryHighHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  NeuButton(
+                    width: SizeManager.s400.w,
+                    height: SizeManager.s70.h,
+                    radius: RadiusManager.r15.r,
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton2(
+                        dropdownDecoration: BoxDecoration(
+                          color: ColorManager.darkGrey,
+                          borderRadius: BorderRadius.circular(
+                            RadiusManager.r15.r,
+                          ),
+                        ),
+                        onChanged: _onChangedGoals,
+                        value: _valueGoals,
+                        iconSize: SizeManager.s0,
+                        hint: Text(
+                          StringsManager.goalHint,
+                          style: StyleManager.registerTextfieldTextStyle,
+                        ),
+                        items: [
+                          DropdownMenuItem(
+                            value: StringsManager.lose,
+                            child: Text(
+                              StringsManager.loseWeightHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: StringsManager.maintain,
+                            child: Text(
+                              StringsManager.maintainWeightHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: StringsManager.gain,
+                            child: Text(
+                              StringsManager.gainWeightHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {
-                  //TODO:
+                  updateUsersMeasurements().then(
+                    (value) => Navigator.of(context)
+                        .pushReplacementNamed(Routes.mainRoute),
+                  );
                 },
                 title: StringsManager.procede,
               )
@@ -266,50 +316,3 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
         );
   }
 }
-
-// Future<void> changeActivity() async {
-//     final settingsProvider =
-//         Provider.of<SettingsProvider>(context, listen: false);
-//     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
-//     try {
-//       await homeProvider
-//           .getUsersBMR(
-//             gender: homeProvider.userData['gender'],
-//             weight: homeProvider.userData['weight'],
-//             height: homeProvider.userData['height'],
-//             age: homeProvider.userData['age'],
-//             activity: _valueActivity!,
-//             goal: homeProvider.userData['goal'],
-//           )
-//           .then((_) => settingsProvider.changeUsersActivity(
-//               bmr: homeProvider.userBMRwithGoal,
-//               activity: _valueActivity!,
-//               context: context))
-//           .then((_) => Navigator.of(context).pop());
-//     } catch (e) {
-//       print(e);
-//     }
-//   }
-// Future<void> changeGoals() async {
-//     final settingsProvider =
-//         Provider.of<SettingsProvider>(context, listen: false);
-//     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
-//     try {
-//       await homeProvider
-//           .getUsersBMR(
-//             gender: homeProvider.userData['gender'],
-//             weight: homeProvider.userData['weight'],
-//             height: homeProvider.userData['height'],
-//             age: homeProvider.userData['age'],
-//             activity: homeProvider.userData['activity'],
-//             goal: _valueGoals!,
-//           )
-//           .then((_) => settingsProvider.changeUsersGaols(
-//               bmr: homeProvider.userBMRwithGoal,
-//               goal: _valueGoals!,
-//               context: context))
-//           .then((_) => Navigator.of(context).pop());
-//     } catch (e) {
-//       print(e);
-//     }
-//   }

@@ -244,6 +244,14 @@ class AuthProvider with ChangeNotifier {
         'bmr': bmr,
         'goal': goal,
         'bmi': bmi,
+        'chest': 0.0,
+        'shoulders': 0.0,
+        'biceps': 0.0,
+        'foreArm': 0.0,
+        'waist': 0.0,
+        'hips': 0.0,
+        'thigh': 0.0,
+        'calf': 0.0,
       });
       notifyListeners();
     } catch (e) {

@@ -14,6 +14,7 @@ import 'package:smart_home_app/presentation/main/widgets/appbar_home.dart';
 import 'package:smart_home_app/presentation/profile/pages/profile_page.dart';
 import 'package:smart_home_app/presentation/workouts/pages/workouts_page.dart';
 import 'package:smart_home_app/presentation/settings/pages/settings_page.dart';
+import 'package:smart_home_app/presentation/workouts/providers/workout_provider.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
@@ -55,22 +56,23 @@ class _MainPageState extends State<MainPage> {
   }
 
   bool get isProfilePage => _currentIndex == 4;
-
   bool get isSettingsPage => _currentIndex == 3;
-
   bool get isWorkoutsPage => _currentIndex == 2;
-
   bool get isConsumptionPage => _currentIndex == 1;
-
   bool get isHomePage => _currentIndex == 0;
+
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       final consumptionProvider =
           Provider.of<ConsumptionProvider>(context, listen: false);
+      final workoutsProvider =
+          Provider.of<WorkoutProvider>(context, listen: false);
       await consumptionProvider.fetchAndSetMeals();
       await consumptionProvider.fetchAndSetWater();
+      await workoutsProvider.fetchAndSetWorkouts();
+      final workouts = workoutsProvider.workouts;
       final meals = consumptionProvider.meals;
       final water = consumptionProvider.water;
       if (meals.isNotEmpty) {
@@ -80,6 +82,7 @@ class _MainPageState extends State<MainPage> {
             now.month > lastMealDateTime.month ||
             now.day > lastMealDateTime.day) {
           await consumptionProvider.clearMealsIfDayChanges(lastMealDateTime);
+          await consumptionProvider.fetchAndSetMeals();
         }
       }
       if (water.isNotEmpty) {
@@ -89,6 +92,17 @@ class _MainPageState extends State<MainPage> {
             now.month > lastWaterDateTime.month ||
             now.day > lastWaterDateTime.day) {
           await consumptionProvider.clearWaterIfDayChanges(lastWaterDateTime);
+          await consumptionProvider.fetchAndSetWater();
+        }
+      }
+      if (workouts.isNotEmpty) {
+        final lastWorkoutDateTime = workouts.last.dateTime;
+        final now = DateTime.now();
+        if (now.year > lastWorkoutDateTime.year ||
+            now.month > lastWorkoutDateTime.month ||
+            now.day > lastWorkoutDateTime.day) {
+          await workoutsProvider.clearWorkoutsIfDayChanges(lastWorkoutDateTime);
+          await workoutsProvider.fetchAndSetWorkouts();
         }
       }
     });
