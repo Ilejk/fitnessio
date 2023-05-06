@@ -114,12 +114,7 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                 child: Text(
                   StringsManager.changeMeasurementsText,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: ColorManager.white,
-                    fontWeight: FontWightManager.bold,
-                    letterSpacing: SizeManager.s3,
-                    fontSize: FontSize.s25.sp,
-                  ),
+                  style: StyleManager.settingsOptionTiteTextStyle,
                 ),
               ),
               Column(

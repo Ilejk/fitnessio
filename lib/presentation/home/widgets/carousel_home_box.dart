@@ -31,7 +31,9 @@ class CarouselHomeBox extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: ColorManager.grey3),
                 color: ColorManager.grey3,
-                borderRadius: BorderRadius.circular(RadiusManager.r15.r),
+                borderRadius: BorderRadius.circular(
+                  RadiusManager.r15.r,
+                ),
                 boxShadow: const [
                   BoxShadow(
                     color: ColorManager.black,
@@ -50,7 +52,9 @@ class CarouselHomeBox extends StatelessWidget {
               width: deviceWidth,
               height: SizeManager.s250.h,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(RadiusManager.r15.r),
+                borderRadius: BorderRadius.circular(
+                  RadiusManager.r15.r,
+                ),
                 child: Image.asset(
                   image,
                   fit: BoxFit.cover,

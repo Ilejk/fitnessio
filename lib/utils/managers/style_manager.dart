@@ -183,4 +183,101 @@ class StyleManager {
     fontSize: FontSize.s20.sp,
     fontWeight: FontWightManager.bold,
   );
+  static final exerciseRepAndSetHintTextStyle = TextStyle(
+    fontSize: FontSize.s16.sp,
+    color: ColorManager.white2,
+    fontWeight: FontWightManager.regular,
+    letterSpacing: SizeManager.s1,
+  );
+  static final exerciseRepAndSetNumberTextStyle = TextStyle(
+    fontSize: FontSize.s18.sp,
+    color: ColorManager.limerGreen2,
+    fontWeight: FontWightManager.bold,
+    letterSpacing: SizeManager.s1,
+  );
+  static final exerciseNameTextStyle = TextStyle(
+    fontSize: FontSize.s20.sp,
+    color: ColorManager.white,
+    fontWeight: FontWightManager.regular,
+    letterSpacing: SizeManager.s1,
+  );
+  static final settingsOptionTiteTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontWeight: FontWightManager.bold,
+    letterSpacing: SizeManager.s3,
+    fontSize: FontSize.s25.sp,
+  );
+  static final editTextButtonTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s16.sp,
+    fontWeight: FontWightManager.regular,
+    letterSpacing: SizeManager.s1,
+    decoration: TextDecoration.underline,
+  );
+  static final profieloggedinTextStyle = TextStyle(
+    color: ColorManager.limerGreen2,
+    fontSize: FontSize.s18.sp,
+    fontWeight: FontWightManager.bold,
+    letterSpacing: SizeManager.s1,
+  );
+  static final profileLoginDataTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s16.sp,
+    fontWeight: FontWightManager.regular,
+    letterSpacing: SizeManager.s1,
+  );
+  static final profileBodyMeasurmentsNameTextSTyle = TextStyle(
+    color: ColorManager.limerGreen2,
+    fontSize: FontSize.s16.sp,
+    fontWeight: FontWightManager.semiBold,
+  );
+  static final profileBodyMeasurementsDataTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s16.sp,
+    fontWeight: FontWightManager.regular,
+  );
+  static final homeTitleNameTextStyle = TextStyle(
+    color: ColorManager.grey,
+    fontSize: FontSize.s16.sp,
+    letterSpacing: SizeManager.s0_7,
+  );
+  static final homeTitleDataTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontSize: FontSize.s18.sp,
+    letterSpacing: SizeManager.s0_7,
+  );
+  static final fitnessBmiTextStyle = TextStyle(
+    color: ColorManager.white2,
+    fontSize: FontSize.s12.sp,
+    fontWeight: FontWightManager.regular,
+  );
+  static final percentValueOfMealTextStyle = TextStyle(
+    fontSize: FontSize.s18.sp,
+    color: ColorManager.white,
+    fontWeight: FontWightManager.bold,
+    letterSpacing: SizeManager.s1,
+  );
+  static final percentValueOfMealTitleTextSTyle = TextStyle(
+    fontSize: FontSize.s16.sp,
+    color: ColorManager.white2,
+    fontWeight: FontWightManager.regular,
+    letterSpacing: SizeManager.s1,
+  );
+  static final mealWidgetDataTextStyle = TextStyle(
+    fontSize: FontSize.s16.sp,
+    color: ColorManager.white2,
+    fontWeight: FontWightManager.regular,
+    letterSpacing: SizeManager.s1,
+  );
+  static final mealWidgetTitleTextStyle = TextStyle(
+    fontSize: FontSize.s22.sp,
+    color: ColorManager.white,
+    fontWeight: FontWightManager.semiBold,
+    letterSpacing: SizeManager.s1,
+  );
+  static final addDataTitleTextStyle = TextStyle(
+    fontSize: FontSize.s20.sp,
+    fontWeight: FontWightManager.semiBold,
+    color: ColorManager.white,
+  );
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class ExerciseWidget extends StatelessWidget {
@@ -79,12 +79,7 @@ class ExerciseWidget extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: TextStyle(
-                          fontSize: FontSize.s20.sp,
-                          color: ColorManager.white,
-                          fontWeight: FontWightManager.regular,
-                          letterSpacing: SizeManager.s1,
-                        ),
+                        style: StyleManager.exerciseNameTextStyle,
                       ),
                       Column(
                         children: [
@@ -94,24 +89,16 @@ class ExerciseWidget extends StatelessWidget {
                             children: [
                               Text(
                                 '${setNumber.round()}',
-                                style: TextStyle(
-                                  fontSize: FontSize.s18.sp,
-                                  color: ColorManager.limerGreen2,
-                                  fontWeight: FontWightManager.bold,
-                                  letterSpacing: SizeManager.s1,
-                                ),
+                                style: StyleManager
+                                    .exerciseRepAndSetNumberTextStyle,
                               ),
                               SizedBox(
                                 width: SizeManager.s3.w,
                               ),
                               Text(
                                 StringsManager.setNumberHint,
-                                style: TextStyle(
-                                  fontSize: FontSize.s16.sp,
-                                  color: ColorManager.white2,
-                                  fontWeight: FontWightManager.regular,
-                                  letterSpacing: SizeManager.s1,
-                                ),
+                                style:
+                                    StyleManager.exerciseRepAndSetHintTextStyle,
                               ),
                             ],
                           ),
@@ -122,24 +109,16 @@ class ExerciseWidget extends StatelessWidget {
                             children: [
                               Text(
                                 '${repNumber.round()}',
-                                style: TextStyle(
-                                  fontSize: FontSize.s18.sp,
-                                  color: ColorManager.limerGreen2,
-                                  fontWeight: FontWightManager.bold,
-                                  letterSpacing: SizeManager.s1,
-                                ),
+                                style: StyleManager
+                                    .exerciseRepAndSetNumberTextStyle,
                               ),
                               SizedBox(
                                 width: SizeManager.s3.w,
                               ),
                               Text(
                                 StringsManager.repNumberHint,
-                                style: TextStyle(
-                                  fontSize: FontSize.s16.sp,
-                                  color: ColorManager.white2,
-                                  fontWeight: FontWightManager.regular,
-                                  letterSpacing: SizeManager.s1,
-                                ),
+                                style:
+                                    StyleManager.exerciseRepAndSetHintTextStyle,
                               ),
                             ],
                           ),

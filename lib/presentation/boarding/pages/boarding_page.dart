@@ -93,8 +93,12 @@ class _BoardingPageState extends State<BoardingPage> {
               decoration: BoxDecoration(
                   color: ColorManager.black87,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(RadiusManager.r15.r),
-                    topRight: Radius.circular(RadiusManager.r15.r),
+                    topLeft: Radius.circular(
+                      RadiusManager.r15.r,
+                    ),
+                    topRight: Radius.circular(
+                      RadiusManager.r15.r,
+                    ),
                   )),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -111,8 +115,9 @@ class _BoardingPageState extends State<BoardingPage> {
                           width: SizeManager.s8.w,
                           height: SizeManager.s8.h,
                           color: ColorManager.white,
-                          borderRadius:
-                              BorderRadius.circular(RadiusManager.r24.r),
+                          borderRadius: BorderRadius.circular(
+                            RadiusManager.r24.r,
+                          ),
                           dotBorder: DotBorder(
                             width: SizeManager.s1_5.w,
                             color: ColorManager.white,
@@ -121,8 +126,9 @@ class _BoardingPageState extends State<BoardingPage> {
                         activeDotDecoration: DotDecoration(
                           width: SizeManager.s20.w,
                           height: SizeManager.s20.h,
-                          borderRadius:
-                              BorderRadius.circular(RadiusManager.r24.r),
+                          borderRadius: BorderRadius.circular(
+                            RadiusManager.r24.r,
+                          ),
                           color: ColorManager.black87,
                           dotBorder: DotBorder(
                             width: SizeManager.s1_5.w,

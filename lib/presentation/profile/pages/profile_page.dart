@@ -10,6 +10,7 @@ import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
@@ -71,22 +72,12 @@ class _ProfilePageState extends State<ProfilePage> {
                             children: [
                               Text(
                                 StringsManager.loggedInAs,
-                                style: TextStyle(
-                                  color: ColorManager.limerGreen2,
-                                  fontSize: FontSize.s18.sp,
-                                  fontWeight: FontWightManager.bold,
-                                  letterSpacing: SizeManager.s1,
-                                ),
+                                style: StyleManager.profieloggedinTextStyle,
                               ),
                               Text(
                                 emailData,
-                                style: TextStyle(
-                                  color: ColorManager.white,
-                                  fontSize: FontSize.s16.sp,
-                                  fontWeight: FontWightManager.regular,
-                                  letterSpacing: SizeManager.s1,
-                                ),
-                              ),
+                                style: StyleManager.profileLoginDataTextStyle,
+                              )
                             ],
                           ),
                         ),
@@ -118,19 +109,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text(
                                   StringsManager.chest,
-                                  style: TextStyle(
-                                    color: ColorManager.limerGreen2,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.semiBold,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurmentsNameTextSTyle,
                                 ),
                                 Text(
                                   '${chestData.toStringAsFixed(1)} cm',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurementsDataTextStyle,
                                 ),
                               ],
                             ),
@@ -152,19 +137,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text(
                                   StringsManager.shoulders,
-                                  style: TextStyle(
-                                    color: ColorManager.limerGreen2,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.semiBold,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurmentsNameTextSTyle,
                                 ),
                                 Text(
                                   '${shoulderData.toStringAsFixed(1)} cm',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurementsDataTextStyle,
                                 ),
                               ],
                             ),
@@ -186,19 +165,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text(
                                   StringsManager.biceps,
-                                  style: TextStyle(
-                                    color: ColorManager.limerGreen2,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.semiBold,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurmentsNameTextSTyle,
                                 ),
                                 Text(
                                   '${bicepsData.toStringAsFixed(1)} cm',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurementsDataTextStyle,
                                 ),
                               ],
                             ),
@@ -220,19 +193,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text(
                                   StringsManager.foreArm,
-                                  style: TextStyle(
-                                    color: ColorManager.limerGreen2,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.semiBold,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurmentsNameTextSTyle,
                                 ),
                                 Text(
                                   '${foreArmData.toStringAsFixed(1)} cm',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurementsDataTextStyle,
                                 ),
                               ],
                             ),
@@ -254,19 +221,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text(
                                   StringsManager.waist,
-                                  style: TextStyle(
-                                    color: ColorManager.limerGreen2,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.semiBold,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurmentsNameTextSTyle,
                                 ),
                                 Text(
                                   '${waistData.toStringAsFixed(1)} cm',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurementsDataTextStyle,
                                 ),
                               ],
                             ),
@@ -288,19 +249,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text(
                                   StringsManager.hips,
-                                  style: TextStyle(
-                                    color: ColorManager.limerGreen2,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.semiBold,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurmentsNameTextSTyle,
                                 ),
                                 Text(
                                   '${hipsData.toStringAsFixed(1)} cm',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurementsDataTextStyle,
                                 ),
                               ],
                             ),
@@ -322,19 +277,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text(
                                   StringsManager.thigh,
-                                  style: TextStyle(
-                                    color: ColorManager.limerGreen2,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.semiBold,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurmentsNameTextSTyle,
                                 ),
                                 Text(
                                   '${thighData.toStringAsFixed(1)} cm',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurementsDataTextStyle,
                                 ),
                               ],
                             ),
@@ -356,19 +305,13 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 Text(
                                   StringsManager.calf,
-                                  style: TextStyle(
-                                    color: ColorManager.limerGreen2,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.semiBold,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurmentsNameTextSTyle,
                                 ),
                                 Text(
                                   '${calfData.toStringAsFixed(1)} cm',
-                                  style: TextStyle(
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16.sp,
-                                    fontWeight: FontWightManager.regular,
-                                  ),
+                                  style: StyleManager
+                                      .profileBodyMeasurementsDataTextStyle,
                                 ),
                               ],
                             ),

@@ -22,7 +22,9 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
           .fetchAndSetMeals();
     });
 
-    return await Future.delayed(const Duration(seconds: 2));
+    return await Future.delayed(
+      const Duration(seconds: 2),
+    );
   }
 
   @override

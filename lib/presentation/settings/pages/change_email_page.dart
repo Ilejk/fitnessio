@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/presentation/settings/widgets/change_email_app_bar.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
@@ -70,12 +70,7 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
                 child: Text(
                   StringsManager.changeEmailContent,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: ColorManager.white,
-                    fontWeight: FontWightManager.bold,
-                    letterSpacing: SizeManager.s3,
-                    fontSize: FontSize.s25.sp,
-                  ),
+                  style: StyleManager.settingsOptionTiteTextStyle,
                 ),
               ),
               TextFieldWidget(

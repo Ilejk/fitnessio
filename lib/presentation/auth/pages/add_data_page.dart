@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/auth/providers/auth_provider.dart';
 import 'package:smart_home_app/presentation/auth/widgets/add_data_widgets.dart';
 import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
+import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
@@ -123,11 +124,7 @@ class _AddDataPageState extends State<AddDataPage> {
                   child: Text(
                     StringsManager.enterData,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: FontSize.s20.sp,
-                      fontWeight: FontWightManager.semiBold,
-                      color: ColorManager.white,
-                    ),
+                    style: StyleManager.addDataTitleTextStyle,
                   ),
                 ),
               ),

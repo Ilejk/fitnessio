@@ -114,11 +114,7 @@ class FitnessDataWidget extends StatelessWidget {
                           child: Text(
                             getMessage(bmi),
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: ColorManager.white2,
-                              fontSize: FontSize.s12.sp,
-                              fontWeight: FontWightManager.regular,
-                            ),
+                            style: StyleManager.fitnessBmiTextStyle,
                           ),
                         )
                       ],
