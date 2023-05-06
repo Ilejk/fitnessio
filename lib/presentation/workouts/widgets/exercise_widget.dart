@@ -29,15 +29,14 @@ class ExerciseWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         top: PaddingManager.p8,
-        left: PaddingManager.p12,
-        right: PaddingManager.p12,
+        left: PaddingManager.p1,
+        right: PaddingManager.p1,
       ),
       child: Slidable(
         endActionPane: ActionPane(
           motion: const StretchMotion(),
           children: [
             SlidableAction(
-              borderRadius: BorderRadius.circular(RadiusManager.r40.r),
               onPressed: onPressed,
               icon: Icons.delete,
               label: StringsManager.delete,
@@ -51,14 +50,17 @@ class ExerciseWidget extends StatelessWidget {
           height: SizeManager.s110.h,
           decoration: BoxDecoration(
             color: ColorManager.black87,
-            borderRadius: BorderRadius.circular(
-              RadiusManager.r40.r,
+            border: Border(
+              bottom: BorderSide(
+                color: ColorManager.limerGreen2,
+                width: SizeManager.s1,
+              ),
             ),
           ),
           child: Padding(
             padding: const EdgeInsets.only(
-              left: PaddingManager.p12,
-              right: PaddingManager.p12,
+              left: PaddingManager.p2,
+              right: PaddingManager.p2,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

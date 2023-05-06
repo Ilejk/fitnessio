@@ -6,6 +6,7 @@ import 'package:smart_home_app/presentation/consumption/widgets/new_meal_app_bar
 import 'package:smart_home_app/presentation/workouts/providers/workout_provider.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
+import 'package:smart_home_app/utils/managers/list_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -46,10 +47,9 @@ class _NewExercisePageState extends State<NewExercisePage> {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
-
+    final deviceHeight = MediaQuery.of(context).size.height;
     final workoutProvider =
         Provider.of<WorkoutProvider>(context, listen: false);
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(
@@ -81,6 +81,7 @@ class _NewExercisePageState extends State<NewExercisePage> {
                 radius: RadiusManager.r15.r,
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton2(
+                    dropdownMaxHeight: deviceHeight / 2,
                     dropdownDecoration: BoxDecoration(
                       color: ColorManager.darkGrey,
                       borderRadius: BorderRadius.circular(
@@ -94,22 +95,7 @@ class _NewExercisePageState extends State<NewExercisePage> {
                       StringsManager.exerciseHint,
                       style: StyleManager.registerTextfieldTextStyle,
                     ),
-                    items: [
-                      DropdownMenuItem(
-                        value: StringsManager.aroundTheWorldHint,
-                        child: Text(
-                          StringsManager.aroundTheWorldHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
-                      DropdownMenuItem(
-                        value: StringsManager.abWheelHint,
-                        child: Text(
-                          StringsManager.abWheelHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                      ),
-                    ],
+                    items: ListManager.exercisesList,
                   ),
                 ),
               ),

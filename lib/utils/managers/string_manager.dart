@@ -106,11 +106,7 @@ class StringsManager {
   static const String dangerousBmi = 'You should\nsee a doctor!';
   static const String drinkPageText = 'Raise the waters!';
   static const String personalInfo = 'Personal Info';
-  static const String age = 'Age';
-  static const String height = 'Height';
-  static const String weight = 'Weight';
-  static const String activity = 'Activity';
-  static const String goal = 'Goal';
+
   static const String changeActivityText = 'Change your\nweekly activity!';
   static const String changeGoalsText = 'Have your workout\ngoals changed?';
   static const String changeHeightText = 'I wish I was a\nlittle bit taller...';
@@ -118,14 +114,14 @@ class StringsManager {
   static const String delete = 'Delete';
   static const String newExercise = 'New exercise';
   static const String exerciseHint = 'Exercise';
-  static const String aroundTheWorldHint = 'Around The World';
-  static const String abWheelHint = 'AB Wheel';
   static const String setNumberHint = 'Sets';
   static const String repNumberHint = 'Reps';
   static const String probileABtitle = 'MY PROFILE';
   static const String edit = 'Edit';
   static const String loggedInAs = 'Logged in as: ';
   static const String changeMeasurementsText = 'Change your\nmeasurements';
+  static const String weightData = 'Weight Data';
+  //MEASUREMENTS DATA
   static const String chest = 'Chest';
   static const String shoulders = 'Shoulders';
   static const String thigh = 'Thighs';
@@ -134,6 +130,74 @@ class StringsManager {
   static const String foreArm = 'Forearm';
   static const String waist = 'Waist';
   static const String hips = 'Hips';
+  static const String age = 'Age';
+  static const String height = 'Height';
+  static const String weight = 'Weight';
+  static const String activity = 'Activity';
+  static const String goal = 'Goal';
   static const String kg = 'kg';
-  static const String weightData = 'Weight Data';
+  //EXERCISES
+  //A
+  static const String aroundTheWorldHint = 'Around The World';
+  static const String abWheelHint = 'AB Wheel';
+  static const String arnoldPressKettleBell = 'Arnold Press(Kettlebell)';
+  static const String arnoldPressDumBell = 'Arnold Press(Dumbell)';
+  //B
+  static const String boxJump = 'Box Jump';
+  static const String backExtensionMachine = 'Back Extension(Machine)';
+  static const String backExtension = 'Back Extension';
+  static const String boxSquatBarBell = 'Box Squat(Barbell)';
+  static const String bicycleCrunch = 'Bicycle Crunch';
+  static const String ballSlam = 'Ball Slam';
+  static const String burpee = 'Burpee';
+  static const String battleRopes = 'Battle Ropes';
+  static const String benchPressBarBell = 'Bench Press(Barbell)';
+  static const String benchPressDumBell = 'Bench Press(Dumbell)';
+  static const String benchDip = 'Bench Dip';
+  static const String bentOverOneArmRow = 'Bench Over One Arm Row';
+  static const String bentOverRowBarBell = 'Bent Over Row(Barbell)';
+  static const String bentOverRowBand = 'Bent Over Row(Band)';
+  static const String bentOverRowDumBell = 'Bent Over Row(Dumbell)';
+  static const String bulgarianSplitSquat = 'Bulgarian Split Squat';
+  static const String bicepsCurlCable = 'Biceps Curl(Cable)';
+  static const String bicepsCurlBarBell = 'Biceps Curl(Barbell)';
+  static const String bicepsCurlMachine = 'Biceps Curl(Machine)';
+  static const String bicepsCurlDumBell = 'Biceps Curl(Dumbell)';
+
+  //C
+  static const String chestFlyBand = 'Chest Fly(Band)';
+  static const String chestFly = 'Chest Fly';
+  static const String chestFlyDumBell = 'Chest Fly(Dumbell)';
+  static const String cableCrunch = 'Cable Crunch';
+  static const String cableTwist = 'Cable Twist';
+  static const String cableKickBack = 'Cable Kickback';
+  static const String cableCrossOver = 'Cable Crossover';
+  static const String crossBodyCrunch = 'Cross Body Crunch';
+  static const String climbing = 'Climbing';
+  static const String chestPressBand = 'Chest Press(Band)';
+  static const String chestPressMachine = 'Chest Press(Machine)';
+  static const String cleanAndJerkBarBell = 'Clean and Jerk(Barbell)';
+  static const String chinUp = 'Chin Up';
+  static const String cyclingIndoor = 'Cycling Indoor';
+  static const String chestDipAssisted = 'Chest Dip(Assisted)';
+  static const String chestDip = 'Chest Dip';
+  static const String cleanBarBell = 'Clean(Barbell)';
+  static const String crunch = 'Crunch';
+  static const String crunchMachine = 'Crunch(Machine)';
+  static const String crunchStabilityBall = 'Crunch(Stability Ball)';
+  //E
+  static const String externalCableRotation = 'External Cable Rotation';
+  static const String ellipticalMachine = 'Elliptical Machine';
+  static const String exerciseBallCrunch = 'Exercise Ball Crunch';
+  //D
+  static const String deficitDeadLiftBarBell = 'Deficit Deadlift(Barbell)';
+  static const String deadLiftBarBell = 'Deadlift(Barbell)';
+  static const String deadLiftBand = 'Deadlift(Band)';
+  static const String deadLiftDumBell = 'Deadlift(Dumbell)';
+  static const String deadLiftMachine = 'Deadlift(Machine)';
+  static const String deadLiftHighPullBarBell = 'Deadlift High Pull(Barbell)';
+  static const String declineCrunch = 'Decline Crunch';
+  static const String declineBenchPressBarBell = 'Decline Bench Press(Barbell)';
+  static const String declineBenchPressDumBell = 'Decline Bench Press(Dumbell)';
+  static const String declineBenchPressMachine = 'Decline Bench Press(Machine)';
 }
