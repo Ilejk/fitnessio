@@ -2,8 +2,8 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/presentation/consumption/widgets/new_meal_app_bar.dart';
 import 'package:smart_home_app/presentation/workouts/providers/workout_provider.dart';
+import 'package:smart_home_app/presentation/workouts/widgets/workouts_app_bar.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/list_manager.dart';
@@ -56,7 +56,7 @@ class _NewExercisePageState extends State<NewExercisePage> {
           deviceWidth,
           SizeManager.s60.h,
         ),
-        child: const NewMealPageAppBar(),
+        child: const NewExercisePageAppBar(),
       ),
       backgroundColor: ColorManager.darkGrey,
       body: SafeArea(
@@ -71,7 +71,7 @@ class _NewExercisePageState extends State<NewExercisePage> {
                   width: SizeManager.s250.w,
                   height: SizeManager.s250.h,
                   child: Image.asset(
-                    ImageManager.fork,
+                    ImageManager.exerciseLogo,
                   ),
                 ),
               ),

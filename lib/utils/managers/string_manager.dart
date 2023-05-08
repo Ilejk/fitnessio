@@ -106,7 +106,7 @@ class StringsManager {
   static const String dangerousBmi = 'You should\nsee a doctor!';
   static const String drinkPageText = 'Raise the waters!';
   static const String personalInfo = 'Personal Info';
-
+  static const String addExercise = 'ADD EXERCISE';
   static const String changeActivityText = 'Change your\nweekly activity!';
   static const String changeGoalsText = 'Have your workout\ngoals changed?';
   static const String changeHeightText = 'I wish I was a\nlittle bit taller...';
