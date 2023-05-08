@@ -121,6 +121,7 @@ class StringsManager {
   static const String loggedInAs = 'Logged in as: ';
   static const String changeMeasurementsText = 'Change your\nmeasurements';
   static const String weightData = 'Weight Data';
+  static const String finished = 'Finished';
   //MEASUREMENTS DATA
   static const String chest = 'Chest';
   static const String shoulders = 'Shoulders';

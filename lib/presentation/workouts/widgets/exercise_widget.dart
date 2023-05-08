@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -13,14 +12,16 @@ class ExerciseWidget extends StatelessWidget {
     required this.name,
     required this.repNumber,
     required this.setNumber,
-    required this.onPressed,
+    required this.onDeleted,
+    required this.onFinished,
     required this.id,
   });
 
   final String name;
   final int setNumber;
   final int repNumber;
-  final Function(BuildContext)? onPressed;
+  final Function(BuildContext)? onDeleted;
+  final Function(BuildContext)? onFinished;
   final String id;
 
   @override
@@ -33,11 +34,23 @@ class ExerciseWidget extends StatelessWidget {
         right: PaddingManager.p1,
       ),
       child: Slidable(
+        startActionPane: ActionPane(
+          motion: const StretchMotion(),
+          children: [
+            SlidableAction(
+              onPressed: onFinished,
+              icon: Icons.done_all_sharp,
+              label: StringsManager.finished,
+              foregroundColor: ColorManager.darkGrey,
+              backgroundColor: ColorManager.limerGreen2,
+            ),
+          ],
+        ),
         endActionPane: ActionPane(
           motion: const StretchMotion(),
           children: [
             SlidableAction(
-              onPressed: onPressed,
+              onPressed: onDeleted,
               icon: Icons.delete,
               label: StringsManager.delete,
               foregroundColor: ColorManager.limerGreen2,

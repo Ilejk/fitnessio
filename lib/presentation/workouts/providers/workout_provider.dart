@@ -5,9 +5,14 @@ import 'package:smart_home_app/model/workout_model.dart';
 
 class WorkoutProvider with ChangeNotifier {
   final List<WorkoutModel> _workouts = [];
+  final List<WorkoutModel> _finishedWorkouts = [];
 
   List<WorkoutModel> get workouts {
     return [..._workouts];
+  }
+
+  List<WorkoutModel> get finishedWourkouts {
+    return [..._finishedWorkouts];
   }
 
   Future<void> addNewWorkout({
@@ -83,8 +88,21 @@ class WorkoutProvider with ChangeNotifier {
             .doc(user!.uid)
             .collection('workoutData')
             .get()
-            .then((querySnapshot) {
-          for (var doc in querySnapshot.docs) {
+            .then((workoutSnapshot) {
+          for (var doc in workoutSnapshot.docs) {
+            DateTime workoutDateTime = (doc['dateTime'] as Timestamp).toDate();
+            if (isWorkoutDateDifferent(now, workoutDateTime)) {
+              doc.reference.delete();
+            }
+          }
+        });
+        await FirebaseFirestore.instance
+            .collection('finishedWorkouts')
+            .doc(user.uid)
+            .collection('finishedWorkoutsData')
+            .get()
+            .then((finishedWorkoutSnapshot) {
+          for (var doc in finishedWorkoutSnapshot.docs) {
             DateTime workoutDateTime = (doc['dateTime'] as Timestamp).toDate();
             if (isWorkoutDateDifferent(now, workoutDateTime)) {
               doc.reference.delete();
@@ -119,8 +137,71 @@ class WorkoutProvider with ChangeNotifier {
           .collection('workoutData')
           .doc(workoutID)
           .delete();
+      notifyListeners();
     } catch (e) {
       print(e);
+    }
+  }
+
+  Future<void> finishWorkout({
+    required String workoutID,
+    required String name,
+    required int repNumber,
+    required int setNumber,
+    required DateTime dateTime,
+  }) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('finishedWorkouts')
+          .doc(user!.uid)
+          .collection('finishedWorkoutsData')
+          .doc()
+          .set({
+        'name': name,
+        'repNumber': repNumber,
+        'setNumber': setNumber,
+        'dateTime': dateTime,
+        'id': workoutID,
+      });
+      notifyListeners();
+    } catch (e) {
+      notifyListeners();
+      print(e);
+    }
+  }
+
+  Future fetchAndSetFinshedWorkouts() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    try {
+      final mealsSnapshot = await FirebaseFirestore.instance
+          .collection('finishedWorkouts')
+          .doc(user!.uid)
+          .collection('finishedWorkoutsData')
+          .get();
+
+      final List<WorkoutModel> loadedFinishedWorkouts = [];
+
+      for (var doc in mealsSnapshot.docs) {
+        final finishedWorkoutsData = doc.data();
+        loadedFinishedWorkouts.add(
+          WorkoutModel(
+            id: doc.id,
+            name: finishedWorkoutsData['name'],
+            repNumber: finishedWorkoutsData['repNumber'],
+            setNumber: finishedWorkoutsData['setNumber'],
+            dateTime: (finishedWorkoutsData['dateTime'] as Timestamp).toDate(),
+          ),
+        );
+      }
+      _finishedWorkouts.clear();
+      _finishedWorkouts.addAll(loadedFinishedWorkouts);
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      rethrow;
     }
   }
 }

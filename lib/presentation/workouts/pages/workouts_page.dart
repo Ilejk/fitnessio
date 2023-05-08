@@ -71,8 +71,26 @@ class _WorkoutPageState extends State<WorkoutPage> {
                             setNumber:
                                 workoutsProvider.workouts[index].setNumber,
                             id: workoutsProvider.workouts[index].id,
-                            onPressed: (_) {
+                            onDeleted: (_) {
                               setState(() {
+                                workoutsProvider.deleteWorkout(
+                                  workoutsProvider.workouts[index].id,
+                                );
+                              });
+                            },
+                            onFinished: (_) {
+                              setState(() {
+                                workoutsProvider.finishWorkout(
+                                  workoutID:
+                                      workoutsProvider.workouts[index].id,
+                                  name: workoutsProvider.workouts[index].name,
+                                  repNumber: workoutsProvider
+                                      .workouts[index].repNumber,
+                                  setNumber: workoutsProvider
+                                      .workouts[index].setNumber,
+                                  dateTime:
+                                      workoutsProvider.workouts[index].dateTime,
+                                );
                                 workoutsProvider.deleteWorkout(
                                   workoutsProvider.workouts[index].id,
                                 );
