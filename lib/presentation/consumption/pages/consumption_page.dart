@@ -29,68 +29,70 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
 
   @override
   Widget build(BuildContext context) {
-    final consumptionProvider =
-        Provider.of<ConsumptionProvider>(context, listen: false);
-    return SafeArea(
-      child: LiquidPullToRefresh(
-        height: SizeManager.s250.h,
-        color: ColorManager.darkGrey,
-        animSpeedFactor: 2,
-        backgroundColor: ColorManager.white2,
-        onRefresh: _handleRefresh,
-        child: FutureBuilder<void>(
-          future: consumptionProvider.fetchAndSetMeals(),
-          builder: (context, snapshot) {
-            return Stack(
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: consumptionProvider.meals.length,
-                        itemBuilder: (context, index) {
-                          return MealWidget(
-                            id: consumptionProvider.meals[index].id,
-                            title: consumptionProvider.meals[index].title,
-                            amount: consumptionProvider.meals[index].amount,
-                            calories: consumptionProvider.meals[index].calories,
-                            fats: consumptionProvider.meals[index].fats,
-                            carbs: consumptionProvider.meals[index].carbs,
-                            proteins: consumptionProvider.meals[index].proteins,
-                            onPressed: (_) {
-                              setState(() {
-                                consumptionProvider.deleteMeal(
-                                  consumptionProvider.meals[index].id,
-                                );
-                              });
-                            },
-                          );
-                        },
+    return Consumer<ConsumptionProvider>(
+      builder: (context, consumptionProvider, _) => SafeArea(
+        child: LiquidPullToRefresh(
+          height: SizeManager.s250.h,
+          color: ColorManager.darkGrey,
+          animSpeedFactor: 2,
+          backgroundColor: ColorManager.white2,
+          onRefresh: _handleRefresh,
+          child: FutureBuilder<void>(
+            future: consumptionProvider.fetchAndSetMeals(),
+            builder: (context, snapshot) {
+              return Stack(
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: consumptionProvider.meals.length,
+                          itemBuilder: (context, index) {
+                            return MealWidget(
+                              id: consumptionProvider.meals[index].id,
+                              title: consumptionProvider.meals[index].title,
+                              amount: consumptionProvider.meals[index].amount,
+                              calories:
+                                  consumptionProvider.meals[index].calories,
+                              fats: consumptionProvider.meals[index].fats,
+                              carbs: consumptionProvider.meals[index].carbs,
+                              proteins:
+                                  consumptionProvider.meals[index].proteins,
+                              onPressed: (_) {
+                                setState(() {
+                                  consumptionProvider.deleteMeal(
+                                    consumptionProvider.meals[index].id,
+                                  );
+                                });
+                              },
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(PaddingManager.p12),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: FloatingActionButton(
-                      backgroundColor: ColorManager.limerGreen2,
-                      child: const Icon(
-                        Icons.water_drop_outlined,
-                        color: ColorManager.darkGrey,
-                        size: SizeManager.s28,
-                      ),
-                      onPressed: () =>
-                          Navigator.of(context).pushNamed(Routes.addWaterRoute),
-                    ),
+                    ],
                   ),
-                )
-              ],
-            );
-          },
+                  Padding(
+                    padding: const EdgeInsets.all(PaddingManager.p12),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: FloatingActionButton(
+                        backgroundColor: ColorManager.limerGreen2,
+                        child: const Icon(
+                          Icons.water_drop_outlined,
+                          color: ColorManager.darkGrey,
+                          size: SizeManager.s28,
+                        ),
+                        onPressed: () => Navigator.of(context)
+                            .pushNamed(Routes.addWaterRoute),
+                      ),
+                    ),
+                  )
+                ],
+              );
+            },
+          ),
         ),
       ),
     );

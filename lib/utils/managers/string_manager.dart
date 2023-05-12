@@ -127,6 +127,7 @@ class StringsManager {
   static const String l1 = '1.0 l';
   static const String customAdd = 'Custom Add:';
   static const String quickAdd = 'Quick Add:';
+  static const String exercisesDoneTxt = 'Great Job! 🎉 You\'re on 🔥';
   //MEASUREMENTS DATA
   static const String chest = 'Chest';
   static const String shoulders = 'Shoulders';

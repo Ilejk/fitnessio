@@ -9,85 +9,63 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
-class TodaysProgressWidget extends StatefulWidget {
+class TodaysProgressWidget extends StatelessWidget {
   const TodaysProgressWidget({
     super.key,
   });
 
   @override
-  State<TodaysProgressWidget> createState() => _TodaysProgressWidgetState();
-}
-
-class _TodaysProgressWidgetState extends State<TodaysProgressWidget> {
-  @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
-    final workoutProvider =
-        Provider.of<WorkoutProvider>(context, listen: false);
-    return FutureBuilder<void>(
-        future: workoutProvider.fetchAndSetWorkouts(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return SpinKitSpinningLines(color: ColorManager.limerGreen2);
-          } else if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
-          } else {
-            double progressPercent = workoutProvider.progressPercent;
-            double shownPercent = workoutProvider.shownPercent;
-            int exercisesLeft = workoutProvider.exercisesLeft;
+    return Consumer<WorkoutProvider>(builder: (context, workoutProvider, _) {
+      var isLoaded = workoutProvider.progressPercent == null ||
+          workoutProvider.shownPercent == null ||
+          workoutProvider.exercisesLeft == null;
+      if (isLoaded) {
+        return SpinKitSpinningLines(color: ColorManager.limerGreen2);
+      } else {
+        workoutProvider.getProgressPercent();
+        double progressPercent = workoutProvider.progressPercent!;
+        double shownPercent = workoutProvider.shownPercent!;
+        int exercisesLeft = workoutProvider.exercisesLeft!;
 
-            return Padding(
-              padding: const EdgeInsets.only(
-                top: PaddingManager.p28,
-                left: PaddingManager.p12,
-                right: PaddingManager.p12,
+        return Padding(
+          padding: const EdgeInsets.only(
+            top: PaddingManager.p28,
+            left: PaddingManager.p12,
+            right: PaddingManager.p12,
+          ),
+          child: Container(
+            width: deviceWidth,
+            decoration: BoxDecoration(
+              color: ColorManager.black87,
+              borderRadius: BorderRadius.circular(
+                RadiusManager.r40.r,
               ),
-              child: Container(
-                width: deviceWidth,
-                decoration: BoxDecoration(
-                  color: ColorManager.black87,
-                  borderRadius: BorderRadius.circular(
-                    RadiusManager.r40.r,
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: PaddingManager.p12,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(
+                bottom: PaddingManager.p12,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: PaddingManager.p12,
-                              right: PaddingManager.p20,
-                              left: PaddingManager.p20,
-                            ),
-                            child: Text(
-                              StringsManager.todaysProg,
-                              style:
-                                  StyleManager.homePageTodaysProgressTextSTyle,
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: PaddingManager.p12,
-                              right: PaddingManager.p20,
-                              left: PaddingManager.p20,
-                            ),
-                            child: Text(
-                              '${exercisesLeft} Exercises Left',
-                              style: StyleManager.homePageS14RegularWhite2L1,
-                              textAlign: TextAlign.left,
-                            ),
-                          )
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: PaddingManager.p12,
+                          right: PaddingManager.p20,
+                          left: PaddingManager.p20,
+                        ),
+                        child: Text(
+                          StringsManager.todaysProg,
+                          style: StyleManager.homePageTodaysProgressTextSTyle,
+                          textAlign: TextAlign.left,
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
@@ -95,26 +73,48 @@ class _TodaysProgressWidgetState extends State<TodaysProgressWidget> {
                           right: PaddingManager.p20,
                           left: PaddingManager.p20,
                         ),
-                        child: CircularPercentIndicator(
-                          circularStrokeCap: CircularStrokeCap.round,
-                          radius: RadiusManager.r40.r,
-                          lineWidth: SizeManager.s8.w,
-                          percent: progressPercent,
-                          progressColor: ColorManager.limerGreen2,
-                          backgroundColor: ColorManager.grey3,
-                          animateFromLastPercent: true,
-                          center: Text(
-                            '${shownPercent.toStringAsFixed(0)}%',
-                            style: StyleManager.homePagePogressBarTextStyle,
-                          ),
-                        ),
-                      ),
+                        child: workoutProvider.finishedWourkouts.isNotEmpty &&
+                                exercisesLeft != 0
+                            ? Text(
+                                '$exercisesLeft Exercises Left',
+                                style: StyleManager.homePageS14RegularWhite2L1,
+                                textAlign: TextAlign.left,
+                              )
+                            : Text(
+                                StringsManager.exercisesDoneTxt,
+                                style: StyleManager.homePageS14RegularWhite2L1,
+                                textAlign: TextAlign.left,
+                              ),
+                      )
                     ],
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: PaddingManager.p12,
+                      right: PaddingManager.p20,
+                      left: PaddingManager.p20,
+                    ),
+                    child: CircularPercentIndicator(
+                      circularStrokeCap: CircularStrokeCap.round,
+                      radius: RadiusManager.r40.r,
+                      lineWidth: SizeManager.s8.w,
+                      percent: progressPercent,
+                      progressColor: ColorManager.limerGreen2,
+                      backgroundColor: ColorManager.grey3,
+                      animateFromLastPercent: true,
+                      animation: true,
+                      center: Text(
+                        '${shownPercent.toStringAsFixed(0)}%',
+                        style: StyleManager.homePagePogressBarTextStyle,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            );
-          }
-        });
+            ),
+          ),
+        );
+      }
+    });
   }
 }

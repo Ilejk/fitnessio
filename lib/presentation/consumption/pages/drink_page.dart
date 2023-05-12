@@ -40,9 +40,7 @@ class _DrinkPageState extends State<DrinkPage> {
           amount: double.parse(_drinkController.text),
           dateTime: DateTime.now(),
         );
-        Navigator.of(context).pushReplacementNamed(
-          Routes.mainRoute,
-        );
+        Navigator.of(context).pop();
       } catch (e) {
         print(e);
       }
@@ -54,9 +52,7 @@ class _DrinkPageState extends State<DrinkPage> {
           amount: amount,
           dateTime: DateTime.now(),
         );
-        Navigator.of(context).pushReplacementNamed(
-          Routes.mainRoute,
-        );
+        Navigator.of(context).pop();
       } catch (e) {
         print(e);
       }

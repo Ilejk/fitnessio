@@ -7,9 +7,9 @@ class WorkoutProvider with ChangeNotifier {
   final List<WorkoutModel> _workouts = [];
   final List<WorkoutModel> _finishedWorkouts = [];
   final List<WorkoutModel> _allWorkouts = [];
-  double progressPercent = 0.0;
-  int exercisesLeft = 0;
-  double shownPercent = 0.0;
+  double? progressPercent;
+  int? exercisesLeft;
+  double? shownPercent;
 
   List<WorkoutModel> get workouts {
     return [..._workouts];
@@ -27,7 +27,7 @@ class WorkoutProvider with ChangeNotifier {
     final int allWorkoutsNum = _allWorkouts.length;
     final int finishedWorkoutsNum = _finishedWorkouts.length;
     progressPercent = finishedWorkoutsNum / allWorkoutsNum;
-    shownPercent = progressPercent * 100;
+    shownPercent = progressPercent! * 100;
     exercisesLeft = allWorkoutsNum - finishedWorkoutsNum;
   }
 
