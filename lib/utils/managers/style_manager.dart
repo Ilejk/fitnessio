@@ -156,7 +156,7 @@ class StyleManager {
     fontSize: FontSize.s22.sp,
     letterSpacing: SizeManager.s1,
   );
-  static final drinkPageTextStyle = TextStyle(
+  static final drinkPageHeadLineTextStyle = TextStyle(
     color: ColorManager.white,
     fontSize: FontSize.s35.sp,
     fontWeight: FontWightManager.bold,
@@ -279,5 +279,11 @@ class StyleManager {
     fontSize: FontSize.s20.sp,
     fontWeight: FontWightManager.semiBold,
     color: ColorManager.white,
+  );
+  static final drinkPageSpacerTextStyle = TextStyle(
+    color: ColorManager.white,
+    fontWeight: FontWightManager.semiBold,
+    fontSize: FontSize.s18.sp,
+    letterSpacing: SizeManager.s1,
   );
 }

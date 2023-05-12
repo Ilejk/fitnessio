@@ -104,7 +104,7 @@ class StringsManager {
   static const String underWeightBmi = 'You are\nunderweight!';
   static const String overWeightBmi = 'You are\noverweight!';
   static const String dangerousBmi = 'You should\nsee a doctor!';
-  static const String drinkPageText = 'Raise the waters!';
+  static const String drinkPageHeadLine = 'HYDRATION';
   static const String personalInfo = 'Personal Info';
   static const String addExercise = 'ADD EXERCISE';
   static const String changeActivityText = 'Change your\nweekly activity!';
@@ -122,6 +122,11 @@ class StringsManager {
   static const String changeMeasurementsText = 'Change your\nmeasurements';
   static const String weightData = 'Weight Data';
   static const String finished = 'Finished';
+  static const String l02 = '0.2 l';
+  static const String l05 = '0.5 l';
+  static const String l1 = '1.0 l';
+  static const String customAdd = 'Custom Add:';
+  static const String quickAdd = 'Quick Add:';
   //MEASUREMENTS DATA
   static const String chest = 'Chest';
   static const String shoulders = 'Shoulders';

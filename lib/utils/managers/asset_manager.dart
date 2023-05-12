@@ -23,8 +23,5 @@ class ImageManager {
 }
 
 class AnimationManager {
-  static const error = '$animationPath/error.json';
-  static const lock = '$animationPath/lock.json';
-  static const smallLock = '$animationPath/small_lock.json';
   static const water = '$animationPath/water.json';
 }
