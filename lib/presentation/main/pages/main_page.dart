@@ -72,6 +72,7 @@ class _MainPageState extends State<MainPage> {
       await consumptionProvider.fetchAndSetMeals();
       await consumptionProvider.fetchAndSetWater();
       await workoutsProvider.fetchAndSetWorkouts();
+      await workoutsProvider.getProgressPercent();
       final workouts = workoutsProvider.workouts;
       final meals = consumptionProvider.meals;
       final water = consumptionProvider.water;

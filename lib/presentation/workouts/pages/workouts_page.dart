@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
-import 'package:smart_home_app/presentation/consumption/widgets/meal_widget.dart';
 import 'package:smart_home_app/presentation/workouts/providers/workout_provider.dart';
 import 'package:smart_home_app/presentation/workouts/widgets/new_exercise_button.dart';
 import 'package:smart_home_app/presentation/workouts/widgets/exercise_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
-import 'package:smart_home_app/utils/managers/string_manager.dart';
-import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 
