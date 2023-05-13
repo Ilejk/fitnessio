@@ -295,8 +295,7 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
               LimeGreenRoundedButtonWidget(
                 onTap: () {
                   updateUsersMeasurements().then(
-                    (value) => Navigator.of(context)
-                        .pushReplacementNamed(Routes.mainRoute),
+                    (value) => Navigator.of(context).pop(),
                   );
                 },
                 title: StringsManager.procede,

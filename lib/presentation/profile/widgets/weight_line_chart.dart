@@ -23,58 +23,62 @@ class _WeightLineChartState extends State<WeightLineChart> {
     return Consumer<ProfileProvider>(
       builder: (context, profileProvider, child) => Padding(
         padding: const EdgeInsets.all(PaddingManager.p12),
-        child: Container(
-          decoration: BoxDecoration(
-            color: ColorManager.darkGrey,
-            border: Border.all(
-              color: ColorManager.grey3,
-              width: SizeManager.s3.w,
-            ),
-          ),
-          height: SizeManager.s250.h,
-          width: deviceWidth,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              left: PaddingManager.p12,
-              top: PaddingManager.p12,
-            ),
-            child: Row(
-              children: [
-                const WeightNumberColumnWidget(),
-                SizedBox(
-                  height: SizeManager.s250.h,
-                  width: (deviceWidth - 66).w,
-                  child: LineChart(
-                    LineChartData(
-                      minX: 1,
-                      maxX: 12,
-                      minY: 0,
-                      maxY: 120,
-                      titlesData: FlTitlesData(show: false),
-                      gridData: FlGridData(show: false),
-                      borderData: FlBorderData(
-                        show: false,
-                      ),
-                      lineBarsData: [
-                        LineChartBarData(
-                          spots: profileProvider.flSpots,
-                          isCurved: true,
-                          dotData: FlDotData(show: false),
-                          color: ColorManager.limerGreen2,
-                          barWidth: SizeManager.s3.w,
-                          belowBarData: BarAreaData(
-                            color: ColorManager.limeGreenOp,
-                            show: true,
-                          ),
-                        )
-                      ],
-                    ),
+        child: FutureBuilder<void>(
+            future: profileProvider.fetchAndSetFlSpots(),
+            builder: (context, snapshot) {
+              return Container(
+                decoration: BoxDecoration(
+                  color: ColorManager.darkGrey,
+                  border: Border.all(
+                    color: ColorManager.grey3,
+                    width: SizeManager.s3.w,
                   ),
                 ),
-              ],
-            ),
-          ),
-        ),
+                height: SizeManager.s250.h,
+                width: deviceWidth,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: PaddingManager.p12,
+                    top: PaddingManager.p12,
+                  ),
+                  child: Row(
+                    children: [
+                      const WeightNumberColumnWidget(),
+                      SizedBox(
+                        height: SizeManager.s250.h,
+                        width: (deviceWidth - 66).w,
+                        child: LineChart(
+                          LineChartData(
+                            minX: 1,
+                            maxX: 12,
+                            minY: 0,
+                            maxY: 120,
+                            titlesData: FlTitlesData(show: false),
+                            gridData: FlGridData(show: false),
+                            borderData: FlBorderData(
+                              show: false,
+                            ),
+                            lineBarsData: [
+                              LineChartBarData(
+                                spots: profileProvider.flSpots,
+                                isCurved: true,
+                                dotData: FlDotData(show: false),
+                                color: ColorManager.limerGreen2,
+                                barWidth: SizeManager.s3.w,
+                                belowBarData: BarAreaData(
+                                  color: ColorManager.limeGreenOp,
+                                  show: true,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }),
       ),
     );
   }

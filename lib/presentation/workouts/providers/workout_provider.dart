@@ -207,7 +207,7 @@ class WorkoutProvider with ChangeNotifier {
         now.day != workoutDateTime.day;
   }
 
-  Future<void> deleteWorkout(String workoutID) async {
+  Future<void> deleteWorkout({required String workoutID}) async {
     try {
       User? user = FirebaseAuth.instance.currentUser;
 
@@ -217,6 +217,23 @@ class WorkoutProvider with ChangeNotifier {
           .collection('workoutData')
           .doc(workoutID)
           .delete();
+      notifyListeners();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<void> deleteAllWorkout({required String allWorkoutID}) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      await FirebaseFirestore.instance
+          .collection('allWorkouts')
+          .doc(user!.uid)
+          .collection('allWorkoutsData')
+          .doc(allWorkoutID)
+          .delete();
+
       notifyListeners();
     } catch (e) {
       rethrow;

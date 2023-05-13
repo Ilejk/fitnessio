@@ -40,8 +40,7 @@ class TodaysProgressWidget extends StatelessWidget {
         }
 
         Text subText(WorkoutProvider workoutProvider, int exercisesLeft) {
-          if (workoutProvider.finishedWourkouts.isNotEmpty &&
-              exercisesLeft != 0) {
+          if (workoutProvider.workouts.isNotEmpty) {
             return Text(
               '$exercisesLeft Exercises Left',
               style: StyleManager.homePageS14RegularWhite2L1,

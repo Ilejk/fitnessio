@@ -63,17 +63,24 @@ class _WorkoutPageState extends State<WorkoutPage> {
                           itemCount: workoutsProvider.workouts.length,
                           itemBuilder: (context, index) {
                             final workout = workoutsProvider.workouts[index];
+                            final allWorkouts =
+                                workoutsProvider.allWorkouts[index];
                             return ExerciseWidget(
                               name: workout.name,
                               repNumber: workout.repNumber,
                               setNumber: workout.setNumber,
                               id: workout.id,
                               onDeleted: (_) {
-                                setState(() {
-                                  workoutsProvider.deleteWorkout(
-                                    workout.id,
-                                  );
-                                });
+                                setState(
+                                  () {
+                                    workoutsProvider.deleteWorkout(
+                                      workoutID: workout.id,
+                                    );
+                                    workoutsProvider.deleteAllWorkout(
+                                      allWorkoutID: allWorkouts.id,
+                                    );
+                                  },
+                                );
                               },
                               onFinished: (_) {
                                 setState(
@@ -86,7 +93,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                                       dateTime: workout.dateTime,
                                     );
                                     workoutsProvider.deleteWorkout(
-                                      workout.id,
+                                      workoutID: workout.id,
                                     );
                                   },
                                 );
