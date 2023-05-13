@@ -21,6 +21,7 @@ class TodaysProgressWidget extends StatelessWidget {
       var isLoaded = workoutProvider.progressPercent == null ||
           workoutProvider.shownPercent == null ||
           workoutProvider.exercisesLeft == null;
+
       if (isLoaded) {
         return SpinKitSpinningLines(color: ColorManager.limerGreen2);
       } else {
@@ -28,6 +29,46 @@ class TodaysProgressWidget extends StatelessWidget {
         double progressPercent = workoutProvider.progressPercent!;
         double shownPercent = workoutProvider.shownPercent!;
         int exercisesLeft = workoutProvider.exercisesLeft!;
+
+        var isResetDay = progressPercent.isNaN &&
+            shownPercent.isNaN &&
+            workoutProvider.workouts.isEmpty &&
+            workoutProvider.finishedWourkouts.isEmpty;
+        if (isResetDay) {
+          progressPercent = 0.0;
+          shownPercent = 0.0;
+        }
+
+        Text subText(WorkoutProvider workoutProvider, int exercisesLeft) {
+          if (workoutProvider.finishedWourkouts.isNotEmpty &&
+              exercisesLeft != 0) {
+            return Text(
+              '$exercisesLeft Exercises Left',
+              style: StyleManager.homePageS14RegularWhite2L1,
+              textAlign: TextAlign.left,
+            );
+          } else if (workoutProvider.finishedWourkouts.isEmpty &&
+              workoutProvider.workouts.isEmpty) {
+            return Text(
+              StringsManager.startYourExercises,
+              style: StyleManager.homePageS14RegularWhite2L1,
+              textAlign: TextAlign.left,
+            );
+          } else if (workoutProvider.finishedWourkouts.isNotEmpty &&
+              workoutProvider.workouts.isEmpty) {
+            return Text(
+              StringsManager.exercisesDoneTxt,
+              style: StyleManager.homePageS14RegularWhite2L1,
+              textAlign: TextAlign.left,
+            );
+          } else {
+            return Text(
+              StringsManager.error,
+              style: StyleManager.homePageS14RegularWhite2L1,
+              textAlign: TextAlign.left,
+            );
+          }
+        }
 
         return Padding(
           padding: const EdgeInsets.only(
@@ -73,18 +114,7 @@ class TodaysProgressWidget extends StatelessWidget {
                           right: PaddingManager.p20,
                           left: PaddingManager.p20,
                         ),
-                        child: workoutProvider.finishedWourkouts.isNotEmpty &&
-                                exercisesLeft != 0
-                            ? Text(
-                                '$exercisesLeft Exercises Left',
-                                style: StyleManager.homePageS14RegularWhite2L1,
-                                textAlign: TextAlign.left,
-                              )
-                            : Text(
-                                StringsManager.exercisesDoneTxt,
-                                style: StyleManager.homePageS14RegularWhite2L1,
-                                textAlign: TextAlign.left,
-                              ),
+                        child: subText(workoutProvider, exercisesLeft),
                       )
                     ],
                   ),

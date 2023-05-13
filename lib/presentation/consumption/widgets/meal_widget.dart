@@ -56,7 +56,7 @@ class MealWidget extends StatelessWidget {
         ),
         child: Container(
           width: deviceWidth,
-          height: SizeManager.s200.h,
+          height: SizeManager.s150.h,
           decoration: BoxDecoration(
             color: ColorManager.black87,
             border: Border(

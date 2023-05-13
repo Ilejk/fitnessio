@@ -60,7 +60,7 @@ class ExerciseWidget extends StatelessWidget {
         ),
         child: Container(
           width: deviceWidth,
-          height: SizeManager.s110.h,
+          height: SizeManager.s100.h,
           decoration: BoxDecoration(
             color: ColorManager.black87,
             border: Border(
