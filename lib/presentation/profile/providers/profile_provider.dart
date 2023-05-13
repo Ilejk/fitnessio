@@ -10,7 +10,56 @@ class ProfileProvider with ChangeNotifier {
     return [..._weight];
   }
 
-  final List<FlSpot> _flSpots = [];
+  final List<FlSpot> _flSpots = [
+    const FlSpot(
+      1.0,
+      10,
+    ),
+    const FlSpot(
+      2.0,
+      10,
+    ),
+    const FlSpot(
+      3.0,
+      10,
+    ),
+    const FlSpot(
+      4.0,
+      10,
+    ),
+    const FlSpot(
+      5.0,
+      10,
+    ),
+    const FlSpot(
+      6.0,
+      10,
+    ),
+    const FlSpot(
+      7.0,
+      10,
+    ),
+    const FlSpot(
+      8.0,
+      10,
+    ),
+    const FlSpot(
+      9.0,
+      10,
+    ),
+    const FlSpot(
+      10.0,
+      10,
+    ),
+    const FlSpot(
+      11.0,
+      10,
+    ),
+    const FlSpot(
+      12.0,
+      10,
+    ),
+  ];
 
   List<FlSpot> get flSpots {
     return [..._flSpots];
@@ -42,7 +91,7 @@ class ProfileProvider with ChangeNotifier {
     required double weight,
     required double bmi,
     required double bmr,
-    required DateTime weightDateTime,
+    required int weightDateTime,
     required BuildContext context,
   }) async {
     try {
@@ -54,9 +103,79 @@ class ProfileProvider with ChangeNotifier {
         'weight': weight,
         'bmi': bmi,
         'bmr': bmr,
-        'weightDateTime': weightDateTime,
       });
 
+      final docSnapshot = await FirebaseFirestore.instance
+          .collection('flSpots')
+          .doc(user.uid)
+          .collection('flSpotsData')
+          .where('weightDateTime', isEqualTo: weightDateTime)
+          .get();
+
+      if (docSnapshot.docs.isNotEmpty) {
+        final docId = docSnapshot.docs.first.id;
+        await FirebaseFirestore.instance
+            .collection('flSpots')
+            .doc(user.uid)
+            .collection('flSpotsData')
+            .doc(docId)
+            .update(
+          {
+            'weight': weight,
+          },
+        );
+      } else {
+        await FirebaseFirestore.instance
+            .collection('flSpots')
+            .doc(user.uid)
+            .collection('flSpotsData')
+            .doc()
+            .set(
+          {
+            'weight': weight,
+            'weightDateTime': weightDateTime,
+          },
+        );
+      }
+
+      notifyListeners();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<void> fetchAndSetFlSpots() async {
+    User? user = FirebaseAuth.instance.currentUser;
+
+    try {
+      final flSpotSnapshot = await FirebaseFirestore.instance
+          .collection('flSpots')
+          .doc(user!.uid)
+          .collection('flSpotsData')
+          .get();
+
+      final List<FlSpot> loadedFlSpots = [];
+
+      for (var doc in flSpotSnapshot.docs) {
+        final flspotsData = doc.data();
+        int month = flspotsData['weightDateTime'];
+
+        int index = _flSpots.indexWhere((spot) => spot.x == month.toDouble());
+        if (index != -1) {
+          _flSpots[index] = FlSpot(
+            month.toDouble(),
+            flspotsData['weight'],
+          );
+        } else {
+          loadedFlSpots.add(
+            FlSpot(
+              month.toDouble(),
+              flspotsData['weight'],
+            ),
+          );
+        }
+      }
+      _flSpots.addAll(loadedFlSpots);
       notifyListeners();
     } catch (e) {
       rethrow;

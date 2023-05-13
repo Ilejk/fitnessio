@@ -25,7 +25,6 @@ class _ChangeWeightPageState extends State<ChangeWeightPage> {
   @override
   void dispose() {
     _weightController.dispose();
-
     super.dispose();
   }
 
@@ -52,9 +51,12 @@ class _ChangeWeightPageState extends State<ChangeWeightPage> {
               bmi: homeProvider.usersBMI,
               bmr: homeProvider.userBMRwithGoal,
               weight: double.parse(_weightController.text),
-              weightDateTime: DateTime.now(),
+              weightDateTime: DateTime.now().month,
               context: context,
             ),
+          )
+          .then(
+            (_) => homeProvider.fetchUserData(),
           )
           .then(
             (_) => Navigator.of(context).pop(),
