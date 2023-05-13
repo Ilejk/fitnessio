@@ -1,6 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:smart_home_app/presentation/profile/providers/profile_provider.dart';
 import 'package:smart_home_app/presentation/profile/widgets/weight_number_column.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
@@ -13,6 +15,8 @@ class WeightLineChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
+    final provider = Provider.of<ProfileProvider>(context, listen: false);
+    final weightSpotList = provider.flSpots;
     return Padding(
       padding: const EdgeInsets.all(PaddingManager.p12),
       child: Container(
@@ -49,20 +53,7 @@ class WeightLineChart extends StatelessWidget {
                     ),
                     lineBarsData: [
                       LineChartBarData(
-                        spots: const [
-                          FlSpot(1, 10),
-                          FlSpot(2, 10),
-                          FlSpot(3, 10),
-                          FlSpot(4, 10),
-                          FlSpot(5, 10),
-                          FlSpot(6, 92),
-                          FlSpot(7, 10),
-                          FlSpot(8, 10),
-                          FlSpot(9, 10),
-                          FlSpot(10, 10),
-                          FlSpot(11, 10),
-                          FlSpot(12, 80),
-                        ],
+                        spots: weightSpotList,
                         isCurved: true,
                         dotData: FlDotData(show: false),
                         color: ColorManager.limerGreen2,

@@ -4,7 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
-import 'package:smart_home_app/presentation/settings/providers/settings_provider.dart';
+import 'package:smart_home_app/presentation/profile/providers/profile_provider.dart';
 import 'package:smart_home_app/presentation/settings/widgets/change_password_app_bar.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
@@ -52,8 +52,8 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
   }
 
   Future<void> updateUsersMeasurements() async {
-    final settingsProvider =
-        Provider.of<SettingsProvider>(context, listen: false);
+    final profileProvider =
+        Provider.of<ProfileProvider>(context, listen: false);
     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
     try {
       await homeProvider
@@ -70,7 +70,7 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                 weight: homeProvider.userData['weight'],
               ))
           .then(
-            (_) => settingsProvider.updateUsersData(
+            (_) => profileProvider.updateUsersData(
               bmr: homeProvider.userBMRwithGoal,
               activity: _valueActivity!,
               context: context,

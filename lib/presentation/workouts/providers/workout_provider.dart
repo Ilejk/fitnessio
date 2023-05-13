@@ -129,7 +129,7 @@ class WorkoutProvider with ChangeNotifier {
           ),
         );
       }
-
+      loadedWorkouts.sort((a, b) => b.dateTime.compareTo(a.dateTime));
       _workouts.clear();
       _workouts.addAll(loadedWorkouts);
       _allWorkouts.clear();

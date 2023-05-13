@@ -324,12 +324,12 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ],
                   ),
-                  const WeightDataTextRowWidget(),
-                  const WeightLineChart(),
                   EditTextButton(
                     onTap: () => Navigator.of(context)
                         .pushNamed(Routes.changeWeightRoute),
                   ),
+                  const WeightDataTextRowWidget(),
+                  const WeightLineChart(),
                 ],
               ).animate().fadeIn(
                     duration: 500.ms,

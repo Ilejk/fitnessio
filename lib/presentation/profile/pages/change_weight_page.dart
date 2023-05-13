@@ -3,8 +3,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
+import 'package:smart_home_app/presentation/profile/providers/profile_provider.dart';
 import 'package:smart_home_app/presentation/settings/widgets/change_password_app_bar.dart';
-import 'package:smart_home_app/presentation/settings/providers/settings_provider.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
@@ -30,8 +30,8 @@ class _ChangeWeightPageState extends State<ChangeWeightPage> {
   }
 
   Future<void> changeWeight() async {
-    final settingsProvider =
-        Provider.of<SettingsProvider>(context, listen: false);
+    final profileProvider =
+        Provider.of<ProfileProvider>(context, listen: false);
     final homeProvider = Provider.of<HomeProvider>(context, listen: false);
     try {
       await homeProvider
@@ -47,12 +47,18 @@ class _ChangeWeightPageState extends State<ChangeWeightPage> {
                 activity: homeProvider.userData['activity'],
                 goal: homeProvider.userData['goal'],
               ))
-          .then((_) => settingsProvider.changeUsersWeight(
+          .then(
+            (_) => profileProvider.changeUsersWeight(
               bmi: homeProvider.usersBMI,
               bmr: homeProvider.userBMRwithGoal,
               weight: double.parse(_weightController.text),
-              context: context))
-          .then((_) => Navigator.of(context).pop());
+              weightDateTime: DateTime.now(),
+              context: context,
+            ),
+          )
+          .then(
+            (_) => Navigator.of(context).pop(),
+          );
     } catch (e) {
       rethrow;
     }

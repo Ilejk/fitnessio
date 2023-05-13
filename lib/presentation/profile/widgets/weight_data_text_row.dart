@@ -19,7 +19,6 @@ class WeightDataTextRowWidget extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(
-        top: PaddingManager.p12,
         right: PaddingManager.p12,
         left: PaddingManager.p12,
       ),

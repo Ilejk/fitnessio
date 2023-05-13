@@ -18,7 +18,6 @@ class EditTextButton extends StatelessWidget {
       padding: const EdgeInsets.only(
         top: PaddingManager.p3,
         right: PaddingManager.p12,
-        bottom: PaddingManager.p12,
       ),
       child: Align(
         alignment: Alignment.centerRight,
