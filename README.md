@@ -5,6 +5,10 @@ Simple fitness app that will help you schedule and plan your workouts and but al
 
 
 
+https://github.com/Ilejk/fitnessio/assets/120920696/70868a7b-7359-4b41-a84a-75b110431e26
 
-https://user-images.githubusercontent.com/120920696/235943492-85f2f628-3e19-4579-88b7-9892f99e3313.mp4
+
+
+
+
 
