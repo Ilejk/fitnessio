@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -48,8 +47,7 @@ class ConsumptionProvider with ChangeNotifier {
       });
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 
@@ -78,12 +76,12 @@ class ConsumptionProvider with ChangeNotifier {
           dateTime: (mealData['dateTime'] as Timestamp).toDate(),
         ));
       }
+      loadedMeals.sort((a, b) => b.dateTime.compareTo(a.dateTime));
       _meals.clear();
       _meals.addAll(loadedMeals);
       await getkCal();
       notifyListeners();
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
@@ -93,7 +91,6 @@ class ConsumptionProvider with ChangeNotifier {
     for (var meal in _meals) {
       kCalaDay += meal.calories;
     }
-
     notifyListeners();
   }
 
@@ -118,7 +115,7 @@ class ConsumptionProvider with ChangeNotifier {
           }
         });
       } catch (e) {
-        print(e);
+        rethrow;
       }
     }
   }
@@ -153,8 +150,7 @@ class ConsumptionProvider with ChangeNotifier {
       });
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 
@@ -183,7 +179,6 @@ class ConsumptionProvider with ChangeNotifier {
       await getWater();
       notifyListeners();
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
@@ -217,7 +212,7 @@ class ConsumptionProvider with ChangeNotifier {
           }
         });
       } catch (e) {
-        print(e);
+        rethrow;
       }
     }
   }
@@ -233,7 +228,7 @@ class ConsumptionProvider with ChangeNotifier {
           .doc(mealID)
           .delete();
     } catch (e) {
-      print(e);
+      rethrow;
     }
   }
 }

@@ -40,7 +40,7 @@ class HomeProvider with ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      print(e);
+      rethrow;
     }
     return _userData;
   }

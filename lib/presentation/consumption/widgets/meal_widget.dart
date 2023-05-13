@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:provider/provider.dart';
-import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
 import 'package:smart_home_app/presentation/consumption/widgets/percent_value_of_meal.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';

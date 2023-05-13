@@ -8,7 +8,6 @@ import 'package:smart_home_app/presentation/profile/widgets/weight_data_text_row
 import 'package:smart_home_app/presentation/profile/widgets/weight_line_chart.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';

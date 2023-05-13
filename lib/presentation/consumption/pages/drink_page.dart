@@ -6,11 +6,9 @@ import 'package:smart_home_app/presentation/consumption/providers/consumption_pr
 import 'package:smart_home_app/presentation/consumption/widgets/quick_water_add_button.dart';
 import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
-import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
@@ -42,7 +40,7 @@ class _DrinkPageState extends State<DrinkPage> {
         );
         Navigator.of(context).pop();
       } catch (e) {
-        print(e);
+        rethrow;
       }
     }
 
@@ -54,7 +52,7 @@ class _DrinkPageState extends State<DrinkPage> {
         );
         Navigator.of(context).pop();
       } catch (e) {
-        print(e);
+        rethrow;
       }
     }
 

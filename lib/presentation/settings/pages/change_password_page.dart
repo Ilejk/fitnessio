@@ -45,7 +45,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
             newPassword: _newPasswordController.text,
           );
         } catch (e) {
-          print(e);
+          rethrow;
         }
       }
     }

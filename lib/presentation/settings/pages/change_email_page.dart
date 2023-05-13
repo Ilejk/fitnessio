@@ -44,7 +44,7 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
             password: _passwordController.text,
           );
         } catch (e) {
-          print(e);
+          rethrow;
         }
       }
     }

@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage>
           context: context,
         );
       } catch (e) {
-        print(e);
+        rethrow;
       }
     }
 
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage>
           context: context,
         );
       } catch (e) {
-        print(e);
+        rethrow;
       }
     }
 

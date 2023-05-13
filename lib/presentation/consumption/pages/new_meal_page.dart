@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/consumption/providers/consumption_provider.dart';
 import 'package:smart_home_app/presentation/consumption/widgets/new_meal_app_bar.dart';
@@ -8,7 +7,6 @@ import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
-import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
@@ -135,7 +133,7 @@ class _NewMealPageState extends State<NewMealPage> {
                     );
                     Navigator.of(context).pop();
                   } catch (e) {
-                    print(e);
+                    rethrow;
                   }
                 },
                 title: StringsManager.add,

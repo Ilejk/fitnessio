@@ -47,7 +47,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
             });
           });
         } catch (e) {
-          print(e);
+          rethrow;
         }
       } else {
         Navigator.of(context).pop();

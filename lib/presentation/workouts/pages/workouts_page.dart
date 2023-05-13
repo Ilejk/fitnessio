@@ -58,37 +58,34 @@ class _WorkoutPageState extends State<WorkoutPage> {
                         child: ListView.builder(
                           itemCount: workoutsProvider.workouts.length,
                           itemBuilder: (context, index) {
+                            final workout = workoutsProvider.workouts[index];
                             return ExerciseWidget(
-                              name: workoutsProvider.workouts[index].name,
-                              repNumber:
-                                  workoutsProvider.workouts[index].repNumber,
-                              setNumber:
-                                  workoutsProvider.workouts[index].setNumber,
-                              id: workoutsProvider.workouts[index].id,
+                              name: workout.name,
+                              repNumber: workout.repNumber,
+                              setNumber: workout.setNumber,
+                              id: workout.id,
                               onDeleted: (_) {
                                 setState(() {
                                   workoutsProvider.deleteWorkout(
-                                    workoutsProvider.workouts[index].id,
+                                    workout.id,
                                   );
                                 });
                               },
                               onFinished: (_) {
-                                setState(() {
-                                  workoutsProvider.finishWorkout(
-                                    workoutID:
-                                        workoutsProvider.workouts[index].id,
-                                    name: workoutsProvider.workouts[index].name,
-                                    repNumber: workoutsProvider
-                                        .workouts[index].repNumber,
-                                    setNumber: workoutsProvider
-                                        .workouts[index].setNumber,
-                                    dateTime: workoutsProvider
-                                        .workouts[index].dateTime,
-                                  );
-                                  workoutsProvider.deleteWorkout(
-                                    workoutsProvider.workouts[index].id,
-                                  );
-                                });
+                                setState(
+                                  () {
+                                    workoutsProvider.finishWorkout(
+                                      workoutID: workout.id,
+                                      name: workout.name,
+                                      repNumber: workout.repNumber,
+                                      setNumber: workout.setNumber,
+                                      dateTime: workout.dateTime,
+                                    );
+                                    workoutsProvider.deleteWorkout(
+                                      workout.id,
+                                    );
+                                  },
+                                );
                               },
                             );
                           },

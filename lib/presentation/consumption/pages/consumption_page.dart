@@ -50,22 +50,23 @@ class _ConsumptionPageState extends State<ConsumptionPage> {
                         child: ListView.builder(
                           itemCount: consumptionProvider.meals.length,
                           itemBuilder: (context, index) {
+                            final meal = consumptionProvider.meals[index];
                             return MealWidget(
-                              id: consumptionProvider.meals[index].id,
-                              title: consumptionProvider.meals[index].title,
-                              amount: consumptionProvider.meals[index].amount,
-                              calories:
-                                  consumptionProvider.meals[index].calories,
-                              fats: consumptionProvider.meals[index].fats,
-                              carbs: consumptionProvider.meals[index].carbs,
-                              proteins:
-                                  consumptionProvider.meals[index].proteins,
+                              id: meal.id,
+                              title: meal.title,
+                              amount: meal.amount,
+                              calories: meal.calories,
+                              fats: meal.fats,
+                              carbs: meal.carbs,
+                              proteins: meal.proteins,
                               onPressed: (_) {
-                                setState(() {
-                                  consumptionProvider.deleteMeal(
-                                    consumptionProvider.meals[index].id,
-                                  );
-                                });
+                                setState(
+                                  () {
+                                    consumptionProvider.deleteMeal(
+                                      meal.id,
+                                    );
+                                  },
+                                );
                               },
                             );
                           },

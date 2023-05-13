@@ -64,8 +64,7 @@ class WorkoutProvider with ChangeNotifier {
       });
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 
@@ -140,7 +139,6 @@ class WorkoutProvider with ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
-      print(e);
       rethrow;
     }
   }
@@ -192,7 +190,7 @@ class WorkoutProvider with ChangeNotifier {
           }
         });
       } catch (e) {
-        print(e);
+        rethrow;
       }
     }
   }
@@ -221,7 +219,7 @@ class WorkoutProvider with ChangeNotifier {
           .delete();
       notifyListeners();
     } catch (e) {
-      print(e);
+      rethrow;
     }
   }
 
@@ -250,7 +248,7 @@ class WorkoutProvider with ChangeNotifier {
       notifyListeners();
     } catch (e) {
       notifyListeners();
-      print(e);
+      rethrow;
     }
   }
 }

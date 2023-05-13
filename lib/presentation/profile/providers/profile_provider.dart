@@ -27,7 +27,6 @@ class ProfileProvider with ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      print(e);
       rethrow;
     }
   }

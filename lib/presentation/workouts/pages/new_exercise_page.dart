@@ -127,7 +127,7 @@ class _NewExercisePageState extends State<NewExercisePage> {
                     workoutProvider.getProgressPercent();
                     Navigator.of(context).pop();
                   } catch (e) {
-                    print(e);
+                    rethrow;
                   }
                 },
                 title: StringsManager.add,

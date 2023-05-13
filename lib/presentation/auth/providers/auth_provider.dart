@@ -167,7 +167,6 @@ class AuthProvider with ChangeNotifier {
       Future.delayed(const Duration(seconds: 2)).then(
         (value) {
           Navigator.pop(context);
-
           notifyListeners();
         },
       );
@@ -206,7 +205,6 @@ class AuthProvider with ChangeNotifier {
     } on FirebaseAuthException catch (_) {
       Future.delayed(const Duration(seconds: 2)).then((value) {
         Navigator.pop(context);
-
         notifyListeners();
       });
     }
@@ -255,8 +253,7 @@ class AuthProvider with ChangeNotifier {
       });
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 }

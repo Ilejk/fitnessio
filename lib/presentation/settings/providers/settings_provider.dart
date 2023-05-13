@@ -37,8 +37,7 @@ class SettingsProvider with ChangeNotifier {
       Navigator.pop(context);
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 
@@ -70,8 +69,7 @@ class SettingsProvider with ChangeNotifier {
       Navigator.pop(context);
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 
@@ -87,8 +85,7 @@ class SettingsProvider with ChangeNotifier {
       await result.user!.delete();
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 
@@ -143,8 +140,7 @@ class SettingsProvider with ChangeNotifier {
       });
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 
@@ -183,8 +179,7 @@ class SettingsProvider with ChangeNotifier {
       });
       notifyListeners();
     } catch (e) {
-      print(e);
-      notifyListeners();
+      rethrow;
     }
   }
 }
