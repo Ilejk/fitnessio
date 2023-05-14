@@ -130,7 +130,6 @@ class StringsManager {
   static const String exercisesDoneTxt = 'Great Job! 🎉 You\'re on 🔥';
   static const String startYourExercises = 'It\'s a new day! Time to move! 💪';
   static const String error = 'Ups something went wrong';
-
   //MEASUREMENTS DATA
   static const String chest = 'Chest';
   static const String shoulders = 'Shoulders';

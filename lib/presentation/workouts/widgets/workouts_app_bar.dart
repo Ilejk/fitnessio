@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
-import 'package:smart_home_app/utils/managers/string_manager.dart';
-import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 
 class NewExercisePageAppBar extends StatelessWidget {
@@ -14,10 +12,6 @@ class NewExercisePageAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0.0,
-      title: Text(
-        StringsManager.addExercise,
-        style: StyleManager.abTitleTextStyle,
-      ),
       backgroundColor: ColorManager.darkGrey,
       leading: Padding(
         padding: const EdgeInsets.only(left: PaddingManager.p12),

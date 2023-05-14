@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class HomeProvider with ChangeNotifier {
@@ -13,7 +12,7 @@ class HomeProvider with ChangeNotifier {
   Future<Map<String, dynamic>> fetchUserData() async {
     try {
       User? user = FirebaseAuth.instance.currentUser;
-      DateTime now = DateTime.now();
+
       if (user != null) {
         DocumentSnapshot userDataSnapshot = await FirebaseFirestore.instance
             .collection('users')
