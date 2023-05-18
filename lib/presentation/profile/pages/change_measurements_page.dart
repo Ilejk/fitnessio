@@ -115,181 +115,228 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                   style: StyleManager.settingsOptionTiteTextStyle,
                 ),
               ),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SmallTextFieldWidget(
-                        controller: _chestController,
-                        labelHint: StringsManager.chest,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                      ),
-                      SmallTextFieldWidget(
-                        controller: _shoulderController,
-                        labelHint: StringsManager.shoulders,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SmallTextFieldWidget(
-                        controller: _bicepsController,
-                        labelHint: StringsManager.biceps,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                      ),
-                      SmallTextFieldWidget(
-                        controller: _foreArmController,
-                        labelHint: StringsManager.foreArm,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SmallTextFieldWidget(
-                        controller: _waistController,
-                        labelHint: StringsManager.waist,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                      ),
-                      SmallTextFieldWidget(
-                        controller: _hipsController,
-                        labelHint: StringsManager.hips,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                      )
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SmallTextFieldWidget(
-                        controller: _thighCotroller,
-                        labelHint: StringsManager.thigh,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                      ),
-                      SmallTextFieldWidget(
-                        controller: _calfController,
-                        labelHint: StringsManager.calf,
-                        obscureText: false,
-                        keyboardType: TextInputType.number,
-                      )
-                    ],
-                  ),
-                  NeuButton(
-                    width: SizeManager.s400.w,
-                    height: SizeManager.s70.h,
-                    radius: RadiusManager.r15.r,
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton2(
-                        dropdownDecoration: BoxDecoration(
-                          color: ColorManager.darkGrey,
-                          borderRadius: BorderRadius.circular(
-                            RadiusManager.r15.r,
+              Padding(
+                padding: const EdgeInsets.all(PaddingManager.p28),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: PaddingManager.p12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SmallTextFieldWidget(
+                            controller: _chestController,
+                            labelHint: StringsManager.chest,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
                           ),
-                        ),
-                        onChanged: _onChangedActivity,
-                        value: _valueActivity,
-                        iconSize: SizeManager.s0,
-                        hint: Text(
-                          StringsManager.activityHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                        items: [
-                          DropdownMenuItem(
-                            value: StringsManager.activityLowHint,
-                            child: Text(
-                              StringsManager.activityLowHint,
-                              style: StyleManager.registerTextfieldTextStyle,
-                            ),
-                          ),
-                          DropdownMenuItem(
-                            value: StringsManager.activityLightHint,
-                            child: Text(
-                              StringsManager.activityLightHint,
-                              style: StyleManager.registerTextfieldTextStyle,
-                            ),
-                          ),
-                          DropdownMenuItem(
-                            value: StringsManager.activityModerateHint,
-                            child: Text(
-                              StringsManager.activityModerateHint,
-                              style: StyleManager.registerTextfieldTextStyle,
-                            ),
-                          ),
-                          DropdownMenuItem(
-                            value: StringsManager.activityHighHint,
-                            child: Text(
-                              StringsManager.activityHighHint,
-                              style: StyleManager.registerTextfieldTextStyle,
-                            ),
-                          ),
-                          DropdownMenuItem(
-                            value: StringsManager.activityVeryHighHint,
-                            child: Text(
-                              StringsManager.activityVeryHighHint,
-                              style: StyleManager.registerTextfieldTextStyle,
-                            ),
-                          ),
+                          SmallTextFieldWidget(
+                            controller: _shoulderController,
+                            labelHint: StringsManager.shoulders,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
+                          )
                         ],
                       ),
                     ),
-                  ),
-                  NeuButton(
-                    width: SizeManager.s400.w,
-                    height: SizeManager.s70.h,
-                    radius: RadiusManager.r15.r,
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton2(
-                        dropdownDecoration: BoxDecoration(
-                          color: ColorManager.darkGrey,
-                          borderRadius: BorderRadius.circular(
-                            RadiusManager.r15.r,
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: PaddingManager.p12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SmallTextFieldWidget(
+                            controller: _bicepsController,
+                            labelHint: StringsManager.biceps,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
                           ),
-                        ),
-                        onChanged: _onChangedGoals,
-                        value: _valueGoals,
-                        iconSize: SizeManager.s0,
-                        hint: Text(
-                          StringsManager.goalHint,
-                          style: StyleManager.registerTextfieldTextStyle,
-                        ),
-                        items: [
-                          DropdownMenuItem(
-                            value: StringsManager.lose,
-                            child: Text(
-                              StringsManager.loseWeightHint,
-                              style: StyleManager.registerTextfieldTextStyle,
-                            ),
-                          ),
-                          DropdownMenuItem(
-                            value: StringsManager.maintain,
-                            child: Text(
-                              StringsManager.maintainWeightHint,
-                              style: StyleManager.registerTextfieldTextStyle,
-                            ),
-                          ),
-                          DropdownMenuItem(
-                            value: StringsManager.gain,
-                            child: Text(
-                              StringsManager.gainWeightHint,
-                              style: StyleManager.registerTextfieldTextStyle,
-                            ),
-                          ),
+                          SmallTextFieldWidget(
+                            controller: _foreArmController,
+                            labelHint: StringsManager.foreArm,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
+                          )
                         ],
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: PaddingManager.p12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SmallTextFieldWidget(
+                            controller: _waistController,
+                            labelHint: StringsManager.waist,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
+                          ),
+                          SmallTextFieldWidget(
+                            controller: _hipsController,
+                            labelHint: StringsManager.hips,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(bottom: PaddingManager.p12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SmallTextFieldWidget(
+                            controller: _thighCotroller,
+                            labelHint: StringsManager.thigh,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
+                          ),
+                          SmallTextFieldWidget(
+                            controller: _calfController,
+                            labelHint: StringsManager.calf,
+                            obscureText: false,
+                            keyboardType: TextInputType.number,
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: PaddingManager.p56),
+                      child: Container(
+                        width: SizeManager.s400.w,
+                        height: SizeManager.s50.h,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: ColorManager.limerGreen2,
+                              width: SizeManager.s0_7.h,
+                            ),
+                          ),
+                        ),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton2(
+                            dropdownDecoration: BoxDecoration(
+                              color: ColorManager.darkGrey,
+                              borderRadius: BorderRadius.circular(
+                                RadiusManager.r15.r,
+                              ),
+                            ),
+                            onChanged: _onChangedActivity,
+                            value: _valueActivity,
+                            iconSize: SizeManager.s0,
+                            hint: Text(
+                              StringsManager.activityHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                value: StringsManager.activityLowHint,
+                                child: Text(
+                                  StringsManager.activityLowHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.activityLightHint,
+                                child: Text(
+                                  StringsManager.activityLightHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.activityModerateHint,
+                                child: Text(
+                                  StringsManager.activityModerateHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.activityHighHint,
+                                child: Text(
+                                  StringsManager.activityHighHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.activityVeryHighHint,
+                                child: Text(
+                                  StringsManager.activityVeryHighHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: PaddingManager.p28),
+                      child: Container(
+                        width: SizeManager.s400.w,
+                        height: SizeManager.s50.h,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom: BorderSide(
+                              color: ColorManager.limerGreen2,
+                              width: SizeManager.s0_7.h,
+                            ),
+                          ),
+                        ),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton2(
+                            dropdownDecoration: BoxDecoration(
+                              color: ColorManager.darkGrey,
+                              borderRadius: BorderRadius.circular(
+                                RadiusManager.r15.r,
+                              ),
+                            ),
+                            onChanged: _onChangedGoals,
+                            value: _valueGoals,
+                            iconSize: SizeManager.s0,
+                            hint: Text(
+                              StringsManager.goalHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                value: StringsManager.lose,
+                                child: Text(
+                                  StringsManager.loseWeightHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.maintain,
+                                child: Text(
+                                  StringsManager.maintainWeightHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.gain,
+                                child: Text(
+                                  StringsManager.gainWeightHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {

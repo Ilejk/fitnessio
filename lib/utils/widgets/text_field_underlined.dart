@@ -3,10 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/font_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
-import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 
-class SmallTextFieldWidget extends StatelessWidget {
-  const SmallTextFieldWidget({
+class TextFieldWidgetUnderLined extends StatelessWidget {
+  const TextFieldWidgetUnderLined({
     Key? key,
     required this.controller,
     required this.labelHint,
@@ -23,8 +22,8 @@ class SmallTextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
     return Container(
-      width: deviceWidth / 3,
-      height: SizeManager.s50,
+      width: deviceWidth,
+      height: SizeManager.s50.h,
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(

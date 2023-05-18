@@ -9,6 +9,7 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
+import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class ChangePasswordPage extends StatefulWidget {
@@ -74,23 +75,44 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                   style: StyleManager.settingsOptionTiteTextStyle,
                 ),
               ),
-              TextFieldWidget(
-                controller: _emailController,
-                labelHint: StringsManager.emailHint,
-                obscureText: false,
-                keyboardType: TextInputType.emailAddress,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  bottom: PaddingManager.p12,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _emailController,
+                  labelHint: StringsManager.emailHint,
+                  obscureText: false,
+                  keyboardType: TextInputType.emailAddress,
+                ),
               ),
-              TextFieldWidget(
-                controller: _oldPasswordController,
-                labelHint: StringsManager.oldPasswordHint,
-                obscureText: true,
-                keyboardType: TextInputType.emailAddress,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  bottom: PaddingManager.p12,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _oldPasswordController,
+                  labelHint: StringsManager.oldPasswordHint,
+                  obscureText: true,
+                  keyboardType: TextInputType.emailAddress,
+                ),
               ),
-              TextFieldWidget(
-                controller: _newPasswordController,
-                labelHint: StringsManager.newPasswordHint,
-                obscureText: true,
-                keyboardType: TextInputType.emailAddress,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  bottom: PaddingManager.p12,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _newPasswordController,
+                  labelHint: StringsManager.newPasswordHint,
+                  obscureText: true,
+                  keyboardType: TextInputType.emailAddress,
+                ),
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: changePassword,

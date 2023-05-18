@@ -20,6 +20,7 @@ class ImageManager {
   static const woman = '$imagePath/woman.webp';
   static const weightIc = '$imagePath/weight_ic.png';
   static const exerciseLogo = '$imagePath/exercise_logo.png';
+  static const weight = '$imagePath/weight.png';
 }
 
 class AnimationManager {

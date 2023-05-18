@@ -5,11 +5,13 @@ import 'package:provider/provider.dart';
 import 'package:smart_home_app/presentation/home/providers/home_provider.dart';
 import 'package:smart_home_app/presentation/profile/providers/profile_provider.dart';
 import 'package:smart_home_app/presentation/settings/widgets/change_password_app_bar.dart';
+import 'package:smart_home_app/utils/managers/asset_manager.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
+import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class ChangeWeightPage extends StatefulWidget {
@@ -92,11 +94,19 @@ class _ChangeWeightPageState extends State<ChangeWeightPage> {
                   style: StyleManager.settingsOptionTiteTextStyle,
                 ),
               ),
-              TextFieldWidget(
-                controller: _weightController,
-                labelHint: StringsManager.weightHint,
-                obscureText: false,
-                keyboardType: TextInputType.number,
+              SizedBox(
+                child: Image.asset(
+                  ImageManager.weight,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(PaddingManager.p28),
+                child: TextFieldWidgetUnderLined(
+                  controller: _weightController,
+                  labelHint: StringsManager.weightHint,
+                  obscureText: false,
+                  keyboardType: TextInputType.number,
+                ),
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: changeWeight,

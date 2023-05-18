@@ -74,46 +74,62 @@ class _NewExercisePageState extends State<NewExercisePage> {
                   ),
                 ),
               ),
-              NeuButton(
-                width: SizeManager.s400.w,
-                height: SizeManager.s70.h,
-                radius: RadiusManager.r15.r,
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton2(
-                    dropdownMaxHeight: deviceHeight / 2,
-                    dropdownDecoration: BoxDecoration(
-                      color: ColorManager.darkGrey,
-                      borderRadius: BorderRadius.circular(
-                        RadiusManager.r15.r,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                ),
+                child: Container(
+                  width: SizeManager.s400.w,
+                  height: SizeManager.s50.h,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: ColorManager.limerGreen2,
+                        width: SizeManager.s0_7.h,
                       ),
                     ),
-                    onChanged: _onChangedExercise,
-                    value: _valueExercise,
-                    iconSize: SizeManager.s0,
-                    hint: Text(
-                      StringsManager.exerciseHint,
-                      style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      dropdownMaxHeight: deviceHeight / 2,
+                      dropdownDecoration: BoxDecoration(
+                        color: ColorManager.darkGrey,
+                        borderRadius: BorderRadius.circular(
+                          RadiusManager.r15.r,
+                        ),
+                      ),
+                      onChanged: _onChangedExercise,
+                      value: _valueExercise,
+                      iconSize: SizeManager.s0,
+                      hint: Text(
+                        StringsManager.exerciseHint,
+                        style: StyleManager.registerTextfieldTextStyle,
+                      ),
+                      items: ListManager.exercisesList,
                     ),
-                    items: ListManager.exercisesList,
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SmallTextFieldWidget(
-                    controller: _setNumberController,
-                    labelHint: StringsManager.setNumberHint,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  ),
-                  SmallTextFieldWidget(
-                    controller: _repNumberController,
-                    labelHint: StringsManager.repNumberHint,
-                    keyboardType: TextInputType.number,
-                    obscureText: false,
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(PaddingManager.p28),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SmallTextFieldWidget(
+                      controller: _setNumberController,
+                      labelHint: StringsManager.setNumberHint,
+                      obscureText: false,
+                      keyboardType: TextInputType.number,
+                    ),
+                    SmallTextFieldWidget(
+                      controller: _repNumberController,
+                      labelHint: StringsManager.repNumberHint,
+                      keyboardType: TextInputType.number,
+                      obscureText: false,
+                    ),
+                  ],
+                ),
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {

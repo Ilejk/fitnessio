@@ -9,6 +9,7 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
+import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class NewMealPage extends StatefulWidget {
@@ -73,51 +74,78 @@ class _NewMealPageState extends State<NewMealPage> {
                   ),
                 ),
               ),
-              TextFieldWidget(
-                controller: _mealTitleController,
-                labelHint: StringsManager.mealNameHint,
-                obscureText: false,
-                keyboardType: TextInputType.text,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _mealTitleController,
+                  labelHint: StringsManager.mealNameHint,
+                  obscureText: false,
+                  keyboardType: TextInputType.text,
+                ),
               ),
-              TextFieldWidget(
-                controller: _mealAmountController,
-                labelHint: StringsManager.mealAmountHint,
-                keyboardType: TextInputType.number,
-                obscureText: false,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  top: PaddingManager.p12,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _mealAmountController,
+                  labelHint: StringsManager.mealAmountHint,
+                  keyboardType: TextInputType.number,
+                  obscureText: false,
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SmallTextFieldWidget(
-                    controller: _mealCalloriesController,
-                    labelHint: StringsManager.mealCaloriesHint,
-                    obscureText: false,
-                    keyboardType: TextInputType.number,
-                  ),
-                  SmallTextFieldWidget(
-                    controller: _mealFatsController,
-                    labelHint: StringsManager.mealFatsHint,
-                    keyboardType: TextInputType.number,
-                    obscureText: false,
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  top: PaddingManager.p56,
+                  bottom: PaddingManager.p12,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SmallTextFieldWidget(
+                      controller: _mealCalloriesController,
+                      labelHint: StringsManager.mealCaloriesHint,
+                      obscureText: false,
+                      keyboardType: TextInputType.number,
+                    ),
+                    SmallTextFieldWidget(
+                      controller: _mealFatsController,
+                      labelHint: StringsManager.mealFatsHint,
+                      keyboardType: TextInputType.number,
+                      obscureText: false,
+                    ),
+                  ],
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SmallTextFieldWidget(
-                    controller: _mealCarbsController,
-                    labelHint: StringsManager.mealCarbsHint,
-                    keyboardType: TextInputType.number,
-                    obscureText: false,
-                  ),
-                  SmallTextFieldWidget(
-                    controller: _mealProteinsController,
-                    labelHint: StringsManager.mealProteinsHint,
-                    keyboardType: TextInputType.number,
-                    obscureText: false,
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SmallTextFieldWidget(
+                      controller: _mealCarbsController,
+                      labelHint: StringsManager.mealCarbsHint,
+                      keyboardType: TextInputType.number,
+                      obscureText: false,
+                    ),
+                    SmallTextFieldWidget(
+                      controller: _mealProteinsController,
+                      labelHint: StringsManager.mealProteinsHint,
+                      keyboardType: TextInputType.number,
+                      obscureText: false,
+                    ),
+                  ],
+                ),
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {

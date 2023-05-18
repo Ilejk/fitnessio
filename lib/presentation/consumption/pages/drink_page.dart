@@ -10,6 +10,7 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
+import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class DrinkPage extends StatefulWidget {
@@ -160,11 +161,19 @@ class _DrinkPageState extends State<DrinkPage> {
                   ),
                 ),
               ),
-              TextFieldWidget(
-                controller: _drinkController,
-                labelHint: StringsManager.waterHint,
-                obscureText: false,
-                keyboardType: TextInputType.number,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  top: PaddingManager.p12,
+                  bottom: PaddingManager.p12,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _drinkController,
+                  labelHint: StringsManager.waterHint,
+                  obscureText: false,
+                  keyboardType: TextInputType.number,
+                ),
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: addCustomWater,

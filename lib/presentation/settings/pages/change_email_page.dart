@@ -9,6 +9,7 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
+import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class ChangeEmailPage extends StatefulWidget {
@@ -73,23 +74,44 @@ class _ChangeEmailPageState extends State<ChangeEmailPage> {
                   style: StyleManager.settingsOptionTiteTextStyle,
                 ),
               ),
-              TextFieldWidget(
-                controller: _oldEmailController,
-                labelHint: StringsManager.oldEmailHint,
-                obscureText: false,
-                keyboardType: TextInputType.emailAddress,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  bottom: PaddingManager.p12,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _oldEmailController,
+                  labelHint: StringsManager.oldEmailHint,
+                  obscureText: false,
+                  keyboardType: TextInputType.emailAddress,
+                ),
               ),
-              TextFieldWidget(
-                controller: _newEmailController,
-                labelHint: StringsManager.newEmailHint,
-                obscureText: false,
-                keyboardType: TextInputType.emailAddress,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  bottom: PaddingManager.p12,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _newEmailController,
+                  labelHint: StringsManager.newEmailHint,
+                  obscureText: false,
+                  keyboardType: TextInputType.emailAddress,
+                ),
               ),
-              TextFieldWidget(
-                controller: _passwordController,
-                labelHint: StringsManager.passwordHint,
-                obscureText: true,
-                keyboardType: TextInputType.emailAddress,
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: PaddingManager.p28,
+                  right: PaddingManager.p28,
+                  bottom: PaddingManager.p12,
+                ),
+                child: TextFieldWidgetUnderLined(
+                  controller: _passwordController,
+                  labelHint: StringsManager.passwordHint,
+                  obscureText: true,
+                  keyboardType: TextInputType.emailAddress,
+                ),
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: changeEmail,

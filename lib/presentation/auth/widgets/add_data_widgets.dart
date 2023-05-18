@@ -2,6 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
+import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
 import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
@@ -42,180 +43,251 @@ class AddDataWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> addDataList = [
-      TextFieldWidget(
-        controller: nameController,
-        labelHint: StringsManager.nameHint,
-        obscureText: false,
-        keyboardType: TextInputType.text,
+      Padding(
+        padding: const EdgeInsets.only(
+          left: PaddingManager.p28,
+          right: PaddingManager.p28,
+          bottom: PaddingManager.p12,
+        ),
+        child: TextFieldWidgetUnderLined(
+          controller: nameController,
+          labelHint: StringsManager.nameHint,
+          obscureText: false,
+          keyboardType: TextInputType.text,
+        ),
       ),
-      TextFieldWidget(
-        controller: surnameController,
-        labelHint: StringsManager.surnameHint,
-        obscureText: false,
-        keyboardType: TextInputType.text,
+      Padding(
+        padding: const EdgeInsets.only(
+          left: PaddingManager.p28,
+          right: PaddingManager.p28,
+          bottom: PaddingManager.p12,
+        ),
+        child: TextFieldWidgetUnderLined(
+          controller: surnameController,
+          labelHint: StringsManager.surnameHint,
+          obscureText: false,
+          keyboardType: TextInputType.text,
+        ),
       ),
-      TextFieldWidget(
-        controller: ageController,
-        labelHint: StringsManager.ageHint,
-        obscureText: false,
-        keyboardType: TextInputType.number,
+      Padding(
+        padding: const EdgeInsets.only(
+          left: PaddingManager.p28,
+          right: PaddingManager.p28,
+          bottom: PaddingManager.p12,
+        ),
+        child: TextFieldWidgetUnderLined(
+          controller: ageController,
+          labelHint: StringsManager.ageHint,
+          obscureText: false,
+          keyboardType: TextInputType.number,
+        ),
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SmallTextFieldWidget(
-            controller: heightController,
-            labelHint: StringsManager.heightHint,
-            obscureText: false,
-            keyboardType: TextInputType.number,
-          ),
-          SmallTextFieldWidget(
-            controller: weightController,
-            labelHint: StringsManager.weightHint,
-            obscureText: false,
-            keyboardType: TextInputType.number,
-          ),
-        ],
+      Padding(
+        padding: const EdgeInsets.only(
+          left: PaddingManager.p28,
+          right: PaddingManager.p28,
+          bottom: PaddingManager.p12,
+          top: PaddingManager.p12,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SmallTextFieldWidget(
+              controller: heightController,
+              labelHint: StringsManager.heightHint,
+              obscureText: false,
+              keyboardType: TextInputType.number,
+            ),
+            SmallTextFieldWidget(
+              controller: weightController,
+              labelHint: StringsManager.weightHint,
+              obscureText: false,
+              keyboardType: TextInputType.number,
+            ),
+          ],
+        ),
       ),
-      NeuButton(
-        width: SizeManager.s400.w,
-        height: SizeManager.s70.h,
-        radius: RadiusManager.r15.r,
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton2(
-            dropdownDecoration: BoxDecoration(
-              color: ColorManager.darkGrey,
-              borderRadius: BorderRadius.circular(
-                RadiusManager.r15.r,
+      Padding(
+        padding: const EdgeInsets.only(
+          left: PaddingManager.p28,
+          right: PaddingManager.p28,
+          bottom: PaddingManager.p12,
+        ),
+        child: Container(
+          width: SizeManager.s400.w,
+          height: SizeManager.s50.h,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: ColorManager.limerGreen2,
+                width: SizeManager.s0_7.h,
               ),
             ),
-            onChanged: onChangedGender,
-            value: valueGender,
-            iconSize: SizeManager.s0,
-            hint: Text(
-              StringsManager.genderHint,
-              style: StyleManager.registerTextfieldTextStyle,
+          ),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton2(
+              dropdownDecoration: BoxDecoration(
+                color: ColorManager.darkGrey,
+                borderRadius: BorderRadius.circular(
+                  RadiusManager.r15.r,
+                ),
+              ),
+              onChanged: onChangedGender,
+              value: valueGender,
+              iconSize: SizeManager.s0,
+              hint: Text(
+                StringsManager.genderHint,
+                style: StyleManager.registerTextfieldTextStyle,
+              ),
+              items: [
+                DropdownMenuItem(
+                  value: StringsManager.genderManHint,
+                  child: Text(
+                    StringsManager.genderManHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.genderWomanHint,
+                  child: Text(
+                    StringsManager.genderWomanHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+              ],
             ),
-            items: [
-              DropdownMenuItem(
-                value: StringsManager.genderManHint,
-                child: Text(
-                  StringsManager.genderManHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-              DropdownMenuItem(
-                value: StringsManager.genderWomanHint,
-                child: Text(
-                  StringsManager.genderWomanHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-            ],
           ),
         ),
       ),
-      NeuButton(
-        width: SizeManager.s400.w,
-        height: SizeManager.s70.h,
-        radius: RadiusManager.r15.r,
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton2(
-            dropdownDecoration: BoxDecoration(
-              color: ColorManager.darkGrey,
-              borderRadius: BorderRadius.circular(
-                RadiusManager.r15.r,
+      Padding(
+        padding: const EdgeInsets.only(
+          left: PaddingManager.p28,
+          right: PaddingManager.p28,
+          bottom: PaddingManager.p12,
+        ),
+        child: Container(
+          width: SizeManager.s400.w,
+          height: SizeManager.s50.h,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: ColorManager.limerGreen2,
+                width: SizeManager.s0_7.h,
               ),
             ),
-            onChanged: onChangedActivity,
-            value: valueActivity,
-            iconSize: SizeManager.s0,
-            hint: Text(
-              StringsManager.activityHint,
-              style: StyleManager.registerTextfieldTextStyle,
+          ),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton2(
+              dropdownDecoration: BoxDecoration(
+                color: ColorManager.darkGrey,
+                borderRadius: BorderRadius.circular(
+                  RadiusManager.r15.r,
+                ),
+              ),
+              onChanged: onChangedActivity,
+              value: valueActivity,
+              iconSize: SizeManager.s0,
+              hint: Text(
+                StringsManager.activityHint,
+                style: StyleManager.registerTextfieldTextStyle,
+              ),
+              items: [
+                DropdownMenuItem(
+                  value: StringsManager.activityLowHint,
+                  child: Text(
+                    StringsManager.activityLowHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.activityLightHint,
+                  child: Text(
+                    StringsManager.activityLightHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.activityModerateHint,
+                  child: Text(
+                    StringsManager.activityModerateHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.activityHighHint,
+                  child: Text(
+                    StringsManager.activityHighHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.activityVeryHighHint,
+                  child: Text(
+                    StringsManager.activityVeryHighHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+              ],
             ),
-            items: [
-              DropdownMenuItem(
-                value: StringsManager.activityLowHint,
-                child: Text(
-                  StringsManager.activityLowHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-              DropdownMenuItem(
-                value: StringsManager.activityLightHint,
-                child: Text(
-                  StringsManager.activityLightHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-              DropdownMenuItem(
-                value: StringsManager.activityModerateHint,
-                child: Text(
-                  StringsManager.activityModerateHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-              DropdownMenuItem(
-                value: StringsManager.activityHighHint,
-                child: Text(
-                  StringsManager.activityHighHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-              DropdownMenuItem(
-                value: StringsManager.activityVeryHighHint,
-                child: Text(
-                  StringsManager.activityVeryHighHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-            ],
           ),
         ),
       ),
-      NeuButton(
-        width: SizeManager.s400.w,
-        height: SizeManager.s70.h,
-        radius: RadiusManager.r15.r,
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton2(
-            dropdownDecoration: BoxDecoration(
-              color: ColorManager.darkGrey,
-              borderRadius: BorderRadius.circular(
-                RadiusManager.r15.r,
+      Padding(
+        padding: const EdgeInsets.only(
+          left: PaddingManager.p28,
+          right: PaddingManager.p28,
+          bottom: PaddingManager.p12,
+        ),
+        child: Container(
+          width: SizeManager.s400.w,
+          height: SizeManager.s50.h,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: ColorManager.limerGreen2,
+                width: SizeManager.s0_7.h,
               ),
             ),
-            onChanged: onChangedGoal,
-            value: valueGoal,
-            iconSize: SizeManager.s0,
-            hint: Text(
-              StringsManager.goalHint,
-              style: StyleManager.registerTextfieldTextStyle,
+          ),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton2(
+              dropdownDecoration: BoxDecoration(
+                color: ColorManager.darkGrey,
+                borderRadius: BorderRadius.circular(
+                  RadiusManager.r15.r,
+                ),
+              ),
+              onChanged: onChangedGoal,
+              value: valueGoal,
+              iconSize: SizeManager.s0,
+              hint: Text(
+                StringsManager.goalHint,
+                style: StyleManager.registerTextfieldTextStyle,
+              ),
+              items: [
+                DropdownMenuItem(
+                  value: StringsManager.lose,
+                  child: Text(
+                    StringsManager.loseWeightHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.maintain,
+                  child: Text(
+                    StringsManager.maintainWeightHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.gain,
+                  child: Text(
+                    StringsManager.gainWeightHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+              ],
             ),
-            items: [
-              DropdownMenuItem(
-                value: StringsManager.lose,
-                child: Text(
-                  StringsManager.loseWeightHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-              DropdownMenuItem(
-                value: StringsManager.maintain,
-                child: Text(
-                  StringsManager.maintainWeightHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-              DropdownMenuItem(
-                value: StringsManager.gain,
-                child: Text(
-                  StringsManager.gainWeightHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-              ),
-            ],
           ),
         ),
       ),
