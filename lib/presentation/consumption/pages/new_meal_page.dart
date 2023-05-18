@@ -127,6 +127,7 @@ class _NewMealPageState extends State<NewMealPage> {
                 padding: const EdgeInsets.only(
                   left: PaddingManager.p28,
                   right: PaddingManager.p28,
+                  bottom: PaddingManager.p28,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
