@@ -215,7 +215,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                         Positioned(
-                          top: SizeManager.s250.h,
+                          top: SizeManager.s230.h,
                           right: SizeManager.s35.w,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,

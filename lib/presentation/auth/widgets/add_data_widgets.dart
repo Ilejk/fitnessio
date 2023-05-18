@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
 import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
-import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 import 'package:smart_home_app/utils/managers/color_manager.dart';
 import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
-import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 
 // ignore: must_be_immutable
 class AddDataWidgets extends StatelessWidget {

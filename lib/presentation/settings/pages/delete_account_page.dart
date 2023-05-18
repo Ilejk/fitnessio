@@ -11,7 +11,6 @@ import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/router/router.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
-import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class DeleteAccountPage extends StatefulWidget {
   const DeleteAccountPage({super.key});

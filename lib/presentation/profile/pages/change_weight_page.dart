@@ -12,7 +12,6 @@ import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
 import 'package:smart_home_app/utils/widgets/text_field_underlined.dart';
-import 'package:smart_home_app/utils/widgets/text_field_widget.dart';
 
 class ChangeWeightPage extends StatefulWidget {
   const ChangeWeightPage({super.key});
@@ -23,6 +22,13 @@ class ChangeWeightPage extends StatefulWidget {
 
 class _ChangeWeightPageState extends State<ChangeWeightPage> {
   final TextEditingController _weightController = TextEditingController();
+
+  @override
+  void initState() {
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    _weightController.text = homeProvider.userData['weight'].toString();
+    super.initState();
+  }
 
   @override
   void dispose() {

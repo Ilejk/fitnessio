@@ -11,7 +11,6 @@ import 'package:smart_home_app/utils/managers/string_manager.dart';
 import 'package:smart_home_app/utils/managers/style_manager.dart';
 import 'package:smart_home_app/utils/managers/value_manager.dart';
 import 'package:smart_home_app/utils/widgets/lime_green_rounded_button.dart';
-import 'package:smart_home_app/utils/widgets/neu_dark_container_widget.dart';
 import 'package:smart_home_app/utils/widgets/small_text_field_widget.dart';
 
 class ChangeMeasurementsPage extends StatefulWidget {
@@ -33,6 +32,35 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
 
   String? _valueActivity;
   String? _valueGoals;
+
+  @override
+  void initState() {
+    super.initState();
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
+    _chestController.text = homeProvider.userData['chest'].toString();
+    _shoulderController.text = homeProvider.userData['shoulders'].toString();
+    _bicepsController.text = homeProvider.userData['biceps'].toString();
+    _foreArmController.text = homeProvider.userData['foreArm'].toString();
+    _waistController.text = homeProvider.userData['waist'].toString();
+    _hipsController.text = homeProvider.userData['hips'].toString();
+    _thighCotroller.text = homeProvider.userData['thigh'].toString();
+    _calfController.text = homeProvider.userData['calf'].toString();
+    _valueActivity = homeProvider.userData['activity'];
+    _valueGoals = homeProvider.userData['goal'];
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _chestController.dispose();
+    _shoulderController.dispose();
+    _bicepsController.dispose();
+    _foreArmController.dispose();
+    _waistController.dispose();
+    _hipsController.dispose();
+    _thighCotroller.dispose();
+    _calfController.dispose();
+  }
 
   void _onChangedActivity(Object? selectedActivityValue) {
     if (selectedActivityValue is String) {
